@@ -1,0 +1,30 @@
+<!-- core/templates/core/base.html -->
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Association{% endblock %}</title>
+</head>
+
+<body>
+    <header>
+        <h1>Dreams Familly of Development (DFD)</h1>
+        <p>"La main tendue, un sourir nouveau."</p>
+        <nav>
+            <a href="{% url 'home' %}">Accueil</a> |
+            <a href="{% url 'mission' %}">Missions</a> |
+            <a href="{% url 'equipe' %}">Équipes</a> |
+            <a href="{% url 'campagnes' %}">Campagnes</a> |
+            <a href="{% url 'don' %}">Faire un don</a> |
+            <a href="{% url 'contact' %}">Contact</a>
+        </nav>
+    </header>
+
+    <hr>
+
+    {% block content %}
+    {% endblock %}
+</body>
+
+</html>

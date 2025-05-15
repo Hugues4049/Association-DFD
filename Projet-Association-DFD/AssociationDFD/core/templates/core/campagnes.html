@@ -1,0 +1,14 @@
+{% extends 'core/base.html' %}
+{% block title %}Campagnes de dons{% endblock %}
+{% block content %}
+<h2>Campagnes en cours</h2>
+{% for campaign in campaigns %}
+<div>
+    <h3>{{ campaign.title }}</h3>
+    <p>{{ campaign.description }}</p>
+    <p>Objectif : {{ campaign.goal_amount }} € — Collecté : {{ campaign.collected_amount }} €</p>
+</div>
+{% empty %}
+<p>Aucune campagne en cours pour le moment.</p>
+{% endfor %}
+{% endblock %}

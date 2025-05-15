@@ -1,0 +1,12 @@
+{% extends 'core/base.html' %}
+{% block title %}Faire un don{% endblock %}
+{% block content %}
+<h2>Faire un don</h2>
+<form method="post">
+    {% csrf_token %}
+    <label>Montant :</label>
+    <input type="number" name="amount" required> €
+    <br>
+    <button type="submit">Donner</button>
+</form>
+{% endblock %}
