@@ -1,7 +1,154 @@
 {% extends 'core/base.html' %}
-{% block title %}Accueil{% endblock %}
-{% block content %}
-<h2>Bienvenue sur le site de notre association DFD</h2>
-<p>Nous œuvrons pour le bien commun et la solidarité.</p>
 
+{% block title %}Accueil - DFD{% endblock %}
+
+{% block content %}
+{% load static %}
+<section class="banniere-principale">
+    <h1>"LA MAIN TENDUE, UN SOURIR NOUVEAU."</h1>
+</section>
+
+<!-- Conteneur flex -->
+<div class="banniere-row">
+    <section class="banniere-inspirante">
+        <h1>Chaque geste compte. Ensemble, donnons de l'espoir.</h1>
+    </section>
+
+    <section class="Nom-de-lassociation">
+        <img src="{% static 'images/logo/logoDFD.jpg' %}" alt="Logo DFD" style="width: 300px;">
+        <h1>Dreams Familly Of Development (DFD)</h1>
+    </section>
+</div>
+
+
+<section class="presentation">
+    <h2>Qui sommes-nous ?</h2>
+    <p>DFD (Dreams Family of Development) est une
+        association humanitaire engagée auprès des communautés vulnérables.
+        Nous croyons que chaque rêve mérite d’être soutenu et transformé en projet
+        concret.
+
+        À travers nos actions sur le terrain, nos formations, et notre réseau solidaire,
+        nous œuvrons pour un monde plus juste, plus humain, et plus durable.</p>
+    <a href="{% url 'apropos' %}#membre" class="btn">En savoir plus</a>
+</section>
+
+
+<section class="mot-du-president">
+    <h2>Mot du président fondateur</h2>
+    <div class="bloc-president">
+        <div class="texte-president">
+            <p>
+                Étant donné que les jeunes constituent la grande majorité de la population africaine, ceux-ci conscients
+                des vertus de la paix, de l’union et de la solidarité, ont jugé judicieux de créer une Organisation
+                Internationale qui leur permettra...
+            </p>
+            <p><strong>Bienvenue sur notre site internet et bonne visite !</strong></p>
+        </div>
+        <div class="photo-president">
+            <img src="{% static 'images/Nathan.PNG' %}" alt="Président" />
+            <p class="nom-president">Nathanaël Toukea<br><span>Président fondateur DFD </span></p>
+        </div>
+    </div>
+</section>
+
+
+
+<section class="galerie">
+    <h2>Nos actions en images</h2>
+    <div class="slider">
+        <div class="slides">
+
+            <img src="{% static 'images/Nathan.PNG' %}" class="slide" alt="Image 1">
+            <img src="{% static 'images/dons/Brinda.PNG' %}" class="slide" alt="Image 2">
+            <img src="{% static 'images/Féline.PNG' %}" class="slide" alt="Image 3">
+            <img src="{% static 'images/Cathy.PNG' %}" class="slide" alt="Image 4">
+            <img src="{% static 'images/Farhida.PNG' %}" class="slide" alt="Image 5">
+            <img src="{% static 'images/Gallus.PNG' %}" class="slide" alt="Image 6">
+            <img src="{% static 'images/Irma.PNG' %}" class="slide" alt="Image 7">
+            <img src="{% static 'images/Steve.PNG' %}" class="slide" alt="Image 8">
+
+        </div>
+    </div>
+    <video width="800" height="450" controls autoplay muted loop>
+        <source src="{% static 'images/formations/formation_gratuite.mp4' %}" type="video/mp4">
+        Votre navigateur ne supporte pas la balise vidéo.
+    </video>
+</section>
+
+<section class="temoignages">
+    <h2>Témoignages</h2>
+    <blockquote>
+        <p>"Grâce à DFD, mes enfants vont enfin à l’école." — Awono christelle</p>
+    </blockquote>
+    <blockquote>
+        <p>"Un vrai changement dans notre orphelinat depuis leur arrivée." — Kenfack, directrice orphelina St-Joseph</p>
+    </blockquote>
+</section>
+
+<section class="partenaires">
+    <h2>Nos partenaires</h2>
+    <div class="logos">
+        <img src="/static/images/icons/croixrouge.png" alt="Partenaire 1" class="filigrane">
+        <img src="/static/images/icons/unicef.png" alt="Partenaire 2" class="filigrane">
+    </div>
+</section>
+
+
+<section class="presentation">
+    <h2>Rejoignez notre communauté</h2>
+    <p>
+        La Dreams Family of Development (DFD) regroupe en son sein les filles et
+        fils du monde, partout où elle a des représentations officielles.
+        Les Membres Actifs, sont ceux qui ont décidé d’incarner l’Organisation dans toute sa vision et de se disposer à
+        mener toutes les missions qui leurs sont confiées en vue de l’atteinte des objectifs fixés.</p>
+    <a href="{% url 'participer' %}#membre" class="btn">Devenir membre</a>
+</section>
+
+<section class="presentation">
+    <h2>Devenez un acteur du changement</h2>
+    <p>
+        Pour mener à bien ses initiatives, la DFD regroupe en son sein des Volontaires, filles et fils de l’Afrique
+        subsaharienne, ceci partout où elle a des représentations officielles. Ce sont des jeunes de bonne moralité qui
+        ont épousé la vision de l’Organisation et s’impliquent selon leur disponibilité de près comme de loin dans les
+        initiatives en cours dans leur localité respective.</p>
+    <a href="{% url 'participer' %}#membre" class="btn">Devenir volontaire</a>
+</section>
+
+<section class="presentation">
+    <h2>Devenir un partenaire</h2>
+    <p> Devenez un Partenaire de la DFD en vue de contribuer à un développement durable des communautés et à
+        l'amélioration des conditions de vie des populations. Par ailleurs, c'est une opportunité de croissance pour
+        votre structure.</p>
+    <a href="{% url 'participer' %}#don" class="btn">Devenir Partenaire</a>
+</section>
+
+
+
+
+
+{% block scripts %}
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const images = [
+            "{% static 'images/bannière/PHOTO-2024-12-29-17-30-47.jpg' %}",
+            "{% static 'images/bannière/PHOTO-2024-12-29-17-30-48.jpg' %}",
+            "{% static 'images/bannière/PHOTO-2024-12-29-17-31-06.jpg' %}",
+            "{% static 'images/bannière/PHOTO-2025-01-06-19-34-50.jpg' %}",
+            "{% static 'images/bannière/PHOTO-2025-01-06-19-34-52.jpg' %}",
+            "{% static 'images/bannière/PHOTO-2025-01-06-19-34-57.jpg' %}"
+        ];
+        let index = 0;
+        const banner = document.querySelector('.banniere-principale');
+
+        function changeBackground() {
+            banner.style.backgroundImage = `url(${images[index]})`;
+            index = (index + 1) % images.length;
+        }
+
+        changeBackground();
+        setInterval(changeBackground, 5000);
+    });
+</script>
+{% endblock %}
 {% endblock %}

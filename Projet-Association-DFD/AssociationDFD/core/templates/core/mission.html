@@ -3,4 +3,23 @@
 {% block content %}
 <h2>Notre Mission</h2>
 <p>Notre association agit pour soutenir les personnes en situation de précarité...</p>
+<p>Depuis sa création, notre association s’est donnée pour mission de lutter contre la pauvreté...</p>
+<p>Nous croyons fermement que chaque individu mérite une chance de s’épanouir et de vivre dignement...</p>
+<p>Nous travaillons en étroite collaboration avec des partenaires locaux et internationaux pour maximiser notre
+    impact...</p>
+<p>Nous organisons régulièrement des événements de sensibilisation et de collecte de fonds pour soutenir nos actions...
+</p>
+<p>Nous croyons que la solidarité est essentielle pour construire un monde meilleur...</p>
+<p>Nous vous invitons à rejoindre notre cause et à contribuer à notre mission...</p>
+<p>Pour plus d’informations sur nos projets et comment vous pouvez aider, n’hésitez pas à nous contacter...</p>
+<p>Merci de votre soutien !</p>
+{% if user.is_authenticated %}
+<p>Bonjour {{ user.username }}, merci de votre engagement !</p>
+{% else %}
+<p>Connectez-vous pour en savoir plus sur nos projets et comment vous pouvez contribuer.</p>
+{% endif %}
+<p>Pour toute question ou pour vous impliquer, n’hésitez pas à nous contacter via notre page de contact.</p>
+<p>Nous sommes impatients de vous accueillir dans notre communauté !</p>
+<p>Merci de votre soutien !</p>
+
 {% endblock %}

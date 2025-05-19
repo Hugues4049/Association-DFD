@@ -1,0 +1,40 @@
+{% extends 'core/base.html' %}
+
+{% block title %}À propos de nous - DFD{% endblock %}
+
+{% block content %}
+<h1>Participer</h1>
+
+<section id="devenir-benevole">
+    <h2>Devenir bénévole</h2>
+    <p>Nous accueillons toutes les bonnes volontés ! Remplissez le formulaire pour nous rejoindre :</p>
+    <form action="/contact/" method="post">
+        <label>Nom : <input type="text" name="nom" required></label><br>
+        <label>Email : <input type="email" name="email" required></label><br>
+        <label>Message : <textarea name="message" required></textarea></label><br>
+        <button type="submit">Envoyer</button>
+    </form>
+</section>
+
+<section id="faire-un-don">
+    <h2>Faire un don</h2>
+    <p>Votre soutien financier est essentiel. Vous pouvez faire un don ponctuel ou mensuel en toute sécurité :</p>
+    <button onclick="location.href='/don/'">Faire un don</button>
+</section>
+
+<section id="devenir-membre">
+    <h2>Devenir membre</h2>
+    <p>Rejoignez notre réseau d’adhérents. En devenant membre, vous bénéficiez de :</p>
+    <ul>
+        <li>Accès aux rapports détaillés</li>
+        <li>Invitations aux événements</li>
+        <li>Droit de vote en AG</li>
+    </ul>
+    <form action="/inscription/" method="post">
+        <label>Nom : <input type="text" name="nom" required></label><br>
+        <label>Email : <input type="email" name="email" required></label><br>
+        <button type="submit">S'inscrire</button>
+    </form>
+</section>
+
+{% endblock %}

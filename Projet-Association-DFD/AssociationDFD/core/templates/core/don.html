@@ -1,12 +1,43 @@
 {% extends 'core/base.html' %}
-{% block title %}Faire un don{% endblock %}
+
+{% block title %}Participer - DFD{% endblock %}
+
 {% block content %}
-<h2>Faire un don</h2>
-<form method="post">
-    {% csrf_token %}
-    <label>Montant :</label>
-    <input type="number" name="amount" required> €
-    <br>
-    <button type="submit">Donner</button>
-</form>
+<h1>Participer</h1>
+
+<section id="benevole">
+    <h2>Devenir bénévole</h2>
+    <p>Rejoignez notre équipe pour faire la différence sur le terrain. Plusieurs postes sont disponibles selon vos
+        compétences.</p>
+    <form action="#" method="post">
+        <input type="text" name="nom" placeholder="Votre nom" required>
+        <input type="email" name="email" placeholder="Votre email" required>
+        <textarea name="message" placeholder="Pourquoi souhaitez-vous être bénévole ?"></textarea>
+        <button type="submit">Envoyer</button>
+    </form>
+</section>
+
+<section id="don">
+    <h2>Faire un don</h2>
+    <p>Contribuez financièrement à nos projets. Vous pouvez effectuer un don ponctuel ou mensuel en toute sécurité.</p>
+    <form action="#" method="post">
+        <input type="number" name="montant" placeholder="Montant en €" required>
+        <select name="frequence">
+            <option value="ponctuel">Don ponctuel</option>
+            <option value="mensuel">Don mensuel</option>
+        </select>
+        <button type="submit">Faire un don</button>
+    </form>
+</section>
+
+<section id="membre">
+    <h2>Devenir membre</h2>
+    <p>En tant que membre, vous recevez des rapports réguliers, participez aux décisions et accédez à des événements
+        dédiés.</p>
+    <form action="#" method="post">
+        <input type="text" name="nom" placeholder="Nom complet" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <button type="submit">S'inscrire</button>
+    </form>
+</section>
 {% endblock %}

@@ -1,0 +1,64 @@
+{% extends 'core/base.html' %}
+
+{% block title %}À propos de nous - DFD{% endblock %}
+
+{% block content %}
+{% load static %}
+<h1>À propos de nous</h1>
+<section>
+    <h2>Notre histoire</h2>
+    <p>DFD (Dynamique Fraternelle de Développement) a été fondée pour répondre aux besoins urgents des communautés les
+        plus vulnérables. Depuis ses débuts, elle œuvre dans les domaines de l'éducation, de la santé et du
+        développement durable.</p>
+    <p>C'est une association à but non lucratif, laïque et apolitique. La mission
+        profonde de Dreams Family of Development (DFD) repose sur la conviction qu’il
+        est possible de redonner espoir et de contribuer à l’épanouissement global des
+        personnes dont les rêves ont été brisés, quelle qu’en soit la cause.</p>
+    <p>À travers des actions de sensibilisation, de prévention et de réhabilitation, nous
+        répondons aux besoins primaires et essentiels des personnes vulnérables et
+        démunies.</p>
+</section>
+<section>
+    <h2>Notre mission et nos objectifs</h2>
+    <p>
+        Notre association œuvre en faveur d’un monde plus équitable en promouvant l’autonomie des populations par le
+        biais de projets structurants. Nous visons un impact durable, en renforçant la résilience des communautés et en
+        soutenant leur épanouissement face aux crises et aux défis du quotidien.
+    </p>
+    <p>
+        Depuis sa création, notre organisation s’est engagée dans la lutte contre la pauvreté et l’exclusion. Nous
+        croyons profondément que chaque être humain mérite la possibilité de s’épanouir et de vivre dans la dignité.
+    </p>
+    <p>
+        Pour maximiser notre impact, nous collaborons étroitement avec des partenaires locaux et internationaux. Nos
+        actions s’accompagnent d’initiatives de sensibilisation et de campagnes de collecte de fonds, afin de mobiliser
+        les ressources nécessaires à la poursuite de notre mission.
+    </p>
+    <p>
+        La solidarité est au cœur de notre vision : elle constitue le socle indispensable à la construction d’un avenir
+        plus humain et inclusif.
+    </p>
+    <p>
+        Rejoignez-nous et devenez acteur du changement. Ensemble, faisons la différence.
+    </p>
+
+</section>
+<section>
+    <h2>Notre équipe</h2>
+    <p>L’équipe de la DFD, c’est avant tout une famille de cœur.</p>
+    <div>
+        <figure>
+            <img src="{% static 'images/Nathan.PNG' %}" alt="Description de l’image" style="max-width:150px;">
+            <figcaption>Nathanaël Toukea – Président fondateur</figcaption>
+        </figure>
+        <figure>
+            <img src="{% static 'images/Brinda.PNG' %}" alt="Description de l’image" style="max-width:150px;">
+            <figcaption>Brinda Djomaha– Responsable des projets</figcaption>
+        </figure>
+        <figure>
+            <img src="{% static 'images/Féline.PNG' %}" alt="Description de l’image" style="max-width:150px;">
+            <figcaption>Féline Minyem – Chargée de la communication</figcaption>
+        </figure>
+    </div>
+</section>
+{% endblock %}

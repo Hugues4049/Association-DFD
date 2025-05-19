@@ -1,14 +1,36 @@
 {% extends 'core/base.html' %}
-{% block title %}Campagnes de dons{% endblock %}
+
+{% block title %}Nos Projets - DFD{% endblock %}
+
 {% block content %}
-<h2>Campagnes en cours</h2>
-{% for campaign in campaigns %}
-<div>
-    <h3>{{ campaign.title }}</h3>
-    <p>{{ campaign.description }}</p>
-    <p>Objectif : {{ campaign.goal_amount }} € — Collecté : {{ campaign.collected_amount }} €</p>
-</div>
-{% empty %}
-<p>Aucune campagne en cours pour le moment.</p>
-{% endfor %}
+<h1>Nos Projets</h1>
+
+<section>
+    <h2>Projets en cours</h2>
+    <ul>
+        <li><strong>Éducation pour tous :</strong> Construction d’écoles rurales au Sénégal.</li>
+        <li><strong>Santé communautaire :</strong> Campagnes de vaccination et centres de santé mobiles.</li>
+        <li><strong>Autonomisation des femmes :</strong> Formations artisanales et accès au micro-crédit.</li>
+    </ul>
+</section>
+
+<section>
+    <h2>Projets passés</h2>
+    <ul>
+        <li>Projet "Jardin solidaire" – Développement agricole local (2021).</li>
+        <li>Programme de reboisement communautaire – 10 000 arbres plantés (2020).</li>
+    </ul>
+</section>
+
+<section>
+    <h2>Zones d’intervention</h2>
+    <p>DFD est active dans plusieurs régions du Sénégal : Kaolack, Saint-Louis, Kolda, etc.</p>
+    <div class="map-placeholder">[Carte interactive ici]</div>
+</section>
+
+<section>
+    <h2>Rapports et résultats</h2>
+    <p>Nous publions régulièrement des rapports détaillant nos actions et leurs impacts. <a href="#">Voir nos
+            rapports</a>.</p>
+</section>
 {% endblock %}

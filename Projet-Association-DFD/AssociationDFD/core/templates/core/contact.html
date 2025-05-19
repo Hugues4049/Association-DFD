@@ -1,15 +1,33 @@
 {% extends 'core/base.html' %}
-{% block title %}Contact & Bénévolat{% endblock %}
+
+{% block title %}Contact - DFD{% endblock %}
+
 {% block content %}
-<h2>Contactez-nous</h2>
-<form method="post">
-    {% csrf_token %}
-    <label>Nom :</label>
-    <input type="text" name="name" required><br>
-    <label>Email :</label>
-    <input type="email" name="email" required><br>
-    <label>Message :</label>
-    <textarea name="message" required></textarea><br>
-    <button type="submit">Envoyer</button>
-</form>
+<h1>Contactez-nous</h1>
+
+<section>
+    <h2>Formulaire de contact</h2>
+    <form action="#" method="post">
+        <input type="text" name="nom" placeholder="Votre nom" required>
+        <input type="email" name="email" placeholder="Votre email" required>
+        <textarea name="message" placeholder="Votre message" required></textarea>
+        <button type="submit">Envoyer</button>
+    </form>
+</section>
+
+<section>
+    <h2>Nos coordonnées</h2>
+    <p><strong>Adresse :</strong> Turin</p>
+    <p><strong>Téléphone :</strong> +39 366 332 9990</p>
+    <p><strong>Email :</strong> dreams.family.development@gmail.com</p>
+</section>
+
+<section>
+    <h2>Suivez-nous</h2>
+    <ul>
+        <li><a href="https://fb.watch/zBziUXihrm/">Facebook</a></li>
+        <li><a href="#">Twitter</a></li>
+        <li><a href="#">Instagram</a></li>
+    </ul>
+</section>
 {% endblock %}

@@ -1,30 +1,143 @@
 <!-- core/templates/core/base.html -->
+{% load static %}
 <!DOCTYPE html>
 <html lang="fr">
 
 <head>
     <meta charset="UTF-8">
-    <title>{% block title %}Association{% endblock %}</title>
+    <title>{% block title %}DFD{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 
 <body>
-    <header>
-        <h1>Dreams Familly of Development (DFD)</h1>
-        <p>"La main tendue, un sourir nouveau."</p>
-        <nav>
-            <a href="{% url 'home' %}">Accueil</a> |
-            <a href="{% url 'mission' %}">Missions</a> |
-            <a href="{% url 'equipe' %}">Équipes</a> |
-            <a href="{% url 'campagnes' %}">Campagnes</a> |
-            <a href="{% url 'don' %}">Faire un don</a> |
-            <a href="{% url 'contact' %}">Contact</a>
+
+
+    <!-- Barre supérieure -->
+
+    <div style="width: 100%; margin: 0 auto;">
+        <div
+            style="background-color: white; padding: 10px 20px; display: flex; justify-content: space-between; align-items: center; gap: 20px; max-width: 1200px; margin: 0 auto;">
+
+            <!-- Logo -->
+            <div style="flex: 0 0 auto;">
+                <a href="{% url 'home' %}">
+                    <img src="{% static 'images/logo/logoDFD.jpg' %}" alt="Logo DFD" style="height: 80px;">
+                </a>
+            </div>
+
+            <!-- Barre de recherche -->
+            <!-- Barre de recherche -->
+            <div style="flex: 1; display: flex; justify-content: center; max-width: 300px; position: relative;">
+                <input type="text" placeholder="Rechercher..." style="width: 100%; padding: 5px 30px 5px 10px;" />
+                <i class="fas fa-search"
+                    style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); color: #1f1451;"></i>
+            </div>
+
+
+            <!-- Contact & Bouton -->
+            <div
+                style="flex: 0 0 auto; display: flex; align-items: center; gap: 10px; color: #1f1451; font-size: 0.9em;">
+                <span><i class="fas fa-envelope"></i> dreams.family.development@gmail.com</span>
+                <span><i class="fas fa-phone"></i> +39 366 332 9990</span>
+                <a href="{% url 'participer' %}"
+                    style="background-color: #1f1451; color: white; padding: 6px 12px; border-radius: 4px; text-decoration: none; font-size: 0.9em;">FAIRE
+                    UN DON</a>
+                <a href="#"><i class="fab fa-facebook-f" style="color: #1f1451;"></i></a>
+                <a href="#"><i class="fab fa-whatsapp" style="color: #1f1451;"></i></a>
+            </div>
+        </div>
+
+
+        <!-- Barre de navigation -->
+        <nav style="background-color: #1f1451; padding: 10px 10;">
+            <ul style="display: flex; justify-content: center;list-style: none; margin: 0;padding: 10px 30px; gap: 30px;
+        ">
+                <li><a href="{% url 'home' %}" style="color: white; text-decoration: none;">Accueil</a></li>
+                <li><a href="{% url 'apropos' %}" style="color: white; text-decoration: none;">À propos</a></li>
+                <li><a href="{% url 'projets' %}" style="color: white; text-decoration: none;">Nos Projets</a></li>
+                <li><a href="{% url 'participer' %}" style="color: white; text-decoration: none;">Participer</a>
+                </li>
+                <li><a href="{% url 'blog' %}" style="color: white; text-decoration: none;">Blog / Actualités</a>
+                </li>
+                <li><a href="{% url 'contact' %}" style="color: white; text-decoration: none;">Contact</a></li>
+            </ul>
+
         </nav>
-    </header>
+    </div>
+    <!-- Contenu principal -->
+    <main style="padding: 20px;">
+        {% block content %}
+        {% endblock %}
+    </main>
 
-    <hr>
+    <!-- Pied de page -->
+    <!-- Pied de page -->
+    <footer style="background-color:#1f1451; color:white; padding: 40px 20px;">
+        <div style="display: flex; flex-wrap: wrap; justify-content: space-between;">
 
-    {% block content %}
-    {% endblock %}
-</body>
+            <!-- Logo + slogan -->
+            <div>
+                <img src="{% static 'images/logo/logoDFD.jpg' %}" alt="Logo DFD" style="width: 120px;">
+                <p>Dreams Familly Of Development</p>
+                <span style="background: green; color: white; padding: 5px 10px; border-radius: 4px;">"La main tendue,
+                    un sourire nouveau."</span>
+            </div>
+
+            <!-- Infos sur l'organisation -->
+            <div>
+                <h4>La DFD</h4>
+                <ul style="list-style: none; padding: 0;">
+                    <li><a href="{% url 'apropos' %}" style="color:white;">À propos de nous</a></li>
+                    <li><a href="{% url 'projets' %}" style="color:white;">Nos Projets</a></li>
+                    <li><a href="{% url 'participer' %}" style="color:white;">Participer</a></li>
+                    <li><a href="{% url 'blog' %}" style="color:white;">Blog / Actualités</a></li>
+                </ul>
+            </div>
+
+            <!-- Initiatives -->
+            <div>
+                <h4>Nos initiatives</h4>
+                <ul style="list-style: none; padding: 0;">
+                    <li><a href="#" style="color:white;">Événements</a></li>
+                    <li><a href="#" style="color:white;">Programmes</a></li>
+                    <li><a href="#" style="color:white;">Humanitaire</a></li>
+                    <li><a href="#" style="color:white;">Nos partenaires</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact -->
+            <div>
+                <h4>Contactez-nous</h4>
+                <p>Siège Social : Turin - Italie</p>
+                <p>Tel : +39 366 332 9990</p>
+                <p>Email : <a href="mailto:contact@jusa.africa"
+                        style="color:white;">dreams.family.development@gmail.com</a>
+                </p>
+                <div class="contact-icons">
+                    <a href="mailto:dreams.family.development@gmail.com" target="_blank" title="Email">
+                        <img src="{% static 'images/icons/mail.png' %}" alt="Email" style="width: 20px;">
+                    </a>
+                    <a href="https://www.instagram.com/your_instagram" target="_blank" title="Instagram">
+                        <img src="{% static 'images/icons/insta.jpeg' %}" alt="Instagram" style="width: 20px;">
+                    </a>
+                    <a href="https://twitter.com/your_twitter" target="_blank" title="X (Twitter)">
+                        <img src="{% static 'images/icons/X.png' %}" alt="X" style="width: 20px;">
+                    </a>
+                    <a href="https://wa.me/+39 366 332 9990" target="_blank" title="WhatsApp">
+                        <img src="{% static 'images/icons/whatsap.png' %}" alt="WhatsApp" style="width: 20px;">
+                    </a>
+                    <a href="tel:+39 366 332 9990" title="Téléphone">
+                        <img src="{% static 'images/icons/tel.png' %}" alt="Téléphone" style="width: 20px;">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 20px; font-size: 0.9em;">
+            <p>&copy; 2025 <span style="color:green;">DFD</span> | Tous droits réservés | Proposé par <span
+                    style="color:green;">#4049</span></p>
+        </div>
+    </footer>
 
 </html>

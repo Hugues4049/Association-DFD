@@ -13,7 +13,7 @@ def campagnes(request):
     # Exemple de données fictives (remplace par une vraie base plus tard)
     campaigns = [
         {'title': 'Aide aux orphelins', 'description': 'Distribution des denrées alimentaires', 'goal_amount': 500, 'collected_amount': 120},
-        {'title': 'Soutien scolaire', 'description': 'Fournitures et tutorat pour enfants', 'goal_amount': 300, 'collected_amount': 90},
+        {'title': 'Soutien scolaire', 'description': 'Fournitures et tutorat pour enfants', 'goal_amount': 300, 'collected_amount': 900},
     ]
     return render(request, 'core/campagnes.html', {'campaigns': campaigns})
 
@@ -35,3 +35,15 @@ def contact(request):
         return render(request, 'core/contact.html', {'message': f"Merci {name}, nous vous contacterons bientôt."})
     
     return render(request, 'core/contact.html')
+
+def projets(request):
+    return render(request, 'core/projets.html')
+
+def apropos(request):
+    return render(request, 'core/apropos.html')
+
+def participer(request):
+    return render(request, 'core/participer.html')
+
+def blog(request):
+    return render(request, 'core/blog.html')
