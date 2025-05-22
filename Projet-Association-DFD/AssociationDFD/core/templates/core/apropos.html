@@ -4,8 +4,13 @@
 
 {% block content %}
 {% load static %}
-<h1>À propos de nous</h1>
-<section>
+{% load i18n %}
+
+<section class="apropos-hero">
+    <h1 class="main-title">À propos de DFD</h1>
+</section>
+
+<section class="apropos-section">
     <h2>Notre histoire</h2>
     <p>DFD (Dynamique Fraternelle de Développement) a été fondée pour répondre aux besoins urgents des communautés les
         plus vulnérables. Depuis ses débuts, elle œuvre dans les domaines de l'éducation, de la santé et du
@@ -18,35 +23,71 @@
         répondons aux besoins primaires et essentiels des personnes vulnérables et
         démunies.</p>
 </section>
-<section>
-    <h2>Notre mission et nos objectifs</h2>
+<section class="apropos-section alternate">
+    <h2>Notre mission</h2>
     <p>
-        Notre association œuvre en faveur d’un monde plus équitable en promouvant l’autonomie des populations par le
-        biais de projets structurants. Nous visons un impact durable, en renforçant la résilience des communautés et en
-        soutenant leur épanouissement face aux crises et aux défis du quotidien.
+        La mission profonde de l'association Dreams Family of Development (DFD) repose sur la conviction qu'il est
+        possible de redonner espoir et de contribuer à l’épanouissement holistique des individus dont les rêves ont été
+        brisés pour une raison quelconque. À travers nos actions de sensibilisation, de prévention et de réhabilitation,
+        nous répondons aux besoins primaires et essentiels des personnes vulnérables et nécessiteuses.
     </p>
     <p>
-        Depuis sa création, notre organisation s’est engagée dans la lutte contre la pauvreté et l’exclusion. Nous
-        croyons profondément que chaque être humain mérite la possibilité de s’épanouir et de vivre dans la dignité.
+        Notre but est de créer un impact durable qui améliorera la résilience et l’épanouissement des communautés. Il
+        s’agira concrètement de les aider à surmonter les crises immédiates, de les rendre plus aptes à faire face aux
+        défis de la vie et restaurer leurs capacités de choix.
+        En outre l’association s’inspire des expériences contemporaines et des principes tels que l’humanisme, l’équité
+        et la confidentialité qui visent à construire une communauté fondée sur la liberté, la cohésion et l’équilibre.
     </p>
-    <p>
-        Pour maximiser notre impact, nous collaborons étroitement avec des partenaires locaux et internationaux. Nos
-        actions s’accompagnent d’initiatives de sensibilisation et de campagnes de collecte de fonds, afin de mobiliser
-        les ressources nécessaires à la poursuite de notre mission.
-    </p>
-    <p>
-        La solidarité est au cœur de notre vision : elle constitue le socle indispensable à la construction d’un avenir
-        plus humain et inclusif.
-    </p>
+
+    <section class="apropos-section"></section>
+    <h2>Nos objectifs</h2>
+    <ul>
+        <li>Contribuer à réduire la mortalité materno-infantile et lutter contre les pathologies infectieuses et non
+            infectieuses.</li>
+        <li>Favoriser/oeuvrer au bien-être mental et émotionnel.</li>
+        <li>Accompagner dans la lutte contre la malnutrition.</li>
+        <li>Contribuer à lutter contre les facteurs de déscolarisation et promouvoir une éducation équitable.</li>
+        <li>Renforcer les infrastructures et les ressources technologiques.</li>
+        <li>Développer les compétences entrepreneuriales et professionnelles.</li>
+        <li>Aider l’Homme à bâtir son développement personnel.</li>
+        <li>Promouvoir l'accès à la culture, aux loisirs et aux activités artistiques.</li>
+    </ul>
     <p>
         Rejoignez-nous et devenez acteur du changement. Ensemble, faisons la différence.
     </p>
-
 </section>
-<section>
+
+<section class="apropos-section alternate">
     <h2>Notre équipe</h2>
+
     <p>L’équipe de la DFD, c’est avant tout une famille de cœur.</p>
-    <div>
+    <div class="equipe-description">
+
+        <p><strong>Membres adhérents :</strong>
+
+            Les membres adhérents sont généralement les membres actifs de l'association par leur participation régulière
+            aux activités de la DFD. Ils contribuent à la réalisation de ses projets et pourraient se constituer
+            candidats aux postes de responsabilité.</p>
+
+        <p><strong>Membres bénévoles :</strong>
+
+            Ils apportent leur soutien dans des domaines variés selon les besoins de l’association. Ils servent de
+            support aux équipes permanentes et aux responsables lors des missions précises.
+            Par cet engagement, ils deviennent des acteurs essentiels de la réussite des projets et de l’accomplissement
+            de la vision de la DFD, tout en incarnant ses valeurs avec dévouement.</p>
+
+        <p><strong>Membres partenaires :</strong>
+
+            Les membres partenaires sont des personnes morales ou des organisations qui soutiennent l'association,
+            souvent de manière financière ou par des services en nature. Ils peuvent collaborer avec l’association sur
+            des projets communs ou apporter leurs ressources techniques, matérielles et humaines. Ils contribuent aussi
+            à l’accroissement de la visibilité de la DFD et agrandissent son réseau de contact.</p>
+
+
+    </div>
+
+
+    <div class="equipe-grid">
         <figure>
             <img src="{% static 'images/Nathan.PNG' %}" alt="Description de l’image" style="max-width:150px;">
             <figcaption>Nathanaël Toukea – Président fondateur</figcaption>

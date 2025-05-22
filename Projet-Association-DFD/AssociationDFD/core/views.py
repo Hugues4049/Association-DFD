@@ -47,3 +47,19 @@ def participer(request):
 
 def blog(request):
     return render(request, 'core/blog.html')
+
+
+def documents(request):
+    return render(request, 'core/documents.html')
+
+def partenaires(request):
+    return render(request, 'core/partenaires.html')
+
+
+
+from django import forms
+
+from django.utils.translation import gettext_lazy as _
+
+class ContactForm(forms.Form):
+    name = forms.CharField(label=_("Nom"))

@@ -1,0 +1,33 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-05-20 22:18+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+#: AssociationDFD/asgi.py:21 AssociationDFD/urls.py:29
+#: AssociationDFD/wsgi.py:21 core/admin.py:11 core/apps.py:11 core/models.py:26
+#: core/urls.py:16 core/views.py:55
+msgid "Nom"
+msgstr ""
+
+#: core/templates/core/apropos.html:8 core/templates/core/base.html:4
+#: core/templates/core/blog.html:7 core/templates/core/campagnes.html:7
+#: core/templates/core/contact.html:7 core/templates/core/don.html:7
+#: core/templates/core/equipe.html:5 core/templates/core/home.html:8
+#: core/templates/core/mission.html:5 core/templates/core/participer.html:7
+#: core/templates/core/projets.html:7
+msgid "Bienvenue sur notre site"
+msgstr ""

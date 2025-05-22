@@ -20,5 +20,29 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('core.urls')),  # ← ajoute ceci
+    path('i18n/', include('django.conf.urls.i18n')),
+    
 ]
+
+from django import forms
+
+from django.utils.translation import gettext_lazy as _
+
+class ContactForm(forms.Form):
+    name = forms.CharField(label=_("Nom"))
+
+
+
+
+
+from django.utils.translation import get_language
+
+def my_view(request):
+    current_language = get_language()
+    # passe current_language au contexte
+    return render(request, 'core/base.html', {'LANGUAGE_CODE': current_language})
+
+from django.conf.urls.i18n import i18n_patterns
+from django.urls import path, include
+
 

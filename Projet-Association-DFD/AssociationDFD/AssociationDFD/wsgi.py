@@ -14,3 +14,9 @@ from django.core.wsgi import get_wsgi_application
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'AssociationDFD.settings')
 
 application = get_wsgi_application()
+from django import forms
+
+from django.utils.translation import gettext_lazy as _
+
+class ContactForm(forms.Form):
+    name = forms.CharField(label=_("Nom"))

@@ -1,5 +1,7 @@
 <!-- core/templates/core/base.html -->
 {% load static %}
+{% load i18n %}
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -22,7 +24,7 @@
             <!-- Logo -->
             <div style="flex: 0 0 auto;">
                 <a href="{% url 'home' %}">
-                    <img src="{% static 'images/logo/logoDFD.jpg' %}" alt="Logo DFD" style="height: 80px;">
+                    <img src="{% static 'images/logo/logoDFD.jpg' %}" alt="Logo DFD" style="height: 100px;">
                 </a>
             </div>
 
@@ -46,7 +48,41 @@
                 <a href="#"><i class="fab fa-facebook-f" style="color: #1f1451;"></i></a>
                 <a href="#"><i class="fab fa-whatsapp" style="color: #1f1451;"></i></a>
             </div>
+
+
+
+            <form action="{% url 'set_language' %}" method="post" id="language-form"
+                style="display: flex; align-items: center; gap: 8px; flex-shrink: 0;">
+                {% csrf_token %}
+                <select name="language" id="language-select"
+                    style="padding: 5px; border: 1px solid #1f1451; border-radius: 4px; background-color: white; color: #1f1451; font-weight: bold;">
+                    {% get_current_language as LANGUAGE_CODE %}
+                    {% get_available_languages as LANGUAGES %}
+                    {% for code, name in LANGUAGES %}
+                    <option value="{{ code }}">{{ name }}</option>
+                    {% endfor %}
+                </select>
+                <input type="submit" value="{% trans 'Changer' %}"
+                    style="background-color: #1f1451; color: white; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-weight: bold;">
+            </form>
+
+            <script>
+                document.addEventListener('DOMContentLoaded', function () {
+                    var currentLang = "{{ LANGUAGE_CODE }}";
+                    var select = document.getElementById('language-select');
+                    for (var i = 0; i < select.options.length; i++) {
+                        if (select.options[i].value === currentLang) {
+                            select.options[i].selected = true;
+                            break;
+                        }
+                    }
+                });
+            </script>
+
         </div>
+
+
+
 
 
         <!-- Barre de navigation -->
@@ -60,7 +96,10 @@
                 </li>
                 <li><a href="{% url 'blog' %}" style="color: white; text-decoration: none;">Blog / Actualités</a>
                 </li>
-                <li><a href="{% url 'contact' %}" style="color: white; text-decoration: none;">Contact</a></li>
+                <li><a href="{% url 'documents' %}" style="color: white; text-decoration: none;">Documents</a></li>
+                <li><a href="{% url 'partenaires' %}" style="color: white; text-decoration: none;">Nos Partenaires</a>
+                </li>
+                <li><a href="{% url 'contact' %}" style="color: white; text-decoration: none;">Contacts</a></li>
             </ul>
 
         </nav>
@@ -77,10 +116,10 @@
         <div style="display: flex; flex-wrap: wrap; justify-content: space-between;">
 
             <!-- Logo + slogan -->
-            <div>
-                <img src="{% static 'images/logo/logoDFD.jpg' %}" alt="Logo DFD" style="width: 120px;">
+            <div style="display: flex; flex-direction: column; align-items: center;">
+                <img src="{% static 'images/logo/logoDFD.jpg' %}" alt="Logo DFD" style="width: 270px;">
                 <p>Dreams Familly Of Development</p>
-                <span style="background: green; color: white; padding: 5px 10px; border-radius: 4px;">"La main tendue,
+                <span style="background: #0C5E2E; color: white; padding: 5px 10px; border-radius: 4px;">"La main tendue,
                     un sourire nouveau."</span>
             </div>
 
@@ -109,7 +148,7 @@
             <!-- Contact -->
             <div>
                 <h4>Contactez-nous</h4>
-                <p>Siège Social : Turin - Italie</p>
+                <p>Siège Social : Yaoundé face Hôtel SOMMATEL palais de sport, Cameroun.</p>
                 <p>Tel : +39 366 332 9990</p>
                 <p>Email : <a href="mailto:contact@jusa.africa"
                         style="color:white;">dreams.family.development@gmail.com</a>
@@ -118,7 +157,8 @@
                     <a href="mailto:dreams.family.development@gmail.com" target="_blank" title="Email">
                         <img src="{% static 'images/icons/mail.png' %}" alt="Email" style="width: 20px;">
                     </a>
-                    <a href="https://www.instagram.com/your_instagram" target="_blank" title="Instagram">
+                    <a href="https://www.instagram.com/dreams_family_of_development?igsh=MWdvZjJ5bHF1eXQwbQ%3D%3D&utm_source=qr"
+                        target="_blank" title="Instagram">
                         <img src="{% static 'images/icons/insta.jpeg' %}" alt="Instagram" style="width: 20px;">
                     </a>
                     <a href="https://twitter.com/your_twitter" target="_blank" title="X (Twitter)">
@@ -135,8 +175,8 @@
         </div>
 
         <div style="text-align: center; margin-top: 20px; font-size: 0.9em;">
-            <p>&copy; 2025 <span style="color:green;">DFD</span> | Tous droits réservés | Proposé par <span
-                    style="color:green;">#4049</span></p>
+            <p>&copy; 2025 <span style="color: #0C5E2E;">DFD</span> | Tous droits réservés | Proposé par <span
+                    style="color:#0C5E2E;">#4049</span></p>
         </div>
     </footer>
 
