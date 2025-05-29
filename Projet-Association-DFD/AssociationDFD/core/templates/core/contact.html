@@ -1,36 +1,44 @@
 {% extends 'core/base.html' %}
-
 {% block title %}Contact - DFD{% endblock %}
-
 {% block content %}
 {% load i18n %}
 
+<section class="presentation">
+    <h1 class="main-title">📬 Contactez-nous</h1>
 
-<h1>Contactez-nous</h1>
+    <!-- Formulaire -->
+    <div class="presentation-block">
+        <h2>✉️ Formulaire de contact</h2>
+        <form action="#" method="post" style="display: flex; flex-direction: column; gap: 15px;">
+            {% csrf_token %}
+            <input type="text" name="nom" placeholder="Votre nom" required
+                style="padding: 10px; border-radius: 5px; border: 1px solid #ccc;">
+            <input type="email" name="email" placeholder="Votre email" required
+                style="padding: 10px; border-radius: 5px; border: 1px solid #ccc;">
+            <textarea name="message" placeholder="Votre message" required
+                style="padding: 10px; border-radius: 5px; border: 1px solid #ccc;"></textarea>
+            <button type="submit" class="btn">Envoyer</button>
+        </form>
+    </div>
 
-<section>
-    <h2>Formulaire de contact</h2>
-    <form action="#" method="post">
-        <input type="text" name="nom" placeholder="Votre nom" required>
-        <input type="email" name="email" placeholder="Votre email" required>
-        <textarea name="message" placeholder="Votre message" required></textarea>
-        <button type="submit">Envoyer</button>
-    </form>
+    <!-- Coordonnées -->
+    <div class="presentation-block">
+        <h2>📍 Nos coordonnées</h2>
+        <p><strong>Adresse :</strong> Yaoundé face Hôtel SOMMATEL, palais des sports, Cameroun.</p>
+        <p><strong>Téléphone :</strong> <a href="tel:+393663329990">+39 366 332 9990</a></p>
+        <p><strong>Email :</strong> <a
+                href="mailto:dreams.family.development@gmail.com">dreams.family.development@gmail.com</a></p>
+    </div>
+
+    <!-- Réseaux sociaux -->
+    <div class="presentation-block">
+        <h2>🔗 Suivez-nous</h2>
+        <ul style="list-style: none; padding: 0; display: flex; gap: 20px;">
+            <li><a href="https://fb.watch/zBziUXihrm/" target="_blank" class="btn">Facebook</a></li>
+            <li><a href="#" target="_blank" class="btn">Twitter</a></li>
+            <li><a href="#" target="_blank" class="btn">Instagram</a></li>
+        </ul>
+    </div>
 </section>
 
-<section>
-    <h2>Nos coordonnées</h2>
-    <p><strong>Adresse :</strong> Turin</p>
-    <p><strong>Téléphone :</strong> +39 366 332 9990</p>
-    <p><strong>Email :</strong> dreams.family.development@gmail.com</p>
-</section>
-
-<section>
-    <h2>Suivez-nous</h2>
-    <ul>
-        <li><a href="https://fb.watch/zBziUXihrm/">Facebook</a></li>
-        <li><a href="#">Twitter</a></li>
-        <li><a href="#">Instagram</a></li>
-    </ul>
-</section>
 {% endblock %}

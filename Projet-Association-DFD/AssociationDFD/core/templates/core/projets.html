@@ -1,37 +1,37 @@
 {% extends 'core/base.html' %}
-
-{% block title %}À propos de nous - DFD{% endblock %}
-
+{% load static %}
+{% block title %}Nos Projets - DFD{% endblock %}
 {% block content %}
-{% load i18n %}
 
+<section class="presentation">
+    <h1 class="main-title">🚀 Nos Projets</h1>
 
-<h1>Nos Projets</h1>
-<section>
-    <h2>Projets en cours</h2>
-    <ul>
-        <li>Programme Éducation solidaire - fourniture de matériel scolaire</li>
-        <li>Cliniques mobiles - soins gratuits en zone rurale</li>
-        <li>Jardins communautaires - autonomie alimentaire locale</li>
-    </ul>
-</section>
-<section>
-    <h2>Projets achevés</h2>
-    <ul>
-        <li>Accès à l’eau potable dans 5 villages du Sahel</li>
-        <li>Formation professionnelle de jeunes femmes en couture</li>
-    </ul>
-</section>
-<section>
-    <h2>Zones d’intervention</h2>
-    <p>Nous intervenons dans plusieurs régions d’Afrique de l’Ouest, avec des projets pilotes également en Asie du
-        Sud.</p>
-    <!-- Une carte interactive pourrait être intégrée ici avec une API (Leaflet, Google Maps) -->
-</section>
-<section>
-    <h2>Impact et rapports</h2>
-    <p>En 2024, plus de 5 000 bénéficiaires ont été touchés. Consultez nos <a href="/rapports/">rapports
-            d’impact</a> pour en savoir plus.</p>
+    <!-- Projets en cours -->
+    <div class="presentation-block">
+        <h2>📌 Projets en cours</h2>
+        <ul>
+            <li>Programme Éducation solidaire – fourniture de matériel scolaire</li>
+            <li>Cliniques mobiles – soins gratuits en zone rurale</li>
+            <li>Jardins communautaires – autonomie alimentaire locale</li>
+        </ul>
+    </div>
+
+    <!-- Projets achevés -->
+    <div class="presentation-block">
+        <h2>✅ Projets achevés</h2>
+        <ul>
+            <li>Accès à l’eau potable dans 5 villages du Sahel</li>
+            <li>Formation professionnelle de jeunes femmes en couture</li>
+        </ul>
+    </div>
+
+    <!-- Zones d’intervention -->
+    <div class="presentation-block">
+        <h2>🌍 Zones d’intervention</h2>
+        <p>Nous intervenons dans plusieurs régions d’Afrique de l’Ouest, avec des projets pilotes également en Asie du
+            Sud.</p>
+        <!-- Carte interactive à intégrer ici si besoin (Leaflet, Google Maps, etc.) -->
+    </div>
 </section>
 
 {% endblock %}

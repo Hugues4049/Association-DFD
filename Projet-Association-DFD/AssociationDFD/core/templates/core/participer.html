@@ -1,43 +1,53 @@
 {% extends 'core/base.html' %}
-
-{% block title %}À propos de nous - DFD{% endblock %}
-
-{% block content %}
 {% load i18n %}
+{% block title %}Participer - DFD{% endblock %}
+{% block content %}
 
+<section class="presentation">
+    <h1 class="main-title">🤝 Participer à DFD</h1>
 
-<h1>Participer</h1>
+    <!-- Bloc bénévole -->
+    <div class="presentation-block">
+        <h2>🙋 Devenir bénévole</h2>
+        <p>Nous accueillons toutes les bonnes volontés ! Remplissez le formulaire pour nous rejoindre :</p>
+        <form action="/contact/" method="post" style="display: flex; flex-direction: column; gap: 15px;">
+            {% csrf_token %}
+            <input type="text" name="nom" placeholder="Votre nom" required
+                style="padding: 10px; border-radius: 5px; border: 1px solid #ccc;">
+            <input type="email" name="email" placeholder="Votre email" required
+                style="padding: 10px; border-radius: 5px; border: 1px solid #ccc;">
+            <textarea name="message" placeholder="Pourquoi souhaitez-vous être bénévole ?" required
+                style="padding: 10px; border-radius: 5px; border: 1px solid #ccc;"></textarea>
+            <button type="submit" class="btn">Envoyer</button>
+        </form>
+    </div>
 
-<section id="devenir-benevole">
-    <h2>Devenir bénévole</h2>
-    <p>Nous accueillons toutes les bonnes volontés ! Remplissez le formulaire pour nous rejoindre :</p>
-    <form action="/contact/" method="post">
-        <label>Nom : <input type="text" name="nom" required></label><br>
-        <label>Email : <input type="email" name="email" required></label><br>
-        <label>Message : <textarea name="message" required></textarea></label><br>
-        <button type="submit">Envoyer</button>
-    </form>
-</section>
+    <!-- Bloc don -->
+    <div class="presentation-block">
+        <h2>💝 Faire un don</h2>
+        <p>Votre soutien est essentiel. Vous pouvez faire un don ponctuel ou mensuel en toute sécurité :</p>
+        <div style="text-align: center; margin-top: 20px;">
+            <a href="/don/" class="btn">Faire un don</a>
+        </div>
+    </div>
 
-<section id="faire-un-don">
-    <h2>Faire un don</h2>
-    <p>Votre soutien financier est essentiel. Vous pouvez faire un don ponctuel ou mensuel en toute sécurité :</p>
-    <button onclick="location.href='/don/'">Faire un don</button>
-</section>
-
-<section id="devenir-membre">
-    <h2>Devenir membre</h2>
-    <p>Rejoignez notre réseau d’adhérents. En devenant membre, vous bénéficiez de :</p>
-    <ul>
-        <li>Accès aux rapports détaillés</li>
-        <li>Invitations aux événements</li>
-        <li>Droit de vote en AG</li>
-    </ul>
-    <form action="/inscription/" method="post">
-        <label>Nom : <input type="text" name="nom" required></label><br>
-        <label>Email : <input type="email" name="email" required></label><br>
-        <button type="submit">S'inscrire</button>
-    </form>
+    <!-- Bloc membre -->
+    <div class="presentation-block">
+        <h2>👥 Devenir membre</h2>
+        <p>Rejoignez notre réseau d’adhérents. En devenant membre, vous bénéficiez de :</p>
+        <ul>
+            <li>Accès aux rapports détaillés</li>
+            <li>Invitations aux événements</li>
+            <li>Droit de vote en AG</li>
+        </ul>
+        <form action="/inscription/" method="post" style="display: flex; flex-direction: column; gap: 15px;">
+            <input type="text" name="nom" placeholder="Nom complet" required
+                style="padding: 10px; border-radius: 5px; border: 1px solid #ccc;">
+            <input type="email" name="email" placeholder="Email" required
+                style="padding: 10px; border-radius: 5px; border: 1px solid #ccc;">
+            <button type="submit" class="btn">S'inscrire</button>
+        </form>
+    </div>
 </section>
 
 {% endblock %}

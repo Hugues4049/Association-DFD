@@ -1,12 +1,40 @@
 {% extends 'core/base.html' %}
 
 {% block title %}Contact - DFD{% endblock %}
-
+{% load static %}
 {% block content %}
 {% load i18n %}
 
 
-<h1>ON A PAS DE DOCUMENTS</h1>
+
+<div class="documents-container">
+    <h1 class="page-title">📄 Documents à télécharger</h1>
+    <p>Vous trouverez ici tous les documents publics de l’association : rapports, brochures, formulaires d'adhésion,
+        etc.</p>
+
+
+    <form id="download-form" onsubmit="handleDownload(event)">
+        <label for="file-select">Choisissez un fichier :</label>
+        <select id="file-select">
+            <option value="{% static 'docs/Campagne de santé.pdf' %}">Campagne de santé 2025</option>
+            <option value="{% static 'docs/Compte rendu.docx' %}">Compte rendu de la descente au foyer de l'espérence
+            </option>
+            <option value="{% static 'docs/charte.pdf' %}">Charte de l'association</option>
+        </select>
+        <button type="submit">Télécharger</button>
+    </form>
+</div>
+
+
+<script>
+    function handleDownload(event) {
+        event.preventDefault(); // Ne pas soumettre le formulaire
+        const select = document.getElementById("file-select");
+        const fileUrl = select.value;
+        window.location.href = fileUrl; // Rediriger vers le fichier pour le télécharger
+    }
+</script>
+
 
 
 {% endblock %}

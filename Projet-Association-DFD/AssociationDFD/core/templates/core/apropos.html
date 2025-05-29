@@ -1,105 +1,82 @@
 {% extends 'core/base.html' %}
-
 {% block title %}À propos de nous - DFD{% endblock %}
-
 {% block content %}
 {% load static %}
 {% load i18n %}
 
-<section class="apropos-hero">
+<section class="presentation">
     <h1 class="main-title">À propos de DFD</h1>
-</section>
 
-<section class="apropos-section">
-    <h2>Notre histoire</h2>
-    <p>DFD (Dynamique Fraternelle de Développement) a été fondée pour répondre aux besoins urgents des communautés les
-        plus vulnérables. Depuis ses débuts, elle œuvre dans les domaines de l'éducation, de la santé et du
-        développement durable.</p>
-    <p>C'est une association à but non lucratif, laïque et apolitique. La mission
-        profonde de Dreams Family of Development (DFD) repose sur la conviction qu’il
-        est possible de redonner espoir et de contribuer à l’épanouissement global des
-        personnes dont les rêves ont été brisés, quelle qu’en soit la cause.</p>
-    <p>À travers des actions de sensibilisation, de prévention et de réhabilitation, nous
-        répondons aux besoins primaires et essentiels des personnes vulnérables et
-        démunies.</p>
-</section>
-<section class="apropos-section alternate">
-    <h2>Notre mission</h2>
-    <p>
-        La mission profonde de l'association Dreams Family of Development (DFD) repose sur la conviction qu'il est
-        possible de redonner espoir et de contribuer à l’épanouissement holistique des individus dont les rêves ont été
-        brisés pour une raison quelconque. À travers nos actions de sensibilisation, de prévention et de réhabilitation,
-        nous répondons aux besoins primaires et essentiels des personnes vulnérables et nécessiteuses.
-    </p>
-    <p>
-        Notre but est de créer un impact durable qui améliorera la résilience et l’épanouissement des communautés. Il
-        s’agira concrètement de les aider à surmonter les crises immédiates, de les rendre plus aptes à faire face aux
-        défis de la vie et restaurer leurs capacités de choix.
-        En outre l’association s’inspire des expériences contemporaines et des principes tels que l’humanisme, l’équité
-        et la confidentialité qui visent à construire une communauté fondée sur la liberté, la cohésion et l’équilibre.
-    </p>
-
-    <section class="apropos-section"></section>
-    <h2>Nos objectifs</h2>
-    <ul>
-        <li>Contribuer à réduire la mortalité materno-infantile et lutter contre les pathologies infectieuses et non
-            infectieuses.</li>
-        <li>Favoriser/oeuvrer au bien-être mental et émotionnel.</li>
-        <li>Accompagner dans la lutte contre la malnutrition.</li>
-        <li>Contribuer à lutter contre les facteurs de déscolarisation et promouvoir une éducation équitable.</li>
-        <li>Renforcer les infrastructures et les ressources technologiques.</li>
-        <li>Développer les compétences entrepreneuriales et professionnelles.</li>
-        <li>Aider l’Homme à bâtir son développement personnel.</li>
-        <li>Promouvoir l'accès à la culture, aux loisirs et aux activités artistiques.</li>
-    </ul>
-    <p>
-        Rejoignez-nous et devenez acteur du changement. Ensemble, faisons la différence.
-    </p>
-</section>
-
-<section class="apropos-section alternate">
-    <h2>Notre équipe</h2>
-
-    <p>L’équipe de la DFD, c’est avant tout une famille de cœur.</p>
-    <div class="equipe-description">
-
-        <p><strong>Membres adhérents :</strong>
-
-            Les membres adhérents sont généralement les membres actifs de l'association par leur participation régulière
-            aux activités de la DFD. Ils contribuent à la réalisation de ses projets et pourraient se constituer
-            candidats aux postes de responsabilité.</p>
-
-        <p><strong>Membres bénévoles :</strong>
-
-            Ils apportent leur soutien dans des domaines variés selon les besoins de l’association. Ils servent de
-            support aux équipes permanentes et aux responsables lors des missions précises.
-            Par cet engagement, ils deviennent des acteurs essentiels de la réussite des projets et de l’accomplissement
-            de la vision de la DFD, tout en incarnant ses valeurs avec dévouement.</p>
-
-        <p><strong>Membres partenaires :</strong>
-
-            Les membres partenaires sont des personnes morales ou des organisations qui soutiennent l'association,
-            souvent de manière financière ou par des services en nature. Ils peuvent collaborer avec l’association sur
-            des projets communs ou apporter leurs ressources techniques, matérielles et humaines. Ils contribuent aussi
-            à l’accroissement de la visibilité de la DFD et agrandissent son réseau de contact.</p>
-
-
+    <!-- Bloc histoire -->
+    <div class="presentation-block">
+        <h2>📖 Notre histoire</h2>
+        <p>DFD (Dynamique Fraternelle de Développement) a été fondée pour répondre aux besoins urgents des communautés
+            les plus vulnérables. Depuis ses débuts, elle œuvre dans les domaines de l'éducation, de la santé et du
+            développement durable.</p>
+        <p>C'est une association à but non lucratif, laïque et apolitique. Sa mission repose sur la conviction qu’il
+            est possible de redonner espoir et contribuer à l’épanouissement global des personnes dont les rêves ont
+            été brisés.</p>
+        <p>Par des actions de sensibilisation, de prévention et de réhabilitation, nous répondons aux besoins essentiels
+            des personnes vulnérables et démunies.</p>
     </div>
 
+    <!-- Bloc mission -->
+    <div class="presentation-block">
+        <h2>🎯 Notre mission</h2>
+        <p>Notre mission est de restaurer l’espoir et l’épanouissement des individus dont les rêves ont été brisés,
+            en leur apportant soutien, soins, éducation et accompagnement.</p>
+        <p>Nous visons un impact durable en renforçant la résilience des communautés à travers des actions inspirées par
+            l’humanisme, l’équité et la confidentialité. Notre objectif : bâtir une société solidaire, libre et
+            équilibrée.</p>
+    </div>
 
-    <div class="equipe-grid">
-        <figure>
-            <img src="{% static 'images/Nathan.PNG' %}" alt="Description de l’image" style="max-width:150px;">
-            <figcaption>Nathanaël Toukea – Président fondateur</figcaption>
-        </figure>
-        <figure>
-            <img src="{% static 'images/Brinda.PNG' %}" alt="Description de l’image" style="max-width:150px;">
-            <figcaption>Brinda Djomaha– Responsable des projets</figcaption>
-        </figure>
-        <figure>
-            <img src="{% static 'images/Féline.PNG' %}" alt="Description de l’image" style="max-width:150px;">
-            <figcaption>Féline Minyem – Chargée de la communication</figcaption>
-        </figure>
+    <!-- Bloc objectifs -->
+    <div class="presentation-block">
+        <h2>🎯 Nos objectifs</h2>
+        <ul>
+            <li>Réduire la mortalité materno-infantile, lutter contre les pathologies.</li>
+            <li>Favoriser le bien-être mental et émotionnel.</li>
+            <li>Lutter contre la malnutrition.</li>
+            <li>Promouvoir l’éducation équitable et lutter contre la déscolarisation.</li>
+            <li>Renforcer les infrastructures technologiques.</li>
+            <li>Développer l'entrepreneuriat et les compétences professionnelles.</li>
+            <li>Favoriser le développement personnel et l’accès à la culture.</li>
+        </ul>
+        <p>Rejoignez-nous et devenez acteur du changement. Ensemble, faisons la différence.</p>
+    </div>
+
+    <!-- Bloc équipe -->
+    <div class="presentation-block">
+        <h2>👥 Notre équipe</h2>
+        <p>L’équipe DFD, c’est avant tout une famille de cœur engagée dans le changement.</p>
+
+        <p><strong>Membres adhérents :</strong> actifs dans les activités et les responsabilités de l’association.</p>
+        <p><strong>Membres bénévoles :</strong> soutiennent selon leurs disponibilités et compétences.</p>
+        <p><strong>Membres partenaires :</strong> soutiens financiers ou techniques qui contribuent à la visibilité
+            et au rayonnement de l’association.</p>
+
+        <div class="equipe-grid"
+            style="display: flex; gap: 30px; flex-wrap: wrap; justify-content: center; margin-top: 30px;">
+            <figure style="text-align: center;">
+                <img src="{% static 'images/Nathan.PNG' %}" alt="Nathanaël Toukea"
+                    style="max-width:150px; border-radius: 8px;">
+                <figcaption style="margin-top: 10px;">Nathanaël Toukea<br><small>Président fondateur</small>
+                </figcaption>
+            </figure>
+            <figure style="text-align: center;">
+                <img src="{% static 'images/Brinda.PNG' %}" alt="Brinda Djomaha"
+                    style="max-width:150px; border-radius: 8px;">
+                <figcaption style="margin-top: 10px;">Brinda Djomaha<br><small>Responsable des projets</small>
+                </figcaption>
+            </figure>
+            <figure style="text-align: center;">
+                <img src="{% static 'images/Féline.PNG' %}" alt="Féline Minyem"
+                    style="max-width:150px; border-radius: 8px;">
+                <figcaption style="margin-top: 10px;">Féline Minyem<br><small>Chargée de communication</small>
+                </figcaption>
+            </figure>
+        </div>
     </div>
 </section>
+
 {% endblock %}

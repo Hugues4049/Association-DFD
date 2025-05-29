@@ -16,11 +16,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.urls import path, include
+from django.shortcuts import redirect
 
 urlpatterns = [
+    path('', include('core.urls')), 
     path('admin/', admin.site.urls),
-    path('', include('core.urls')),  # ← ajoute ceci
+     # ← ajoute ceci
     path('i18n/', include('django.conf.urls.i18n')),
+    #path('contact/', include('core.urls')),  # ou autre app
+
     
 ]
 

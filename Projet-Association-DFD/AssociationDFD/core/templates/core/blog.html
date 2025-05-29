@@ -9,125 +9,124 @@
 
 
 <!-- PAGE PRINCIPALE -->
-<section class="page-layout">
+<div class="page-layout">
     <!-- Colonne gauche -->
-    <aside class="sidebar left-sidebar slide-in-left">
+    <aside class="left-sidebar sidebar">
         <div class="carousel">
-            <img src="/media/img1.jpg" class="carousel-image active" alt="Projet 1">
-            <img src="/media/img2.jpg" class="carousel-image" alt="Projet 2">
-            <img src="/media/img3.jpg" class="carousel-image" alt="Projet 3">
+            <video class="video-slide" width="600" height="300" controls autoplay muted loop>
+                <source src="{% static 'images/Photo-DFD-Foyer/Video-DFD-foyer/VIDEO-2024-12-30-22-37-57.mp4' %}"
+                    type="video/mp4">
+                Votre navigateur ne supporte pas la vidéo.
+            </video>
         </div>
         <p>📸 Nos actions sur le terrain en images</p>
     </aside>
 
     <!-- Contenu principal -->
-    <div class="presentation fade-in">
-        <!-- Ton contenu principal ici -->
-        <!-- Contenu principal -->
-        <div class="presentation" style="flex: 2; max-width: 800px;">
-            <!-- Ton contenu actuel ici : les blocs blog -->
-            <section class="presentation-section">
-                <div class="presentation">
-                    <h1 class="main-title">📰 Blog & Actualités</h1>
+    <main class="main-content">
 
-                    <!-- 1. Journée mondiale de l’éducation -->
-                    <div class="presentation-block">
-                        <h2>📅 24 janvier – Journée mondiale de l’éducation</h2>
-                        <p><strong>S'engager avec DFD pour un avenir meilleur</strong></p>
-                        <p>À l'occasion de la Journée mondiale de l'éducation, Dreams Family of Development (DFD)
-                            réaffirme son
-                            engagement envers une éducation inclusive, équitable et transformative.</p>
-                        <p><em>L’éducation n’est pas seulement un droit fondamental :</em></p>
-                        <p>C’est une clé pour sortir de la pauvreté, briser les inégalités et construire une société
-                            juste et
-                            pacifique.</p>
+        <h1 class="main-title">📰 Blog & Actualités</h1>
 
-                        <h3>🚸 Le saviez-vous ?</h3>
-                        <p>Plus de <strong>244 millions</strong> d’enfants et de jeunes dans le monde ne sont toujours
-                            pas
-                            scolarisés. Ce chiffre alarmant nous pousse à agir avec détermination.</p>
+        <!-- 1. Journée mondiale de l’éducation -->
+        <div class="presentation-block">
+            <h2>📅 24 janvier – Journée mondiale de l’éducation</h2>
+            <p><strong>S'engager avec DFD pour un avenir meilleur</strong></p>
+            <p>À l'occasion de la Journée mondiale de l'éducation, Dreams Family of Development (DFD)
+                réaffirme son
+                engagement envers une éducation inclusive, équitable et transformative.</p>
+            <p><em>L’éducation n’est pas seulement un droit fondamental :</em></p>
+            <p>C’est une clé pour sortir de la pauvreté, briser les inégalités et construire une société
+                juste et
+                pacifique.</p>
 
-                        <h3>🎯 Nos actions concrètes :</h3>
-                        <ul>
-                            <li>Programmes d’accompagnement scolaire pour les enfants en situation de vulnérabilité</li>
-                            <li>Projets éducatifs communautaires en zones rurales et urbaines</li>
-                            <li>Ateliers de sensibilisation pour les parents et les jeunes</li>
-                            <li>Soutien matériel (fournitures, uniformes, accès au numérique) pour favoriser la réussite
-                            </li>
-                        </ul>
+            <h3>🚸 Le saviez-vous ?</h3>
+            <p>Plus de <strong>244 millions</strong> d’enfants et de jeunes dans le monde ne sont toujours
+                pas
+                scolarisés. Ce chiffre alarmant nous pousse à agir avec détermination.</p>
 
-                        <h3>📢 Appel à l’action :</h3>
-                        <p>Cette journée est un moment fort pour s’unir autour de cette cause vitale.</p>
-                        <p><strong>👉 Rejoignez DFD, faites un don, devenez bénévole, partagez notre message.</strong>
-                        </p>
-                        <p>Chaque geste compte pour construire un monde où chaque rêve peut s’éveiller grâce au savoir.
-                        </p>
-                    </div>
+            <h3>🎯 Nos actions concrètes :</h3>
+            <ul>
+                <li>Programmes d’accompagnement scolaire pour les enfants en situation de vulnérabilité</li>
+                <li>Projets éducatifs communautaires en zones rurales et urbaines</li>
+                <li>Ateliers de sensibilisation pour les parents et les jeunes</li>
+                <li>Soutien matériel (fournitures, uniformes, accès au numérique) pour favoriser la réussite
+                </li>
+            </ul>
 
-                    <!-- 2. Journée mondiale de la justice sociale -->
-                    <div class="presentation-block">
-                        <h2>📅 20 février – Journée mondiale de la justice sociale</h2>
-                        <p><strong>L’égalité en action avec DFD</strong></p>
-                        <p>La justice sociale n’est pas une utopie. C’est un devoir collectif, un engagement envers une
-                            société où
-                            chacun a sa place, sa voix, ses droits.</p>
-                        <p><em>À l'occasion de cette journée, DFD souhaite rappeler que :</em></p>
-                        <blockquote>“La justice sociale commence là où chacun décide de ne plus détourner les yeux.”
-                        </blockquote>
-
-                        <h3>⚖️ Nos engagements :</h3>
-                        <ul>
-                            <li>Programmes d’alphabétisation et d’éducation pour adultes</li>
-                            <li>Soutien aux familles monoparentales, réfugiées ou marginalisées</li>
-                            <li>Accès équitable aux soins de santé primaires et aux informations vitales</li>
-                            <li>Partenariats avec des acteurs locaux pour une réponse ancrée et durable aux inégalités
-                            </li>
-                        </ul>
-
-                        <h3>🔍 Témoignage inspirant :</h3>
-                        <blockquote>“Grâce à DFD, mes enfants peuvent aller à l’école, et j’ai retrouvé un emploi
-                            stable.”<br>–
-                            Amina, mère de 3 enfants, bénéficiaire à Ouagadougou.</blockquote>
-                    </div>
-
-                    <!-- 3. Projets à venir -->
-                    <div class="presentation-block">
-                        <h2>🧩 Et demain ?</h2>
-                        <p><strong>DFD prépare de nouveaux projets pour l’année 2025 :</strong></p>
-                        <ul>
-                            <li>Ouverture de 3 centres d'apprentissage communautaires</li>
-                            <li>Lancement de la campagne <em>“Une École, Un Avenir”</em></li>
-                            <li>Déploiement d’une plateforme numérique d'entraide éducative</li>
-                        </ul>
-                    </div>
-
-                    <!-- 4. Restez connectés -->
-                    <div class="presentation-block">
-                        <h2>💬 Restons connectés !</h2>
-                        <p>📣 Abonnez-vous à notre newsletter pour recevoir chaque mois nos actualités, histoires de
-                            terrain et
-                            opportunités d’engagement.</p>
-                        <p>📱 Suivez-nous sur les réseaux sociaux : <strong>Facebook | Instagram | LinkedIn |
-                                Twitter</strong></p>
-                        <p>✉️ <a href="/contact" class="btn">Contactez-nous</a> pour devenir acteur du changement !</p>
-                    </div>
-                </div>
-            </section>
-            <!-- ... copie-colle le HTML que tu m’as envoyé ici sans changement ... -->
+            <h3>📢 Appel à l’action :</h3>
+            <p>Cette journée est un moment fort pour s’unir autour de cette cause vitale.</p>
+            <p><strong>👉 Rejoignez DFD, faites un don, devenez bénévole, partagez notre message.</strong>
+            </p>
+            <p>Chaque geste compte pour construire un monde où chaque rêve peut s’éveiller grâce au savoir.
+            </p>
         </div>
+
+        <!-- 2. Journée mondiale de la justice sociale -->
+        <div class="presentation-block">
+            <h2>📅 20 février – Journée mondiale de la justice sociale</h2>
+            <p><strong>L’égalité en action avec DFD</strong></p>
+            <p>La justice sociale n’est pas une utopie. C’est un devoir collectif, un engagement envers une
+                société où
+                chacun a sa place, sa voix, ses droits.</p>
+            <p><em>À l'occasion de cette journée, DFD souhaite rappeler que :</em></p>
+            <blockquote>“La justice sociale commence là où chacun décide de ne plus détourner les yeux.”
+            </blockquote>
+
+            <h3>⚖️ Nos engagements :</h3>
+            <ul>
+                <li>Programmes d’alphabétisation et d’éducation pour adultes</li>
+                <li>Soutien aux familles monoparentales, réfugiées ou marginalisées</li>
+                <li>Accès équitable aux soins de santé primaires et aux informations vitales</li>
+                <li>Partenariats avec des acteurs locaux pour une réponse ancrée et durable aux inégalités
+                </li>
+            </ul>
+
+            <h3>🔍 Témoignage inspirant :</h3>
+            <blockquote>“Grâce à DFD, mes enfants peuvent aller à l’école, et j’ai retrouvé un emploi
+                stable.”<br>–
+                Amina, mère de 3 enfants, bénéficiaire à Ouagadougou.</blockquote>
+        </div>
+
+        <!-- 3. Projets à venir -->
+        <div class="presentation-block">
+            <h2>🧩 Et demain ?</h2>
+            <p><strong>DFD prépare de nouveaux projets pour l’année 2025 :</strong></p>
+            <ul>
+                <li>Ouverture de 3 centres d'apprentissage communautaires</li>
+                <li>Lancement de la campagne <em>“Une École, Un Avenir”</em></li>
+                <li>Déploiement d’une plateforme numérique d'entraide éducative</li>
+            </ul>
+        </div>
+
+        <!-- 4. Restez connectés -->
+        <div class="presentation-block">
+            <h2>💬 Restons connectés !</h2>
+            <p>📣 Abonnez-vous à notre newsletter pour recevoir chaque mois nos actualités, histoires de
+                terrain et
+                opportunités d’engagement.</p>
+            <p>📱 Suivez-nous sur les réseaux sociaux : <strong>Facebook | Instagram | LinkedIn |
+                    Twitter</strong></p>
+            <p>✉️ <a href="/contact" class="btn">Contactez-nous</a> pour devenir acteur du changement !</p>
+        </div>
+
         <!-- ... -->
-    </div>
+    </main>
 
     <!-- Colonne droite -->
-    <aside class="sidebar right-sidebar slide-in-right">
+    <aside class="right-sidebar sidebar">
         <blockquote>
             “DFD m’a redonné espoir.”<br>
             <small>— Aïcha, bénéficiaire</small>
         </blockquote>
-        <img src="/media/social-action.jpg" alt="Action sociale">
+        <video class="video-slide" width="600" height="300" controls autoplay muted loop
+            style="max-width: 100%; max-height: 600px; object-fit: contain; border-radius: 8px;">
+            <source src="{% static 'images/Photo-DFD-Foyer/Video-DFD-foyer/video-nathan.mp4' %}" type="video/mp4">
+            Votre navigateur ne supporte pas la vidéo.
+        </video>
         <p>🔔 Ne manquez pas nos prochaines campagnes !</p>
     </aside>
-</section>
+
+</div>
 {% block scripts %}
 <script>
     let currentIndex = 0;

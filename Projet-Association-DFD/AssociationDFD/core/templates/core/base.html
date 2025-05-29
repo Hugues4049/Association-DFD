@@ -31,7 +31,8 @@
             <!-- Barre de recherche -->
             <!-- Barre de recherche -->
             <div style="flex: 1; display: flex; justify-content: center; max-width: 300px; position: relative;">
-                <input type="text" placeholder="Rechercher..." style="width: 100%; padding: 5px 30px 5px 10px;" />
+                <input type="text" placeholder="Rechercher sur le site..."
+                    style="width: 100%; padding: 5px 30px 5px 10px;" />
                 <i class="fas fa-search"
                     style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); color: #1f1451;"></i>
             </div>
@@ -153,12 +154,12 @@
                 <p>Email : <a href="mailto:contact@jusa.africa"
                         style="color:white;">dreams.family.development@gmail.com</a>
                 </p>
-                <div class="contact-icons">
+                <div class="contact-icons" style="display: flex; gap: 15px; margin-top: 10px;">
                     <a href="mailto:dreams.family.development@gmail.com" target="_blank" title="Email">
                         <img src="{% static 'images/icons/mail.png' %}" alt="Email" style="width: 20px;">
                     </a>
-                    <a href="https://www.instagram.com/dreams_family_of_development?igsh=MWdvZjJ5bHF1eXQwbQ%3D%3D&utm_source=qr"
-                        target="_blank" title="Instagram">
+                    <a href="https://www.instagram.com/dreams_family_of_development..." target="_blank"
+                        title="Instagram">
                         <img src="{% static 'images/icons/insta.jpeg' %}" alt="Instagram" style="width: 20px;">
                     </a>
                     <a href="https://twitter.com/your_twitter" target="_blank" title="X (Twitter)">
@@ -171,6 +172,7 @@
                         <img src="{% static 'images/icons/tel.png' %}" alt="Téléphone" style="width: 20px;">
                     </a>
                 </div>
+
             </div>
         </div>
 

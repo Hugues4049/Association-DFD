@@ -5,26 +5,27 @@
 {% block content %}
 {% load static %}
 
-
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
 
 <section class="banniere-principale">
     <h1>{% trans "LA MAIN TENDUE, UN SOURIRE NOUVEAU." %}</h1>
 </section>
 
 <!-- Conteneur flex -->
-
 <div class="banniere-row">
-
     <section class="banniere-inspirante">
-        <video class="video-slide" width="800" height="450" controls autoplay muted loop>
+        <video controls autoplay muted loop
+            style="max-width: 100%; max-height: 600px; object-fit: contain; border-radius: 8px;">
             <source src="{% static 'images/Photo-DFD-Foyer/Video-DFD-foyer/video-nathan.mp4' %}" type="video/mp4">
             Votre navigateur ne supporte pas la vidéo.
         </video>
     </section>
 
     <section class="Nom-de-lassociation">
-        <img src="{% static 'images/logo/logo simple (1).png' %}" alt="Logo DFD" style="width: 600px;">
-        <h1>Dreams Family of Development (DFD)</h1>
+        <div class="contenu-association">
+            <img src="{% static 'images/logo/logo simple (1).png' %}" alt="Logo DFD" class="logo-association">
+            <h1 class="main-title">Dreams Family of Development (DFD)</h1>
+        </div>
     </section>
 </div>
 
@@ -42,6 +43,9 @@
         nous œuvrons pour un monde plus juste, plus humain, et plus durable.</p>
     <a href="{% url 'apropos' %}#membre" class="btn">En savoir plus</a>
 </section>
+
+
+
 
 
 <section class="mot-du-president">
@@ -74,108 +78,37 @@
 
 <section class="galerie">
     <h1 class="main-title">Nos actions en images</h1>
-
-    <div class="slider-container">
-        <button class="prev">&#10094;</button>
-        <div class="slider">
-            <div class="slides">
-                <img src="{% static 'images/Photo-DFD-Foyer/Photo-DFD-Foyer/Untitled design(2).png' %}" class="slide"
-                    alt="Image 1">
-                <img src="{% static 'images/Photo-DFD-Foyer/Photo-DFD-Foyer/dc42344c-7d17-4cc1-ac9c-89312e874266(1).JPG' %}"
-                    class="slide" alt="Image 2">
-                <img src="{% static 'images/Photo-DFD-Foyer/Photo-DFD-Foyer/PHOTO-2024-12-29-17-29-55.jpg' %}"
-                    class="slide" alt="Image 3">
-                <img src="{% static 'images/Photo-DFD-Foyer/Photo-DFD-Foyer/e2e49797-b94c-4314-bbc2-eec4e5456a0e.JPG' %}"
-                    class="slide" alt="Image 5">
-                <img src="{% static 'images/Photo-DFD-Foyer/Photo-DFD-Foyer/d34bb1ba-a3f1-4b53-8ae8-de8225b9e89d.JPG' %}"
-                    class="slide" alt="Image 6">
-                <img src="{% static 'images/Photo-DFD-Foyer/Photo-DFD-Foyer/PHOTO-2024-12-29-17-30-45.jpg' %}"
-                    class="slide" alt="Image 8">
-                <img src="{% static 'images/Photo-DFD-Foyer/Photo-DFD-Foyer/PHOTO-2024-12-29-17-30-45 2.jpg' %}"
-                    class="slide" alt="Image 9">
-                <img src="{% static 'images/Photo-DFD-Foyer/Photo-DFD-Foyer/PHOTO-2025-01-06-19-40-44.jpg' %}"
-                    class="slide" alt="Image 10">
-                <img src="{% static 'images/Photo-DFD-Foyer/Photo-DFD-Foyer/Untitled design(1).png' %}" class="slide"
-                    alt="Image 11">
-                <img src="{% static 'images/Photo-DFD-Foyer/Photo-DFD-Foyer/f07e9412-78ff-45a1-97c6-aa337478a542.jpg' %}"
-                    class="slide" alt="Image 12">
-                <img src="{% static 'images/Photo-DFD-Foyer/Photo-DFD-Foyer/PHOTO-2024-12-29-17-31-06.jpg' %}"
-                    class="slide" alt="Image 13">
-                <img src="{% static 'images/Photo-DFD-Foyer/Photo-DFD-Foyer/Untitled design.png' %}" class="slide"
-                    alt="Image 14">
-                <img src="{% static 'images/Photo-DFD-Foyer/Photo-DFD-Foyer/dc42344c-7d17-4cc1-ac9c-89312e874266.JPG' %}"
-                    class="slide" alt="Image 15">
-                <img src="{% static 'images/Photo-DFD-Foyer/Photo-DFD-Foyer/PHOTO-2024-12-29-17-29-54.jpg' %}"
-                    class="slide" alt="Image 16">
-            </div>
-        </div>
-        <button class="next">&#10095;</button>
-    </div>
-
-
-
-    <div class="video-slider-container">
-        <button class="video-prev">&#10094;</button>
-        <div class="video-slider">
-            <div class="video-slides">
-                <video class="video-slide" width="800" height="450" controls autoplay muted loop>
-                    <source src="{% static 'images/Photo-DFD-Foyer/Video-DFD-foyer/VIDEO-2024-12-31-13-08-20.mp4' %}"
-                        type="video/mp4">
-                    Votre navigateur ne supporte pas la vidéo.
-                </video>
-                <video class="video-slide" width="800" height="450" controls autoplay muted loop>
-                    <source
-                        src="{% static 'images/Photo-DFD-Foyer/Video-DFD-foyer/cc45e01d-5b01-449e-8636-b2a37fa954c3.MP4' %}"
-                        type="video/mp4">
-                    Votre navigateur ne supporte pas la vidéo.
-                </video>
-                <video class="video-slide" width="800" height="450" controls autoplay muted loop>
-                    <source src="{% static 'images/Photo-DFD-Foyer/Video-DFD-foyer/VIDEO-2024-12-30-22-37-57.mp4' %}"
-                        type="video/mp4">
-                    Votre navigateur ne supporte pas la vidéo.
-                </video>
-                <video class="video-slide" width="800" height="450" controls autoplay muted loop>
-                    <source src="{% static 'images/Photo-DFD-Foyer/Video-DFD-foyer/VIDEO-2024-12-31-12-32-04.mp4' %}"
-                        type="video/mp4">
-                    Votre navigateur ne supporte pas la vidéo.
-                </video>
-                <video class="video-slide" width="800" height="450" controls autoplay muted loop>
-                    <source
-                        src="{% static 'images/Photo-DFD-Foyer/Video-DFD-foyer/0e8ae407-5e72-4a2a-bf7a-ea576944dd81.MP4' %}"
-                        type="video/mp4">
-                    Votre navigateur ne supporte pas la vidéo.
-                </video>
-                <video class="video-slide" width="800" height="450" controls autoplay muted loop>
-                    <source src="{% static 'images/Photo-DFD-Foyer/Video-DFD-foyer/VIDEO-2024-12-30-22-39-15.mp4' %}"
-                        type="video/mp4">
-                    Votre navigateur ne supporte pas la vidéo.
-                </video>
-                <!-- Ajoute d'autres vidéos ici -->
-            </div>
-        </div>
-        <button class="video-next">&#10095;</button>
-    </div>
     <p> Images de la descente au Foyer de l'espérence à Yaounde le 29/12/2024</p>
 </section>
 
 
-<section class="temoignages">
-    <h1 class="main-title">Témoignages</h1>
-    <blockquote>
-        <p>"Grâce à DFD, mes enfants vont enfin à l’école." — Awono christelle</p>
-    </blockquote>
-    <blockquote>
-        <p>"Un vrai changement dans notre orphelinat depuis leur arrivée." — Kenfack, directrice orphelina St-Joseph</p>
-    </blockquote>
+<section class="temoignages presentation">
+    <h1 class="main-title"> Témoignages</h1>
+
+    <div class="presentation-block" style="background-color: #fff9f9;">
+        <blockquote
+            style="font-style: italic; color: var(--color-primary); border-left: 5px solid var(--color-primary); padding-left: 20px;">
+            <p>"Grâce à DFD, mes enfants vont enfin à l’école."</p>
+            <footer style="margin-top: 10px; font-weight: bold;">— Awono Christelle</footer>
+        </blockquote>
+    </div>
+
+    <div class="presentation-block" style="background-color: #f9f9ff;">
+        <blockquote
+            style="font-style: italic; color: var(--color-primary); border-left: 5px solid var(--color-primary); padding-left: 20px;">
+            <p>"Un vrai changement dans notre orphelinat depuis leur arrivée."</p>
+            <footer style="margin-top: 10px; font-weight: bold;">— Kenfack, directrice orphelinat St-Joseph</footer>
+        </blockquote>
+    </div>
 </section>
+
 
 <section class="partenaires">
     <h1 class="main-title">Nos partenaires</h1>
     <div class="partenaire-grid">
 
 
-        <a class="partenaire-bloc" href="https://www.croix-rouge.fr" target="_blank" rel="noopener noreferrer"
-            text-decoration=none !important>
+        <a class="partenaire-bloc" href="https://www.croix-rouge.fr" target="_blank" rel="noopener noreferrer">
             <div class="description">
                 <h3>Croix-Rouge</h3>
                 <p>La Croix-Rouge soutient nos actions humanitaires et sociales à travers des dons et des collaborations
@@ -202,7 +135,8 @@
         <a class="partenaire-bloc" href="https://www.msomame.org/" target="_blank" rel="noopener noreferrer">
             <div class="description">
                 <h3> MSO MAME</h3>
-                <p>L’Association poursuit, sans but lucratif, des objectifs civiques, solidaires et d’utilité
+                <p>L’Association poursuit, sans but lucratif, des objectifs civiques, solidaires et
+                    d’utilité
                     sociale
                     pour honorer la mémoire de Maman Djommou Colette, en promouvant et en soutenant des projets de
                     coopération au développement dans des contextes défavorisés du Cameroun, avec une attention
@@ -217,29 +151,47 @@
                     la Déclaration Universelle des Droits de l’Homme.</p>
             </div>
             <div class="logo">
-                <img src="/static/images/icons/WhatsApp Image 2025-05-20 at 09.40.11.jpeg" alt="MSO MAME">
+                <img src="/static/images/icons/WhatsApp Image 2025-05-20 at 09.40.11.jpeg" alt="MSO MAME"
+                    style="width: 100px">
             </div>
         </a>
 
-
+        <a class="partenaire-bloc" href="https://www.unicef.org" target="_blank" rel="noopener noreferrer">
+            <div class="description">
+                <h3>Club des Enfants Joyeux</h3>
+                <p>Le Club des Enfants Joyeux est une association à but non lucratif qui œuvre pour offrir à chaque
+                    enfant, quelle que soit sa situation sociale ou économique, les mêmes chances de s’épanouir, de
+                    sourire et de grandir dans la joie. Nous croyons que l’équité commence dès l’enfance : là où
+                    certains manquent de ressources, de soutien ou d’amour, nous intervenons pour rétablir un équilibre,
+                    par des actions concrètes, ludiques et bienveillantes. Qu’ils soient démunis, orphelins ou
+                    marginalisés, nous agissons pour que tous les enfants aient, eux aussi, droit à une enfance pleine
+                    de rires, d’attention et de dignité.</p>
+            </div>
+            <div class="logo">
+                <img src="/static/images/logo/LOGO CEJ/LOGO CEJ.png" alt="Club des Enfants Joyeux" style="width: 200px">
+            </div>
+        </a>
         <!-- Ajoute plus de blocs ici si besoin -->
     </div>
 </section>
 
 
-<section class="presentation-section">
+<section class=" presentation-section">
     <h1 class="main-title">Rejoignez notre communauté</h1>
 
     <div class="presentation-block">
         <div class="content left">
             <div class="text">
                 <h2>Membres adhérents</h2>
-                <p>Les membres adhérents sont généralement les membres actifs de l'association par leur participation
-                    régulière aux activités de la DFD. Ils contribuent à la réalisation de ses projets et pourraient se
+                <p>Les membres adhérents sont généralement les membres actifs de l'association par leur
+                    participation
+                    régulière aux activités de la DFD. Ils contribuent à la réalisation de ses projets et
+                    pourraient se
                     constituer candidats aux postes de responsabilité.</p>
             </div>
             <div class="image">
-                <img src="/static/images/Brinda.PNG" alt="Adhérents">
+                <img src="/static/images/logo/membre.avif" alt="Adhérents"
+                    style="max-width: 300px; height: auto; border-radius: 8px;">
             </div>
         </div>
         <div class="btn-container">
@@ -250,11 +202,13 @@
     <div class="presentation-block">
         <div class="content right">
             <div class="image">
-                <img src="/static/images/Gallus.PNG" alt="Bénévoles">
+                <img src="/static/images/logo/benevole.avif" alt="Bénévoles"
+                    style="max-width: 300px; height: auto; border-radius: 8px;">
             </div>
             <div class="text">
                 <h2>Membres bénévoles</h2>
-                <p>Ils apportent leur soutien dans des domaines variés selon les besoins de l’association. Ils servent
+                <p>Ils apportent leur soutien dans des domaines variés selon les besoins de l’association.
+                    Ils servent
                     de
                     support aux équipes permanentes et aux responsables lors des missions précises.</p>
             </div>
@@ -273,7 +227,8 @@
                     souvent de manière financière ou par des services en nature.</p>
             </div>
             <div class="image">
-                <img src="/static/images/Irma.PNG" alt="Partenaires">
+                <img src="/static/images/logo/partenaires.jpeg" alt="Partenaires"
+                    style="max-width: 300px; height: auto; border-radius: 8px;">
             </div>
         </div>
         <div class="btn-container">
