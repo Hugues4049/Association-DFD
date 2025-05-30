@@ -1,0 +1,28 @@
+# Environnement virtuel
+env/
+venv/
+.venv/
+
+# Fichiers Python compilés
+__pycache__/
+*.py[cod]
+
+# Fichiers de base de données (optionnel si SQLite)
+*.sqlite3
+
+# Configuration privée
+.env
+
+# Dossiers de déploiement
+*.log
+staticfiles/
+media/
+build/
+dist/
+
+# Mac/Linux
+.DS_Store
+
+# VSCode/PyCharm/etc.
+.vscode/
+.idea/
