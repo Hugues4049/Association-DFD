@@ -12,3 +12,20 @@ media/
 .idea/
 .coverage
 pytest_cache/
+Aws Ec2 Django Deploy.pdf
+DJANGO.zip
+DJANGO/
+IBM_TEST.txt
+Job_tracker/
+KUBA_TEST/
+Monportfolio/
+PDF_GENERATOR/
+aws_ec_2_django_deploy_script.sh
+connexion-elk.pem
+elk-filebeat-djangoApp/
+enseignant_site/
+jeton_jenkins
+nginx-node-proxy/
+passeword.txt
+.vscode/
+requirements.txt
