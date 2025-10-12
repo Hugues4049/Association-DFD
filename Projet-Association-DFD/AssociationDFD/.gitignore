@@ -1,0 +1,53 @@
+# === Environnements virtuels ===
+env/
+venv/
+.venv/
+
+# === Fichiers Python ===
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# === Base de données locale ===
+db.sqlite3
+
+# === Configurations locales et secrets ===
+*.env
+.env.*
+
+# === Fichiers de logs ===
+*.log
+*.pot
+*.mo
+*.po~
+
+# === Cache / temporaires ===
+.DS_Store
+Thumbs.db
+*.tmp
+*.bak
+
+# === Dossiers statiques compilés ===
+staticfiles/
+media/
+
+# === IDE / éditeurs ===
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# === Tests / rapports ===
+.coverage
+htmlcov/
+pytest_cache/
+
+# === Docker ===
+*.pid
+*.seed
+*.tar
+*.bak
+
+# === Jupyter / IPython ===
+.ipynb_checkpoints/
