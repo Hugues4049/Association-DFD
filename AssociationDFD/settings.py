@@ -10,25 +10,35 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
-from pathlib import Path
-from decouple import config
+"""
+Django settings for AssociationDFD project.
+"""
 
+from pathlib import Path
+from decouple import Config, RepositoryEnv
+from dotenv import load_dotenv
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# Charger le fichier .env
+load_dotenv(BASE_DIR / '.env')
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
+# Forcer la lecture du fichier .env
+env_path = BASE_DIR / '.env'
+if env_path.exists():
+    config = Config(RepositoryEnv(str(env_path)))
+else:
+    from decouple import config
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-h%kj7)qr8%l0r)d2b(a3i_*c8!dfo-%(l0$vr8p7-nz%jj82)#'
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv('DEBUG', 'True') == 'True'
 
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -153,5 +163,6 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 #EMAIL_HOST_USER = 'rolandcontactpro@gmail.com'
 #EMAIL_HOST_PASSWORD = 'rxfg wzkz lxgz pumu'
-EMAIL_HOST_USER = config('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+# Email
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')

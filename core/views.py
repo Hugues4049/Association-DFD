@@ -86,3 +86,29 @@ def contact(request):
 def my_view(request):
     current_language = get_language()
     return render(request, 'core/base.html', {'LANGUAGE_CODE': current_language})
+
+
+
+
+
+# views.py
+from django.shortcuts import redirect
+from .forms import DonationForm
+from .models import Donation
+
+def don(request):
+    if request.method == 'POST':
+        form = DonationForm(request.POST)
+        if form.is_valid():
+            # Créer la donation
+            donation = Donation.objects.create(
+                donor_name=form.cleaned_data['name'],
+                donor_email=form.cleaned_data['email'],
+                amount=form.cleaned_data['amount']
+            )
+            # TODO: Intégrer Stripe/PayPal
+            return redirect('confirmation', donation_id=donation.id)
+    else:
+        form = DonationForm()
+    
+    return render(request, 'core/don.html', {'form': form})

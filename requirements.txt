@@ -1,3 +1,14 @@
 Django==5.2.6
 pdfkit==1.0.0
 python-decouple==3.8
+
+# Nouvelles dépendances recommandées
+psycopg2-binary==2.9.9  # PostgreSQL
+pillow==10.4.0           # Images
+stripe==11.1.0           # Paiements
+django-ckeditor==6.7.1   # Éditeur WYSIWYG pour blog
+django-crispy-forms==2.3 # Formulaires stylés
+djangorestframework==3.15.2  # API
+django-cors-headers==4.4.0   # CORS pour API
+celery==5.4.0            # Tâches asynchrones (emails)
+redis==5.1.0             # Cache et broker Celery
