@@ -1,2 +1,14 @@
-<h2>Merci pour votre message !</h2>
-<p>Nous vous contacterons rapidement.</p>
+<!-- confirmation.html -->
+{% extends 'core/base.html' %}
+{% block title %}Confirmation - DFD{% endblock %}
+{% block content %}
+
+<section class="presentation">
+    <div class="presentation-block" style="text-align: center;">
+        <h2>✅ Merci pour votre message !</h2>
+        <p>Nous vous contacterons rapidement.</p>
+        <a href="{% url 'home' %}" class="btn">Retour à l'accueil</a>
+    </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,284 @@
+{% extends 'core/base.html' %}
+{% load i18n %}
+{% block title %}{% trans "Accueil - DFD" %}{% endblock %}
+
+{% block content %}
+{% load static %}
+
+<!-- HERO SECTION MODERNE -->
+<section class="hero-section">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <h1 class="hero-title">Soyez le Héros Local !</h1>
+        <p class="hero-subtitle">Intéressé à devenir un sponsor ? Il n'a jamais été aussi facile de faire un don.</p>
+        
+        <div class="hero-buttons">
+            <a href="{% url 'don' %}" class="btn-hero btn-primary">
+                <i class="fas fa-heart"></i> FAIRE UN DON
+            </a>
+            <span class="hero-or">OU</span>
+            <a href="{% url 'participer' %}" class="btn-hero btn-secondary">
+                <i class="fas fa-hands-helping"></i> DEVENIR BÉNÉVOLE
+            </a>
+        </div>
+    </div>
+    
+    <!-- Navigation dots -->
+    <div class="hero-dots">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+    </div>
+</section>
+
+<!-- SECTION PRÉSENTATION -->
+<section class="presentation-home">
+    <div class="container">
+        <h2 class="section-title">Qui sommes-nous ?</h2>
+        <div class="presentation-grid">
+            <div class="presentation-text">
+                <p>DFD (Dreams Family of Development) est une association humanitaire engagée auprès des communautés vulnérables.
+                Nous croyons que chaque rêve mérite d'être soutenu et transformé en projet concret.</p>
+                <p>À travers nos actions sur le terrain, nos formations, et notre réseau solidaire,
+                nous œuvrons pour un monde plus juste, plus humain, et plus durable.</p>
+                <a href="{% url 'apropos' %}" class="btn-link">En savoir plus →</a>
+            </div>
+            <div class="presentation-image">
+                <img src="{% static 'images/logo/logo simple (1).png' %}" alt="Logo DFD">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SECTION IMPACT / STATISTIQUES -->
+<section class="impact-section">
+    <div class="container">
+        <h2 class="section-title">Notre Impact</h2>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <h3 class="stat-number">500+</h3>
+                <p class="stat-label">Enfants scolarisés</p>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-hands-helping"></i>
+                </div>
+                <h3 class="stat-number">1000+</h3>
+                <p class="stat-label">Bénéficiaires aidés</p>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-project-diagram"></i>
+                </div>
+                <h3 class="stat-number">25+</h3>
+                <p class="stat-label">Projets réalisés</p>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3 class="stat-number">50+</h3>
+                <p class="stat-label">Bénévoles actifs</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- MOT DU PRÉSIDENT -->
+<section class="president-section">
+    <div class="container">
+        <h2 class="section-title">Mot du Président Fondateur</h2>
+        <div class="president-content">
+            <div class="president-photo">
+                <img src="{% static 'images/Nathan.PNG' %}" alt="Nathanaël Toukea" />
+                <div class="president-info">
+                    <h3>Nathanaël Toukea</h3>
+                    <p>Président Fondateur DFD</p>
+                </div>
+            </div>
+            <div class="president-message">
+                <p>Face aux défis majeurs tels que la pauvreté, les crises sanitaires, l'inégalité, l'insécurité
+                alimentaire ou encore la déscolarisation, le Cameroun s'engage dans la recherche de solutions innovantes
+                pour améliorer le bien-être de sa population.</p>
+                
+                <p>Dans cette dynamique, Dreams Family of Development (DFD) se positionne comme un acteur clé, œuvrant pour
+                le bien-être holistique de l'Homme à travers une assistance physique, mentale et sociale.</p>
+                
+                <p><strong>Bienvenue sur notre site internet et bonne visite !</strong></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- GALERIE PHOTOS -->
+<section class="gallery-section">
+    <div class="container">
+        <h2 class="section-title">Nos Actions en Images</h2>
+        <p class="section-subtitle">Images de la descente au Foyer de l'espérence à Yaoundé le 29/12/2024</p>
+        
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <video controls autoplay muted loop>
+                    <source src="{% static 'images/Photo-DFD-Foyer/Video-DFD-foyer/video-nathan.mp4' %}" type="video/mp4">
+                    Votre navigateur ne supporte pas la vidéo.
+                </video>
+            </div>
+            <!-- Ajoutez plus d'images ici -->
+        </div>
+    </div>
+</section>
+
+<!-- TÉMOIGNAGES -->
+<section class="testimonials-section">
+    <div class="container">
+        <h2 class="section-title">Témoignages</h2>
+        
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="testimonial-quote">
+                    <i class="fas fa-quote-left"></i>
+                </div>
+                <p class="testimonial-text">"Grâce à DFD, mes enfants vont enfin à l'école."</p>
+                <div class="testimonial-author">
+                    <h4>Awono Christelle</h4>
+                    <p>Bénéficiaire</p>
+                </div>
+            </div>
+            
+            <div class="testimonial-card">
+                <div class="testimonial-quote">
+                    <i class="fas fa-quote-left"></i>
+                </div>
+                <p class="testimonial-text">"Un vrai changement dans notre orphelinat depuis leur arrivée."</p>
+                <div class="testimonial-author">
+                    <h4>Kenfack</h4>
+                    <p>Directrice orphelinat St-Joseph</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PARTENAIRES -->
+<section class="partners-section">
+    <div class="container">
+        <h2 class="section-title">Nos Partenaires</h2>
+        
+        <div class="partners-logos">
+            <div class="partner-logo">
+                <img src="/static/images/icons/croixrouge.png" alt="Croix-Rouge">
+            </div>
+            <div class="partner-logo">
+                <img src="/static/images/icons/unicef.png" alt="UNICEF">
+            </div>
+            <div class="partner-logo">
+                <img src="/static/images/icons/WhatsApp Image 2025-05-20 at 09.40.11.jpeg" alt="MSO MAME">
+            </div>
+            <div class="partner-logo">
+                <img src="/static/images/logo/LOGO CEJ/LOGO CEJ.png" alt="Club des Enfants Joyeux">
+            </div>
+        </div>
+        
+        <div class="text-center" style="margin-top: 2rem;">
+            <a href="{% url 'partenaires' %}" class="btn-link">Voir tous nos partenaires →</a>
+        </div>
+    </div>
+</section>
+
+<!-- CALL TO ACTION FINAL -->
+<section class="cta-section">
+    <div class="container">
+        <h2 class="cta-title">Rejoignez Notre Communauté</h2>
+        <p class="cta-subtitle">Ensemble, construisons un avenir meilleur</p>
+        
+        <div class="cta-cards">
+            <div class="cta-card">
+                <div class="cta-icon">
+                    <i class="fas fa-user-plus"></i>
+                </div>
+                <h3>Devenir Membre</h3>
+                <p>Rejoignez notre réseau d'adhérents et participez activement à nos projets.</p>
+                <a href="{% url 'participer' %}#membre" class="btn-cta">S'inscrire</a>
+            </div>
+            
+            <div class="cta-card">
+                <div class="cta-icon">
+                    <i class="fas fa-hands-helping"></i>
+                </div>
+                <h3>Devenir Bénévole</h3>
+                <p>Apportez votre soutien selon vos disponibilités et compétences.</p>
+                <a href="{% url 'participer' %}#benevole" class="btn-cta">Rejoindre</a>
+            </div>
+            
+            <div class="cta-card highlighted">
+                <div class="cta-icon">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <h3>Faire un Don</h3>
+                <p>Votre contribution financière change des vies concrètement.</p>
+                <a href="{% url 'don' %}" class="btn-cta primary">Donner</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% block scripts %}
+<script>
+    // Hero carousel
+    document.addEventListener('DOMContentLoaded', function () {
+        const images = [
+            "{% static 'images/bannière/PHOTO-2024-12-29-17-30-47.jpg' %}",
+            "{% static 'images/bannière/PHOTO-2024-12-29-17-30-48.jpg' %}",
+            "{% static 'images/bannière/PHOTO-2025-01-06-19-34-50.jpg' %}"
+        ];
+        
+        let index = 0;
+        const heroSection = document.querySelector('.hero-section');
+        const dots = document.querySelectorAll('.dot');
+        
+        function changeBackground() {
+            heroSection.style.backgroundImage = `url(${images[index]})`;
+            
+            // Update dots
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+            });
+            
+            index = (index + 1) % images.length;
+        }
+        
+        changeBackground();
+        setInterval(changeBackground, 5000);
+        
+        // Dot click
+        dots.forEach((dot, i) => {
+            dot.addEventListener('click', () => {
+                index = i;
+                changeBackground();
+            });
+        });
+    });
+    
+    // Animate stats on scroll
+    const observerOptions = {
+        threshold: 0.5
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate');
+            }
+        });
+    }, observerOptions);
+    
+    document.querySelectorAll('.stat-card').forEach(card => {
+        observer.observe(card);
+    });
+</script>
+{% endblock %}
+
+{% endblock %}

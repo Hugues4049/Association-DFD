@@ -6,37 +6,49 @@
 {% load static %}
 
 <link rel="stylesheet" href="{% static 'css/style.css' %}">
+<link rel="stylesheet" href="{% static 'css/president-section.css' %}">
+<link rel="stylesheet" href="{% static 'css/hero-banner.css' %}">
 
-<section class="banniere-principale">
-    <h1>{% trans "LA MAIN TENDUE, UN SOURIRE NOUVEAU." %}</h1>
+<!-- ============================================
+     HERO BANNER - Grande bannière avec défilement
+     ============================================ -->
+<section class="hero-banner">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <h1 class="hero-title">La main tendue, un sourire nouveau !</h1>
+        <p class="hero-subtitle">Intéressé à devenir un sponsor ? Il n'a jamais été aussi facile de faire un don.</p>
+        
+        <div class="hero-buttons">
+            <a href="{% url 'don' %}" class="btn-hero btn-donate">
+                <i class="fas fa-heart"></i> FAIRE UN DON
+            </a>
+            <span class="hero-or">OU</span>
+            <a href="{% url 'participer' %}" class="btn-hero btn-volunteer">
+                <i class="fas fa-hands-helping"></i> DEVENIR BÉNÉVOLE
+            </a>
+        </div>
+    </div>
+    
+    <!-- Navigation dots pour le carrousel -->
+    <div class="hero-dots">
+        <span class="hero-dot active" data-slide="0"></span>
+        <span class="hero-dot" data-slide="1"></span>
+        <span class="hero-dot" data-slide="2"></span>
+        <span class="hero-dot" data-slide="3"></span>
+    </div>
 </section>
 
-<!-- Conteneur flex -->
-<div class="banniere-row">
-    <section class="banniere-inspirante">
-        <video controls autoplay muted loop
-            style="max-width: 100%; max-height: 600px; object-fit: contain; border-radius: 8px;">
-            <source src="{% static 'images/Photo-DFD-Foyer/Video-DFD-foyer/video-nathan.mp4' %}" type="video/mp4">
-            Votre navigateur ne supporte pas la vidéo.
-        </video>
-    </section>
 
-    <section class="Nom-de-lassociation">
-        <div class="contenu-association">
-            <img src="{% static 'images/logo/logo simple (1).png' %}" alt="Logo DFD" class="logo-association">
-            <h1 class="main-title">Dreams Family of Development (DFD)</h1>
-        </div>
-    </section>
-</div>
-
-
+<!-- ============================================
+     QUI SOMMES-NOUS
+     ============================================ -->
 
 
 <section class="presentation">
     <h1 class="main-title">Qui sommes-nous ?</h1>
     <p>DFD (Dreams Family of Development) est une
         association humanitaire engagée auprès des communautés vulnérables.
-        Nous croyons que chaque rêve mérite d’être soutenu et transformé en projet
+        Nous croyons que chaque rêve mérite d'être soutenu et transformé en projet
         concret.
 
         À travers nos actions sur le terrain, nos formations, et notre réseau solidaire,
@@ -46,6 +58,9 @@
 
 
 
+<!-- ============================================
+     MOT DU PRÉSIDENT
+     ============================================ -->
 
 
 <section class="mot-du-president">
@@ -53,16 +68,16 @@
     <div class="bloc-president">
         <div class="texte-president">
             <p>
-                Face aux défis majeurs tels que la pauvreté, les crises sanitaires, l’inégalité, l’insécurité
-                alimentaire ou encore la déscolarisation, le Cameroun s’engage dans la recherche de solutions innovantes
+                Face aux défis majeurs tels que la pauvreté, les crises sanitaires, l'inégalité, l'insécurité
+                alimentaire ou encore la déscolarisation, le Cameroun s'engage dans la recherche de solutions innovantes
                 pour améliorer le bien-être de sa population, en mobilisant ses institutions, les ONG et la société
                 civile.
             </p>
             <p>Dans cette dynamique, Dreams Family of Development (DFD) se positionne comme un acteur clé, œuvrant pour
-                le bien-être holistique de l’Homme à travers une assistance physique, mentale et sociale.</p>
+                le bien-être holistique de l'Homme à travers une assistance physique, mentale et sociale.</p>
             <p>Pour mener à bien sa mission, DFD collabore avec divers partenaires pour proposer des actions concrètes :
                 campagnes de santé, dons, accompagnement psychologique, sensibilisations, promotion de la scolarisation
-                et de l’autonomisation.</p>
+                et de l'autonomisation.</p>
             <p>Par nos actions, nous voulons redonner espoir, améliorer les conditions de vie et contribuer à bâtir un
                 avenir plus épanoui et prospère pour tous.</p>
             <p><strong>Bienvenue sur notre site internet et bonne visite !</strong></p>
@@ -75,6 +90,11 @@
 </section>
 
 
+<!-- ============================================
+     GALERIE
+     ============================================ -->
+
+
 
 <section class="galerie">
     <h1 class="main-title">Nos actions en images</h1>
@@ -82,13 +102,19 @@
 </section>
 
 
+
+
+<!-- ============================================
+     TÉMOIGNAGES
+     ============================================ -->
+
 <section class="temoignages presentation">
     <h1 class="main-title"> Témoignages</h1>
 
     <div class="presentation-block" style="background-color: #fff9f9;">
         <blockquote
             style="font-style: italic; color: var(--color-primary); border-left: 5px solid var(--color-primary); padding-left: 20px;">
-            <p>"Grâce à DFD, mes enfants vont enfin à l’école."</p>
+            <p>"Grâce à DFD, mes enfants vont enfin à l'école."</p>
             <footer style="margin-top: 10px; font-weight: bold;">— Awono Christelle</footer>
         </blockquote>
     </div>
@@ -102,6 +128,9 @@
     </div>
 </section>
 
+<!-- ============================================
+     PARTENAIRES
+     ============================================ -->
 
 <section class="partenaires">
     <h1 class="main-title">Nos partenaires</h1>
@@ -135,20 +164,20 @@
         <a class="partenaire-bloc" href="https://www.msomame.org/" target="_blank" rel="noopener noreferrer">
             <div class="description">
                 <h3> MSO MAME</h3>
-                <p>L’Association poursuit, sans but lucratif, des objectifs civiques, solidaires et
-                    d’utilité
+                <p>L'Association poursuit, sans but lucratif, des objectifs civiques, solidaires et
+                    d'utilité
                     sociale
                     pour honorer la mémoire de Maman Djommou Colette, en promouvant et en soutenant des projets de
                     coopération au développement dans des contextes défavorisés du Cameroun, avec une attention
-                    particulière portée au quartier HÀ à Bandjoun. Elle soutient des initiatives dans les domaines
+                    particulière portée au quartier Hà à Bandjoun. Elle soutient des initiatives dans les domaines
                     de la
-                    santé, de l’éducation, des inégalités de genre, de la formation et de l’économie, dans le
+                    santé, de l'éducation, des inégalités de genre, de la formation et de l'économie, dans le
                     respect
                     des besoins exprimés par les populations locales.
-                    L’Organisation s’engage également à promouvoir en Italie et ailleurs des réflexions, actions et
-                    comportements en faveur de la construction d’une société responsable et ouverte, dans le respect
+                    L'Organisation s'engage également à promouvoir en Italie et ailleurs des réflexions, actions et
+                    comportements en faveur de la construction d'une société responsable et ouverte, dans le respect
                     de
-                    la Déclaration Universelle des Droits de l’Homme.</p>
+                    la Déclaration Universelle des Droits de l'Homme.</p>
             </div>
             <div class="logo">
                 <img src="/static/images/icons/WhatsApp Image 2025-05-20 at 09.40.11.jpeg" alt="MSO MAME"
@@ -160,12 +189,12 @@
             <div class="description">
                 <h3>Club des Enfants Joyeux</h3>
                 <p>Le Club des Enfants Joyeux est une association à but non lucratif qui œuvre pour offrir à chaque
-                    enfant, quelle que soit sa situation sociale ou économique, les mêmes chances de s’épanouir, de
-                    sourire et de grandir dans la joie. Nous croyons que l’équité commence dès l’enfance : là où
-                    certains manquent de ressources, de soutien ou d’amour, nous intervenons pour rétablir un équilibre,
-                    par des actions concrètes, ludiques et bienveillantes. Qu’ils soient démunis, orphelins ou
+                    enfant, quelle que soit sa situation sociale ou économique, les mêmes chances de s'épanouir, de
+                    sourire et de grandir dans la joie. Nous croyons que l'équité commence dès l'enfance : là où
+                    certains manquent de ressources, de soutien ou d'amour, nous intervenons pour rétablir un équilibre,
+                    par des actions concrètes, ludiques et bienveillantes. Qu'ils soient démunis, orphelins ou
                     marginalisés, nous agissons pour que tous les enfants aient, eux aussi, droit à une enfance pleine
-                    de rires, d’attention et de dignité.</p>
+                    de rires, d'attention et de dignité.</p>
             </div>
             <div class="logo">
                 <img src="/static/images/logo/LOGO CEJ/LOGO CEJ.png" alt="Club des Enfants Joyeux" style="width: 200px">
@@ -175,6 +204,10 @@
     </div>
 </section>
 
+
+<!-- ============================================
+     REJOIGNEZ LA COMMUNAUTÉ
+     ============================================ -->
 
 <section class=" presentation-section">
     <h1 class="main-title">Rejoignez notre communauté</h1>
@@ -207,7 +240,7 @@
             </div>
             <div class="text">
                 <h2>Membres bénévoles</h2>
-                <p>Ils apportent leur soutien dans des domaines variés selon les besoins de l’association.
+                <p>Ils apportent leur soutien dans des domaines variés selon les besoins de l'association.
                     Ils servent
                     de
                     support aux équipes permanentes et aux responsables lors des missions précises.</p>
@@ -240,69 +273,49 @@
 
 
 
-
 {% block scripts %}
 <script>
+    // ============================================
+    // HERO BANNER - Carrousel automatique
+    // ============================================
     document.addEventListener('DOMContentLoaded', function () {
         const images = [
             "{% static 'images/bannière/PHOTO-2024-12-29-17-30-47.jpg' %}",
             "{% static 'images/bannière/PHOTO-2024-12-29-17-30-48.jpg' %}",
             "{% static 'images/bannière/PHOTO-2024-12-29-17-31-06.jpg' %}",
-            "{% static 'images/bannière/PHOTO-2025-01-06-19-34-50.jpg' %}",
-            "{% static 'images/bannière/PHOTO-2025-01-06-19-34-52.jpg' %}",
-            "{% static 'images/bannière/PHOTO-2025-01-06-19-34-57.jpg' %}"
+            "{% static 'images/bannière/PHOTO-2025-01-06-19-34-50.jpg' %}"
         ];
-        let index = 0;
-        const banner = document.querySelector('.banniere-principale');
-
+        
+        let currentIndex = 0;
+        const heroBanner = document.querySelector('.hero-banner');
+        const dots = document.querySelectorAll('.hero-dot');
+        
         function changeBackground() {
-            banner.style.backgroundImage = `url(${images[index]})`;
-            index = (index + 1) % images.length;
+            heroBanner.style.backgroundImage = `url(${images[currentIndex]})`;
+            
+            // Update dots
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentIndex);
+            });
+            
+            currentIndex = (currentIndex + 1) % images.length;
         }
-
+        
+        // Initialize
         changeBackground();
+        
+        // Auto change every 5 seconds
         setInterval(changeBackground, 5000);
+        
+        // Dot click handlers
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                currentIndex = index;
+                changeBackground();
+            });
+        });
     });
 </script>
-
-
-
-<script>
-    const slides = document.querySelector('.slides');
-    const images = document.querySelectorAll('.slide');
-    const totalSlides = images.length;
-    const slideWidth = 800; // largeur des images
-    let index = 0;
-
-    document.querySelector('.next').addEventListener('click', () => {
-        index = (index + 1) % totalSlides;
-        slides.style.transform = `translateX(-${index * slideWidth}px)`;
-    });
-
-    document.querySelector('.prev').addEventListener('click', () => {
-        index = (index - 1 + totalSlides) % totalSlides;
-        slides.style.transform = `translateX(-${index * slideWidth}px)`;
-    });
-</script>
-
-
-<script>
-    const videoSlides = document.querySelector('.video-slides');
-    const videos = document.querySelectorAll('.video-slide');
-    const totalVideos = videos.length;
-    const videoWidth = 800;
-    let videoIndex = 0;
-
-    document.querySelector('.video-next').addEventListener('click', () => {
-        videoIndex = (videoIndex + 1) % totalVideos;
-        videoSlides.style.transform = `translateX(-${videoIndex * videoWidth}px)`;
-    });
-
-    document.querySelector('.video-prev').addEventListener('click', () => {
-        videoIndex = (videoIndex - 1 + totalVideos) % totalVideos;
-        videoSlides.style.transform = `translateX(-${videoIndex * videoWidth}px)`;
-    });
-</script>
-
 {% endblock %}
+
 {% endblock %}
