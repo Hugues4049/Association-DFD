@@ -38,7 +38,7 @@ if not SECRET_KEY:
 # -------------------------------------------------------------------
 # Hôtes & proxy TLS (Render)
 # -------------------------------------------------------------------
-ALLOWED_HOSTS = ["localhost", "127.0.0.1", ".onrender.com"]
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", ".onrender.com", "0.0.0.0"]
 # Si Render expose un hostname dédié, on l'ajoute
 _render_host = os.getenv("RENDER_EXTERNAL_HOSTNAME")
 if _render_host:
