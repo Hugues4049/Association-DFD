@@ -39,12 +39,19 @@ venv.bak/
 # Django
 # ===================================
 *.log
+*.pot
+*.pyc
 local_settings.py
 db.sqlite3
 db.sqlite3-journal
-/static/
-/media/
-*.pot
+
+# ⚠️ IMPORTANT : Ignorer seulement staticfiles/, PAS static/
+staticfiles/
+staticfiles/*
+
+# Ignorer les médias uploadés
+media/
+media/*
 
 # ===================================
 # Fichiers secrets
@@ -109,26 +116,3 @@ site/
 .mypy_cache/
 .dmypy.json
 dmypy.json
-
-
-# Django
-*.log
-*.pot
-*.pyc
-__pycache__/
-db.sqlite3
-db.sqlite3-journal
-media/
-staticfiles/
-
-# Environnement
-.env
-.venv
-env/
-venv/
-
-# IDE
-.vscode/
-.idea/
-*.swp
-*.swo
