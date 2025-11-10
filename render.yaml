@@ -1,0 +1,25 @@
+# render.yaml
+services:
+  - type: web
+    name: dfd-association
+    env: python
+    region: frankfurt  # ou oregon, singapore
+    plan: free
+    branch: main
+    buildCommand: "./build.sh"
+    startCommand: "gunicorn AssociationDFD.wsgi:application"
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DEBUG
+        value: False
+      - key: WEB_CONCURRENCY
+        value: 4
+
+databases:
+  - name: dfd-db
+    plan: free
+    databaseName: dfd_database
+    user: dfd_user

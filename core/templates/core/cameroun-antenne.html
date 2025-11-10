@@ -1,0 +1,222 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}DFD Cameroun - Antenne{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/antennes.css' %}">
+
+<section class="antenne-hero" style="background-image: linear-gradient(rgba(0, 100, 0, 0.75), rgba(0, 77, 0, 0.75)), url('{% static 'images/cameroun-hero.jpg' %}');">
+    <div class="antenne-hero-content">
+        <img src="{% static 'images/flags/cameroun.png' %}" alt="Drapeau Cameroun" class="antenne-flag">
+        <h1>DFD Cameroun</h1>
+        <p class="antenne-tagline">Notre siège social et berceau de nos actions</p>
+    </div>
+</section>
+
+<section class="presentation">
+    <div class="presentation-block">
+        <h2>🇨🇲 À Propos de Notre Antenne Camerounaise</h2>
+        <p>DFD Cameroun est le siège social de l'association Dreams Family of Development. C'est là que tout a commencé en 2020, dans le quartier de Yaoundé, avec une vision : redonner espoir aux communautés vulnérables.</p>
+        <p>Aujourd'hui, notre antenne camerounaise coordonne l'ensemble de nos actions sur le terrain et rayonne dans plusieurs régions du pays.</p>
+    </div>
+
+    <!-- Contact -->
+    <div class="presentation-block antenne-contact-card">
+        <h2><i class="fas fa-map-marker-alt"></i> Coordonnées DFD Cameroun</h2>
+        <div class="contact-grid">
+            <div class="contact-item">
+                <div class="contact-icon">
+                    <i class="fas fa-building"></i>
+                </div>
+                <div class="contact-details">
+                    <h3>Siège Social</h3>
+                    <p>Face Hôtel SOMMATEL<br>Palais des Sports<br>Yaoundé, Cameroun</p>
+                </div>
+            </div>
+
+            <div class="contact-item">
+                <div class="contact-icon">
+                    <i class="fas fa-phone"></i>
+                </div>
+                <div class="contact-details">
+                    <h3>Téléphone</h3>
+                    <p><a href="tel:+237698765432">+237 698 765 432</a><br>
+                    <a href="tel:+393663329990">+39 366 332 9990</a> (WhatsApp)</p>
+                </div>
+            </div>
+
+            <div class="contact-item">
+                <div class="contact-icon">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <div class="contact-details">
+                    <h3>Email</h3>
+                    <p><a href="mailto:cameroun@dreamsfamily.org">cameroun@dreamsfamily.org</a><br>
+                    <a href="mailto:dreams.family.development@gmail.com">dreams.family.development@gmail.com</a></p>
+                </div>
+            </div>
+
+            <div class="contact-item">
+                <div class="contact-icon">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <div class="contact-details">
+                    <h3>Horaires d'ouverture</h3>
+                    <p>Lundi - Vendredi : 8h - 17h<br>
+                    Samedi : 9h - 13h<br>
+                    Dimanche : Fermé</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Zones d'intervention -->
+    <div class="presentation-block">
+        <h2>📍 Nos Zones d'Intervention au Cameroun</h2>
+        <div class="zones-intervention">
+            <div class="zone-badge">
+                <i class="fas fa-map-pin"></i>
+                <h3>Centre</h3>
+                <p>Yaoundé, Mbalmayo, Bafia</p>
+            </div>
+            <div class="zone-badge">
+                <i class="fas fa-map-pin"></i>
+                <h3>Littoral</h3>
+                <p>Douala, Edéa, Nkongsamba</p>
+            </div>
+            <div class="zone-badge">
+                <i class="fas fa-map-pin"></i>
+                <h3>Ouest</h3>
+                <p>Bafoussam, Foumban, Dschang</p>
+            </div>
+            <div class="zone-badge">
+                <i class="fas fa-map-pin"></i>
+                <h3>Nord</h3>
+                <p>Garoua, Maroua, Ngaoundéré</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Équipe -->
+    <div class="presentation-block">
+        <h2>👥 Notre Équipe au Cameroun</h2>
+        <div class="team-antenne-grid">
+            <div class="team-antenne-card">
+                <img src="{% static 'images/Nathan.PNG' %}" alt="Nathanaël Toukea">
+                <h3>Nathanaël Toukea</h3>
+                <span class="team-role">Président Fondateur</span>
+                <p>Coordinateur général des opérations DFD Cameroun</p>
+                <div class="team-contact-links">
+                    <a href="mailto:nathan@dreamsfamily.org"><i class="fas fa-envelope"></i></a>
+                    <a href="tel:+393663329990"><i class="fas fa-phone"></i></a>
+                </div>
+            </div>
+
+            <div class="team-antenne-card">
+                <img src="{% static 'images/Brinda.PNG' %}" alt="Brinda Djomaha">
+                <h3>Brinda Djomaha</h3>
+                <span class="team-role">Responsable des Projets</span>
+                <p>Coordination et suivi des projets sur le terrain</p>
+                <div class="team-contact-links">
+                    <a href="mailto:brinda@dreamsfamily.org"><i class="fas fa-envelope"></i></a>
+                    <a href="tel:+237690123456"><i class="fas fa-phone"></i></a>
+                </div>
+            </div>
+
+            <div class="team-antenne-card">
+                <img src="{% static 'images/Féline.PNG' %}" alt="Féline Minyem">
+                <h3>Féline Minyem</h3>
+                <span class="team-role">Chargée de Communication</span>
+                <p>Relations publiques et médias DFD Cameroun</p>
+                <div class="team-contact-links">
+                    <a href="mailto:feline@dreamsfamily.org"><i class="fas fa-envelope"></i></a>
+                    <a href="tel:+237698456789"><i class="fas fa-phone"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Projets phares -->
+    <div class="presentation-block">
+        <h2>⭐ Nos Projets Phares au Cameroun</h2>
+        <div class="projets-locaux-grid">
+            <div class="projet-local-card">
+                <div class="projet-local-content">
+                    <span class="projet-local-tag">Santé</span>
+                    <h3>Campagne de Santé Etam Bafia</h3>
+                    <p>Consultations médicales gratuites, vaccinations et mini-chirurgies pour les populations rurales d'Etam Bafia.</p>
+                    <div class="projet-local-meta">
+                        <span><i class="fas fa-calendar"></i> Sept. 2025</span>
+                        <span><i class="fas fa-users"></i> 500+ bénéficiaires</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="projet-local-card">
+                <div class="projet-local-content">
+                    <span class="projet-local-tag">Éducation</span>
+                    <h3>Programme "Une École, Un Avenir"</h3>
+                    <p>Construction et rénovation de salles de classe dans les zones rurales du Centre et de l'Ouest.</p>
+                    <div class="projet-local-meta">
+                        <span><i class="fas fa-calendar"></i> En cours</span>
+                        <span><i class="fas fa-school"></i> 8 écoles</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="projet-local-card">
+                <div class="projet-local-content">
+                    <span class="projet-local-tag">Humanitaire</span>
+                    <h3>Soutien aux Orphelins de Yaoundé</h3>
+                    <p>Parrainage et accompagnement psychosocial de 150 orphelins dans la région de Yaoundé.</p>
+                    <div class="projet-local-meta">
+                        <span><i class="fas fa-calendar"></i> Permanent</span>
+                        <span><i class="fas fa-child"></i> 150 enfants</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="presentation-block stats-section">
+        <h2>📊 Notre Impact au Cameroun</h2>
+        <div class="stats-grid">
+            <div class="stat-box">
+                <div class="stat-number">5000+</div>
+                <div class="stat-label">Bénéficiaires directs</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">45</div>
+                <div class="stat-label">Projets réalisés</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">30</div>
+                <div class="stat-label">Bénévoles actifs</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">15</div>
+                <div class="stat-label">Partenaires locaux</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="presentation-block cta-block">
+        <h2>🤝 Rejoignez DFD Cameroun</h2>
+        <p>Ensemble, construisons un Cameroun solidaire et prospère !</p>
+        <div class="cta-buttons">
+            <a href="{% url 'don' %}" class="btn btn-primary">
+                <i class="fas fa-heart"></i> Soutenir nos actions
+            </a>
+            <a href="{% url 'participer' %}" class="btn btn-secondary">
+                <i class="fas fa-hands-helping"></i> Devenir bénévole
+            </a>
+            <a href="{% url 'contact' %}" class="btn btn-outline">
+                <i class="fas fa-envelope"></i> Nous contacter
+            </a>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

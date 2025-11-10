@@ -1,0 +1,195 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}Galerie Multimédia - DFD{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/departements.css' %}">
+
+<section class="dept-hero" style="background-image: linear-gradient(rgba(139, 92, 246, 0.85), rgba(124, 58, 237, 0.85)), url('{% static 'images/galerie-hero.jpg' %}');">
+    <div class="dept-hero-content">
+        <div class="dept-icon">
+            <i class="fas fa-images"></i>
+        </div>
+        <h1>Galerie Multimédia</h1>
+        <p class="dept-slogan">"Nos actions en images, vidéos et sons"</p>
+    </div>
+</section>
+
+<section class="presentation">
+    <div class="presentation-block">
+        <h2>📸 Photos, Vidéos, Podcasts - Découvrez DFD en Action</h2>
+        <p>Plongez dans l'univers de Dreams Family of Development à travers notre galerie multimédia. Photos de nos campagnes, vidéos inspirantes, podcasts enrichissants... Découvrez l'impact réel de nos actions sur le terrain.</p>
+    </div>
+
+    <!-- Navigation Galerie -->
+    <div class="presentation-block">
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2rem;">
+            <button class="btn" onclick="showGallery('photos')" style="background: var(--gradient-accent); color: white;">
+                <i class="fas fa-camera"></i> Photos
+            </button>
+            <button class="btn" onclick="showGallery('videos')" style="background: var(--gradient-primary); color: white;">
+                <i class="fas fa-video"></i> Vidéos
+            </button>
+            <button class="btn" onclick="showGallery('podcasts')" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); color: white;">
+                <i class="fas fa-podcast"></i> Podcasts
+            </button>
+        </div>
+
+        <!-- Section Photos -->
+        <div id="photos-section" class="gallery-section">
+            <h2>📷 Galerie Photos</h2>
+            
+            <h3 style="margin-top: 2rem; color: var(--color-primary);">Campagne de Santé - Etam Bafia (Septembre 2024)</h3>
+            <div class="projets-locaux-grid" style="margin-top: 1.5rem;">
+                <div style="text-align: center;">
+                    <img src="{% static 'images/Photo-DFD-Foyer/PHOTO-2024-12-29-17-30-47.jpg' %}" alt="Campagne santé" style="width: 100%; height: 250px; object-fit: cover; border-radius: var(--radius-lg); box-shadow: var(--shadow-md);">
+                    <p style="margin-top: 0.5rem; color: var(--color-text-secondary);">Consultations médicales gratuites</p>
+                </div>
+                <div style="text-align: center;">
+                    <img src="{% static 'images/Photo-DFD-Foyer/PHOTO-2024-12-29-17-30-48.jpg' %}" alt="Vaccination" style="width: 100%; height: 250px; object-fit: cover; border-radius: var(--radius-lg); box-shadow: var(--shadow-md);">
+                    <p style="margin-top: 0.5rem; color: var(--color-text-secondary);">Vaccination des populations</p>
+                </div>
+                <div style="text-align: center;">
+                    <img src="{% static 'images/Photo-DFD-Foyer/PHOTO-2024-12-29-17-31-06.jpg' %}" alt="Équipe médicale" style="width: 100%; height: 250px; object-fit: cover; border-radius: var(--radius-lg); box-shadow: var(--shadow-md);">
+                    <p style="margin-top: 0.5rem; color: var(--color-text-secondary);">Équipe médicale bénévole</p>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 3rem; color: var(--color-primary);">Descente au Foyer de l'Espérence (Décembre 2024)</h3>
+            <div class="projets-locaux-grid" style="margin-top: 1.5rem;">
+                <div style="text-align: center;">
+                    <img src="{% static 'images/Photo-DFD-Foyer/PHOTO-2025-01-06-19-34-50.jpg' %}" alt="Foyer" style="width: 100%; height: 250px; object-fit: cover; border-radius: var(--radius-lg); box-shadow: var(--shadow-md);">
+                    <p style="margin-top: 0.5rem; color: var(--color-text-secondary);">Visite au foyer - Yaoundé</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section Vidéos -->
+        <div id="videos-section" class="gallery-section" style="display: none;">
+            <h2>�� Vidéos</h2>
+            
+            <div class="projets-locaux-grid" style="margin-top: 2rem;">
+                <div style="background: white; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-md);">
+                    <video controls width="100%" height="250" style="display: block;">
+                        <source src="{% static 'images/Photo-DFD-Foyer/Video-DFD-foyer/video-nathan.mp4' %}" type="video/mp4">
+                        Votre navigateur ne supporte pas la vidéo.
+                    </video>
+                    <div style="padding: 1rem;">
+                        <h3 style="color: var(--color-primary); margin-bottom: 0.5rem;">Message du Président</h3>
+                        <p style="color: var(--color-text-secondary); font-size: 0.9rem;">Nathanaël Toukea présente la vision de DFD</p>
+                    </div>
+                </div>
+
+                <div style="background: white; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-md);">
+                    <video controls width="100%" height="250" style="display: block;">
+                        <source src="{% static 'images/Photo-DFD-Foyer/Video-DFD-foyer/VIDEO-2024-12-30-22-37-57.mp4' %}" type="video/mp4">
+                        Votre navigateur ne supporte pas la vidéo.
+                    </video>
+                    <div style="padding: 1rem;">
+                        <h3 style="color: var(--color-primary); margin-bottom: 0.5rem;">Nos Actions sur le Terrain</h3>
+                        <p style="color: var(--color-text-secondary); font-size: 0.9rem;">Reportage au Foyer de l'Espérence</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section Podcasts -->
+        <div id="podcasts-section" class="gallery-section" style="display: none;">
+            <h2>🎙️ Podcasts</h2>
+            <p style="margin-bottom: 2rem; color: var(--color-text-secondary);">Écoutez nos podcasts inspirants sur le développement, l'humanitaire et l'engagement citoyen.</p>
+
+            <div class="actions-grid">
+                <div class="action-card" style="border-left: 4px solid #f59e0b;">
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                        <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); border-radius: var(--radius-full); display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem;">
+                            <i class="fas fa-podcast"></i>
+                        </div>
+                        <div>
+                            <h3 style="margin: 0; font-size: 1.2rem;">Épisode 1 - L'Engagement Humanitaire</h3>
+                            <p style="margin: 0; font-size: 0.85rem; color: var(--color-text-muted);">15 min • 10 nov. 2024</p>
+                        </div>
+                    </div>
+                    <p>Discussion avec Nathanaël Toukea sur les motivations et défis de l'engagement humanitaire au Cameroun.</p>
+                    <audio controls style="width: 100%; margin-top: 1rem;">
+                        <source src="{% static 'podcasts/episode-1.mp3' %}" type="audio/mpeg">
+                        Votre navigateur ne supporte pas l'audio.
+                    </audio>
+                </div>
+
+                <div class="action-card" style="border-left: 4px solid #f59e0b;">
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                        <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); border-radius: var(--radius-full); display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem;">
+                            <i class="fas fa-podcast"></i>
+                        </div>
+                        <div>
+                            <h3 style="margin: 0; font-size: 1.2rem;">Épisode 2 - Éducation en Zone Rurale</h3>
+                            <p style="margin: 0; font-size: 0.85rem; color: var(--color-text-muted);">20 min • 24 nov. 2024</p>
+                        </div>
+                    </div>
+                    <p>Les défis de l'éducation dans les zones rurales camerounaises et nos solutions innovantes.</p>
+                    <audio controls style="width: 100%; margin-top: 1rem;">
+                        <source src="{% static 'podcasts/episode-2.mp3' %}" type="audio/mpeg">
+                        Votre navigateur ne supporte pas l'audio.
+                    </audio>
+                </div>
+
+                <div class="action-card" style="border-left: 4px solid #f59e0b;">
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                        <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); border-radius: var(--radius-full); display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem;">
+                            <i class="fas fa-podcast"></i>
+                        </div>
+                        <div>
+                            <h3 style="margin: 0; font-size: 1.2rem;">Épisode 3 - Témoignages de Bénéficiaires</h3>
+                            <p style="margin: 0; font-size: 0.85rem; color: var(--color-text-muted);">18 min • 08 déc. 2024</p>
+                        </div>
+                    </div>
+                    <p>Histoires inspirantes de personnes aidées par DFD et leur parcours de résilience.</p>
+                    <audio controls style="width: 100%; margin-top: 1rem;">
+                        <source src="{% static 'podcasts/episode-3.mp3' %}" type="audio/mpeg">
+                        Votre navigateur ne supporte pas l'audio.
+                    </audio>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 3rem;">
+                <p style="font-size: 1.1rem; margin-bottom: 1rem;">Abonnez-vous à notre podcast :</p>
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="#" class="btn" style="background: #9333ea; color: white;"><i class="fab fa-spotify"></i> Spotify</a>
+                    <a href="#" class="btn" style="background: #8b5cf6; color: white;"><i class="fab fa-apple"></i> Apple Podcasts</a>
+                    <a href="#" class="btn" style="background: #ef4444; color: white;"><i class="fab fa-youtube"></i> YouTube</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="presentation-block cta-block">
+        <h2>📢 Partagez Notre Histoire</h2>
+        <p>Aidez-nous à faire connaître nos actions en partageant notre galerie sur les réseaux sociaux !</p>
+        <div class="cta-buttons">
+            <a href="https://www.facebook.com/sharer/sharer.php" target="_blank" class="btn btn-primary">
+                <i class="fab fa-facebook"></i> Partager sur Facebook
+            </a>
+            <a href="https://www.instagram.com/dreams_family_of_development" target="_blank" class="btn btn-secondary">
+                <i class="fab fa-instagram"></i> Suivre sur Instagram
+            </a>
+            <a href="{% url 'contact' %}" class="btn btn-outline">
+                <i class="fas fa-envelope"></i> Nous contacter
+            </a>
+        </div>
+    </div>
+</section>
+
+<script>
+function showGallery(type) {
+    // Masquer toutes les sections
+    document.querySelectorAll('.gallery-section').forEach(section => {
+        section.style.display = 'none';
+    });
+    
+    // Afficher la section sélectionnée
+    document.getElementById(type + '-section').style.display = 'block';
+}
+</script>
+
+{% endblock %}

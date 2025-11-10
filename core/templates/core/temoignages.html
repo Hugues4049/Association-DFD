@@ -1,0 +1,175 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}Témoignages - DFD{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/departements.css' %}">
+
+<section class="dept-hero" style="background-image: linear-gradient(rgba(251, 191, 36, 0.85), rgba(245, 158, 11, 0.85)), url('{% static 'images/temoignages-hero.jpg' %}');">
+    <div class="dept-hero-content">
+        <div class="dept-icon">
+            <i class="fas fa-comment-dots"></i>
+        </div>
+        <h1>Témoignages</h1>
+        <p class="dept-slogan">"Vos histoires sont notre plus belle récompense"</p>
+    </div>
+</section>
+
+<section class="presentation">
+    <div class="presentation-block">
+        <h2>💬 Ils Témoignent de Leur Expérience avec DFD</h2>
+        <p>Découvrez les témoignages émouvants de ceux dont les vies ont été touchées par DFD : bénéficiaires, bénévoles, donateurs et partenaires.</p>
+    </div>
+
+    <!-- Témoignages Bénéficiaires -->
+    <div class="presentation-block">
+        <h2>❤️ Paroles de Bénéficiaires</h2>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="testimonial-quote">"</div>
+                <p>Grâce à DFD, j'ai pu payer mes frais de scolarité et obtenir mon baccalauréat. Aujourd'hui, je suis en première année de médecine. DFD a cru en moi quand personne d'autre ne le faisait.</p>
+                <div class="testimonial-author">
+                    <strong>Marie Ngo, 19 ans</strong>
+                    <span>Étudiante, Yaoundé</span>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="testimonial-quote">"</div>
+                <p>Après avoir tout perdu dans un incendie, DFD nous a aidés à nous reconstruire. Ils nous ont fourni un toit temporaire, de la nourriture et surtout de l'espoir. Ma famille ne les remerciera jamais assez.</p>
+                <div class="testimonial-author">
+                    <strong>Famille Mbida</strong>
+                    <span>Bafoussam</span>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="testimonial-quote">"</div>
+                <p>La campagne de santé gratuite de DFD m'a sauvé la vie. J'ai été opéré d'une hernie qui me faisait souffrir depuis des années. Je n'aurais jamais pu payer cette opération par moi-même.</p>
+                <div class="testimonial-author">
+                    <strong>Papa Fouda, 62 ans</strong>
+                    <span>Etam Bafia</span>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="testimonial-quote">"</div>
+                <p>Grâce au parrainage de DFD, je peux aller à l'école et avoir trois repas par jour. Je ne me sens plus comme un orphelin, mais comme un enfant de la grande famille DFD.</p>
+                <div class="testimonial-author">
+                    <strong>Junior, 11 ans</strong>
+                    <span>Orphelin parrainé, Yaoundé</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Témoignages Bénévoles -->
+    <div class="presentation-block">
+        <h2>🤝 Paroles de Bénévoles</h2>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="testimonial-quote">"</div>
+                <p>Être bénévole chez DFD a changé ma vision de l'humanitaire. J'ai découvert que même avec peu de moyens, on peut avoir un énorme impact. C'est devenu une vraie famille pour moi.</p>
+                <div class="testimonial-author">
+                    <strong>Sandrine Kamga</strong>
+                    <span>Bénévole communication depuis 2 ans</span>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="testimonial-quote">"</div>
+                <p>En tant que médecin bénévole lors des campagnes de santé, je suis toujours impressionné par l'organisation et le professionnalisme de DFD. On sent qu'ici, chaque vie compte vraiment.</p>
+                <div class="testimonial-author">
+                    <strong>Dr. Kameni</strong>
+                    <span>Médecin bénévole</span>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="testimonial-quote">"</div>
+                <p>J'ai rejoint DFD en 2023 et je ne regrette rien. Pouvoir utiliser mes compétences en informatique pour aider les jeunes défavorisés à se former au numérique est extrêmement gratifiant.</p>
+                <div class="testimonial-author">
+                    <strong>Patrick Nde</strong>
+                    <span>Formateur bénévole en informatique</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Témoignages Donateurs -->
+    <div class="presentation-block">
+        <h2>💝 Paroles de Donateurs</h2>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="testimonial-quote">"</div>
+                <p>Je fais des dons mensuels à DFD depuis 2 ans. Ce qui m'a séduit, c'est leur transparence financière et les rapports détaillés qu'ils envoient. Je sais exactement où va mon argent.</p>
+                <div class="testimonial-author">
+                    <strong>Claire Dubois</strong>
+                    <span>Donatrice régulière, France</span>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="testimonial-quote">"</div>
+                <p>J'ai parrainé un enfant via DFD et je reçois régulièrement de ses nouvelles et des photos de ses progrès scolaires. C'est incroyable de voir l'impact concret de mon soutien.</p>
+                <div class="testimonial-author">
+                    <strong>Marco Rossi</strong>
+                    <span>Parrain d'enfant, Italie</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Formulaire témoignage -->
+    <div class="presentation-block" style="background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);">
+        <h2>✍️ Partagez Votre Témoignage</h2>
+        <p>Vous avez été bénéficiaire, bénévole, donateur ou partenaire de DFD ? Partagez votre expérience !</p>
+        <form action="/soumettre-temoignage" method="post" style="max-width: 700px; margin: 2rem auto 0; background: white; padding: 2rem; border-radius: var(--radius-lg); box-shadow: var(--shadow-md);">
+            {% csrf_token %}
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                <input type="text" name="nom" placeholder="Votre nom" required style="padding: 0.875rem; border: 2px solid #e5e7eb; border-radius: var(--radius-md);">
+                <input type="email" name="email" placeholder="Votre email" required style="padding: 0.875rem; border: 2px solid #e5e7eb; border-radius: var(--radius-md);">
+            </div>
+            <div style="margin-bottom: 1rem;">
+                <select name="role" required style="width: 100%; padding: 0.875rem; border: 2px solid #e5e7eb; border-radius: var(--radius-md);">
+                    <option value="">Vous êtes...</option>
+                    <option value="beneficiaire">Bénéficiaire</option>
+                    <option value="benevole">Bénévole</option>
+                    <option value="donateur">Donateur/Parrain</option>
+                    <option value="partenaire">Partenaire</option>
+                </select>
+            </div>
+            <div style="margin-bottom: 1rem;">
+                <textarea name="temoignage" placeholder="Votre témoignage (maximum 500 caractères)" required maxlength="500" rows="6" style="width: 100%; padding: 0.875rem; border: 2px solid #e5e7eb; border-radius: var(--radius-md);"></textarea>
+            </div>
+            <div style="margin-bottom: 1.5rem;">
+                <label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.9rem;">
+                    <input type="checkbox" name="publication" required>
+                    <span>J'accepte que mon témoignage soit publié sur le site et les supports de DFD</span>
+                </label>
+            </div>
+            <button type="submit" class="btn" style="width: 100%; background: var(--gradient-accent); color: white; padding: 1rem; border: none; border-radius: var(--radius-full); font-weight: 700; cursor: pointer;">
+                <i class="fas fa-paper-plane"></i> ENVOYER MON TÉMOIGNAGE
+            </button>
+        </form>
+    </div>
+
+    <!-- CTA -->
+    <div class="presentation-block cta-block">
+        <h2>💫 Écrivez Votre Propre Histoire avec DFD</h2>
+        <p>Rejoignez-nous et faites partie des témoignages inspirants de demain !</p>
+        <div class="cta-buttons">
+            <a href="{% url 'don' %}" class="btn btn-primary">
+                <i class="fas fa-heart"></i> Faire un don
+            </a>
+            <a href="{% url 'participer' %}" class="btn btn-secondary">
+                <i class="fas fa-hands-helping"></i> Devenir bénévole
+            </a>
+            <a href="{% url 'contact' %}" class="btn btn-outline">
+                <i class="fas fa-envelope"></i> Nous contacter
+            </a>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

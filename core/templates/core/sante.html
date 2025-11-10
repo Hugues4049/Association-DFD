@@ -1,0 +1,224 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}Département Santé - DFD{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/departements.css' %}">
+
+<!-- Hero Section -->
+<section class="dept-hero" style="background-image: linear-gradient(rgba(220, 38, 38, 0.85), rgba(185, 28, 28, 0.85)), url('{% static 'images/sante-hero.jpg' %}');">
+    <div class="dept-hero-content">
+        <div class="dept-icon">
+            <i class="fas fa-heartbeat"></i>
+        </div>
+        <h1>Département Santé</h1>
+        <p class="dept-slogan">"La santé est un état de complet bien-être physique, mental et social"</p>
+    </div>
+</section>
+
+<section class="presentation">
+    <div class="presentation-block">
+        <h2>🏥 Notre Mission</h2>
+        <p>Le Département Santé de DFD s'engage à améliorer l'accès aux soins de santé de qualité pour les populations vulnérables, en particulier dans les zones rurales et périurbaines.</p>
+        <p>Nous œuvrons pour la prévention des maladies, la promotion de l'hygiène et l'accès équitable aux services de santé essentiels.</p>
+    </div>
+
+    <!-- Actions Santé -->
+    <div class="presentation-block">
+        <h2>✨ Nos Actions</h2>
+        <div class="actions-grid">
+            <div class="action-card">
+                <div class="action-icon">🏥</div>
+                <h3>Campagnes de Santé Gratuites</h3>
+                <p>Organisation de consultations médicales gratuites et distribution de médicaments dans les zones défavorisées.</p>
+                <ul>
+                    <li>Consultations générales gratuites</li>
+                    <li>Distribution de médicaments essentiels</li>
+                    <li>Dépistages VIH/SIDA, paludisme, diabète</li>
+                    <li>Chirurgies mineures (lipome, hernie)</li>
+                </ul>
+            </div>
+
+            <div class="action-card">
+                <div class="action-icon">💉</div>
+                <h3>Vaccination</h3>
+                <p>Campagnes de vaccination ciblées pour protéger les enfants et adultes contre les maladies évitables.</p>
+                <ul>
+                    <li>Vaccination anti-hépatite B</li>
+                    <li>VAT (Vaccin Anti-Tétanique)</li>
+                    <li>Vaccins infantiles de routine</li>
+                    <li>Sensibilisation à l'importance de la vaccination</li>
+                </ul>
+            </div>
+
+            <div class="action-card">
+                <div class="action-icon">🤰</div>
+                <h3>Santé Maternelle et Infantile</h3>
+                <p>Accompagnement des femmes enceintes et des jeunes mères pour réduire la mortalité materno-infantile.</p>
+                <ul>
+                    <li>Consultations prénatales gratuites</li>
+                    <li>Kits de naissance pour nouveau-nés</li>
+                    <li>Sensibilisation à la nutrition</li>
+                    <li>Suivi post-natal</li>
+                </ul>
+            </div>
+
+            <div class="action-card">
+                <div class="action-icon">🧠</div>
+                <h3>Santé Mentale</h3>
+                <p>Soutien psychologique et sensibilisation sur les troubles mentaux souvent négligés.</p>
+                <ul>
+                    <li>Consultations psychologiques gratuites</li>
+                    <li>Groupes de parole</li>
+                    <li>Ateliers de gestion du stress</li>
+                    <li>Lutte contre la stigmatisation</li>
+                </ul>
+            </div>
+
+            <div class="action-card">
+                <div class="action-icon">🚰</div>
+                <h3>Eau, Hygiène et Assainissement</h3>
+                <p>Promotion des bonnes pratiques d'hygiène et accès à l'eau potable.</p>
+                <ul>
+                    <li>Construction de points d'eau potable</li>
+                    <li>Sensibilisation au lavage des mains</li>
+                    <li>Distribution de kits d'hygiène</li>
+                    <li>Assainissement communautaire</li>
+                </ul>
+            </div>
+
+            <div class="action-card">
+                <div class="action-icon">👨‍⚕️</div>
+                <h3>Formation du Personnel de Santé</h3>
+                <p>Renforcement des capacités des agents de santé communautaires.</p>
+                <ul>
+                    <li>Formation aux premiers secours</li>
+                    <li>Ateliers de mise à jour médicale</li>
+                    <li>Sensibilisation aux maladies endémiques</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Campagne Phare -->
+    <div class="presentation-block" style="background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);">
+        <h2>⭐ Campagne Phare 2025</h2>
+        <div style="background: white; padding: 2rem; border-radius: var(--radius-lg); box-shadow: var(--shadow-md);">
+            <h3 style="color: var(--color-primary); font-size: 1.8rem; margin-bottom: 1rem;">
+                🏥 Campagne de Santé Gratuite 100% - Etam Bafia
+            </h3>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1.5rem;">
+                <div>
+                    <p><strong>📅 Dates :</strong> 19-20 Septembre 2025</p>
+                    <p><strong>📍 Lieu :</strong> Fondation Médicale La Grâce Divine, Etam Bafia</p>
+                    <p><strong>⏰ Horaires :</strong> 08h00 - 17h00</p>
+                    <p><strong>💰 Coût :</strong> ENTIÈREMENT GRATUIT</p>
+                </div>
+                <div>
+                    <p><strong>Services offerts :</strong></p>
+                    <ul style="list-style: none; padding-left: 0;">
+                        <li>✓ Consultations médicales générales</li>
+                        <li>✓ Vaccination (Hépatite B, VAT)</li>
+                        <li>✓ Mesure de la glycémie et tension artérielle</li>
+                        <li>✓ Mini chirurgies (lipome, hernie, circoncision)</li>
+                        <li>✓ Ateliers de sensibilisation (prostate, hygiène féminine)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chiffres clés -->
+    <div class="presentation-block stats-section">
+        <h2>📊 Notre Impact en Chiffres</h2>
+        <div class="stats-grid">
+            <div class="stat-box">
+                <div class="stat-number">3000+</div>
+                <div class="stat-label">Personnes consultées</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">15</div>
+                <div class="stat-label">Campagnes organisées</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">1500+</div>
+                <div class="stat-label">Vaccins administrés</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">200+</div>
+                <div class="stat-label">Chirurgies réalisées</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Partenaires Santé -->
+    <div class="presentation-block">
+        <h2>🤝 Nos Partenaires Santé</h2>
+        <div class="partners-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 2rem;">
+            <div class="partner-card" style="background: white; padding: 2rem; border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); text-align: center;">
+                <h3>Fondation Médicale La Grâce Divine</h3>
+                <p style="color: var(--color-text-secondary); font-size: 0.9rem;">Etam Bafia</p>
+            </div>
+            <div class="partner-card" style="background: white; padding: 2rem; border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); text-align: center;">
+                <h3>Hôpital de District</h3>
+                <p style="color: var(--color-text-secondary); font-size: 0.9rem;">Yaoundé</p>
+            </div>
+            <div class="partner-card" style="background: white; padding: 2rem; border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); text-align: center;">
+                <h3>Centre de Santé Intégré</h3>
+                <p style="color: var(--color-text-secondary); font-size: 0.9rem;">Bafoussam</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Témoignages -->
+    <div class="presentation-block">
+        <h2>💬 Témoignages</h2>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="testimonial-quote">"</div>
+                <p>Grâce à la campagne de santé de DFD, j'ai pu me faire opérer d'une hernie gratuitement. Je n'aurais jamais pu payer cette opération.</p>
+                <div class="testimonial-author">
+                    <strong>M. Fouda, 58 ans</strong>
+                    <span>Bénéficiaire, Etam Bafia</span>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="testimonial-quote">"</div>
+                <p>Les consultations prénatales gratuites m'ont sauvé la vie ainsi que celle de mon bébé. Merci DFD pour votre soutien inestimable.</p>
+                <div class="testimonial-author">
+                    <strong>Mme Ngono</strong>
+                    <span>Jeune maman</span>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="testimonial-quote">"</div>
+                <p>En tant que médecin bénévole, je suis fier de participer aux campagnes de DFD qui touchent vraiment ceux qui en ont le plus besoin.</p>
+                <div class="testimonial-author">
+                    <strong>Dr. Kamga</strong>
+                    <span>Médecin bénévole</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Call to Action -->
+    <div class="presentation-block cta-block">
+        <h2>💝 Soutenez Nos Actions Santé</h2>
+        <p>Chaque don permet de sauver des vies et d'offrir des soins gratuits à ceux qui en ont besoin.</p>
+        <div class="cta-buttons">
+            <a href="{% url 'don' %}" class="btn btn-primary">
+                <i class="fas fa-heart"></i> Faire un don
+            </a>
+            <a href="{% url 'participer' %}" class="btn btn-secondary">
+                <i class="fas fa-user-md"></i> Devenir bénévole médical
+            </a>
+            <a href="{% url 'contact' %}" class="btn btn-outline">
+                <i class="fas fa-envelope"></i> Nous contacter
+            </a>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

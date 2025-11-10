@@ -69,16 +69,17 @@
                     Nos Departements <i class="fas fa-chevron-down"></i>
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a href="/departements/education">Education</a></li>
-                    <li><a href="/departements/sante">Sante</a></li>
-                    <li><a href="/departements/environnement">Environnement</a></li>
-                    <li><a href="/departements/humanitaire">Humanitaire</a></li>
-                    <li><a href="/departements/communication">Communication</a></li>
-                    <li><a href="/departements/developpement-durable">Developpement durable</a></li>
-                    <li><a href="/departements/innovation">Innovation & numerique</a></li>
-                    <li><a href="/departements/administration">Administration & finances</a></li>
+                    <li><a href="{% url 'dept_education' %}">Education</a></li>
+                    <li><a href="{% url 'dept_sante' %}">Sante</a></li>
+                    <li><a href="{% url 'dept_environnement' %}">Environnement</a></li>
+                    <li><a href="{% url 'dept_humanitaire' %}">Humanitaire</a></li>
+                    <li><a href="{% url 'dept_communication' %}">Communication</a></li>
+                    <li><a href="{% url 'dept_developpement' %}">Developpement durable</a></li>
+                    <li><a href="{% url 'dept_innovation' %}">Innovation & numerique</a></li>
+                    <li><a href="{% url 'dept_administration' %}">Administration & finances</a></li>
                 </ul>
             </li>
+
             
             <!-- Nos Antennes -->
             <li class="dropdown">
@@ -86,12 +87,13 @@
                     Nos Antennes <i class="fas fa-chevron-down"></i>
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a href="/antennes/cameroun">DFD Cameroun</a></li>
-                    <li><a href="/antennes/diaspora">DFD Diaspora</a></li>
-                    <li><a href="/antennes/france">DFD France <span class="badge">A venir</span></a></li>
-                    <li><a href="/antennes/italie">DFD Italie <span class="badge">A venir</span></a></li>
+                    <li><a href="{% url 'antenne_cameroun' %}">DFD Cameroun</a></li>
+                    <li><a href="{% url 'antenne_diaspora' %}">DFD Diaspora</a></li>
+                    <li><a href="{% url 'antenne_france' %}">DFD France <span class="badge">A venir</span></a></li>
+                    <li><a href="{% url 'antenne_italie' %}">DFD Italie <span class="badge">A venir</span></a></li>
                 </ul>
             </li>
+
             
             <!-- Agir avec nous -->
             <li class="dropdown">
@@ -102,8 +104,9 @@
                     <li><a href="{% url 'participer' %}#benevole"><i class="fas fa-hands-helping"></i> Devenir benevole</a></li>
                     <li><a href="{% url 'participer' %}#membre"><i class="fas fa-user-plus"></i> Adherer a DFD</a></li>
                     <li><a href="{% url 'don' %}"><i class="fas fa-heart"></i> Faire un don</a></li>
-                    <li><a href="/temoignages"><i class="fas fa-comment-dots"></i> Temoigner</a></li>
-                    <li><a href="/boutique"><i class="fas fa-shopping-bag"></i> Boutique solidaire</a></li>
+                    <li><a href="{% url 'temoignages' %}"><i class="fas fa-comment-dots"></i> Temoigner</a></li>
+                    <li><a href="{% url 'boutique' %}"><i class="fas fa-shopping-bag"></i> Boutique solidaire</a></li>
+
                 </ul>
             </li>
             
@@ -113,7 +116,8 @@
                     Ressources <i class="fas fa-chevron-down"></i>
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a href="/galerie"><i class="fas fa-images"></i> Galerie (photos, videos, podcasts)</a></li>
+                    <li><a href="{% url 'galerie' %}"><i class="fas fa-images"></i> Galerie (photos, videos, podcasts)</a></li>
+
                     <li><a href="{% url 'documents' %}"><i class="fas fa-book"></i> Bibliotheque documentaire</a></li>
                     <li><a href="{% url 'blog' %}"><i class="fas fa-newspaper"></i> Articles & publications</a></li>
                 </ul>

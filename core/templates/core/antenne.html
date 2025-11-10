@@ -1,0 +1,146 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block title %}{{ antenne.titre }} - DFD{% endblock %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/antenne.css' %}">
+
+<!-- Hero Section -->
+<section class="antenne-hero">
+    <div class="hero-content">
+        <div class="hero-flag">{{ antenne.drapeau }}</div>
+        <h1 class="hero-title">{{ antenne.titre }}</h1>
+        <p class="hero-subtitle">{{ antenne.pays }}</p>
+        {% if antenne.status == 'a_venir' %}
+        <span class="status-badge badge-upcoming">A venir - {{ antenne.date_prevue }}</span>
+        {% else %}
+        <span class="status-badge badge-active">Active</span>
+        {% endif %}
+    </div>
+</section>
+
+<!-- Presentation -->
+<section class="presentation">
+    <div class="container">
+        <h2 class="section-title">Presentation</h2>
+        <div class="presentation-content">
+            <p class="lead-text">{{ antenne.description }}</p>
+        </div>
+    </div>
+</section>
+
+{% if antenne.status == 'active' %}
+<!-- Statistiques -->
+<section class="stats-section">
+    <div class="container">
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <div class="stat-number">{{ antenne.equipe }}</div>
+                <div class="stat-label">Membres de l'equipe</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <div class="stat-number">{{ antenne.beneficiaires }}</div>
+                <div class="stat-label">Beneficiaires</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-project-diagram"></i>
+                </div>
+                <div class="stat-number">{{ antenne.projets_actifs }}</div>
+                <div class="stat-label">Projets actifs</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact -->
+<section class="contact-section">
+    <div class="container">
+        <h2 class="section-title">Nous contacter</h2>
+        <div class="contact-grid">
+            {% if antenne.adresse %}
+            <div class="contact-card">
+                <div class="contact-icon">
+                    <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <h3>Adresse</h3>
+                <p>{{ antenne.adresse }}</p>
+            </div>
+            {% endif %}
+            
+            {% if antenne.telephone %}
+            <div class="contact-card">
+                <div class="contact-icon">
+                    <i class="fas fa-phone"></i>
+                </div>
+                <h3>Telephone</h3>
+                <p><a href="tel:{{ antenne.telephone }}">{{ antenne.telephone }}</a></p>
+            </div>
+            {% endif %}
+            
+            {% if antenne.email %}
+            <div class="contact-card">
+                <div class="contact-icon">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <h3>Email</h3>
+                <p><a href="mailto:{{ antenne.email }}">{{ antenne.email }}</a></p>
+            </div>
+            {% endif %}
+            
+            {% if antenne.responsable %}
+            <div class="contact-card">
+                <div class="contact-icon">
+                    <i class="fas fa-user"></i>
+                </div>
+                <h3>Responsable</h3>
+                <p>{{ antenne.responsable }}</p>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</section>
+{% else %}
+<!-- En preparation -->
+<section class="preparation-section">
+    <div class="container">
+        <div class="preparation-content">
+            <div class="preparation-icon">
+                <i class="fas fa-tools"></i>
+            </div>
+            <h2>Antenne en preparation</h2>
+            <p>Cette antenne est actuellement en cours de creation. Nous travaillons activement a sa mise en place.</p>
+            <p class="date-info">Date prevue de lancement : <strong>{{ antenne.date_prevue }}</strong></p>
+            <div class="cta-buttons">
+                <a href="{% url 'contact' %}" class="btn btn-primary">Etre informe</a>
+                <a href="{% url 'participer' %}" class="btn btn-secondary">Rejoindre l'equipe</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- Call to Action -->
+<section class="cta-section">
+    <div class="container">
+        <div class="cta-content">
+            <h2>Vous souhaitez nous rejoindre ?</h2>
+            <p>Devenez benevole ou partenaire de notre antenne</p>
+            <div class="cta-buttons">
+                <a href="{% url 'participer' %}" class="btn btn-primary">Nous rejoindre</a>
+                <a href="{% url 'don' %}" class="btn btn-secondary">Faire un don</a>
+                <a href="{% url 'contact' %}" class="btn btn-outline">Nous contacter</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

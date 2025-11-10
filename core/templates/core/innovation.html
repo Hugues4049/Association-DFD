@@ -1,0 +1,141 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}Innovation & Numérique - DFD{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/departements.css' %}">
+
+<section class="dept-hero" style="background-image: linear-gradient(rgba(99, 102, 241, 0.85), rgba(79, 70, 229, 0.85)), url('{% static 'images/innovation-hero.jpg' %}');">
+    <div class="dept-hero-content">
+        <div class="dept-icon">
+            <i class="fas fa-rocket"></i>
+        </div>
+        <h1>Innovation & Numérique</h1>
+        <p class="dept-slogan">"L'innovation technologique au service de l'humain"</p>
+    </div>
+</section>
+
+<section class="presentation">
+    <div class="presentation-block">
+        <h2>💻 Notre Mission</h2>
+        <p>Le Département Innovation & Numérique utilise les nouvelles technologies pour maximiser notre impact social et rendre nos services plus accessibles.</p>
+        <p>Nous formons également les jeunes aux métiers du numérique pour leur offrir des perspectives d'avenir.</p>
+    </div>
+
+    <div class="presentation-block">
+        <h2>✨ Nos Actions</h2>
+        <div class="actions-grid">
+            <div class="action-card">
+                <div class="action-icon">💻</div>
+                <h3>Formation Numérique</h3>
+                <p>Alphabétisation digitale et formation aux métiers du web.</p>
+                <ul>
+                    <li>Initiation à l'informatique</li>
+                    <li>Formation développement web</li>
+                    <li>Marketing digital</li>
+                    <li>Design graphique et UX/UI</li>
+                </ul>
+            </div>
+
+            <div class="action-card">
+                <div class="action-icon">🚀</div>
+                <h3>Incubateur de Startups Sociales</h3>
+                <p>Accompagnement de projets à impact social.</p>
+                <ul>
+                    <li>Mentorat entrepreneurial</li>
+                    <li>Bootcamps et hackathons</li>
+                    <li>Mise en réseau avec investisseurs</li>
+                    <li>Espaces de coworking solidaires</li>
+                </ul>
+            </div>
+
+            <div class="action-card">
+                <div class="action-icon">📱</div>
+                <h3>Solutions Tech pour l'Impact</h3>
+                <p>Développement d'outils numériques au service de nos missions.</p>
+                <ul>
+                    <li>Plateforme de dons en ligne</li>
+                    <li>Application mobile DFD</li>
+                    <li>Système de gestion des bénévoles</li>
+                    <li>Outils de suivi-évaluation digitaux</li>
+                </ul>
+            </div>
+
+            <div class="action-card">
+                <div class="action-icon">🎮</div>
+                <h3>Éducation par le Numérique</h3>
+                <p>E-learning et outils pédagogiques innovants.</p>
+                <ul>
+                    <li>Plateforme de cours en ligne</li>
+                    <li>Applications éducatives</li>
+                    <li>Serious games</li>
+                    <li>Bibliothèque numérique</li>
+                </ul>
+            </div>
+
+            <div class="action-card">
+                <div class="action-icon">🌐</div>
+                <h3>Connectivité Rurale</h3>
+                <p>Réduction de la fracture numérique.</p>
+                <ul>
+                    <li>Installation de points Wi-Fi communautaires</li>
+                    <li>Cybercafés solidaires</li>
+                    <li>Formation des communautés rurales</li>
+                    <li>Accès au e-commerce pour producteurs locaux</li>
+                </ul>
+            </div>
+
+            <div class="action-card">
+                <div class="action-icon">🤖</div>
+                <h3>Innovation Sociale</h3>
+                <p>Lab d'expérimentation de solutions innovantes.</p>
+                <ul>
+                    <li>Prototypage rapide</li>
+                    <li>Tests utilisateurs</li>
+                    <li>Design thinking workshops</li>
+                    <li>Veille technologique</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="presentation-block stats-section">
+        <h2>📊 Notre Impact Digital</h2>
+        <div class="stats-grid">
+            <div class="stat-box">
+                <div class="stat-number">800+</div>
+                <div class="stat-label">Jeunes formés au numérique</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">15</div>
+                <div class="stat-label">Startups incubées</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">10</div>
+                <div class="stat-label">Outils digitaux développés</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">5</div>
+                <div class="stat-label">Villages connectés</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="presentation-block cta-block">
+        <h2>🚀 Accélérez l'Innovation Sociale</h2>
+        <p>Rejoignez notre communauté tech et contribuez à la révolution numérique solidaire !</p>
+        <div class="cta-buttons">
+            <a href="{% url 'don' %}" class="btn btn-primary">
+                <i class="fas fa-laptop-code"></i> Soutenir l'innovation
+            </a>
+            <a href="{% url 'participer' %}" class="btn btn-secondary">
+                <i class="fas fa-code"></i> Devenir tech-volontaire
+            </a>
+            <a href="/incubateur" class="btn btn-outline">
+                <i class="fas fa-lightbulb"></i> Soumettre un projet
+            </a>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

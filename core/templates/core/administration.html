@@ -1,0 +1,193 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}Administration & Finances - DFD{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/departements.css' %}">
+
+<section class="dept-hero" style="background-image: linear-gradient(rgba(107, 114, 128, 0.85), rgba(75, 85, 99, 0.85)), url('{% static 'images/administration-hero.jpg' %}');">
+    <div class="dept-hero-content">
+        <div class="dept-icon">
+            <i class="fas fa-chart-line"></i>
+        </div>
+        <h1>Administration & Finances</h1>
+        <p class="dept-slogan">"La rigueur et la transparence pour un impact optimal"</p>
+    </div>
+</section>
+
+<section class="presentation">
+    <div class="presentation-block">
+        <h2>📊 Notre Mission</h2>
+        <p>Le Département Administration & Finances assure la bonne gouvernance de l'association, la gestion rigoureuse des ressources et la transparence financière.</p>
+        <p>Nous veillons à l'utilisation optimale de chaque don pour maximiser notre impact social.</p>
+    </div>
+
+    <div class="presentation-block">
+        <h2>✨ Nos Responsabilités</h2>
+        <div class="actions-grid">
+            <div class="action-card">
+                <div class="action-icon">💰</div>
+                <h3>Gestion Financière</h3>
+                <p>Suivi rigoureux des flux financiers et comptabilité.</p>
+                <ul>
+                    <li>Comptabilité générale</li>
+                    <li>Budgets prévisionnels</li>
+                    <li>Gestion de trésorerie</li>
+                    <li>Rapports financiers</li>
+                </ul>
+            </div>
+
+            <div class="action-card">
+                <div class="action-icon">📋</div>
+                <h3>Administration Générale</h3>
+                <p>Gestion administrative et juridique de l'association.</p>
+                <ul>
+                    <li>Gestion RH et bénévoles</li>
+                    <li>Conformité légale</li>
+                    <li>Contrats et conventions</li>
+                    <li>Assurances</li>
+                </ul>
+            </div>
+
+            <div class="action-card">
+                <div class="action-icon">🔍</div>
+                <h3>Audit & Contrôle</h3>
+                <p>Garantie de la transparence et de la conformité.</p>
+                <ul>
+                    <li>Audits internes</li>
+                    <li>Contrôles de gestion</li>
+                    <li>Évaluation des risques</li>
+                    <li>Conformité réglementaire</li>
+                </ul>
+            </div>
+
+            <div class="action-card">
+                <div class="action-icon">💼</div>
+                <h3>Recherche de Financements</h3>
+                <p>Mobilisation de ressources pour nos projets.</p>
+                <ul>
+                    <li>Montage de dossiers de subvention</li>
+                    <li>Relations avec bailleurs</li>
+                    <li>Fundraising et mécénat</li>
+                    <li>Partenariats financiers</li>
+                </ul>
+            </div>
+
+            <div class="action-card">
+                <div class="action-icon">📈</div>
+                <h3>Suivi-Évaluation</h3>
+                <p>Mesure de l'impact et amélioration continue.</p>
+                <ul>
+                    <li>Indicateurs de performance</li>
+                    <li>Tableaux de bord</li>
+                    <li>Évaluation d'impact</li>
+                    <li>Rapports d'activités</li>
+                </ul>
+            </div>
+
+            <div class="action-card">
+                <div class="action-icon">🏛️</div>
+                <h3>Gouvernance</h3>
+                <p>Organisation et fonctionnement des instances.</p>
+                <ul>
+                    <li>Assemblées générales</li>
+                    <li>Conseils d'administration</li>
+                    <li>Comités spécialisés</li>
+                    <li>Règlements intérieurs</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Transparence Financière -->
+    <div class="presentation-block" style="background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%);">
+        <h2>🔎 Notre Engagement de Transparence</h2>
+        <div style="background: white; padding: 2rem; border-radius: var(--radius-lg); margin-top: 1.5rem;">
+            <h3 style="color: var(--color-primary); margin-bottom: 1.5rem;">Répartition de Nos Dépenses (2024)</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem;">
+                <div style="text-align: center;">
+                    <div style="font-size: 2.5rem; font-weight: 800; color: var(--color-accent);">75%</div>
+                    <p style="font-weight: 600; color: var(--color-text-secondary);">Projets de terrain</p>
+                </div>
+                <div style="text-align: center;">
+                    <div style="font-size: 2.5rem; font-weight: 800; color: var(--color-accent);">15%</div>
+                    <p style="font-weight: 600; color: var(--color-text-secondary);">Fonctionnement</p>
+                </div>
+                <div style="text-align: center;">
+                    <div style="font-size: 2.5rem; font-weight: 800; color: var(--color-accent);">7%</div>
+                    <p style="font-weight: 600; color: var(--color-text-secondary);">Communication</p>
+                </div>
+                <div style="text-align: center;">
+                    <div style="font-size: 2.5rem; font-weight: 800; color: var(--color-accent);">3%</div>
+                    <p style="font-weight: 600; color: var(--color-text-secondary);">Recherche de fonds</p>
+                </div>
+            </div>
+            <div style="margin-top: 2rem; text-align: center;">
+                <a href="{% url 'documents' %}" class="btn" style="background: var(--gradient-accent); color: white; padding: 0.75rem 1.5rem; border-radius: var(--radius-full); text-decoration: none; display: inline-block;">
+                    <i class="fas fa-file-download"></i> Télécharger nos rapports financiers
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="presentation-block stats-section">
+        <h2>📊 Chiffres Clés 2024</h2>
+        <div class="stats-grid">
+            <div class="stat-box">
+                <div class="stat-number">250K€</div>
+                <div class="stat-label">Budget annuel</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">500+</div>
+                <div class="stat-label">Donateurs actifs</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">15</div>
+                <div class="stat-label">Partenaires financiers</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Transparence financière</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="presentation-block">
+        <h2>🏆 Nos Certifications & Labels</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 2rem;">
+            <div style="background: white; padding: 2rem; border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); text-align: center;">
+                <div style="font-size: 3rem; margin-bottom: 1rem;">✓</div>
+                <h3>Agrément Préfectoral</h3>
+                <p style="color: var(--color-text-secondary); font-size: 0.9rem;">Association d'intérêt général</p>
+            </div>
+            <div style="background: white; padding: 2rem; border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); text-align: center;">
+                <div style="font-size: 3rem; margin-bottom: 1rem;">✓</div>
+                <h3>Comptabilité Certifiée</h3>
+                <p style="color: var(--color-text-secondary); font-size: 0.9rem;">Audit externe annuel</p>
+            </div>
+            <div style="background: white; padding: 2rem; border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); text-align: center;">
+                <div style="font-size: 3rem; margin-bottom: 1rem;">✓</div>
+                <h3>Éligibilité Don IFI</h3>
+                <p style="color: var(--color-text-secondary); font-size: 0.9rem;">Réduction fiscale 66%</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="presentation-block cta-block">
+        <h2>💼 Une Gestion au Service de l'Impact</h2>
+        <p>Votre confiance est notre priorité. Chaque euro compte et est utilisé de manière optimale.</p>
+        <div class="cta-buttons">
+            <a href="{% url 'don' %}" class="btn btn-primary">
+                <i class="fas fa-hand-holding-usd"></i> Faire un don en confiance
+            </a>
+            <a href="{% url 'documents' %}" class="btn btn-secondary">
+                <i class="fas fa-file-invoice-dollar"></i> Consulter nos finances
+            </a>
+            <a href="{% url 'contact' %}" class="btn btn-outline">
+                <i class="fas fa-handshake"></i> Devenir partenaire
+            </a>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

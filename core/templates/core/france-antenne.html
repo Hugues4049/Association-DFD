@@ -1,0 +1,152 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}DFD France - Antenne (À venir){% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/antennes.css' %}">
+
+<section class="antenne-hero coming-soon-overlay" style="background-image: linear-gradient(rgba(0, 35, 102, 0.85), rgba(239, 65, 53, 0.85)), url('{% static 'images/france-hero.jpg' %}');">
+    <div class="antenne-hero-content">
+        <img src="{% static 'images/flags/france.png' %}" alt="Drapeau France" class="antenne-flag">
+        <h1>DFD France</h1>
+        <p class="antenne-tagline">Bientôt à vos côtés en France !</p>
+    </div>
+    <div class="coming-soon-badge">À VENIR - 2025</div>
+</section>
+
+<section class="presentation">
+    <div class="presentation-block">
+        <h2>🇫🇷 DFD France - Ouverture Prévue en 2025</h2>
+        <p>Nous sommes en train de finaliser l'ouverture de notre antenne en France, qui sera officiellement lancée au cours du deuxième trimestre 2025.</p>
+        <p>Cette antenne coordonnera nos actions en France, mobilisera la diaspora africaine et les sympathisants français, et renforcera nos partenariats avec des ONG et entreprises françaises.</p>
+    </div>
+
+    <!-- Ce qui est prévu -->
+    <div class="presentation-block">
+        <h2>🎯 Ce que nous préparons</h2>
+        <div class="actions-grid">
+            <div class="action-card">
+                <div class="action-icon">🏢</div>
+                <h3>Siège à Paris</h3>
+                <p>Un bureau permanent dans la région parisienne pour coordonner nos actions en France.</p>
+            </div>
+
+            <div class="action-card">
+                <div class="action-icon">🤝</div>
+                <h3>Réseau de Bénévoles</h3>
+                <p>Constitution d'une équipe de bénévoles dans plusieurs villes françaises.</p>
+            </div>
+
+            <div class="action-card">
+                <div class="action-icon">🎉</div>
+                <h3>Événements de Collecte</h3>
+                <p>Organisation de galas, concerts solidaires et ventes caritatives.</p>
+            </div>
+
+            <div class="action-card">
+                <div class="action-icon">🏫</div>
+                <h3>Partenariats Écoles/Universités</h3>
+                <p>Collaborations avec établissements d'enseignement pour mobiliser les jeunes.</p>
+            </div>
+
+            <div class="action-card">
+                <div class="action-icon">💼</div>
+                <h3>Mécénat d'Entreprise</h3>
+                <p>Développement de partenariats avec des entreprises françaises engagées.</p>
+            </div>
+
+            <div class="action-card">
+                <div class="action-icon">📦</div>
+                <h3>Envois Humanitaires</h3>
+                <p>Organisation de collectes et d'envois de containers vers le Cameroun.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Villes cibles -->
+    <div class="presentation-block">
+        <h2>�� Villes Françaises Cibles</h2>
+        <div class="zones-intervention">
+            <div class="zone-badge">
+                <i class="fas fa-city"></i>
+                <h3>Paris & Île-de-France</h3>
+                <p>Siège principal</p>
+            </div>
+            <div class="zone-badge">
+                <i class="fas fa-city"></i>
+                <h3>Lyon</h3>
+                <p>Antenne Rhône-Alpes</p>
+            </div>
+            <div class="zone-badge">
+                <i class="fas fa-city"></i>
+                <h3>Marseille</h3>
+                <p>Antenne PACA</p>
+            </div>
+            <div class="zone-badge">
+                <i class="fas fa-city"></i>
+                <h3>Toulouse</h3>
+                <p>Antenne Occitanie</p>
+            </div>
+            <div class="zone-badge">
+                <i class="fas fa-city"></i>
+                <h3>Bordeaux</h3>
+                <p>Antenne Nouvelle-Aquitaine</p>
+            </div>
+            <div class="zone-badge">
+                <i class="fas fa-city"></i>
+                <h3>Lille</h3>
+                <p>Antenne Hauts-de-France</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pré-inscription -->
+    <div class="presentation-block" style="background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%);">
+        <h2>📝 Pré-inscrivez-vous Dès Maintenant !</h2>
+        <p style="font-size: 1.1rem; margin-bottom: 2rem;">Vous êtes en France et souhaitez être informé(e) dès l'ouverture de notre antenne ? Laissez-nous vos coordonnées !</p>
+        <form action="/pre-inscription-france" method="post" style="max-width: 600px; margin: 0 auto; background: white; padding: 2rem; border-radius: var(--radius-lg); box-shadow: var(--shadow-md);">
+            {% csrf_token %}
+            <div style="margin-bottom: 1rem;">
+                <input type="text" name="nom" placeholder="Nom complet" required style="width: 100%; padding: 0.875rem; border: 2px solid #e5e7eb; border-radius: var(--radius-md);">
+            </div>
+            <div style="margin-bottom: 1rem;">
+                <input type="email" name="email" placeholder="Email" required style="width: 100%; padding: 0.875rem; border: 2px solid #e5e7eb; border-radius: var(--radius-md);">
+            </div>
+            <div style="margin-bottom: 1rem;">
+                <input type="text" name="ville" placeholder="Ville (France)" required style="width: 100%; padding: 0.875rem; border: 2px solid #e5e7eb; border-radius: var(--radius-md);">
+            </div>
+            <div style="margin-bottom: 1.5rem;">
+                <select name="interet" style="width: 100%; padding: 0.875rem; border: 2px solid #e5e7eb; border-radius: var(--radius-md);">
+                    <option value="">Comment souhaitez-vous contribuer ?</option>
+                    <option value="benevole">Devenir bénévole</option>
+                    <option value="donateur">Faire des dons réguliers</option>
+                    <option value="ambassadeur">Être ambassadeur</option>
+                    <option value="partenaire">Partenariat entreprise</option>
+                    <option value="autre">Autre</option>
+                </select>
+            </div>
+            <button type="submit" class="btn" style="width: 100%; background: var(--gradient-accent); color: white; padding: 1rem; border: none; border-radius: var(--radius-full); font-weight: 700; cursor: pointer;">
+                <i class="fas fa-paper-plane"></i> M'INSCRIRE
+            </button>
+        </form>
+    </div>
+
+    <!-- CTA -->
+    <div class="presentation-block cta-block">
+        <h2>🇫🇷 Aidez-nous à Lancer DFD France</h2>
+        <p>En attendant l'ouverture officielle, vous pouvez déjà contribuer !</p>
+        <div class="cta-buttons">
+            <a href="{% url 'don' %}" class="btn btn-primary">
+                <i class="fas fa-heart"></i> Faire un don
+            </a>
+            <a href="mailto:france@dreamsfamily.org" class="btn btn-secondary">
+                <i class="fas fa-envelope"></i> Nous contacter
+            </a>
+            <a href="{% url 'participer' %}" class="btn btn-outline">
+                <i class="fas fa-users"></i> Rejoindre la diaspora
+            </a>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

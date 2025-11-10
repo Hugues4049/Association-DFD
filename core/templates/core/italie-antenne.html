@@ -1,0 +1,199 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}DFD Italie - Antenne (À venir){% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/antennes.css' %}">
+
+<section class="antenne-hero coming-soon-overlay" style="background-image: linear-gradient(rgba(0, 146, 70, 0.85), rgba(206, 43, 55, 0.85)), url('{% static 'images/italie-hero.jpg' %}');">
+    <div class="antenne-hero-content">
+        <img src="{% static 'images/flags/italie.png' %}" alt="Drapeau Italie" class="antenne-flag">
+        <h1>DFD Italia</h1>
+        <p class="antenne-tagline">Presto in Italia!</p>
+    </div>
+    <div class="coming-soon-badge">PROSSIMAMENTE - 2025</div>
+</section>
+
+<section class="presentation">
+    <div class="presentation-block">
+        <h2>🇮🇹 DFD Italia - Apertura Prevista nel 2025</h2>
+        <p>Stiamo finalizzando l'apertura della nostra antenna in Italia, che sarà ufficialmente lanciata nel corso del secondo trimestre 2025.</p>
+        <p>Cette antenne italienne coordonnera nos actions en Italie, mobilisera la diaspora africaine et les sympathisants italiens, et renforcera nos partenariats avec des organisations et entreprises italiennes.</p>
+    </div>
+
+    <!-- Ce qui est prévu -->
+    <div class="presentation-block">
+        <h2>🎯 I Nostri Progetti</h2>
+        <div class="actions-grid">
+            <div class="action-card">
+                <div class="action-icon">🏢</div>
+                <h3>Sede a Roma</h3>
+                <p>Un bureau permanent à Rome pour coordonner nos activités en Italie.</p>
+            </div>
+
+            <div class="action-card">
+                <div class="action-icon">🤝</div>
+                <h3>Rete di Volontari</h3>
+                <p>Constitution d'une équipe de volontaires dans plusieurs villes italiennes.</p>
+            </div>
+
+            <div class="action-card">
+                <div class="action-icon">🎉</div>
+                <h3>Eventi di Raccolta Fondi</h3>
+                <p>Organisation de galas, concerts solidaires et ventes caritatives.</p>
+            </div>
+
+            <div class="action-card">
+                <div class="action-icon">🏫</div>
+                <h3>Collaborazioni Universitarie</h3>
+                <p>Partenariats avec universités pour mobiliser les jeunes italiens.</p>
+            </div>
+
+            <div class="action-card">
+                <div class="action-icon">💼</div>
+                <h3>Partnership Aziendali</h3>
+                <p>Développement de partenariats avec des entreprises italiennes.</p>
+            </div>
+
+            <div class="action-card">
+                <div class="action-icon">🇮🇹</div>
+                <h3>Sensibilizzazione</h3>
+                <p>Campagnes de sensibilisation sur les enjeux humanitaires africains.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Villes cibles -->
+    <div class="presentation-block">
+        <h2>�� Città Italiane Target</h2>
+        <div class="zones-intervention">
+            <div class="zone-badge">
+                <i class="fas fa-landmark"></i>
+                <h3>Roma</h3>
+                <p>Sede principale</p>
+            </div>
+            <div class="zone-badge">
+                <i class="fas fa-landmark"></i>
+                <h3>Milano</h3>
+                <p>Antenna Lombardia</p>
+            </div>
+            <div class="zone-badge">
+                <i class="fas fa-landmark"></i>
+                <h3>Torino</h3>
+                <p>Antenna Piemonte</p>
+            </div>
+            <div class="zone-badge">
+                <i class="fas fa-landmark"></i>
+                <h3>Napoli</h3>
+                <p>Antenna Campania</p>
+            </div>
+            <div class="zone-badge">
+                <i class="fas fa-landmark"></i>
+                <h3>Bologna</h3>
+                <p>Antenna Emilia-Romagna</p>
+            </div>
+            <div class="zone-badge">
+                <i class="fas fa-landmark"></i>
+                <h3>Firenze</h3>
+                <p>Antenna Toscana</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Partenaires italiens potentiels -->
+    <div class="presentation-block">
+        <h2>🤝 I Nostri Partner Potenziali</h2>
+        <p>Nous sommes en discussion avec plusieurs organisations italiennes engagées dans le développement international :</p>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 2rem;">
+            <div style="background: white; padding: 1.5rem; border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); text-align: center;">
+                <h3 style="color: var(--color-primary); margin-bottom: 0.5rem;">MSO MAME</h3>
+                <p style="color: var(--color-text-secondary); font-size: 0.9rem;">Partenaire actuel en Italie</p>
+            </div>
+            <div style="background: white; padding: 1.5rem; border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); text-align: center;">
+                <h3 style="color: var(--color-primary); margin-bottom: 0.5rem;">ONG Italiennes</h3>
+                <p style="color: var(--color-text-secondary); font-size: 0.9rem;">En cours de discussion</p>
+            </div>
+            <div style="background: white; padding: 1.5rem; border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); text-align: center;">
+                <h3 style="color: var(--color-primary); margin-bottom: 0.5rem;">Entreprises</h3>
+                <p style="color: var(--color-text-secondary); font-size: 0.9rem;">RSE et mécénat</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pré-inscription -->
+    <div class="presentation-block" style="background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);">
+        <h2>📝 Pre-Registrazione - Iscriviti Ora!</h2>
+        <p style="font-size: 1.1rem; margin-bottom: 2rem;">Sei in Italia e vuoi essere informato/a dall'apertura della nostra antenna? Lasciaci i tuoi contatti!</p>
+        <form action="/pre-iscrizione-italia" method="post" style="max-width: 600px; margin: 0 auto; background: white; padding: 2rem; border-radius: var(--radius-lg); box-shadow: var(--shadow-md);">
+            {% csrf_token %}
+            <div style="margin-bottom: 1rem;">
+                <input type="text" name="nome" placeholder="Nome completo" required style="width: 100%; padding: 0.875rem; border: 2px solid #e5e7eb; border-radius: var(--radius-md);">
+            </div>
+            <div style="margin-bottom: 1rem;">
+                <input type="email" name="email" placeholder="Email" required style="width: 100%; padding: 0.875rem; border: 2px solid #e5e7eb; border-radius: var(--radius-md);">
+            </div>
+            <div style="margin-bottom: 1rem;">
+                <input type="text" name="citta" placeholder="Città (Italia)" required style="width: 100%; padding: 0.875rem; border: 2px solid #e5e7eb; border-radius: var(--radius-md);">
+            </div>
+            <div style="margin-bottom: 1.5rem;">
+                <select name="interesse" style="width: 100%; padding: 0.875rem; border: 2px solid #e5e7eb; border-radius: var(--radius-md);">
+                    <option value="">Come vuoi contribuire?</option>
+                    <option value="volontario">Diventare volontario</option>
+                    <option value="donatore">Fare donazioni regolari</option>
+                    <option value="ambasciatore">Essere ambasciatore</option>
+                    <option value="partner">Partnership aziendale</option>
+                    <option value="altro">Altro</option>
+                </select>
+            </div>
+            <button type="submit" class="btn" style="width: 100%; background: var(--gradient-accent); color: white; padding: 1rem; border: none; border-radius: var(--radius-full); font-weight: 700; cursor: pointer;">
+                <i class="fas fa-paper-plane"></i> ISCRIVITI
+            </button>
+        </form>
+    </div>
+
+    <!-- Contact provisoire -->
+    <div class="presentation-block antenne-contact-card">
+        <h2><i class="fas fa-envelope"></i> Contattaci</h2>
+        <p>En attendant l'ouverture officielle, vous pouvez nous contacter :</p>
+        <div class="contact-grid">
+            <div class="contact-item">
+                <div class="contact-icon">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <div class="contact-details">
+                    <h3>Email</h3>
+                    <p><a href="mailto:italia@dreamsfamily.org">italia@dreamsfamily.org</a></p>
+                </div>
+            </div>
+
+            <div class="contact-item">
+                <div class="contact-icon">
+                    <i class="fab fa-whatsapp"></i>
+                </div>
+                <div class="contact-details">
+                    <h3>WhatsApp</h3>
+                    <p><a href="https://wa.me/393663329990">+39 366 332 9990</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="presentation-block cta-block">
+        <h2>🇮🇹 Aiutaci a Lanciare DFD Italia</h2>
+        <p>In attesa dell'apertura ufficiale, puoi già contribuire!</p>
+        <div class="cta-buttons">
+            <a href="{% url 'don' %}" class="btn btn-primary">
+                <i class="fas fa-heart"></i> Fare una donazione
+            </a>
+            <a href="mailto:italia@dreamsfamily.org" class="btn btn-secondary">
+                <i class="fas fa-envelope"></i> Contattaci
+            </a>
+            <a href="{% url 'participer' %}" class="btn btn-outline">
+                <i class="fas fa-users"></i> Unisciti alla diaspora
+            </a>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,179 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}DFD Diaspora - Antenne{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/antennes.css' %}">
+
+<section class="antenne-hero" style="background-image: linear-gradient(rgba(26, 115, 232, 0.85), rgba(19, 94, 193, 0.85)), url('{% static 'images/diaspora-hero.jpg' %}');">
+    <div class="antenne-hero-content">
+        <div style="font-size: 5rem; margin-bottom: 1rem;">🌍</div>
+        <h1>DFD Diaspora</h1>
+        <p class="antenne-tagline">Unis par le cœur, quel que soit le continent</p>
+    </div>
+</section>
+
+<section class="presentation">
+    <div class="presentation-block">
+        <h2>🌍 À Propos de DFD Diaspora</h2>
+        <p>DFD Diaspora rassemble tous les membres, bénévoles et supporters de Dreams Family of Development vivant à l'étranger. Nous sommes le pont entre les communautés camerounaises et africaines de la diaspora et les projets sur le terrain.</p>
+        <p>Où que vous soyez dans le monde, vous pouvez contribuer à notre mission et rester connecté à vos racines.</p>
+    </div>
+
+    <!-- Contact -->
+    <div class="presentation-block antenne-contact-card">
+        <h2><i class="fas fa-globe"></i> Contact DFD Diaspora</h2>
+        <div class="contact-grid">
+            <div class="contact-item">
+                <div class="contact-icon">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <div class="contact-details">
+                    <h3>Email Principal</h3>
+                    <p><a href="mailto:diaspora@dreamsfamily.org">diaspora@dreamsfamily.org</a></p>
+                </div>
+            </div>
+
+            <div class="contact-item">
+                <div class="contact-icon">
+                    <i class="fab fa-whatsapp"></i>
+                </div>
+                <div class="contact-details">
+                    <h3>WhatsApp International</h3>
+                    <p><a href="https://wa.me/393663329990" target="_blank">+39 366 332 9990</a></p>
+                </div>
+            </div>
+
+            <div class="contact-item">
+                <div class="contact-icon">
+                    <i class="fas fa-video"></i>
+                </div>
+                <div class="contact-details">
+                    <h3>Réunions en Ligne</h3>
+                    <p>Tous les premiers dimanches du mois<br>15h GMT (Zoom)</p>
+                </div>
+            </div>
+
+            <div class="contact-item">
+                <div class="contact-icon">
+                    <i class="fab fa-facebook"></i>
+                </div>
+                <div class="contact-details">
+                    <h3>Groupe Facebook Diaspora</h3>
+                    <p><a href="https://facebook.com/groups/dfddiastora" target="_blank">Rejoindre le groupe</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Présence mondiale -->
+    <div class="presentation-block">
+        <h2>🗺️ Nos Membres à Travers le Monde</h2>
+        <div class="zones-intervention">
+            <div class="zone-badge">
+                <i class="fas fa-map-marker-alt"></i>
+                <h3>Europe</h3>
+                <p>France, Italie, Allemagne, UK, Belgique</p>
+            </div>
+            <div class="zone-badge">
+                <i class="fas fa-map-marker-alt"></i>
+                <h3>Amérique du Nord</h3>
+                <p>USA, Canada</p>
+            </div>
+            <div class="zone-badge">
+                <i class="fas fa-map-marker-alt"></i>
+                <h3>Afrique</h3>
+                <p>Maroc, Sénégal, Côte d'Ivoire, Afrique du Sud</p>
+            </div>
+            <div class="zone-badge">
+                <i class="fas fa-map-marker-alt"></i>
+                <h3>Asie & Moyen-Orient</h3>
+                <p>Émirats Arabes Unis, Chine</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Actions Diaspora -->
+    <div class="presentation-block">
+        <h2>✨ Comment Agir depuis la Diaspora ?</h2>
+        <div class="actions-grid">
+            <div class="action-card">
+                <div class="action-icon">💰</div>
+                <h3>Dons en Ligne</h3>
+                <p>Soutenez nos projets par des dons ponctuels ou récurrents, en toute sécurité.</p>
+            </div>
+
+            <div class="action-card">
+                <div class="action-icon">🎁</div>
+                <h3>Parrainage d'Enfants</h3>
+                <p>Parrainez un enfant au Cameroun et changez sa vie.</p>
+            </div>
+
+            <div class="action-card">
+                <div class="action-icon">🎤</div>
+                <h3>Ambassadeur DFD</h3>
+                <p>Représentez DFD dans votre pays et mobilisez votre communauté.</p>
+            </div>
+
+            <div class="action-card">
+                <div class="action-icon">📦</div>
+                <h3>Envoi de Colis Solidaires</h3>
+                <p>Organisez des collectes et envoyez des fournitures au Cameroun.</p>
+            </div>
+
+            <div class="action-card">
+                <div class="action-icon">💼</div>
+                <h3>Compétences Pro</h3>
+                <p>Offrez vos compétences professionnelles en bénévolat à distance.</p>
+            </div>
+
+            <div class="action-card">
+                <div class="action-icon">🎉</div>
+                <h3>Événements Diaspora</h3>
+                <p>Participez ou organisez des événements de collecte de fonds.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="presentation-block stats-section">
+        <h2>📊 DFD Diaspora en Chiffres</h2>
+        <div class="stats-grid">
+            <div class="stat-box">
+                <div class="stat-number">250+</div>
+                <div class="stat-label">Membres diaspora</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">15</div>
+                <div class="stat-label">Pays représentés</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">80K€</div>
+                <div class="stat-label">Collectés en 2024</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">50+</div>
+                <div class="stat-label">Enfants parrainés</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="presentation-block cta-block">
+        <h2>🌍 Rejoignez la Famille DFD Diaspora</h2>
+        <p>Où que vous soyez, vous pouvez faire la différence !</p>
+        <div class="cta-buttons">
+            <a href="{% url 'don' %}" class="btn btn-primary">
+                <i class="fas fa-heart"></i> Faire un don
+            </a>
+            <a href="{% url 'participer' %}" class="btn btn-secondary">
+                <i class="fas fa-users"></i> Adhérer à DFD Diaspora
+            </a>
+            <a href="mailto:diaspora@dreamsfamily.org" class="btn btn-outline">
+                <i class="fas fa-envelope"></i> Nous contacter
+            </a>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
