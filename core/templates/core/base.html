@@ -198,41 +198,76 @@
 
     {% block scripts %}
     <!-- Script pour les menus deroulants -->
-    <script>
-        // Gestion des menus deroulants
-        document.addEventListener('DOMContentLoaded', function() {
-            const dropdowns = document.querySelectorAll('.dropdown');
-            
-            dropdowns.forEach(dropdown => {
-                const toggle = dropdown.querySelector('.dropdown-toggle');
-                const menu = dropdown.querySelector('.dropdown-menu');
-                
-                // Toggle au clic
-                toggle.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    
-                    // Fermer les autres menus
-                    dropdowns.forEach(other => {
-                        if (other !== dropdown) {
-                            other.classList.remove('active');
-                        }
-                    });
-                    
-                    // Toggle le menu actuel
-                    dropdown.classList.toggle('active');
-                });
-            });
-            
-            // Fermer les menus en cliquant ailleurs
-            document.addEventListener('click', function(e) {
-                if (!e.target.closest('.dropdown')) {
+            <script>
+                document.addEventListener('DOMContentLoaded', () => {
+                    const dropdowns = document.querySelectorAll('.dropdown');
+
+                    function closeAll(except = null) {
+                        dropdowns.forEach(d => {
+                            if (d !== except) d.classList.remove('active');
+                        });
+                    }
+
                     dropdowns.forEach(dropdown => {
-                        dropdown.classList.remove('active');
+                        const toggle = dropdown.querySelector('.dropdown-toggle');
+                        const menu = dropdown.querySelector('.dropdown-menu');
+                        if (!toggle || !menu) return;
+
+                        // Accessibilité
+                        toggle.setAttribute('role', 'button');
+                        toggle.setAttribute('aria-haspopup', 'true');
+                        toggle.setAttribute('aria-expanded', 'false');
+
+                        const open = () => {
+                            closeAll(dropdown);
+                            dropdown.classList.add('active');
+                            toggle.setAttribute('aria-expanded', 'true');
+                        };
+                        const close = () => {
+                            dropdown.classList.remove('active');
+                            toggle.setAttribute('aria-expanded', 'false');
+                        };
+                        const toggleOpen = (e) => {
+                            e.preventDefault();
+                            e.stopPropagation();           // évite la fermeture immédiate par le handler global
+                            if (dropdown.classList.contains('active')) {
+                                close();
+                            } else {
+                                open();
+                            }
+                        };
+
+                        // Ouverture immédiate et fiable (mobile + desktop)
+                        toggle.addEventListener('pointerdown', toggleOpen);
+                        // Neutralise le href="#" si présent
+                        toggle.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); });
+
+                        // Ne pas fermer si on clique à l'intérieur du menu
+                        menu.addEventListener('pointerdown', (e) => e.stopPropagation());
+                        menu.addEventListener('click', (e) => e.stopPropagation());
+
+                        // Clavier : Enter / Space / Escape
+                        toggle.addEventListener('keydown', (e) => {
+                            if (e.key === 'Enter' || e.key === ' ') {
+                                toggleOpen(e);
+                            } else if (e.key === 'Escape') {
+                                close();
+                                toggle.focus();
+                            }
+                        });
                     });
-                }
-            });
-        });
-    </script>
+
+                    // Fermer en cliquant en dehors (capture tardive)
+                    document.addEventListener('pointerdown', (e) => {
+                        if (!e.target.closest('.dropdown')) closeAll();
+                    });
+                    document.addEventListener('keydown', (e) => {
+                        if (e.key === 'Escape') closeAll();
+                    });
+                });
+            </script>
+
+
     {% endblock %}
 </body>
 

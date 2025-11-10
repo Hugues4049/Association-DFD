@@ -8,7 +8,7 @@
     box-shadow: var(--shadow-sm);
     position: sticky;
     top: 80px;
-    z-index: 999;
+    z-index: 10000;
 }
 
 .main-nav ul {
@@ -60,6 +60,10 @@
     width: 80%;
 }
 
+/* Rendez le "toggle" explicite au survol */
+.dropdown-toggle {
+     cursor: pointer; 
+    }
 /* Icone chevron pour les menus deroulants */
 .dropdown-toggle i {
     font-size: 0.7rem;
@@ -83,7 +87,7 @@
     visibility: hidden;
     transform: translateY(-10px);
     transition: all var(--transition-base);
-    z-index: 1000;
+    z-index: 10001;
     padding: 0.5rem 0;
     list-style: none;
     display: flex;

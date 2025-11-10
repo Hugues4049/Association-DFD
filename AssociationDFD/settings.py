@@ -8,36 +8,52 @@ from dotenv import load_dotenv
 import dj_database_url
 import os
 
-# Build paths
+# -------------------------------------------------------------------
+# Chemins & .env
+# -------------------------------------------------------------------
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# Charger .env
 load_dotenv(BASE_DIR / '.env')
 env_path = BASE_DIR / '.env'
 if env_path.exists():
     config = Config(RepositoryEnv(str(env_path)))
 else:
-    from decouple import config
+    from decouple import config  # fallback si .env absent
 
-# Secret Key
+def env_bool(name: str, default: bool = False) -> bool:
+    return os.getenv(name, str(default)).strip().lower() in {"1", "true", "yes", "on"}
+
+# -------------------------------------------------------------------
+# Debug & Secret Key
+# -------------------------------------------------------------------
+DEBUG = env_bool("DEBUG", False)
+
 SECRET_KEY = os.getenv('SECRET_KEY')
 if not SECRET_KEY:
-    if os.getenv("DEBUG", "False").lower() == "true":
+    if DEBUG:
         SECRET_KEY = 'dev-secret-key-for-local-only'
     else:
         raise ValueError("SECRET_KEY environment variable must be set in production")
 
-# Debug
-DEBUG = os.getenv("DEBUG", "False").lower() == "true"
-
-# Hosts
+# -------------------------------------------------------------------
+# Hôtes & proxy TLS (Render)
+# -------------------------------------------------------------------
 ALLOWED_HOSTS = ["localhost", "127.0.0.1", ".onrender.com"]
+# Si Render expose un hostname dédié, on l'ajoute
+_render_host = os.getenv("RENDER_EXTERNAL_HOSTNAME")
+if _render_host:
+    ALLOWED_HOSTS.append(_render_host)
+
+# Django 4.x exige le schéma pour CSRF_TRUSTED_ORIGINS
 CSRF_TRUSTED_ORIGINS = ["https://*.onrender.com"]
+
+# Sur Render, TLS est terminé en amont ; on fait confiance à cet en-tête
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 
-# Applications
+# -------------------------------------------------------------------
+# Applications & Middleware
+# -------------------------------------------------------------------
 APPEND_SLASH = True
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -51,7 +67,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
-    "whitenoise.middleware.WhiteNoiseMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",  # WhiteNoise doit être haut
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.locale.LocaleMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -80,7 +96,9 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'AssociationDFD.wsgi.application'
 
-# Database - Utilise PostgreSQL sur Render, SQLite en local
+# -------------------------------------------------------------------
+# Base de données : PostgreSQL via DATABASE_URL (Render) sinon SQLite
+# -------------------------------------------------------------------
 DATABASES = {
     'default': dj_database_url.config(
         default=f'sqlite:///{BASE_DIR / "db.sqlite3"}',
@@ -89,7 +107,9 @@ DATABASES = {
     )
 }
 
-# Password validation
+# -------------------------------------------------------------------
+# Auth
+# -------------------------------------------------------------------
 AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
     {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator'},
@@ -97,7 +117,9 @@ AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'},
 ]
 
-# Internationalization
+# -------------------------------------------------------------------
+# Internationalisation
+# -------------------------------------------------------------------
 LANGUAGE_CODE = 'fr'
 TIME_ZONE = 'Africa/Douala'
 USE_I18N = True
@@ -111,18 +133,29 @@ LANGUAGES = [
 
 LOCALE_PATHS = [BASE_DIR / 'locale']
 
-# Static files
+# -------------------------------------------------------------------
+# Fichiers statiques & médias (WhiteNoise)
+# -------------------------------------------------------------------
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
-STATICFILES_DIRS = [BASE_DIR / "static"]
 
-# Media files
+# Ne référence le dossier "static" que s'il existe (évite une erreur en prod)
+_static_dir = BASE_DIR / "static"
+STATICFILES_DIRS = [_static_dir] if _static_dir.exists() else []
+
+# WhiteNoise
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+WHITENOISE_AUTOREFRESH = DEBUG           # auto-reload en dev
+WHITENOISE_MAX_AGE = 0 if DEBUG else 31536000  # cache agressif en prod
+
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# -------------------------------------------------------------------
 # Email
+# -------------------------------------------------------------------
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
@@ -130,26 +163,34 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
 
-# Sécurité en production
+# -------------------------------------------------------------------
+# Sécurité (prod uniquement)
+# -------------------------------------------------------------------
+SECURE_SSL_REDIRECT = not DEBUG  # un seul endroit ; évite les doublons
+
 if not DEBUG:
-    SECURE_SSL_REDIRECT = True
     SESSION_COOKIE_SECURE = True
     CSRF_COOKIE_SECURE = True
-    SECURE_BROWSER_XSS_FILTER = True
+    # SECURE_BROWSER_XSS_FILTER supprimé en Django 4+ (ne rien définir)
     SECURE_CONTENT_TYPE_NOSNIFF = True
     SECURE_HSTS_SECONDS = 31536000
     SECURE_HSTS_INCLUDE_SUBDOMAINS = True
     SECURE_HSTS_PRELOAD = True
 
+# -------------------------------------------------------------------
 # Logging
+# -------------------------------------------------------------------
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
-    'handlers': {
-        'console': {'class': 'logging.StreamHandler'},
-    },
-    'root': {
-        'handlers': ['console'],
-        'level': 'INFO',
+    'handlers': {'console': {'class': 'logging.StreamHandler'}},
+    'root': {'handlers': ['console'], 'level': 'INFO'},
+    # Optionnel : verbeux pour le serveur de dev
+    'loggers': {
+        'django.server': {
+            'handlers': ['console'],
+            'level': 'INFO',
+            'propagate': False,
+        },
     },
 }
