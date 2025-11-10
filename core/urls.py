@@ -1,3 +1,4 @@
+# core/urls.py
 from django.urls import path
 from . import views
 
@@ -13,4 +14,8 @@ urlpatterns = [
     path('partenaires/', views.partenaires, name='partenaires'),
     path('don/', views.don, name='don'),
     path('contact/', views.contact, name='contact'),
+    path('merci/<str:nom>/', views.merci, name='merci'),
+    path('confirmation/<int:donation_id>/', views.confirmation, name='confirmation'),
+    path('set-language/', views.set_language, name='set_language'),
+    path('inscription/', views.inscription, name='inscription'),
 ]

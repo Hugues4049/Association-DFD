@@ -93,17 +93,124 @@
 <!-- ============================================
      GALERIE
      ============================================ -->
-
-
-
 <section class="galerie">
     <h1 class="main-title">Nos actions en images</h1>
-    <p> Images de la descente au Foyer de l'espérence à Yaounde le 29/12/2024</p>
+    <p class="galerie-subtitle">Decouvrez nos differentes campagnes a travers des photos</p>
+
+    <!-- Grille des campagnes -->
+    <div class="campagnes-grid">
+        
+        <!-- Campagne 1 : Descente au Foyer de l'esperence -->
+        <div class="campagne-card">
+            <h3 class="campagne-title">Descente au Foyer de l'esperence</h3>
+            <p class="campagne-date">29 decembre 2024 - Yaounde</p>
+            
+            <div class="carousel-container">
+                <div class="carousel" data-carousel="foyer">
+                    <div class="carousel-slide">
+                        <img src="{% static 'images/foyeresperence/PHOTO-2025-01-06-19-34-50.jpg' %}" alt="foyeresperence 1">
+                    </div>
+
+                    <div class="carousel-slide">
+                        <img src="{% static 'images/foyeresperence/PHOTO-2025-01-06-19-34-51.jpg' %}" alt="foyeresperence 2">
+                    </div>
+
+                    <div class="carousel-slide">
+                        <img src="{% static 'images/foyeresperence/PHOTO-2025-01-06-19-34-52.jpg' %}" alt="foyeresperence 3">
+                    </div>
+
+                </div>
+                    
+                <!-- Controles du carrousel -->
+                <button class="carousel-btn prev" onclick="changeSlide('foyer', -1)">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="carousel-btn next" onclick="changeSlide('foyer', 1)">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                
+                <!-- Indicateurs -->
+                <div class="carousel-indicators">
+                    <span class="indicator active" onclick="goToSlide('foyer', 0)"></span>
+                    <span class="indicator" onclick="goToSlide('foyer', 1)"></span>
+                    <span class="indicator" onclick="goToSlide('foyer', 2)"></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Campagne 2 : Campagne de Sante -->
+        <div class="campagne-card">
+            <h3 class="campagne-title">Campagne de Sante Gratuite</h3>
+            <p class="campagne-date">19-20 septembre 2025 - Etam Bafia</p>
+            
+            <div class="carousel-container">
+                <div class="carousel" data-carousel="sante">
+                    <div class="carousel-slide">
+                        <img src="{% static 'images/foyeresperence/PHOTO-2025-01-06-19-34-54.jpg' %}" alt="foyeresperence 4">
+                    </div>
+
+                    <div class="carousel-slide">
+                        <img src="{% static 'images/foyeresperence/PHOTO-2025-01-06-19-34-57.jpg' %}" alt="foyeresperence 5">
+                    </div>
+
+                    <div class="carousel-slide">
+                        <img src="{% static 'images/foyeresperence/PHOTO-2025-01-06-19-34-58.jpg' %}" alt="foyeresperence 6">
+                    </div>
+
+                </div>
+                
+                <button class="carousel-btn prev" onclick="changeSlide('sante', -1)">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="carousel-btn next" onclick="changeSlide('sante', 1)">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                
+                <div class="carousel-indicators">
+                    <span class="indicator active" onclick="goToSlide('sante', 0)"></span>
+                    <span class="indicator" onclick="goToSlide('sante', 1)"></span>
+                    <span class="indicator" onclick="goToSlide('sante', 2)"></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Campagne 3 : Meet and greet Turin Italie -->
+        <div class="campagne-card">
+            <h3 class="campagne-title">Meet and Greet</h3>
+            <p class="campagne-date">31-01 novembre 2025 Turin - Italie</p>
+            
+            <div class="carousel-container">
+                <div class="carousel" data-carousel="education">
+                    <div class="carousel-slide">
+                        <img src="{% static 'images/meet&greet/PHOTO-2025-11-01-16-45-56.jpg' %}" alt="meet&greet 1">
+                    </div>
+
+                    <div class="carousel-slide">
+                        <img src="{% static 'images/meet&greet/PHOTO-2025-11-01-16-45-56_1.jpg' %}" alt="meet&greet 2">
+                    </div>
+
+                    <div class="carousel-slide">
+                        <img src="{% static 'images/meet&greet/PHOTO-2025-11-01-16-45-58.jpg' %}" alt="meet&greet 3">
+                    </div>
+                </div>
+                
+                <button class="carousel-btn prev" onclick="changeSlide('education', -1)">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="carousel-btn next" onclick="changeSlide('education', 1)">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                
+                <div class="carousel-indicators">
+                    <span class="indicator active" onclick="goToSlide('education', 0)"></span>
+                    <span class="indicator" onclick="goToSlide('education', 1)"></span>
+                    <span class="indicator" onclick="goToSlide('education', 2)"></span>
+                </div>
+            </div>
+        </div>
+        
+    </div>
 </section>
-
-
-
-
 <!-- ============================================
      TÉMOIGNAGES
      ============================================ -->
@@ -315,6 +422,133 @@
             });
         });
     });
+
+// ===================================
+// GALERIE - GESTION DES CARROUSELS
+// ===================================
+
+// Etat des carrousels
+const carouselStates = {};
+
+// Initialiser les carrousels
+document.addEventListener('DOMContentLoaded', function() {
+    const carousels = document.querySelectorAll('.carousel');
+    
+    carousels.forEach(carousel => {
+        const carouselId = carousel.dataset.carousel;
+        const slides = carousel.querySelectorAll('.carousel-slide');
+        
+        carouselStates[carouselId] = {
+            currentSlide: 0,
+            totalSlides: slides.length,
+            carousel: carousel
+        };
+        
+        // Demarrer le defilement automatique
+        startAutoSlide(carouselId);
+    });
+});
+
+// Changer de slide
+function changeSlide(carouselId, direction) {
+    const state = carouselStates[carouselId];
+    if (!state) return;
+    
+    const slides = state.carousel.querySelectorAll('.carousel-slide');
+    const indicators = state.carousel.parentElement.querySelectorAll('.indicator');
+    
+    // Retirer la classe active
+    slides[state.currentSlide].classList.remove('active');
+    indicators[state.currentSlide].classList.remove('active');
+    
+    // Calculer le nouvel index
+    state.currentSlide = (state.currentSlide + direction + state.totalSlides) % state.totalSlides;
+    
+    // Ajouter la classe active
+    slides[state.currentSlide].classList.add('active');
+    indicators[state.currentSlide].classList.add('active');
+    
+    // Redemarrer le timer
+    resetAutoSlide(carouselId);
+}
+
+// Aller a une slide specifique
+function goToSlide(carouselId, slideIndex) {
+    const state = carouselStates[carouselId];
+    if (!state) return;
+    
+    const slides = state.carousel.querySelectorAll('.carousel-slide');
+    const indicators = state.carousel.parentElement.querySelectorAll('.indicator');
+    
+    // Retirer la classe active
+    slides[state.currentSlide].classList.remove('active');
+    indicators[state.currentSlide].classList.remove('active');
+    
+    // Definir le nouvel index
+    state.currentSlide = slideIndex;
+    
+    // Ajouter la classe active
+    slides[state.currentSlide].classList.add('active');
+    indicators[state.currentSlide].classList.add('active');
+    
+    // Redemarrer le timer
+    resetAutoSlide(carouselId);
+}
+
+// Defilement automatique
+function startAutoSlide(carouselId) {
+    const state = carouselStates[carouselId];
+    if (!state) return;
+    
+    state.autoSlideInterval = setInterval(() => {
+        changeSlide(carouselId, 1);
+    }, 5000); // Change toutes les 5 secondes
+}
+
+// Reinitialiser le defilement automatique
+function resetAutoSlide(carouselId) {
+    const state = carouselStates[carouselId];
+    if (!state) return;
+    
+    clearInterval(state.autoSlideInterval);
+    startAutoSlide(carouselId);
+}
+
+// Pause au survol
+document.addEventListener('DOMContentLoaded', function() {
+    const carouselContainers = document.querySelectorAll('.carousel-container');
+    
+    carouselContainers.forEach(container => {
+        const carousel = container.querySelector('.carousel');
+        const carouselId = carousel.dataset.carousel;
+        
+        container.addEventListener('mouseenter', () => {
+            const state = carouselStates[carouselId];
+            if (state && state.autoSlideInterval) {
+                clearInterval(state.autoSlideInterval);
+            }
+        });
+        
+        container.addEventListener('mouseleave', () => {
+            startAutoSlide(carouselId);
+        });
+    });
+});
+
+// Support du clavier
+document.addEventListener('keydown', function(e) {
+    const activeCarousel = document.querySelector('.campagne-card:hover .carousel');
+    if (!activeCarousel) return;
+    
+    const carouselId = activeCarousel.dataset.carousel;
+    
+    if (e.key === 'ArrowLeft') {
+        changeSlide(carouselId, -1);
+    } else if (e.key === 'ArrowRight') {
+        changeSlide(carouselId, 1);
+    }
+});
+
 </script>
 {% endblock %}
 

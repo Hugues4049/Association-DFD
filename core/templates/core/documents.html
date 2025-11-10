@@ -1,40 +1,194 @@
 {% extends 'core/base.html' %}
 
-{% block title %}Contact - DFD{% endblock %}
+{% block title %}Documents - DFD{% endblock %}
 {% load static %}
 {% block content %}
 {% load i18n %}
 
-
+<link rel="stylesheet" href="{% static 'css/documents-page.css' %}">
 
 <div class="documents-container">
-    <h1 class="page-title">📄 Documents à télécharger</h1>
-    <p>Vous trouverez ici tous les documents publics de l'association : rapports, brochures, formulaires d'adhésion,
-        etc.</p>
+    <!-- Header avec icône -->
+    <div class="documents-header">
+        <div class="header-icon">
+            <i class="fas fa-file-download"></i>
+        </div>
+        <h1 class="page-title">Documents à télécharger</h1>
+        
+    </div>
 
+    <!-- Formulaire de téléchargement amélioré -->
+    <div class="download-card">
+        <form id="download-form" onsubmit="handleDownload(event)">
+            <div class="form-group">
+                <label for="file-select">
+                    <i class="fas fa-folder-open"></i> Choisissez un fichier :
+                </label>
+                <select id="file-select" class="file-select">
+                    <option value="">-- Sélectionnez un document --</option>
+                    
+                    <optgroup label="📋 Rapports d'activités">
+                        <option value="{% static 'docs/Compte rendu.docx' %}">
+                            Compte rendu - Descente au foyer de l'espérence
+                        </option>
+                        <option value="{% static 'docs/rapport-annuel-2024.pdf' %}">
+                            Rapport annuel 2024
+                        </option>
+                    </optgroup>
+                    
+                    <optgroup label="🏥 Campagnes de santé">
+                        <option value="{% static 'docs/Campagne de santé.pdf' %}">
+                            Campagne de santé 2025
+                        </option>
+                        <option value="{% static 'docs/5206.jpg' %}">
+                            Affiche - Campagne Etam Bafia
+                        </option>
+                    </optgroup>
+                    
+                    <optgroup label="📄 Documents officiels">
+                        <option value="{% static 'docs/charte.pdf' %}">
+                            Charte de l'association
+                        </option>
+                        <option value="{% static 'docs/statuts.pdf' %}">
+                            Statuts de l'association
+                        </option>
+                        <option value="{% static 'docs/reglement-interieur.pdf' %}">
+                            Règlement intérieur
+                        </option>
+                    </optgroup>
+                    
+                    <optgroup label="📝 Formulaires">
+                        <option value="{% static 'docs/formulaire-adhesion.pdf' %}">
+                            Formulaire d'adhésion
+                        </option>
+                        <option value="{% static 'docs/formulaire-benevolat.pdf' %}">
+                            Formulaire de bénévolat
+                        </option>
+                        <option value="{% static 'docs/formulaire-don.pdf' %}">
+                            Formulaire de don
+                        </option>
+                    </optgroup>
+                </select>
+            </div>
+            
+            <button type="submit" class="btn-download">
+                <i class="fas fa-download"></i> TÉLÉCHARGER
+            </button>
+        </form>
+        
+        <!-- Message de statut -->
+        <div id="download-message" class="download-message" style="display: none;"></div>
+    </div>
 
-    <form id="download-form" onsubmit="handleDownload(event)">
-        <label for="file-select">Choisissez un fichier :</label>
-        <select id="file-select">
-            <option value="{% static 'docs/Campagne de santé.pdf' %}">Campagne de santé 2025</option>
-            <option value="{% static 'docs/Compte rendu.docx' %}">Compte rendu de la descente au foyer de l'espérence
-            </option>
-            <option value="{% static 'docs/charte.pdf' %}">Charte de l'association</option>
-        </select>
-        <button type="submit">Télécharger</button>
-    </form>
+    <!-- Section documents récents -->
+    <div class="recent-documents">
+        <h2 class="section-title">
+            <i class="fas fa-clock"></i> Documents récents
+        </h2>
+        
+        <div class="documents-grid">
+            <!-- Document 1 -->
+            <div class="document-card">
+                <div class="document-icon">
+                    <i class="fas fa-file-pdf"></i>
+                </div>
+                <div class="document-info">
+                    <h3>Campagne de santé 2025</h3>
+                    <p class="document-meta">
+                        <span class="doc-type">PDF</span>
+                        <span class="doc-date">10 nov. 2025</span>
+                    </p>
+                    <p class="document-description">
+                        Détails de la campagne gratuite à Etam Bafia (19-20 sept. 2025)
+                    </p>
+                </div>
+                <a href="{% static 'docs/Campagne de santé.pdf' %}" download class="btn-doc-download">
+                    <i class="fas fa-download"></i>
+                </a>
+            </div>
+
+            <!-- Document 2 -->
+            <div class="document-card">
+                <div class="document-icon">
+                    <i class="fas fa-file-word"></i>
+                </div>
+                <div class="document-info">
+                    <h3>Compte rendu - Foyer de l'espérence</h3>
+                    <p class="document-meta">
+                        <span class="doc-type">DOCX</span>
+                        <span class="doc-date">29 déc. 2024</span>
+                    </p>
+                    <p class="document-description">
+                        Rapport de la descente au foyer à Yaoundé
+                    </p>
+                </div>
+                <a href="{% static 'docs/Compte rendu.docx' %}" download class="btn-doc-download">
+                    <i class="fas fa-download"></i>
+                </a>
+            </div>
+
+            <!-- Document 3 -->
+            <div class="document-card">
+                <div class="document-icon">
+                    <i class="fas fa-file-pdf"></i>
+                </div>
+                <div class="document-info">
+                    <h3>Charte de l'association</h3>
+                    <p class="document-meta">
+                        <span class="doc-type">PDF</span>
+                        <span class="doc-date">Jan. 2024</span>
+                    </p>
+                    <p class="document-description">
+                        Valeurs, principes et engagements de DFD
+                    </p>
+                </div>
+                <a href="{% static 'docs/charte.pdf' %}" download class="btn-doc-download">
+                    <i class="fas fa-download"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section aide -->
+    <div class="help-section">
+        <div class="help-card">
+            <i class="fas fa-question-circle"></i>
+            <h3>Besoin d'aide ?</h3>
+            <p>Si vous ne trouvez pas le document que vous cherchez ou si vous avez des questions, 
+            n'hésitez pas à nous contacter.</p>
+            <a href="{% url 'contact' %}" class="btn-help">Nous contacter</a>
+        </div>
+    </div>
 </div>
 
-
 <script>
-    function handleDownload(event) {
-        event.preventDefault(); // Ne pas soumettre le formulaire
-        const select = document.getElementById("file-select");
-        const fileUrl = select.value;
-        window.location.href = fileUrl; // Rediriger vers le fichier pour le télécharger
+function handleDownload(event) {
+    event.preventDefault();
+    const select = document.getElementById("file-select");
+    const fileUrl = select.value;
+    const messageDiv = document.getElementById("download-message");
+    
+    if (!fileUrl) {
+        messageDiv.style.display = "block";
+        messageDiv.className = "download-message error";
+        messageDiv.innerHTML = '<i class="fas fa-exclamation-circle"></i> Veuillez sélectionner un fichier';
+        return;
     }
+    
+    // Afficher message de succès
+    messageDiv.style.display = "block";
+    messageDiv.className = "download-message success";
+    messageDiv.innerHTML = '<i class="fas fa-check-circle"></i> Téléchargement en cours...';
+    
+    // Lancer le téléchargement
+    window.location.href = fileUrl;
+    
+    // Réinitialiser après 3 secondes
+    setTimeout(() => {
+        messageDiv.style.display = "none";
+        select.selectedIndex = 0;
+    }, 3000);
+}
 </script>
-
-
 
 {% endblock %}
