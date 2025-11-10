@@ -1,0 +1,145 @@
+{% load static %}
+{% load i18n %}
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}DFD - Dreams Family of Development{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+
+<body>
+    <!-- Barre supérieure -->
+    <div class="top-bar-container">
+        <div class="top-bar">
+            <!-- Logo -->
+            <div class="logo-container">
+                <a href="{% url 'home' %}">
+                    <img src="{% static 'images/logo/logoDFD.jpg' %}" alt="Logo DFD">
+                </a>
+            </div>
+
+            <!-- Barre de recherche -->
+            <div class="search-container">
+                <form method="GET" action="{% url 'home' %}">
+                    <input type="text" name="q" placeholder="Rechercher sur le site...">
+                    <button type="submit"><i class="fas fa-search"></i></button>
+                </form>
+            </div>
+
+            <!-- Contact & Actions -->
+            <div class="contact-actions">
+                <span><i class="fas fa-envelope"></i> dreams.family.development@gmail.com</span>
+                <span><i class="fas fa-phone"></i> +39 366 332 9990</span>
+                <a href="{% url 'don' %}" class="btn-don">FAIRE UN DON</a>
+                <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://wa.me/393663329990" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            </div>
+
+            <!-- Sélecteur de langue -->
+            <form action="{% url 'set_language' %}" method="post" class="language-form">
+                {% csrf_token %}
+                <select name="language" onchange="this.form.submit()">
+                    {% get_current_language as LANGUAGE_CODE %}
+                    {% get_available_languages as LANGUAGES %}
+                    {% for code, name in LANGUAGES %}
+                    <option value="{{ code }}" {% if code == LANGUAGE_CODE %}selected{% endif %}>
+                        {{ name }}
+                    </option>
+                    {% endfor %}
+                </select>
+            </form>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <ul>
+            <li><a href="{% url 'home' %}">Accueil</a></li>
+            <li><a href="{% url 'apropos' %}">À propos</a></li>
+            <li><a href="{% url 'projets' %}">Nos Projets</a></li>
+            <li><a href="{% url 'participer' %}">Participer</a></li>
+            <li><a href="{% url 'blog' %}">Blog / Actualités</a></li>
+            <li><a href="{% url 'documents' %}">Documents</a></li>
+            <li><a href="{% url 'partenaires' %}">Nos Partenaires</a></li>
+            <li><a href="{% url 'contact' %}">Contacts</a></li>
+        </ul>
+    </nav>
+
+    <!-- Messages Flash -->
+    {% if messages %}
+    <div class="messages">
+        {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}">
+            {{ message }}
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <!-- Contenu principal -->
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <!-- Pied de page -->
+    <footer>
+        <div class="footer-content">
+            <!-- Logo + slogan -->
+            <div class="footer-section">
+                <img src="{% static 'images/logo/logoDFD.jpg' %}" alt="Logo DFD" class="footer-logo">
+                <p class="footer-name">Dreams Family Of Development</p>
+                <span class="footer-slogan">"La main tendue, un sourire nouveau."</span>
+            </div>
+
+            <!-- Infos sur l'organisation -->
+            <div class="footer-section">
+                <h4>La DFD</h4>
+                <ul>
+                    <li><a href="{% url 'apropos' %}">À propos de nous</a></li>
+                    <li><a href="{% url 'projets' %}">Nos Projets</a></li>
+                    <li><a href="{% url 'participer' %}">Participer</a></li>
+                    <li><a href="{% url 'blog' %}">Blog / Actualités</a></li>
+                </ul>
+            </div>
+
+            <!-- Initiatives -->
+            <div class="footer-section">
+                <h4>Nos initiatives</h4>
+                <ul>
+                    <li><a href="{% url 'projets' %}">Campagnes</a></li>
+                    <li><a href="{% url 'projets' %}">Programmes</a></li>
+                    <li><a href="{% url 'partenaires' %}">Nos partenaires</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact -->
+            <div class="footer-section">
+                <h4>Contactez-nous</h4>
+                <p>Siège Social : Yaoundé face Hôtel SOMMATEL<br>palais de sport, Cameroun.</p>
+                <p>Tel : <a href="tel:+393663329990">+39 366 332 9990</a></p>
+                <p>Email : <a href="mailto:dreams.family.development@gmail.com">dreams.family.development@gmail.com</a></p>
+                <div class="social-icons">
+                    <a href="mailto:dreams.family.development@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+                    <a href="https://www.instagram.com/dreams_family_of_development" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/393663329990" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    <a href="tel:+393663329990" title="Téléphone"><i class="fas fa-phone"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 <span class="highlight">DFD</span> | Tous droits réservés | Proposé par <span class="highlight">#4049</span></p>
+        </div>
+    </footer>
+
+    {% block scripts %}
+    {% endblock %}
+</body>
+
+</html>
