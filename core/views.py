@@ -189,12 +189,16 @@ from django.http import HttpResponse
 # DONNEES DES DEPARTEMENTS
 # ===================================
 
+# CORRECTION POUR views.py - Remplacer DEPARTEMENTS_DATA
+
+# Cherchez DEPARTEMENTS_DATA dans votre views.py et remplacez par ceci :
+
 DEPARTEMENTS_DATA = {
     'education': {
         'titre': 'Education',
         'slogan': 'Construire l\'avenir par le savoir',
         'icone': 'fas fa-graduation-cap',
-        'image_hero': 'images/hero/education.jpg',
+        'image_hero': 'images/bannière/PHOTO-2024-12-29-17-30-47.jpg',  # ← Image existante
         'description': 'Le departement Education de DFD œuvre pour garantir l\'acces a une education de qualite pour tous. Nous croyons que l\'education est la cle du developpement et de l\'epanouissement personnel.',
         'missions': [
             {
@@ -221,15 +225,15 @@ DEPARTEMENTS_DATA = {
                 'date': 'Septembre 2024',
                 'beneficiaires': '500 enfants',
                 'status': 'En cours',
-                'image': 'images/projets/education1.jpg'
+                'image': 'images/foyeresperence/PHOTO-2025-01-06-19-34-50.jpg'  # ← Image existante
             },
         ],
         'equipe': [
             {
-                'nom': 'Marie Dupont',
+                'nom': 'Nathanaël Toukea',
                 'role': 'Responsable Education',
-                'bio': 'Enseignante depuis 15 ans, passionnee par l\'education inclusive',
-                'photo': 'images/equipe/marie.jpg'
+                'bio': 'Président fondateur, passionné par l\'education inclusive',
+                'photo': 'images/Nathan.PNG'  # ← Image existante
             },
         ]
     },
@@ -237,7 +241,7 @@ DEPARTEMENTS_DATA = {
         'titre': 'Sante',
         'slogan': 'La sante pour tous, partout',
         'icone': 'fas fa-heartbeat',
-        'image_hero': 'images/hero/sante.jpg',
+        'image_hero': 'images/bannière/PHOTO-2024-12-29-17-30-48.jpg',  # ← Image existante
         'description': 'Notre departement Sante travaille pour garantir l\'acces aux soins de sante primaires et promouvoir le bien-etre des communautes vulnerables.',
         'missions': [
             {
@@ -264,16 +268,23 @@ DEPARTEMENTS_DATA = {
                 'date': '19-20 Septembre 2025',
                 'beneficiaires': '1000 personnes',
                 'status': 'A venir',
-                'image': 'images/projets/sante1.jpg'
+                'image': 'images/foyeresperence/PHOTO-2025-01-06-19-34-52.jpg'  # ← Image existante
             },
         ],
-        'equipe': []
+        'equipe': [
+            {
+                'nom': 'Brinda Djomaha',
+                'role': 'Responsable des projets santé',
+                'bio': 'Coordinatrice passionnée par la santé communautaire',
+                'photo': 'images/Brinda.PNG'  # ← Image existante
+            },
+        ]
     },
     'environnement': {
         'titre': 'Environnement',
         'slogan': 'Proteger notre planete pour les generations futures',
         'icone': 'fas fa-leaf',
-        'image_hero': 'images/hero/environnement.jpg',
+        'image_hero': 'images/bannière/PHOTO-2024-12-29-17-31-06.jpg',  # ← Image existante
         'description': 'Le departement Environnement œuvre pour la preservation de l\'environnement et la promotion du developpement durable.',
         'missions': [
             {
@@ -299,7 +310,7 @@ DEPARTEMENTS_DATA = {
         'titre': 'Humanitaire',
         'slogan': 'L\'humain au cœur de nos actions',
         'icone': 'fas fa-hands-helping',
-        'image_hero': 'images/hero/humanitaire.jpg',
+        'image_hero': 'images/bannière/PHOTO-2025-01-06-19-34-50.jpg',  # ← Image existante
         'description': 'Notre departement Humanitaire intervient aupres des populations en situation de vulnerabilite pour leur apporter un soutien immediat et durable.',
         'missions': [
             {
@@ -325,7 +336,7 @@ DEPARTEMENTS_DATA = {
         'titre': 'Communication',
         'slogan': 'Amplifier les voix pour un monde meilleur',
         'icone': 'fas fa-bullhorn',
-        'image_hero': 'images/hero/communication.jpg',
+        'image_hero': 'images/bannière/PHOTO-2025-01-06-19-34-52.jpg',  # ← Image existante
         'description': 'Le departement Communication assure la visibilite de nos actions et sensibilise le public a nos causes.',
         'missions': [
             {
@@ -351,7 +362,7 @@ DEPARTEMENTS_DATA = {
         'titre': 'Developpement Durable',
         'slogan': 'Batir un avenir durable ensemble',
         'icone': 'fas fa-seedling',
-        'image_hero': 'images/hero/developpement.jpg',
+        'image_hero': 'images/bannière/PHOTO-2025-01-06-19-34-57.jpg',  # ← Image existante
         'description': 'Notre departement Developpement Durable promeut des projets economiques et sociaux respectueux de l\'environnement.',
         'missions': [
             {
@@ -377,7 +388,7 @@ DEPARTEMENTS_DATA = {
         'titre': 'Innovation & Numerique',
         'slogan': 'Innover pour mieux servir',
         'icone': 'fas fa-lightbulb',
-        'image_hero': 'images/hero/innovation.jpg',
+        'image_hero': 'images/logo/logo simple (1).png',  # ← Image existante
         'description': 'Le departement Innovation & Numerique developpe des solutions technologiques pour amplifier l\'impact de nos actions.',
         'missions': [
             {
@@ -403,7 +414,7 @@ DEPARTEMENTS_DATA = {
         'titre': 'Administration & Finances',
         'slogan': 'Une gestion transparente et efficace',
         'icone': 'fas fa-chart-line',
-        'image_hero': 'images/hero/administration.jpg',
+        'image_hero': 'images/logo/logoDFD.jpg',  # ← Image existante
         'description': 'Le departement Administration & Finances assure la bonne gestion des ressources de l\'association.',
         'missions': [
             {
@@ -426,6 +437,7 @@ DEPARTEMENTS_DATA = {
         'equipe': []
     },
 }
+
 
 # ===================================
 # DONNEES DES ANTENNES
