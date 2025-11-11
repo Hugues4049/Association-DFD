@@ -481,31 +481,61 @@ ANTENNES_DATA = {
 
 def departement_view(request, slug):
     """Vue pour afficher un departement"""
-    if slug not in DEPARTEMENTS_DATA:
-        return render(request, '404.html', status=404)
+    # Vérifier si le département existe
+    departement = DEPARTEMENTS_DATA.get(slug)
     
-    departement = DEPARTEMENTS_DATA[slug]
+    if not departement:
+        # Log pour debug
+        print(f"❌ Département '{slug}' non trouvé dans DEPARTEMENTS_DATA")
+        print(f"✅ Départements disponibles: {list(DEPARTEMENTS_DATA.keys())}")
+        
+        # Rediriger vers l'accueil avec un message
+        from django.contrib import messages
+        messages.warning(request, f"Le département '{slug}' n'existe pas.")
+        return redirect('home')
+    
     context = {
         'departement': departement,
         'slug': slug
     }
-    return render(request, 'core/departement.html', context)
+    
+    try:
+        return render(request, 'core/departement.html', context)
+    except Exception as e:
+        # Si erreur de template, afficher le détail
+        print(f"❌ Erreur template: {str(e)}")
+        from django.http import HttpResponse
+        return HttpResponse(f"Erreur: {str(e)}<br>Département: {slug}<br>Context: {context}", status=500)
 
 # ===================================
 # VUES ANTENNES
 # ===================================
-
 def antenne_view(request, slug):
-    """Vue pour afficher une antenne"""
+    """Vue pour afficher une antenne avec gestion d'erreur robuste"""
+    
     if slug not in ANTENNES_DATA:
-        return render(request, '404.html', status=404)
+        import logging
+        logger = logging.getLogger(__name__)
+        logger.error(f"Antenne '{slug}' non trouvée. Disponibles: {list(ANTENNES_DATA.keys())}")
+        
+        messages.warning(request, f"L'antenne '{slug}' n'existe pas.")
+        return redirect('home')
     
     antenne = ANTENNES_DATA[slug]
     context = {
         'antenne': antenne,
         'slug': slug
     }
-    return render(request, 'core/antenne.html', context)
+    
+    try:
+        return render(request, 'core/antenne.html', context)
+    except Exception as e:
+        import logging
+        logger = logging.getLogger(__name__)
+        logger.error(f"Erreur rendering antenne '{slug}': {str(e)}")
+        
+        messages.error(request, "Une erreur est survenue. Veuillez réessayer.")
+        return redirect('home')
 
 # ===================================
 # NOUVELLES PAGES
