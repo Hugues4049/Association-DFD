@@ -23,7 +23,7 @@
    =================================== */
 
 .mobile-header {
-    display: none !important;
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
@@ -107,7 +107,6 @@
    =================================== */
 
 .mobile-overlay {
-    display: none;
     position: fixed;
     top: 0;
     left: 0;
@@ -116,17 +115,18 @@
     background: rgba(0, 0, 0, 0.5);
     z-index: 998;
     opacity: 0;
-    transition: opacity 0.3s ease;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
 .mobile-overlay.active {
-    display: block;
     opacity: 1;
+    visibility: visible;
 }
 
 /* Menu latéral */
 .mobile-menu-panel {
-    display: none !important;
+    display: none;
     position: fixed;
     top: 0;
     left: -100%;
@@ -466,7 +466,7 @@
 }
 
 /* Tablette */
-@media (max-width: 1200px) {
+@media (max-width: 1200px) and (min-width: 969px) {
     .main-nav > ul {
         flex-wrap: wrap;
         justify-content: center;
