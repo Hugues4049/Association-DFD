@@ -1,0 +1,124 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{{ titre }} - DFD{% endblock %}
+
+{% block content %}
+
+<!-- Hero Section -->
+<section class="hero-departement" style="background: linear-gradient(135deg, #1f1451 0%, #1a73e8 100%); padding: 4rem 2rem; text-align: center; color: white;">
+    <div class="container">
+        <i class="{{ icone }}" style="font-size: 4rem; margin-bottom: 1rem;"></i>
+        <h1 style="font-size: 2.5rem; margin-bottom: 1rem;">{{ titre }}</h1>
+        <p style="font-size: 1.2rem; opacity: 0.9;">{{ slogan }}</p>
+    </div>
+</section>
+
+<!-- Description -->
+<section style="padding: 3rem 2rem; max-width: 1200px; margin: 0 auto;">
+    <div class="container">
+        <h2 style="color: #1f1451; margin-bottom: 1.5rem;">Notre mission</h2>
+        <p style="font-size: 1.1rem; line-height: 1.8; color: #2c3e50;">
+            {{ description }}
+        </p>
+    </div>
+</section>
+
+<!-- Missions -->
+{% if missions %}
+<section style="padding: 3rem 2rem; background: #f8f9fa;">
+    <div class="container" style="max-width: 1200px; margin: 0 auto;">
+        <h2 style="color: #1f1451; text-align: center; margin-bottom: 2rem;">Nos axes d'intervention</h2>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+            {% for mission in missions %}
+            <div style="background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); text-align: center;">
+                <i class="{{ mission.icone }}" style="font-size: 3rem; color: #1a73e8; margin-bottom: 1rem;"></i>
+                <h3 style="color: #1f1451; margin-bottom: 1rem;">{{ mission.titre }}</h3>
+                <p style="color: #5a6c7d;">{{ mission.description }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- Projets -->
+{% if projets %}
+<section style="padding: 3rem 2rem;">
+    <div class="container" style="max-width: 1200px; margin: 0 auto;">
+        <h2 style="color: #1f1451; text-align: center; margin-bottom: 2rem;">Nos projets</h2>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem;">
+            {% for projet in projets %}
+            <div style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                {% if projet.image %}
+                <img src="{% static projet.image %}" alt="{{ projet.titre }}" style="width: 100%; height: 200px; object-fit: cover;">
+                {% endif %}
+                
+                <div style="padding: 1.5rem;">
+                    <h3 style="color: #1f1451; margin-bottom: 0.5rem;">{{ projet.titre }}</h3>
+                    <p style="color: #5a6c7d; margin-bottom: 1rem;">{{ projet.description }}</p>
+                    
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; font-size: 0.9rem; color: #5a6c7d;">
+                        <div><i class="fas fa-map-marker-alt"></i> {{ projet.lieu }}</div>
+                        <div><i class="fas fa-calendar"></i> {{ projet.date }}</div>
+                        <div><i class="fas fa-users"></i> {{ projet.beneficiaires }}</div>
+                        <div>
+                            <span style="padding: 0.25rem 0.75rem; background: #1a73e8; color: white; border-radius: 20px; font-size: 0.8rem;">
+                                {{ projet.status }}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- Équipe -->
+{% if equipe %}
+<section style="padding: 3rem 2rem; background: #f8f9fa;">
+    <div class="container" style="max-width: 1200px; margin: 0 auto;">
+        <h2 style="color: #1f1451; text-align: center; margin-bottom: 2rem;">Notre équipe</h2>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+            {% for membre in equipe %}
+            <div style="background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); text-align: center;">
+                {% if membre.photo %}
+                <img src="{% static membre.photo %}" alt="{{ membre.nom }}" 
+                     style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin-bottom: 1rem; border: 4px solid #1a73e8;">
+                {% endif %}
+                
+                <h3 style="color: #1f1451; margin-bottom: 0.5rem;">{{ membre.nom }}</h3>
+                <p style="color: #1a73e8; font-weight: 600; margin-bottom: 1rem;">{{ membre.role }}</p>
+                <p style="color: #5a6c7d; font-size: 0.9rem;">{{ membre.bio }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- Call to Action -->
+<section style="padding: 4rem 2rem; background: linear-gradient(135deg, #1f1451 0%, #1a73e8 100%); text-align: center; color: white;">
+    <div class="container">
+        <h2 style="margin-bottom: 1rem;">Rejoignez-nous !</h2>
+        <p style="font-size: 1.1rem; margin-bottom: 2rem; opacity: 0.9;">
+            Ensemble, nous pouvons faire la différence
+        </p>
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+            <a href="{% url 'don' %}" style="padding: 1rem 2rem; background: white; color: #1f1451; border-radius: 50px; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 0.5rem;">
+                <i class="fas fa-heart"></i> Faire un don
+            </a>
+            <a href="{% url 'participer' %}" style="padding: 1rem 2rem; background: transparent; color: white; border: 2px solid white; border-radius: 50px; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 0.5rem;">
+                <i class="fas fa-hands-helping"></i> Devenir bénévole
+            </a>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

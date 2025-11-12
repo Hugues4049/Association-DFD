@@ -1,0 +1,147 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}Éducation - DFD{% endblock %}
+
+{% block content %}
+
+<!-- Hero Section -->
+<section style="background: linear-gradient(135deg, #1f1451 0%, #1a73e8 100%); padding: 4rem 2rem; text-align: center; color: white;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+        <i class="fas fa-graduation-cap" style="font-size: 4rem; margin-bottom: 1rem;"></i>
+        <h1 style="font-size: 2.5rem; margin-bottom: 1rem; font-weight: 700;">Département Éducation</h1>
+        <p style="font-size: 1.3rem; opacity: 0.95; font-weight: 300;">Construire l'avenir par le savoir</p>
+    </div>
+</section>
+
+<!-- Description -->
+<section style="padding: 4rem 2rem; max-width: 1200px; margin: 0 auto;">
+    <h2 style="color: #1f1451; margin-bottom: 1.5rem; font-size: 2rem;">Notre mission</h2>
+    <p style="font-size: 1.15rem; line-height: 1.9; color: #2c3e50;">
+        Le département Éducation de DFD œuvre pour garantir l'accès à une éducation de qualité pour tous. 
+        Nous croyons que l'éducation est la clé du développement et de l'épanouissement personnel. 
+        À travers nos programmes, nous soutenons les enfants défavorisés, formons des enseignants qualifiés 
+        et développons les compétences numériques des élèves.
+    </p>
+</section>
+
+<!-- Missions -->
+<section style="padding: 4rem 2rem; background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%);">
+    <div style="max-width: 1200px; margin: 0 auto;">
+        <h2 style="color: #1f1451; text-align: center; margin-bottom: 3rem; font-size: 2rem;">Nos axes d'intervention</h2>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2.5rem;">
+            <!-- Mission 1 -->
+            <div style="background: white; padding: 2.5rem; border-radius: 16px; box-shadow: 0 8px 16px rgba(0,0,0,0.08); text-align: center; transition: transform 0.3s;">
+                <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #1a73e8 0%, #1f1451 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem;">
+                    <i class="fas fa-book-reader" style="font-size: 2rem; color: white;"></i>
+                </div>
+                <h3 style="color: #1f1451; margin-bottom: 1rem; font-size: 1.3rem;">Scolarisation</h3>
+                <p style="color: #5a6c7d; line-height: 1.7;">Faciliter l'accès à l'école pour les enfants défavorisés à travers la distribution de fournitures scolaires et le paiement des frais de scolarité.</p>
+            </div>
+            
+            <!-- Mission 2 -->
+            <div style="background: white; padding: 2.5rem; border-radius: 16px; box-shadow: 0 8px 16px rgba(0,0,0,0.08); text-align: center; transition: transform 0.3s;">
+                <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #1a73e8 0%, #1f1451 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem;">
+                    <i class="fas fa-chalkboard-teacher" style="font-size: 2rem; color: white;"></i>
+                </div>
+                <h3 style="color: #1f1451; margin-bottom: 1rem; font-size: 1.3rem;">Formation des enseignants</h3>
+                <p style="color: #5a6c7d; line-height: 1.7;">Former des enseignants qualifiés et engagés pour améliorer la qualité de l'enseignement dans les écoles rurales.</p>
+            </div>
+            
+            <!-- Mission 3 -->
+            <div style="background: white; padding: 2.5rem; border-radius: 16px; box-shadow: 0 8px 16px rgba(0,0,0,0.08); text-align: center; transition: transform 0.3s;">
+                <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #1a73e8 0%, #1f1451 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem;">
+                    <i class="fas fa-laptop" style="font-size: 2rem; color: white;"></i>
+                </div>
+                <h3 style="color: #1f1451; margin-bottom: 1rem; font-size: 1.3rem;">Éducation numérique</h3>
+                <p style="color: #5a6c7d; line-height: 1.7;">Développer les compétences numériques des élèves en installant des salles informatiques et en formant aux outils digitaux.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Projet Phare -->
+<section style="padding: 4rem 2rem; max-width: 1200px; margin: 0 auto;">
+    <h2 style="color: #1f1451; text-align: center; margin-bottom: 3rem; font-size: 2rem;">Notre projet phare</h2>
+    
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;">
+        <div>
+            <img src="{% static 'images/foyeresperence/PHOTO-2025-01-06-19-34-50.jpg' %}" 
+                 alt="Programme École pour Tous" 
+                 style="width: 100%; border-radius: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.12);">
+        </div>
+        
+        <div>
+            <h3 style="color: #1f1451; margin-bottom: 1rem; font-size: 1.8rem;">Programme "École pour Tous"</h3>
+            <p style="color: #5a6c7d; margin-bottom: 2rem; line-height: 1.8; font-size: 1.1rem;">
+                Notre programme phare vise à faciliter l'accès à l'éducation pour 500 enfants défavorisés 
+                de la région de Yaoundé. Nous fournissons des fournitures scolaires complètes, prenons en 
+                charge les frais de scolarité et offrons un soutien scolaire personnalisé.
+            </p>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 2rem;">
+                <div style="padding: 1.5rem; background: #f8f9fa; border-radius: 12px; text-align: center;">
+                    <i class="fas fa-users" style="font-size: 2rem; color: #1a73e8; margin-bottom: 0.5rem;"></i>
+                    <div style="font-size: 1.8rem; font-weight: 700; color: #1f1451;">500+</div>
+                    <div style="color: #5a6c7d; font-size: 0.9rem;">Bénéficiaires</div>
+                </div>
+                
+                <div style="padding: 1.5rem; background: #f8f9fa; border-radius: 12px; text-align: center;">
+                    <i class="fas fa-calendar" style="font-size: 2rem; color: #1a73e8; margin-bottom: 0.5rem;"></i>
+                    <div style="font-size: 1.8rem; font-weight: 700; color: #1f1451;">Sept 2024</div>
+                    <div style="color: #5a6c7d; font-size: 0.9rem;">Lancement</div>
+                </div>
+            </div>
+            
+            <span style="display: inline-block; padding: 0.75rem 1.5rem; background: #4caf50; color: white; border-radius: 50px; font-weight: 600;">
+                <i class="fas fa-check-circle"></i> Projet en cours
+            </span>
+        </div>
+    </div>
+</section>
+
+<!-- Équipe -->
+<section style="padding: 4rem 2rem; background: #f8f9fa;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+        <h2 style="color: #1f1451; text-align: center; margin-bottom: 3rem; font-size: 2rem;">Notre équipe</h2>
+        
+        <div style="display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap;">
+            <div style="background: white; padding: 2.5rem; border-radius: 16px; box-shadow: 0 8px 16px rgba(0,0,0,0.08); text-align: center; max-width: 350px;">
+                <img src="{% static 'images/Nathan.PNG' %}" 
+                     alt="Nathanaël Toukea" 
+                     style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover; margin-bottom: 1.5rem; border: 5px solid #1a73e8;">
+                
+                <h3 style="color: #1f1451; margin-bottom: 0.5rem; font-size: 1.4rem;">Nathanaël Toukea</h3>
+                <p style="color: #1a73e8; font-weight: 600; margin-bottom: 1rem; font-size: 1.1rem;">Responsable Éducation</p>
+                <p style="color: #5a6c7d; font-size: 1rem; line-height: 1.7;">
+                    Président fondateur, passionné par l'éducation inclusive et l'autonomisation des jeunes.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action -->
+<section style="padding: 5rem 2rem; background: linear-gradient(135deg, #1f1451 0%, #1a73e8 100%); text-align: center; color: white;">
+    <div style="max-width: 800px; margin: 0 auto;">
+        <h2 style="margin-bottom: 1rem; font-size: 2.2rem; font-weight: 700;">Changez des vies avec nous !</h2>
+        <p style="font-size: 1.2rem; margin-bottom: 3rem; opacity: 0.95; line-height: 1.7;">
+            Votre soutien peut offrir un avenir meilleur à des centaines d'enfants. 
+            Ensemble, construisons l'avenir par l'éducation.
+        </p>
+        <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
+            <a href="{% url 'don' %}" 
+               style="padding: 1.2rem 2.5rem; background: white; color: #1f1451; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1.1rem; display: inline-flex; align-items: center; gap: 0.75rem; box-shadow: 0 4px 12px rgba(0,0,0,0.15); transition: transform 0.3s;">
+                <i class="fas fa-heart"></i> Faire un don
+            </a>
+            <a href="{% url 'participer' %}" 
+               style="padding: 1.2rem 2.5rem; background: transparent; color: white; border: 3px solid white; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1.1rem; display: inline-flex; align-items: center; gap: 0.75rem; transition: all 0.3s;">
+                <i class="fas fa-hands-helping"></i> Devenir bénévole
+            </a>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
