@@ -28,7 +28,7 @@
             </div>
             
             <!-- Bouton Hamburger -->
-            <button class="hamburger-btn" id="hamburgerBtn" aria-label="Menu">
+            <button class="hamburger-btn" id="hamburgerBtn" aria-label="Menu" type="button">
                 <span class="hamburger-line"></span>
                 <span class="hamburger-line"></span>
                 <span class="hamburger-line"></span>
@@ -59,7 +59,7 @@
             
             <!-- Nos Départements -->
             <li class="mobile-menu-item">
-                <a href="#" class="mobile-menu-link mobile-dropdown-toggle">
+                <a href="javascript:void(0)" class="mobile-menu-link mobile-dropdown-toggle">
                     Nos Départements <i class="fas fa-chevron-down"></i>
                 </a>
                 <ul class="mobile-submenu">
@@ -108,7 +108,7 @@
             
             <!-- Nos Antennes -->
             <li class="mobile-menu-item">
-                <a href="#" class="mobile-menu-link mobile-dropdown-toggle">
+                <a href="javascript:void(0)" class="mobile-menu-link mobile-dropdown-toggle">
                     Nos Antennes <i class="fas fa-chevron-down"></i>
                 </a>
                 <ul class="mobile-submenu">
@@ -137,7 +137,7 @@
             
             <!-- Agir avec nous -->
             <li class="mobile-menu-item">
-                <a href="#" class="mobile-menu-link mobile-dropdown-toggle">
+                <a href="javascript:void(0)" class="mobile-menu-link mobile-dropdown-toggle">
                     Agir avec nous <i class="fas fa-chevron-down"></i>
                 </a>
                 <ul class="mobile-submenu">
@@ -171,7 +171,7 @@
             
             <!-- Ressources -->
             <li class="mobile-menu-item">
-                <a href="#" class="mobile-menu-link mobile-dropdown-toggle">
+                <a href="javascript:void(0)" class="mobile-menu-link mobile-dropdown-toggle">
                     Ressources <i class="fas fa-chevron-down"></i>
                 </a>
                 <ul class="mobile-submenu">
@@ -276,7 +276,7 @@
             
             <!-- Nos Départements -->
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle">
+                <a href="javascript:void(0)" class="dropdown-toggle">
                     Nos Départements <i class="fas fa-chevron-down"></i>
                 </a>
                 <ul class="dropdown-menu">
@@ -293,7 +293,7 @@
 
             <!-- Nos Antennes -->
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle">
+                <a href="javascript:void(0)" class="dropdown-toggle">
                     Nos Antennes <i class="fas fa-chevron-down"></i>
                 </a>
                 <ul class="dropdown-menu">
@@ -306,7 +306,7 @@
 
             <!-- Agir avec nous -->
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle">
+                <a href="javascript:void(0)" class="dropdown-toggle">
                     Agir avec nous <i class="fas fa-chevron-down"></i>
                 </a>
                 <ul class="dropdown-menu">
@@ -320,7 +320,7 @@
             
             <!-- Ressources -->
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle">
+                <a href="javascript:void(0)" class="dropdown-toggle">
                     Ressources <i class="fas fa-chevron-down"></i>
                 </a>
                 <ul class="dropdown-menu">
@@ -408,129 +408,141 @@
          SCRIPTS JAVASCRIPT
          =================================== -->
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // ==========================================
-            // MENU MOBILE HAMBURGER
-            // ==========================================
-            const hamburgerBtn = document.getElementById('hamburgerBtn');
-            const mobileOverlay = document.getElementById('mobileOverlay');
-            const mobileMenuPanel = document.getElementById('mobileMenuPanel');
-            const body = document.body;
-
-            // Ouvrir/Fermer le menu
-            function toggleMobileMenu() {
-                body.classList.toggle('mobile-menu-open');
-                mobileOverlay.classList.toggle('active');
-                mobileMenuPanel.classList.toggle('active');
-            }
-
-            // Fermer le menu
-            function closeMobileMenu() {
-                body.classList.remove('mobile-menu-open');
-                mobileOverlay.classList.remove('active');
-                mobileMenuPanel.classList.remove('active');
-            }
-
-            // Clic sur hamburger
-            if (hamburgerBtn) {
-                hamburgerBtn.addEventListener('click', toggleMobileMenu);
-            }
-
-            // Clic sur overlay
-            if (mobileOverlay) {
-                mobileOverlay.addEventListener('click', closeMobileMenu);
-            }
-
-            // Sous-menus mobiles
-            const mobileDropdownToggles = document.querySelectorAll('.mobile-dropdown-toggle');
-            mobileDropdownToggles.forEach(toggle => {
-                toggle.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    const parentItem = toggle.closest('.mobile-menu-item');
-                    parentItem.classList.toggle('active');
-                });
-            });
-
-            // Touche Escape pour fermer
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape') {
-                    closeMobileMenu();
-                }
-            });
-
-            // ==========================================
-            // MENU DESKTOP (DROPDOWN)
-            // ==========================================
-            const dropdowns = document.querySelectorAll('.dropdown');
-
-            function closeAllDropdowns(except = null) {
-                dropdowns.forEach(d => {
-                    if (d !== except) d.classList.remove('active');
-                });
-            }
-
-            dropdowns.forEach(dropdown => {
-                const toggle = dropdown.querySelector('.dropdown-toggle');
-                const menu = dropdown.querySelector('.dropdown-menu');
-                if (!toggle || !menu) return;
-
-                // Accessibilité
-                toggle.setAttribute('role', 'button');
-                toggle.setAttribute('aria-haspopup', 'true');
-                toggle.setAttribute('aria-expanded', 'false');
-
-                const open = () => {
-                    closeAllDropdowns(dropdown);
-                    dropdown.classList.add('active');
-                    toggle.setAttribute('aria-expanded', 'true');
-                };
-                
-                const close = () => {
-                    dropdown.classList.remove('active');
-                    toggle.setAttribute('aria-expanded', 'false');
-                };
-                
-                const toggleOpen = (e) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    if (dropdown.classList.contains('active')) {
-                        close();
-                    } else {
-                        open();
-                    }
-                };
-
-                // Événements
-                toggle.addEventListener('pointerdown', toggleOpen);
-                toggle.addEventListener('click', (e) => { 
-                    e.preventDefault(); 
-                    e.stopPropagation(); 
-                });
-
-                // Ne pas fermer si clic dans le menu
-                menu.addEventListener('pointerdown', (e) => e.stopPropagation());
-                menu.addEventListener('click', (e) => e.stopPropagation());
-
-                // Clavier
-                toggle.addEventListener('keydown', (e) => {
-                    if (e.key === 'Enter' || e.key === ' ') {
-                        toggleOpen(e);
-                    } else if (e.key === 'Escape') {
-                        close();
-                        toggle.focus();
-                    }
-                });
-            });
-
-            // Fermer en cliquant dehors
-            document.addEventListener('pointerdown', (e) => {
-                if (!e.target.closest('.dropdown')) closeAllDropdowns();
-            });
+        // Encapsuler tout dans une fonction pour éviter les conflits
+        (function() {
+            'use strict';
             
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape') closeAllDropdowns();
-            });
-        });
+            console.log('🚀 Script menu chargé');
+            
+            document.addEventListener('DOMContentLoaded', function() {
+                
+                // ==========================================
+                // MENU MOBILE HAMBURGER - VERSION SIMPLIFIÉE
+                // ==========================================
+                const hamburgerBtn = document.getElementById('hamburgerBtn');
+                const mobileOverlay = document.getElementById('mobileOverlay');
+                const mobileMenuPanel = document.getElementById('mobileMenuPanel');
+                const body = document.body;
+
+                console.log('🔍 Éléments menu mobile:', {
+                    hamburgerBtn: hamburgerBtn ? '✅' : '❌',
+                    mobileOverlay: mobileOverlay ? '✅' : '❌',
+                    mobileMenuPanel: mobileMenuPanel ? '✅' : '❌'
+                });
+
+                // Fonction simple pour ouvrir/fermer
+                function toggleMobileMenu() {
+                    console.log('🔄 Toggle menu mobile');
+                    body.classList.toggle('mobile-menu-open');
+                    mobileOverlay.classList.toggle('active');
+                    mobileMenuPanel.classList.toggle('active');
+                }
+
+                function closeMobileMenu() {
+                    console.log('❌ Fermeture menu mobile');
+                    body.classList.remove('mobile-menu-open');
+                    mobileOverlay.classList.remove('active');
+                    mobileMenuPanel.classList.remove('active');
+                }
+
+                // Hamburger button - méthode onclick simple
+                if (hamburgerBtn) {
+                    hamburgerBtn.onclick = function(e) {
+                        console.log('🍔 Click hamburger détecté!');
+                        e.preventDefault();
+                        toggleMobileMenu();
+                        return false;
+                    };
+                }
+
+                // Overlay - fermer au clic
+                if (mobileOverlay) {
+                    mobileOverlay.onclick = function() {
+                        console.log('🌑 Click overlay');
+                        closeMobileMenu();
+                    };
+                }
+
+                // Sous-menus mobiles
+                const mobileDropdownToggles = document.querySelectorAll('.mobile-dropdown-toggle');
+                console.log(`📋 ${mobileDropdownToggles.length} sous-menus mobiles trouvés`);
+                
+                mobileDropdownToggles.forEach(function(toggle, index) {
+                    toggle.onclick = function(e) {
+                        console.log(`📂 Click sous-menu ${index}`);
+                        e.preventDefault();
+                        const parentItem = toggle.closest('.mobile-menu-item');
+                        parentItem.classList.toggle('active');
+                        return false;
+                    };
+                });
+
+                // Escape pour fermer
+                document.onkeydown = function(e) {
+                    if (e.key === 'Escape') {
+                        closeMobileMenu();
+                    }
+                };
+
+                // ==========================================
+                // MENU DESKTOP (DROPDOWN) - VERSION SIMPLIFIÉE
+                // ==========================================
+                const dropdowns = document.querySelectorAll('.dropdown');
+                console.log(`📋 ${dropdowns.length} dropdowns trouvés`);
+
+                // Fermer tous les menus sauf celui spécifié
+                function closeAllDropdowns(except) {
+                    dropdowns.forEach(function(d) {
+                        if (d !== except) {
+                            d.classList.remove('active');
+                        }
+                    });
+                }
+
+                dropdowns.forEach(function(dropdown, index) {
+                    const toggle = dropdown.querySelector('.dropdown-toggle');
+                    
+                    if (!toggle) {
+                        console.warn(`❌ Toggle non trouvé pour dropdown ${index}`);
+                        return;
+                    }
+
+                    console.log(`✅ Dropdown ${index} initialisé`);
+
+                    // UN SEUL événement click - le plus simple
+                    toggle.onclick = function(e) {
+                        console.log(`🎯 Click sur dropdown ${index}`);
+                        e.preventDefault();
+                        
+                        const isActive = dropdown.classList.contains('active');
+                        
+                        // Fermer tous les autres
+                        closeAllDropdowns(dropdown);
+                        
+                        // Toggle celui-ci
+                        if (isActive) {
+                            dropdown.classList.remove('active');
+                            console.log(`❌ Dropdown ${index} fermé`);
+                        } else {
+                            dropdown.classList.add('active');
+                            console.log(`✅ Dropdown ${index} ouvert`);
+                        }
+                        
+                        return false;
+                    };
+                });
+
+                // Fermer en cliquant n'importe où ailleurs
+                document.onclick = function(e) {
+                    if (!e.target.closest('.dropdown')) {
+                        console.log('🔒 Fermeture de tous les dropdowns');
+                        closeAllDropdowns(null);
+                    }
+                };
+                
+            }); // Fin DOMContentLoaded
+            
+        })(); // Fin IIFE
     </script>
     {% endblock %}
 </body>

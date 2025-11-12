@@ -381,174 +381,179 @@
 
 
 {% block scripts %}
+{{ block.super }}
 <script>
     // ============================================
     // HERO BANNER - Carrousel automatique
     // ============================================
-    document.addEventListener('DOMContentLoaded', function () {
-        const images = [
-            "{% static 'images/bannière/PHOTO-2024-12-29-17-30-47.jpg' %}",
-            "{% static 'images/bannière/PHOTO-2024-12-29-17-30-48.jpg' %}",
-            "{% static 'images/bannière/PHOTO-2024-12-29-17-31-06.jpg' %}",
-            "{% static 'images/bannière/PHOTO-2025-01-06-19-34-50.jpg' %}"
-        ];
+    (function() {
+        'use strict';
         
-        let currentIndex = 0;
-        const heroBanner = document.querySelector('.hero-banner');
-        const dots = document.querySelectorAll('.hero-dot');
-        
-        function changeBackground() {
-            heroBanner.style.backgroundImage = `url(${images[currentIndex]})`;
+        document.addEventListener('DOMContentLoaded', function () {
+            const images = [
+                "{% static 'images/bannière/PHOTO-2024-12-29-17-30-47.jpg' %}",
+                "{% static 'images/bannière/PHOTO-2024-12-29-17-30-48.jpg' %}",
+                "{% static 'images/bannière/PHOTO-2024-12-29-17-31-06.jpg' %}",
+                "{% static 'images/bannière/PHOTO-2025-01-06-19-34-50.jpg' %}"
+            ];
             
-            // Update dots
-            dots.forEach((dot, index) => {
-                dot.classList.toggle('active', index === currentIndex);
-            });
+            let currentIndex = 0;
+            const heroBanner = document.querySelector('.hero-banner');
+            const dots = document.querySelectorAll('.hero-dot');
             
-            currentIndex = (currentIndex + 1) % images.length;
-        }
-        
-        // Initialize
-        changeBackground();
-        
-        // Auto change every 5 seconds
-        setInterval(changeBackground, 5000);
-        
-        // Dot click handlers
-        dots.forEach((dot, index) => {
-            dot.addEventListener('click', () => {
-                currentIndex = index;
-                changeBackground();
+            function changeBackground() {
+                heroBanner.style.backgroundImage = `url(${images[currentIndex]})`;
+                
+                // Update dots
+                dots.forEach(function(dot, index) {
+                    dot.classList.toggle('active', index === currentIndex);
+                });
+                
+                currentIndex = (currentIndex + 1) % images.length;
+            }
+            
+            // Initialize
+            changeBackground();
+            
+            // Auto change every 5 seconds
+            setInterval(changeBackground, 5000);
+            
+            // Dot click handlers
+            dots.forEach(function(dot, index) {
+                dot.addEventListener('click', function() {
+                    currentIndex = index;
+                    changeBackground();
+                });
             });
         });
-    });
 
-// ===================================
-// GALERIE - GESTION DES CARROUSELS
-// ===================================
+        // ===================================
+        // GALERIE - GESTION DES CARROUSELS
+        // ===================================
 
-// Etat des carrousels
-const carouselStates = {};
+        // Etat des carrousels (dans un scope local)
+        var carouselStates = {};
 
-// Initialiser les carrousels
-document.addEventListener('DOMContentLoaded', function() {
-    const carousels = document.querySelectorAll('.carousel');
-    
-    carousels.forEach(carousel => {
-        const carouselId = carousel.dataset.carousel;
-        const slides = carousel.querySelectorAll('.carousel-slide');
-        
-        carouselStates[carouselId] = {
-            currentSlide: 0,
-            totalSlides: slides.length,
-            carousel: carousel
-        };
-        
-        // Demarrer le defilement automatique
-        startAutoSlide(carouselId);
-    });
-});
+        // Initialiser les carrousels
+        document.addEventListener('DOMContentLoaded', function() {
+            const carousels = document.querySelectorAll('.carousel');
+            
+            carousels.forEach(function(carousel) {
+                const carouselId = carousel.dataset.carousel;
+                const slides = carousel.querySelectorAll('.carousel-slide');
+                
+                carouselStates[carouselId] = {
+                    currentSlide: 0,
+                    totalSlides: slides.length,
+                    carousel: carousel
+                };
+                
+                // Demarrer le defilement automatique
+                startAutoSlide(carouselId);
+            });
+        });
 
-// Changer de slide
-function changeSlide(carouselId, direction) {
-    const state = carouselStates[carouselId];
-    if (!state) return;
-    
-    const slides = state.carousel.querySelectorAll('.carousel-slide');
-    const indicators = state.carousel.parentElement.querySelectorAll('.indicator');
-    
-    // Retirer la classe active
-    slides[state.currentSlide].classList.remove('active');
-    indicators[state.currentSlide].classList.remove('active');
-    
-    // Calculer le nouvel index
-    state.currentSlide = (state.currentSlide + direction + state.totalSlides) % state.totalSlides;
-    
-    // Ajouter la classe active
-    slides[state.currentSlide].classList.add('active');
-    indicators[state.currentSlide].classList.add('active');
-    
-    // Redemarrer le timer
-    resetAutoSlide(carouselId);
-}
-
-// Aller a une slide specifique
-function goToSlide(carouselId, slideIndex) {
-    const state = carouselStates[carouselId];
-    if (!state) return;
-    
-    const slides = state.carousel.querySelectorAll('.carousel-slide');
-    const indicators = state.carousel.parentElement.querySelectorAll('.indicator');
-    
-    // Retirer la classe active
-    slides[state.currentSlide].classList.remove('active');
-    indicators[state.currentSlide].classList.remove('active');
-    
-    // Definir le nouvel index
-    state.currentSlide = slideIndex;
-    
-    // Ajouter la classe active
-    slides[state.currentSlide].classList.add('active');
-    indicators[state.currentSlide].classList.add('active');
-    
-    // Redemarrer le timer
-    resetAutoSlide(carouselId);
-}
-
-// Defilement automatique
-function startAutoSlide(carouselId) {
-    const state = carouselStates[carouselId];
-    if (!state) return;
-    
-    state.autoSlideInterval = setInterval(() => {
-        changeSlide(carouselId, 1);
-    }, 5000); // Change toutes les 5 secondes
-}
-
-// Reinitialiser le defilement automatique
-function resetAutoSlide(carouselId) {
-    const state = carouselStates[carouselId];
-    if (!state) return;
-    
-    clearInterval(state.autoSlideInterval);
-    startAutoSlide(carouselId);
-}
-
-// Pause au survol
-document.addEventListener('DOMContentLoaded', function() {
-    const carouselContainers = document.querySelectorAll('.carousel-container');
-    
-    carouselContainers.forEach(container => {
-        const carousel = container.querySelector('.carousel');
-        const carouselId = carousel.dataset.carousel;
-        
-        container.addEventListener('mouseenter', () => {
+        // Changer de slide
+        window.changeSlide = function(carouselId, direction) {
             const state = carouselStates[carouselId];
-            if (state && state.autoSlideInterval) {
-                clearInterval(state.autoSlideInterval);
+            if (!state) return;
+            
+            const slides = state.carousel.querySelectorAll('.carousel-slide');
+            const indicators = state.carousel.parentElement.querySelectorAll('.indicator');
+            
+            // Retirer la classe active
+            slides[state.currentSlide].classList.remove('active');
+            indicators[state.currentSlide].classList.remove('active');
+            
+            // Calculer le nouvel index
+            state.currentSlide = (state.currentSlide + direction + state.totalSlides) % state.totalSlides;
+            
+            // Ajouter la classe active
+            slides[state.currentSlide].classList.add('active');
+            indicators[state.currentSlide].classList.add('active');
+            
+            // Redemarrer le timer
+            resetAutoSlide(carouselId);
+        };
+
+        // Aller a une slide specifique
+        window.goToSlide = function(carouselId, slideIndex) {
+            const state = carouselStates[carouselId];
+            if (!state) return;
+            
+            const slides = state.carousel.querySelectorAll('.carousel-slide');
+            const indicators = state.carousel.parentElement.querySelectorAll('.indicator');
+            
+            // Retirer la classe active
+            slides[state.currentSlide].classList.remove('active');
+            indicators[state.currentSlide].classList.remove('active');
+            
+            // Definir le nouvel index
+            state.currentSlide = slideIndex;
+            
+            // Ajouter la classe active
+            slides[state.currentSlide].classList.add('active');
+            indicators[state.currentSlide].classList.add('active');
+            
+            // Redemarrer le timer
+            resetAutoSlide(carouselId);
+        };
+
+        // Defilement automatique
+        function startAutoSlide(carouselId) {
+            const state = carouselStates[carouselId];
+            if (!state) return;
+            
+            state.autoSlideInterval = setInterval(function() {
+                window.changeSlide(carouselId, 1);
+            }, 5000); // Change toutes les 5 secondes
+        }
+
+        // Reinitialiser le defilement automatique
+        function resetAutoSlide(carouselId) {
+            const state = carouselStates[carouselId];
+            if (!state) return;
+            
+            clearInterval(state.autoSlideInterval);
+            startAutoSlide(carouselId);
+        }
+
+        // Pause au survol
+        document.addEventListener('DOMContentLoaded', function() {
+            const carouselContainers = document.querySelectorAll('.carousel-container');
+            
+            carouselContainers.forEach(function(container) {
+                const carousel = container.querySelector('.carousel');
+                const carouselId = carousel.dataset.carousel;
+                
+                container.addEventListener('mouseenter', function() {
+                    const state = carouselStates[carouselId];
+                    if (state && state.autoSlideInterval) {
+                        clearInterval(state.autoSlideInterval);
+                    }
+                });
+                
+                container.addEventListener('mouseleave', function() {
+                    startAutoSlide(carouselId);
+                });
+            });
+        });
+
+        // Support du clavier
+        document.addEventListener('keydown', function(e) {
+            const activeCarousel = document.querySelector('.campagne-card:hover .carousel');
+            if (!activeCarousel) return;
+            
+            const carouselId = activeCarousel.dataset.carousel;
+            
+            if (e.key === 'ArrowLeft') {
+                window.changeSlide(carouselId, -1);
+            } else if (e.key === 'ArrowRight') {
+                window.changeSlide(carouselId, 1);
             }
         });
         
-        container.addEventListener('mouseleave', () => {
-            startAutoSlide(carouselId);
-        });
-    });
-});
-
-// Support du clavier
-document.addEventListener('keydown', function(e) {
-    const activeCarousel = document.querySelector('.campagne-card:hover .carousel');
-    if (!activeCarousel) return;
-    
-    const carouselId = activeCarousel.dataset.carousel;
-    
-    if (e.key === 'ArrowLeft') {
-        changeSlide(carouselId, -1);
-    } else if (e.key === 'ArrowRight') {
-        changeSlide(carouselId, 1);
-    }
-});
-
+    })(); // Fin IIFE
 </script>
 {% endblock %}
 
