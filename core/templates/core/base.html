@@ -14,7 +14,216 @@
 </head>
 
 <body>
-    <!-- Barre superieure -->
+    <!-- ===================================
+         HEADER MOBILE (HAMBURGER)
+         =================================== -->
+    <header class="mobile-header">
+        <div class="mobile-header-content">
+            <!-- Logo + Nom DFD -->
+            <div class="mobile-logo-section">
+                <a href="{% url 'home' %}">
+                    <img src="{% static 'images/logo/logoDFD.jpg' %}" alt="Logo DFD">
+                </a>
+                <span class="mobile-site-name">DFD</span>
+            </div>
+            
+            <!-- Bouton Hamburger -->
+            <button class="hamburger-btn" id="hamburgerBtn" aria-label="Menu">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Overlay sombre -->
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+
+    <!-- Menu latéral -->
+    <nav class="mobile-menu-panel" id="mobileMenuPanel">
+        <!-- En-tête du menu -->
+        <div class="mobile-menu-header">
+            <h2>Dreams Family of Development</h2>
+            <p class="mobile-menu-slogan">"La main tendue, un sourire nouveau."</p>
+        </div>
+
+        <!-- Liste du menu -->
+        <ul class="mobile-menu-list">
+            <li class="mobile-menu-item">
+                <a href="{% url 'home' %}" class="mobile-menu-link">Accueil</a>
+            </li>
+            
+            <li class="mobile-menu-item">
+                <a href="{% url 'apropos' %}" class="mobile-menu-link">À propos</a>
+            </li>
+            
+            <!-- Nos Départements -->
+            <li class="mobile-menu-item">
+                <a href="#" class="mobile-menu-link mobile-dropdown-toggle">
+                    Nos Départements <i class="fas fa-chevron-down"></i>
+                </a>
+                <ul class="mobile-submenu">
+                    <li class="mobile-submenu-item">
+                        <a href="{% url 'dept_education' %}" class="mobile-submenu-link">
+                            <i class="fas fa-graduation-cap"></i> Éducation
+                        </a>
+                    </li>
+                    <li class="mobile-submenu-item">
+                        <a href="{% url 'dept_sante' %}" class="mobile-submenu-link">
+                            <i class="fas fa-heartbeat"></i> Santé
+                        </a>
+                    </li>
+                    <li class="mobile-submenu-item">
+                        <a href="{% url 'dept_environnement' %}" class="mobile-submenu-link">
+                            <i class="fas fa-leaf"></i> Environnement
+                        </a>
+                    </li>
+                    <li class="mobile-submenu-item">
+                        <a href="{% url 'dept_humanitaire' %}" class="mobile-submenu-link">
+                            <i class="fas fa-hand-holding-heart"></i> Humanitaire
+                        </a>
+                    </li>
+                    <li class="mobile-submenu-item">
+                        <a href="{% url 'dept_communication' %}" class="mobile-submenu-link">
+                            <i class="fas fa-bullhorn"></i> Communication
+                        </a>
+                    </li>
+                    <li class="mobile-submenu-item">
+                        <a href="{% url 'dept_developpement' %}" class="mobile-submenu-link">
+                            <i class="fas fa-seedling"></i> Développement durable
+                        </a>
+                    </li>
+                    <li class="mobile-submenu-item">
+                        <a href="{% url 'dept_innovation' %}" class="mobile-submenu-link">
+                            <i class="fas fa-lightbulb"></i> Innovation & numérique
+                        </a>
+                    </li>
+                    <li class="mobile-submenu-item">
+                        <a href="{% url 'dept_administration' %}" class="mobile-submenu-link">
+                            <i class="fas fa-briefcase"></i> Administration & finances
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            
+            <!-- Nos Antennes -->
+            <li class="mobile-menu-item">
+                <a href="#" class="mobile-menu-link mobile-dropdown-toggle">
+                    Nos Antennes <i class="fas fa-chevron-down"></i>
+                </a>
+                <ul class="mobile-submenu">
+                    <li class="mobile-submenu-item">
+                        <a href="{% url 'antenne_cameroun' %}" class="mobile-submenu-link">
+                            <i class="fas fa-map-marker-alt"></i> DFD Cameroun
+                        </a>
+                    </li>
+                    <li class="mobile-submenu-item">
+                        <a href="{% url 'antenne_diaspora' %}" class="mobile-submenu-link">
+                            <i class="fas fa-globe"></i> DFD Diaspora
+                        </a>
+                    </li>
+                    <li class="mobile-submenu-item">
+                        <a href="{% url 'antenne_france' %}" class="mobile-submenu-link">
+                            <i class="fas fa-flag"></i> DFD France <span class="badge">À venir</span>
+                        </a>
+                    </li>
+                    <li class="mobile-submenu-item">
+                        <a href="{% url 'antenne_italie' %}" class="mobile-submenu-link">
+                            <i class="fas fa-flag"></i> DFD Italie <span class="badge">À venir</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            
+            <!-- Agir avec nous -->
+            <li class="mobile-menu-item">
+                <a href="#" class="mobile-menu-link mobile-dropdown-toggle">
+                    Agir avec nous <i class="fas fa-chevron-down"></i>
+                </a>
+                <ul class="mobile-submenu">
+                    <li class="mobile-submenu-item">
+                        <a href="{% url 'participer' %}#benevole" class="mobile-submenu-link">
+                            <i class="fas fa-hands-helping"></i> Devenir bénévole
+                        </a>
+                    </li>
+                    <li class="mobile-submenu-item">
+                        <a href="{% url 'participer' %}#membre" class="mobile-submenu-link">
+                            <i class="fas fa-user-plus"></i> Adhérer à DFD
+                        </a>
+                    </li>
+                    <li class="mobile-submenu-item">
+                        <a href="{% url 'don' %}" class="mobile-submenu-link">
+                            <i class="fas fa-heart"></i> Faire un don
+                        </a>
+                    </li>
+                    <li class="mobile-submenu-item">
+                        <a href="{% url 'temoignages' %}" class="mobile-submenu-link">
+                            <i class="fas fa-comment-dots"></i> Témoigner
+                        </a>
+                    </li>
+                    <li class="mobile-submenu-item">
+                        <a href="{% url 'boutique' %}" class="mobile-submenu-link">
+                            <i class="fas fa-shopping-bag"></i> Boutique solidaire
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            
+            <!-- Ressources -->
+            <li class="mobile-menu-item">
+                <a href="#" class="mobile-menu-link mobile-dropdown-toggle">
+                    Ressources <i class="fas fa-chevron-down"></i>
+                </a>
+                <ul class="mobile-submenu">
+                    <li class="mobile-submenu-item">
+                        <a href="{% url 'galerie' %}" class="mobile-submenu-link">
+                            <i class="fas fa-images"></i> Galerie
+                        </a>
+                    </li>
+                    <li class="mobile-submenu-item">
+                        <a href="{% url 'documents' %}" class="mobile-submenu-link">
+                            <i class="fas fa-book"></i> Bibliothèque
+                        </a>
+                    </li>
+                    <li class="mobile-submenu-item">
+                        <a href="{% url 'blog' %}" class="mobile-submenu-link">
+                            <i class="fas fa-newspaper"></i> Articles
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            
+            <li class="mobile-menu-item">
+                <a href="{% url 'blog' %}" class="mobile-menu-link">Actualités</a>
+            </li>
+            
+            <li class="mobile-menu-item">
+                <a href="{% url 'contact' %}" class="mobile-menu-link">Contact</a>
+            </li>
+        </ul>
+
+        <!-- Pied du menu mobile -->
+        <div class="mobile-menu-footer">
+            <p><i class="fas fa-envelope"></i> dreams.family.development@gmail.com</p>
+            <p><i class="fas fa-phone"></i> +39 366 332 9990</p>
+            
+            <div class="mobile-social-icons">
+                <a href="https://www.facebook.com" target="_blank" title="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://wa.me/393663329990" target="_blank" title="WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="https://www.instagram.com/dreams_family_of_development" target="_blank" title="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===================================
+         BARRE SUPERIEURE DESKTOP
+         =================================== -->
     <div class="top-bar-container">
         <div class="top-bar">
             <!-- Logo -->
@@ -41,7 +250,7 @@
                 <a href="https://wa.me/393663329990" target="_blank"><i class="fab fa-whatsapp"></i></a>
             </div>
 
-            <!-- Selecteur de langue -->
+            <!-- Sélecteur de langue -->
             <form action="{% url 'set_language' %}" method="post" class="language-form">
                 {% csrf_token %}
                 <select name="language" onchange="this.form.submit()">
@@ -57,30 +266,31 @@
         </div>
     </div>
 
-    <!-- Navigation avec sous-menus -->
+    <!-- ===================================
+         NAVIGATION DESKTOP
+         =================================== -->
     <nav class="main-nav">
         <ul>
             <li><a href="{% url 'home' %}">Accueil</a></li>
-            <li><a href="{% url 'apropos' %}">A propos</a></li>
+            <li><a href="{% url 'apropos' %}">À propos</a></li>
             
-            <!-- Nos Departements -->
+            <!-- Nos Départements -->
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle">
-                    Nos Departements <i class="fas fa-chevron-down"></i>
+                    Nos Départements <i class="fas fa-chevron-down"></i>
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a href="{% url 'dept_education' %}">Education</a></li>
-                    <li><a href="{% url 'dept_sante' %}">Sante</a></li>
+                    <li><a href="{% url 'dept_education' %}">Éducation</a></li>
+                    <li><a href="{% url 'dept_sante' %}">Santé</a></li>
                     <li><a href="{% url 'dept_environnement' %}">Environnement</a></li>
                     <li><a href="{% url 'dept_humanitaire' %}">Humanitaire</a></li>
                     <li><a href="{% url 'dept_communication' %}">Communication</a></li>
-                    <li><a href="{% url 'dept_developpement' %}">Developpement durable</a></li>
-                    <li><a href="{% url 'dept_innovation' %}">Innovation & numerique</a></li>
+                    <li><a href="{% url 'dept_developpement' %}">Développement durable</a></li>
+                    <li><a href="{% url 'dept_innovation' %}">Innovation & numérique</a></li>
                     <li><a href="{% url 'dept_administration' %}">Administration & finances</a></li>
                 </ul>
             </li>
 
-            
             <!-- Nos Antennes -->
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle">
@@ -89,24 +299,22 @@
                 <ul class="dropdown-menu">
                     <li><a href="{% url 'antenne_cameroun' %}">DFD Cameroun</a></li>
                     <li><a href="{% url 'antenne_diaspora' %}">DFD Diaspora</a></li>
-                    <li><a href="{% url 'antenne_france' %}">DFD France <span class="badge">A venir</span></a></li>
-                    <li><a href="{% url 'antenne_italie' %}">DFD Italie <span class="badge">A venir</span></a></li>
+                    <li><a href="{% url 'antenne_france' %}">DFD France <span class="badge">À venir</span></a></li>
+                    <li><a href="{% url 'antenne_italie' %}">DFD Italie <span class="badge">À venir</span></a></li>
                 </ul>
             </li>
 
-            
             <!-- Agir avec nous -->
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle">
                     Agir avec nous <i class="fas fa-chevron-down"></i>
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a href="{% url 'participer' %}#benevole"><i class="fas fa-hands-helping"></i> Devenir benevole</a></li>
-                    <li><a href="{% url 'participer' %}#membre"><i class="fas fa-user-plus"></i> Adherer a DFD</a></li>
+                    <li><a href="{% url 'participer' %}#benevole"><i class="fas fa-hands-helping"></i> Devenir bénévole</a></li>
+                    <li><a href="{% url 'participer' %}#membre"><i class="fas fa-user-plus"></i> Adhérer à DFD</a></li>
                     <li><a href="{% url 'don' %}"><i class="fas fa-heart"></i> Faire un don</a></li>
-                    <li><a href="{% url 'temoignages' %}"><i class="fas fa-comment-dots"></i> Temoigner</a></li>
+                    <li><a href="{% url 'temoignages' %}"><i class="fas fa-comment-dots"></i> Témoigner</a></li>
                     <li><a href="{% url 'boutique' %}"><i class="fas fa-shopping-bag"></i> Boutique solidaire</a></li>
-
                 </ul>
             </li>
             
@@ -116,14 +324,13 @@
                     Ressources <i class="fas fa-chevron-down"></i>
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a href="{% url 'galerie' %}"><i class="fas fa-images"></i> Galerie (photos, videos, podcasts)</a></li>
-
-                    <li><a href="{% url 'documents' %}"><i class="fas fa-book"></i> Bibliotheque documentaire</a></li>
-                    <li><a href="{% url 'blog' %}"><i class="fas fa-newspaper"></i> Articles & publications</a></li>
+                    <li><a href="{% url 'galerie' %}"><i class="fas fa-images"></i> Galerie</a></li>
+                    <li><a href="{% url 'documents' %}"><i class="fas fa-book"></i> Bibliothèque</a></li>
+                    <li><a href="{% url 'blog' %}"><i class="fas fa-newspaper"></i> Articles</a></li>
                 </ul>
             </li>
             
-            <li><a href="{% url 'blog' %}">Actualites</a></li>
+            <li><a href="{% url 'blog' %}">Actualités</a></li>
             <li><a href="{% url 'contact' %}">Contact</a></li>
         </ul>
     </nav>
@@ -159,10 +366,10 @@
             <div class="footer-section">
                 <h4>La DFD</h4>
                 <ul>
-                    <li><a href="{% url 'apropos' %}">A propos de nous</a></li>
+                    <li><a href="{% url 'apropos' %}">À propos de nous</a></li>
                     <li><a href="{% url 'projets' %}">Nos Projets</a></li>
                     <li><a href="{% url 'participer' %}">Participer</a></li>
-                    <li><a href="{% url 'blog' %}">Blog / Actualites</a></li>
+                    <li><a href="{% url 'blog' %}">Blog / Actualités</a></li>
                 </ul>
             </div>
 
@@ -179,95 +386,152 @@
             <!-- Contact -->
             <div class="footer-section">
                 <h4>Contactez-nous</h4>
-                <p>Siege Social : Yaounde face Hotel SOMMATEL<br>palais de sport, Cameroun.</p>
-                <p>Tel : <a href="tel:+393663329990">+39 366 332 9990</a></p>
+                <p>Siège Social : Yaoundé face Hôtel SOMMATEL<br>palais de sport, Cameroun.</p>
+                <p>Tél : <a href="tel:+393663329990">+39 366 332 9990</a></p>
                 <p>Email : <a href="mailto:dreams.family.development@gmail.com">dreams.family.development@gmail.com</a></p>
                 <div class="social-icons">
                     <a href="mailto:dreams.family.development@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
                     <a href="https://www.instagram.com/dreams_family_of_development" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
                     <a href="https://wa.me/393663329990" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-                    <a href="tel:+393663329990" title="Telephone"><i class="fas fa-phone"></i></a>
+                    <a href="tel:+393663329990" title="Téléphone"><i class="fas fa-phone"></i></a>
                 </div>
             </div>
         </div>
 
         <div class="footer-bottom">
-            <p>&copy; 2025 <span class="highlight">DFD</span> | Tous droits reserves | Propose par <span class="highlight">#4049</span></p>
+            <p>&copy; 2025 <span class="highlight">DFD</span> | Tous droits réservés | Proposé par <span class="highlight">#4049</span></p>
         </div>
     </footer>
 
     {% block scripts %}
-    <!-- Script pour les menus deroulants -->
-            <script>
-                document.addEventListener('DOMContentLoaded', () => {
-                    const dropdowns = document.querySelectorAll('.dropdown');
+    <!-- ===================================
+         SCRIPTS JAVASCRIPT
+         =================================== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // ==========================================
+            // MENU MOBILE HAMBURGER
+            // ==========================================
+            const hamburgerBtn = document.getElementById('hamburgerBtn');
+            const mobileOverlay = document.getElementById('mobileOverlay');
+            const mobileMenuPanel = document.getElementById('mobileMenuPanel');
+            const body = document.body;
 
-                    function closeAll(except = null) {
-                        dropdowns.forEach(d => {
-                            if (d !== except) d.classList.remove('active');
-                        });
-                    }
+            // Ouvrir/Fermer le menu
+            function toggleMobileMenu() {
+                body.classList.toggle('mobile-menu-open');
+                mobileOverlay.classList.toggle('active');
+                mobileMenuPanel.classList.toggle('active');
+            }
 
-                    dropdowns.forEach(dropdown => {
-                        const toggle = dropdown.querySelector('.dropdown-toggle');
-                        const menu = dropdown.querySelector('.dropdown-menu');
-                        if (!toggle || !menu) return;
+            // Fermer le menu
+            function closeMobileMenu() {
+                body.classList.remove('mobile-menu-open');
+                mobileOverlay.classList.remove('active');
+                mobileMenuPanel.classList.remove('active');
+            }
 
-                        // Accessibilité
-                        toggle.setAttribute('role', 'button');
-                        toggle.setAttribute('aria-haspopup', 'true');
-                        toggle.setAttribute('aria-expanded', 'false');
+            // Clic sur hamburger
+            if (hamburgerBtn) {
+                hamburgerBtn.addEventListener('click', toggleMobileMenu);
+            }
 
-                        const open = () => {
-                            closeAll(dropdown);
-                            dropdown.classList.add('active');
-                            toggle.setAttribute('aria-expanded', 'true');
-                        };
-                        const close = () => {
-                            dropdown.classList.remove('active');
-                            toggle.setAttribute('aria-expanded', 'false');
-                        };
-                        const toggleOpen = (e) => {
-                            e.preventDefault();
-                            e.stopPropagation();           // évite la fermeture immédiate par le handler global
-                            if (dropdown.classList.contains('active')) {
-                                close();
-                            } else {
-                                open();
-                            }
-                        };
+            // Clic sur overlay
+            if (mobileOverlay) {
+                mobileOverlay.addEventListener('click', closeMobileMenu);
+            }
 
-                        // Ouverture immédiate et fiable (mobile + desktop)
-                        toggle.addEventListener('pointerdown', toggleOpen);
-                        // Neutralise le href="#" si présent
-                        toggle.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); });
-
-                        // Ne pas fermer si on clique à l'intérieur du menu
-                        menu.addEventListener('pointerdown', (e) => e.stopPropagation());
-                        menu.addEventListener('click', (e) => e.stopPropagation());
-
-                        // Clavier : Enter / Space / Escape
-                        toggle.addEventListener('keydown', (e) => {
-                            if (e.key === 'Enter' || e.key === ' ') {
-                                toggleOpen(e);
-                            } else if (e.key === 'Escape') {
-                                close();
-                                toggle.focus();
-                            }
-                        });
-                    });
-
-                    // Fermer en cliquant en dehors (capture tardive)
-                    document.addEventListener('pointerdown', (e) => {
-                        if (!e.target.closest('.dropdown')) closeAll();
-                    });
-                    document.addEventListener('keydown', (e) => {
-                        if (e.key === 'Escape') closeAll();
-                    });
+            // Sous-menus mobiles
+            const mobileDropdownToggles = document.querySelectorAll('.mobile-dropdown-toggle');
+            mobileDropdownToggles.forEach(toggle => {
+                toggle.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const parentItem = toggle.closest('.mobile-menu-item');
+                    parentItem.classList.toggle('active');
                 });
-            </script>
+            });
 
+            // Touche Escape pour fermer
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    closeMobileMenu();
+                }
+            });
 
+            // ==========================================
+            // MENU DESKTOP (DROPDOWN)
+            // ==========================================
+            const dropdowns = document.querySelectorAll('.dropdown');
+
+            function closeAllDropdowns(except = null) {
+                dropdowns.forEach(d => {
+                    if (d !== except) d.classList.remove('active');
+                });
+            }
+
+            dropdowns.forEach(dropdown => {
+                const toggle = dropdown.querySelector('.dropdown-toggle');
+                const menu = dropdown.querySelector('.dropdown-menu');
+                if (!toggle || !menu) return;
+
+                // Accessibilité
+                toggle.setAttribute('role', 'button');
+                toggle.setAttribute('aria-haspopup', 'true');
+                toggle.setAttribute('aria-expanded', 'false');
+
+                const open = () => {
+                    closeAllDropdowns(dropdown);
+                    dropdown.classList.add('active');
+                    toggle.setAttribute('aria-expanded', 'true');
+                };
+                
+                const close = () => {
+                    dropdown.classList.remove('active');
+                    toggle.setAttribute('aria-expanded', 'false');
+                };
+                
+                const toggleOpen = (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    if (dropdown.classList.contains('active')) {
+                        close();
+                    } else {
+                        open();
+                    }
+                };
+
+                // Événements
+                toggle.addEventListener('pointerdown', toggleOpen);
+                toggle.addEventListener('click', (e) => { 
+                    e.preventDefault(); 
+                    e.stopPropagation(); 
+                });
+
+                // Ne pas fermer si clic dans le menu
+                menu.addEventListener('pointerdown', (e) => e.stopPropagation());
+                menu.addEventListener('click', (e) => e.stopPropagation());
+
+                // Clavier
+                toggle.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        toggleOpen(e);
+                    } else if (e.key === 'Escape') {
+                        close();
+                        toggle.focus();
+                    }
+                });
+            });
+
+            // Fermer en cliquant dehors
+            document.addEventListener('pointerdown', (e) => {
+                if (!e.target.closest('.dropdown')) closeAllDropdowns();
+            });
+            
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') closeAllDropdowns();
+            });
+        });
+    </script>
     {% endblock %}
 </body>
 
