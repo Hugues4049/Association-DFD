@@ -1,82 +1,289 @@
 {% extends 'core/base.html' %}
-{% block title %}À propos de nous - DFD{% endblock %}
-{% block content %}
 {% load static %}
 {% load i18n %}
 
-<section class="presentation">
-    <h1 class="main-title">À propos de DFD</h1>
+{% block title %}À propos de nous - DFD{% endblock %}
 
-    <!-- Bloc histoire -->
-    <div class="presentation-block">
-        <h2>📖 Notre histoire</h2>
-        <p>DFD (Dynamique Fraternelle de Développement) a été fondée pour répondre aux besoins urgents des communautés
-            les plus vulnérables. Depuis ses débuts, elle œuvre dans les domaines de l'éducation, de la santé et du
-            développement durable.</p>
-        <p>C'est une association à but non lucratif, laïque et apolitique. Sa mission repose sur la conviction qu'il
-            est possible de redonner espoir et contribuer à l'épanouissement global des personnes dont les rêves ont
-            été brisés.</p>
-        <p>Par des actions de sensibilisation, de prévention et de réhabilitation, nous répondons aux besoins essentiels
-            des personnes vulnérables et démunies.</p>
+{% block content %}
+
+<!-- Hero Section -->
+<section style="background: linear-gradient(135deg, #1f1451 0%, #1a73e8 100%); padding: 5rem 2rem; text-align: center; color: white; position: relative; overflow: hidden;">
+    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url('{% static 'images/bannière/PHOTO-2024-12-29-17-30-48.jpg' %}') center/cover; opacity: 0.15;"></div>
+    <div style="max-width: 1200px; margin: 0 auto; position: relative; z-index: 1;">
+        <i class="fas fa-heart" style="font-size: 5rem; margin-bottom: 1.5rem;"></i>
+        <h1 style="font-size: 3rem; margin-bottom: 1rem; font-weight: 700;">À propos de DFD</h1>
+        <p style="font-size: 1.4rem; opacity: 0.95; font-weight: 300; max-width: 700px; margin: 0 auto;">
+            Dreams Family of Development - Une famille engagée pour le changement
+        </p>
     </div>
+</section>
 
-    <!-- Bloc mission -->
-    <div class="presentation-block">
-        <h2>🎯 Notre mission</h2>
-        <p>Notre mission est de restaurer l'espoir et l'épanouissement des individus dont les rêves ont été brisés,
-            en leur apportant soutien, soins, éducation et accompagnement.</p>
-        <p>Nous visons un impact durable en renforçant la résilience des communautés à travers des actions inspirées par
-            l'humanisme, l'équité et la confidentialité. Notre objectif : bâtir une société solidaire, libre et
-            équilibrée.</p>
-    </div>
-
-    <!-- Bloc objectifs -->
-    <div class="presentation-block">
-        <h2>🎯 Nos objectifs</h2>
-        <ul>
-            <li>Réduire la mortalité materno-infantile, lutter contre les pathologies.</li>
-            <li>Favoriser le bien-être mental et émotionnel.</li>
-            <li>Lutter contre la malnutrition.</li>
-            <li>Promouvoir l'éducation équitable et lutter contre la déscolarisation.</li>
-            <li>Renforcer les infrastructures technologiques.</li>
-            <li>Développer l'entrepreneuriat et les compétences professionnelles.</li>
-            <li>Favoriser le développement personnel et l'accès à la culture.</li>
-        </ul>
-        <p>Rejoignez-nous et devenez acteur du changement. Ensemble, faisons la différence.</p>
-    </div>
-
-    <!-- Bloc équipe -->
-    <div class="presentation-block">
-        <h2>👥 Notre équipe</h2>
-        <p>L'équipe DFD, c'est avant tout une famille de cœur engagée dans le changement.</p>
-
-        <p><strong>Membres adhérents :</strong> actifs dans les activités et les responsabilités de l'association.</p>
-        <p><strong>Membres bénévoles :</strong> soutiennent selon leurs disponibilités et compétences.</p>
-        <p><strong>Membres partenaires :</strong> soutiens financiers ou techniques qui contribuent à la visibilité
-            et au rayonnement de l'association.</p>
-
-        <div class="equipe-grid"
-            style="display: flex; gap: 30px; flex-wrap: wrap; justify-content: center; margin-top: 30px;">
-            <figure style="text-align: center;">
-                <img src="{% static 'images/Nathan.PNG' %}" alt="Nathanaël Toukea"
-                    style="max-width:150px; border-radius: 8px;">
-                <figcaption style="margin-top: 10px;">Nathanaël Toukea<br><small>Président fondateur</small>
-                </figcaption>
-            </figure>
-            <figure style="text-align: center;">
-                <img src="{% static 'images/Brinda.PNG' %}" alt="Brinda Djomaha"
-                    style="max-width:150px; border-radius: 8px;">
-                <figcaption style="margin-top: 10px;">Brinda Djomaha<br><small>Responsable des projets</small>
-                </figcaption>
-            </figure>
-            <figure style="text-align: center;">
-                <img src="{% static 'images/Féline.PNG' %}" alt="Féline Minyem"
-                    style="max-width:150px; border-radius: 8px;">
-                <figcaption style="margin-top: 10px;">Féline Minyem<br><small>Chargée de communication</small>
-                </figcaption>
-            </figure>
+<!-- Section Histoire -->
+<section style="padding: 5rem 2rem; background: white;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
+            <div>
+                <img src="{% static 'images/foyeresperence/PHOTO-2025-01-06-19-34-50.jpg' %}" 
+                     alt="Notre histoire" 
+                     style="width: 100%; border-radius: 16px; box-shadow: 0 12px 40px rgba(0,0,0,0.15);">
+            </div>
+            
+            <div>
+                <div style="display: inline-block; padding: 0.5rem 1.5rem; background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%); color: white; border-radius: 50px; font-weight: 600; font-size: 0.85rem; margin-bottom: 1.5rem;">
+                    <i class="fas fa-book-open"></i> NOTRE HISTOIRE
+                </div>
+                <h2 style="color: #1f1451; font-size: 2.5rem; margin-bottom: 1.5rem; line-height: 1.2;">
+                    Une aventure humaine née d'une conviction
+                </h2>
+                <p style="color: #5a6c7d; font-size: 1.1rem; line-height: 1.9; margin-bottom: 1.5rem;">
+                    <strong style="color: #1f1451;">DFD (Dreams Family of Development)</strong> a été fondée pour répondre aux besoins urgents des communautés les plus vulnérables. Depuis ses débuts, elle œuvre dans les domaines de l'éducation, de la santé et du développement durable.
+                </p>
+                <p style="color: #5a6c7d; font-size: 1.1rem; line-height: 1.9; margin-bottom: 1.5rem;">
+                    C'est une <strong style="color: #1f1451;">association à but non lucratif, laïque et apolitique</strong>. Sa mission repose sur la conviction qu'il est possible de redonner espoir et contribuer à l'épanouissement global des personnes dont les rêves ont été brisés.
+                </p>
+                <p style="color: #5a6c7d; font-size: 1.1rem; line-height: 1.9;">
+                    Par des actions de <strong style="color: #1a73e8;">sensibilisation, de prévention et de réhabilitation</strong>, nous répondons aux besoins essentiels des personnes vulnérables et démunies.
+                </p>
+            </div>
         </div>
     </div>
 </section>
+
+<!-- Section Mission & Vision -->
+<section style="padding: 5rem 2rem; background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%);">
+    <div style="max-width: 1200px; margin: 0 auto;">
+        <div style="text-align: center; margin-bottom: 4rem;">
+            <h2 style="color: #1f1451; font-size: 2.5rem; margin-bottom: 1rem;">Notre mission & vision</h2>
+            <p style="color: #5a6c7d; font-size: 1.1rem; max-width: 700px; margin: 0 auto;">
+                Guidés par l'humanisme, l'équité et la solidarité
+            </p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;">
+            <!-- Mission -->
+            <div style="background: white; padding: 3rem; border-radius: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.1); border-top: 5px solid #1a73e8;">
+                <div style="width: 70px; height: 70px; background: linear-gradient(135deg, #1a73e8 0%, #1f1451 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 2rem;">
+                    <i class="fas fa-bullseye" style="font-size: 2rem; color: white;"></i>
+                </div>
+                <h3 style="color: #1f1451; font-size: 1.8rem; margin-bottom: 1.5rem;">Notre mission</h3>
+                <p style="color: #5a6c7d; font-size: 1.05rem; line-height: 1.9; margin-bottom: 1.5rem;">
+                    Notre mission est de <strong style="color: #1a73e8;">restaurer l'espoir et l'épanouissement</strong> des individus dont les rêves ont été brisés, en leur apportant soutien, soins, éducation et accompagnement.
+                </p>
+                <p style="color: #5a6c7d; font-size: 1.05rem; line-height: 1.9;">
+                    Nous visons un <strong style="color: #1a73e8;">impact durable</strong> en renforçant la résilience des communautés à travers des actions inspirées par l'humanisme, l'équité et la confidentialité.
+                </p>
+            </div>
+
+            <!-- Vision -->
+            <div style="background: white; padding: 3rem; border-radius: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.1); border-top: 5px solid #e74c3c;">
+                <div style="width: 70px; height: 70px; background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 2rem;">
+                    <i class="fas fa-eye" style="font-size: 2rem; color: white;"></i>
+                </div>
+                <h3 style="color: #1f1451; font-size: 1.8rem; margin-bottom: 1.5rem;">Notre vision</h3>
+                <p style="color: #5a6c7d; font-size: 1.05rem; line-height: 1.9; margin-bottom: 1.5rem;">
+                    Bâtir une <strong style="color: #e74c3c;">société solidaire, libre et équilibrée</strong> où chaque individu peut retrouver sa dignité et réaliser son potentiel.
+                </p>
+                <p style="color: #5a6c7d; font-size: 1.05rem; line-height: 1.9;">
+                    Une société où les <strong style="color: #e74c3c;">droits fondamentaux</strong> sont respectés et où personne n'est laissé pour compte.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section Objectifs -->
+<section style="padding: 5rem 2rem; background: white;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+        <div style="text-align: center; margin-bottom: 4rem;">
+            <div style="display: inline-block; padding: 0.5rem 1.5rem; background: linear-gradient(135deg, #27ae60 0%, #229954 100%); color: white; border-radius: 50px; font-weight: 600; font-size: 0.85rem; margin-bottom: 1.5rem;">
+                <i class="fas fa-flag-checkered"></i> NOS OBJECTIFS
+            </div>
+            <h2 style="color: #1f1451; font-size: 2.5rem; margin-bottom: 1rem;">Ce que nous visons</h2>
+            <p style="color: #5a6c7d; font-size: 1.1rem; max-width: 700px; margin: 0 auto;">
+                7 piliers pour un développement durable et inclusif
+            </p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem;">
+            <!-- Objectif 1 -->
+            <div style="background: linear-gradient(135deg, #fff5f5 0%, #ffffff 100%); padding: 2rem; border-radius: 12px; border-left: 4px solid #e74c3c; transition: transform 0.3s;">
+                <i class="fas fa-heartbeat" style="font-size: 2.5rem; color: #e74c3c; margin-bottom: 1rem; display: block;"></i>
+                <h3 style="color: #1f1451; margin-bottom: 1rem; font-size: 1.2rem;">Santé materno-infantile</h3>
+                <p style="color: #5a6c7d; line-height: 1.7;">Réduire la mortalité materno-infantile et lutter contre les pathologies</p>
+            </div>
+
+            <!-- Objectif 2 -->
+            <div style="background: linear-gradient(135deg, #f0f9ff 0%, #ffffff 100%); padding: 2rem; border-radius: 12px; border-left: 4px solid #3498db; transition: transform 0.3s;">
+                <i class="fas fa-brain" style="font-size: 2.5rem; color: #3498db; margin-bottom: 1rem; display: block;"></i>
+                <h3 style="color: #1f1451; margin-bottom: 1rem; font-size: 1.2rem;">Bien-être mental</h3>
+                <p style="color: #5a6c7d; line-height: 1.7;">Favoriser le bien-être mental et émotionnel des communautés</p>
+            </div>
+
+            <!-- Objectif 3 -->
+            <div style="background: linear-gradient(135deg, #f0fff4 0%, #ffffff 100%); padding: 2rem; border-radius: 12px; border-left: 4px solid #27ae60; transition: transform 0.3s;">
+                <i class="fas fa-seedling" style="font-size: 2.5rem; color: #27ae60; margin-bottom: 1rem; display: block;"></i>
+                <h3 style="color: #1f1451; margin-bottom: 1rem; font-size: 1.2rem;">Nutrition</h3>
+                <p style="color: #5a6c7d; line-height: 1.7;">Lutter contre la malnutrition et assurer la sécurité alimentaire</p>
+            </div>
+
+            <!-- Objectif 4 -->
+            <div style="background: linear-gradient(135deg, #fffbf0 0%, #ffffff 100%); padding: 2rem; border-radius: 12px; border-left: 4px solid #f39c12; transition: transform 0.3s;">
+                <i class="fas fa-graduation-cap" style="font-size: 2.5rem; color: #f39c12; margin-bottom: 1rem; display: block;"></i>
+                <h3 style="color: #1f1451; margin-bottom: 1rem; font-size: 1.2rem;">Éducation équitable</h3>
+                <p style="color: #5a6c7d; line-height: 1.7;">Promouvoir l'éducation équitable et lutter contre la déscolarisation</p>
+            </div>
+
+            <!-- Objectif 5 -->
+            <div style="background: linear-gradient(135deg, #f5f0ff 0%, #ffffff 100%); padding: 2rem; border-radius: 12px; border-left: 4px solid #9b59b6; transition: transform 0.3s;">
+                <i class="fas fa-laptop-code" style="font-size: 2.5rem; color: #9b59b6; margin-bottom: 1rem; display: block;"></i>
+                <h3 style="color: #1f1451; margin-bottom: 1rem; font-size: 1.2rem;">Technologies</h3>
+                <p style="color: #5a6c7d; line-height: 1.7;">Renforcer les infrastructures technologiques et numériques</p>
+            </div>
+
+            <!-- Objectif 6 -->
+            <div style="background: linear-gradient(135deg, #fff0f6 0%, #ffffff 100%); padding: 2rem; border-radius: 12px; border-left: 4px solid #e91e63; transition: transform 0.3s;">
+                <i class="fas fa-briefcase" style="font-size: 2.5rem; color: #e91e63; margin-bottom: 1rem; display: block;"></i>
+                <h3 style="color: #1f1451; margin-bottom: 1rem; font-size: 1.2rem;">Entrepreneuriat</h3>
+                <p style="color: #5a6c7d; line-height: 1.7;">Développer l'entrepreneuriat et les compétences professionnelles</p>
+            </div>
+
+            <!-- Objectif 7 -->
+            <div style="background: linear-gradient(135deg, #f0f4ff 0%, #ffffff 100%); padding: 2rem; border-radius: 12px; border-left: 4px solid #1a73e8; transition: transform 0.3s;">
+                <i class="fas fa-theater-masks" style="font-size: 2.5rem; color: #1a73e8; margin-bottom: 1rem; display: block;"></i>
+                <h3 style="color: #1f1451; margin-bottom: 1rem; font-size: 1.2rem;">Culture & développement</h3>
+                <p style="color: #5a6c7d; line-height: 1.7;">Favoriser le développement personnel et l'accès à la culture</p>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 4rem; padding: 3rem; background: linear-gradient(135deg, #1f1451 0%, #1a73e8 100%); border-radius: 16px; color: white;">
+            <h3 style="font-size: 2rem; margin-bottom: 1rem; font-weight: 700;">Rejoignez-nous !</h3>
+            <p style="font-size: 1.2rem; margin-bottom: 2rem; opacity: 0.95;">
+                Ensemble, faisons la différence. Devenez acteur du changement.
+            </p>
+            <a href="{% url 'participer' %}" 
+               style="display: inline-block; padding: 1.2rem 2.5rem; background: white; color: #1f1451; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1.1rem; transition: transform 0.3s;">
+                <i class="fas fa-hands-helping"></i> Agir avec nous
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Section Équipe -->
+<section style="padding: 5rem 2rem; background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);">
+    <div style="max-width: 1200px; margin: 0 auto;">
+        <div style="text-align: center; margin-bottom: 4rem;">
+            <div style="display: inline-block; padding: 0.5rem 1.5rem; background: linear-gradient(135deg, #1a73e8 0%, #1f1451 100%); color: white; border-radius: 50px; font-weight: 600; font-size: 0.85rem; margin-bottom: 1.5rem;">
+                <i class="fas fa-users"></i> NOTRE ÉQUIPE
+            </div>
+            <h2 style="color: #1f1451; font-size: 2.5rem; margin-bottom: 1rem;">Une famille de cœur engagée</h2>
+            <p style="color: #5a6c7d; font-size: 1.1rem; max-width: 800px; margin: 0 auto 3rem;">
+                L'équipe DFD, c'est avant tout une famille de cœur engagée dans le changement. Chacun apporte sa pierre à l'édifice pour construire un monde meilleur.
+            </p>
+        </div>
+
+        <!-- Types de membres -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-bottom: 5rem;">
+            <div style="background: white; padding: 2rem; border-radius: 12px; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+                <i class="fas fa-user-check" style="font-size: 3rem; color: #27ae60; margin-bottom: 1rem;"></i>
+                <h3 style="color: #1f1451; margin-bottom: 1rem;">Membres adhérents</h3>
+                <p style="color: #5a6c7d; line-height: 1.7;">Actifs dans les activités et les responsabilités de l'association</p>
+            </div>
+
+            <div style="background: white; padding: 2rem; border-radius: 12px; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+                <i class="fas fa-hand-holding-heart" style="font-size: 3rem; color: #1a73e8; margin-bottom: 1rem;"></i>
+                <h3 style="color: #1f1451; margin-bottom: 1rem;">Membres bénévoles</h3>
+                <p style="color: #5a6c7d; line-height: 1.7;">Soutiennent selon leurs disponibilités et compétences</p>
+            </div>
+
+            <div style="background: white; padding: 2rem; border-radius: 12px; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+                <i class="fas fa-handshake" style="font-size: 3rem; color: #e74c3c; margin-bottom: 1rem;"></i>
+                <h3 style="color: #1f1451; margin-bottom: 1rem;">Membres partenaires</h3>
+                <p style="color: #5a6c7d; line-height: 1.7;">Soutiens financiers ou techniques pour la visibilité</p>
+            </div>
+        </div>
+
+        <!-- Équipe dirigeante -->
+        <div style="text-align: center; margin-bottom: 3rem;">
+            <h3 style="color: #1f1451; font-size: 2rem; margin-bottom: 1rem;">L'équipe dirigeante</h3>
+            <p style="color: #5a6c7d; font-size: 1.05rem;">Les piliers de notre association</p>
+        </div>
+
+        <div style="display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap;">
+            <!-- Membre 1 -->
+            <div style="background: white; padding: 2.5rem; border-radius: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.12); text-align: center; max-width: 320px; transition: transform 0.3s;">
+                <div style="width: 150px; height: 150px; margin: 0 auto 1.5rem; border-radius: 50%; overflow: hidden; border: 5px solid #1a73e8; box-shadow: 0 8px 16px rgba(26, 115, 232, 0.3);">
+                    <img src="{% static 'images/Nathan.PNG' %}" 
+                         alt="Nathanaël Toukea" 
+                         style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <h3 style="color: #1f1451; font-size: 1.4rem; margin-bottom: 0.5rem; font-weight: 700;">Nathanaël Toukea</h3>
+                <p style="color: #1a73e8; font-weight: 600; font-size: 1.05rem; margin-bottom: 1rem;">Président fondateur</p>
+                <p style="color: #5a6c7d; font-size: 0.95rem; line-height: 1.6;">
+                    Visionnaire et moteur de DFD, porteur de la mission de redonner espoir aux communautés vulnérables
+                </p>
+            </div>
+
+            <!-- Membre 2 -->
+            <div style="background: white; padding: 2.5rem; border-radius: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.12); text-align: center; max-width: 320px; transition: transform 0.3s;">
+                <div style="width: 150px; height: 150px; margin: 0 auto 1.5rem; border-radius: 50%; overflow: hidden; border: 5px solid #e74c3c; box-shadow: 0 8px 16px rgba(231, 76, 60, 0.3);">
+                    <img src="{% static 'images/Brinda.PNG' %}" 
+                         alt="Brinda Djomaha" 
+                         style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <h3 style="color: #1f1451; font-size: 1.4rem; margin-bottom: 0.5rem; font-weight: 700;">Brinda Djomaha</h3>
+                <p style="color: #e74c3c; font-weight: 600; font-size: 1.05rem; margin-bottom: 1rem;">Responsable des projets</p>
+                <p style="color: #5a6c7d; font-size: 0.95rem; line-height: 1.6;">
+                    Coordonne l'ensemble des actions sur le terrain et assure leur impact durable
+                </p>
+            </div>
+
+            <!-- Membre 3 -->
+            <div style="background: white; padding: 2.5rem; border-radius: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.12); text-align: center; max-width: 320px; transition: transform 0.3s;">
+                <div style="width: 150px; height: 150px; margin: 0 auto 1.5rem; border-radius: 50%; overflow: hidden; border: 5px solid #9b59b6; box-shadow: 0 8px 16px rgba(155, 89, 182, 0.3);">
+                    <img src="{% static 'images/Féline.PNG' %}" 
+                         alt="Féline Minyem" 
+                         style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <h3 style="color: #1f1451; font-size: 1.4rem; margin-bottom: 0.5rem; font-weight: 700;">Féline Minyem</h3>
+                <p style="color: #9b59b6; font-weight: 600; font-size: 1.05rem; margin-bottom: 1rem;">Chargée de communication</p>
+                <p style="color: #5a6c7d; font-size: 0.95rem; line-height: 1.6;">
+                    Assure la visibilité de nos actions et le lien avec nos partenaires et bénéficiaires
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Final -->
+<section style="padding: 5rem 2rem; background: linear-gradient(135deg, #1f1451 0%, #1a73e8 100%); text-align: center; color: white;">
+    <div style="max-width: 900px; margin: 0 auto;">
+        <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem; font-weight: 700;">Vous voulez en savoir plus ?</h2>
+        <p style="font-size: 1.2rem; margin-bottom: 3rem; opacity: 0.95; line-height: 1.7;">
+            Découvrez nos projets en cours, nos départements d'action et comment vous pouvez contribuer à notre mission.
+        </p>
+        <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
+            <a href="{% url 'projets' %}" 
+               style="padding: 1.2rem 2.5rem; background: white; color: #1f1451; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1.1rem; transition: transform 0.3s;">
+                <i class="fas fa-project-diagram"></i> Nos projets
+            </a>
+            <a href="{% url 'contact' %}" 
+               style="padding: 1.2rem 2.5rem; background: transparent; color: white; border: 3px solid white; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1.1rem; transition: all 0.3s;">
+                <i class="fas fa-envelope"></i> Contactez-nous
+            </a>
+        </div>
+    </div>
+</section>
+
+<style>
+@media (max-width: 968px) {
+    section > div > div[style*="grid-template-columns: 1fr 1fr"] {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+div[style*="transition: transform 0.3s"]:hover {
+    transform: translateY(-5px);
+}
+</style>
 
 {% endblock %}

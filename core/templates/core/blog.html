@@ -1,207 +1,278 @@
 {% extends 'core/base.html' %}
+{% load static %}
+{% load i18n %}
 
-{% block title %}À propos de nous - DFD{% endblock %}
+{% block title %}Blog & Actualités - DFD{% endblock %}
 
 {% block content %}
-{% load i18n %}
-{% load static %}
 
+<!-- Hero Section -->
+<section style="background: linear-gradient(135deg, #1f1451 0%, #1a73e8 100%); padding: 4rem 2rem; text-align: center; color: white;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+        <i class="fas fa-newspaper" style="font-size: 4rem; margin-bottom: 1rem;"></i>
+        <h1 style="font-size: 2.5rem; margin-bottom: 1rem; font-weight: 700;">Blog & Actualités</h1>
+        <p style="font-size: 1.3rem; opacity: 0.95; font-weight: 300;">Suivez nos actions et découvrez nos initiatives</p>
+    </div>
+</section>
 
+<!-- Layout Blog avec Sidebar -->
+<section style="padding: 4rem 2rem; background: #f8f9fa;">
+    <div style="max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 1fr 350px; gap: 3rem;">
+        
+        <!-- Contenu principal -->
+        <main>
+            <!-- Article à la une : Campagne de Santé -->
+            <article style="background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 8px 24px rgba(0,0,0,0.12); margin-bottom: 3rem; border-left: 5px solid #e74c3c;">
+                <div style="background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%); padding: 2rem; color: white;">
+                    <span style="display: inline-block; padding: 0.5rem 1rem; background: rgba(255,255,255,0.2); border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 1rem;">
+                        <i class="fas fa-star"></i> ARTICLE À LA UNE
+                    </span>
+                    <h2 style="font-size: 2rem; margin-bottom: 1rem; font-weight: 700;">
+                        🏥 Campagne de Santé Gratuite 100% - Septembre 2025
+                    </h2>
+                    <div style="display: flex; gap: 2rem; font-size: 0.95rem; opacity: 0.95;">
+                        <span><i class="fas fa-calendar"></i> 10 novembre 2025</span>
+                        <span><i class="fas fa-map-marker-alt"></i> Etam Bafia, Cameroun</span>
+                    </div>
+                </div>
 
-<!-- PAGE PRINCIPALE -->
-<div class="page-layout">
-    <!-- Colonne gauche -->
-    <aside class="left-sidebar sidebar">
-        <div class="carousel">
-            <video class="video-slide" width="600" height="300" controls autoplay muted loop>
-                <source src="{% static 'images/Photo-DFD-Foyer/Video-DFD-foyer/VIDEO-2024-12-30-22-37-57.mp4' %}"
-                    type="video/mp4">
-                Votre navigateur ne supporte pas la vidéo.
-            </video>
-        </div>
-        <p>📸 Nos actions sur le terrain en images</p>
-    </aside>
+                <div style="padding: 3rem;">
+                    <p style="font-size: 1.2rem; color: #1f1451; font-weight: 600; line-height: 1.8; margin-bottom: 2rem; padding: 1.5rem; background: linear-gradient(135deg, #fff5f5 0%, #ffffff 100%); border-left: 4px solid #e74c3c; border-radius: 8px;">
+                        L'Association Dreams Family of Development organise une campagne de santé 100% GRATUITE pour les personnes résidentes à Etam Bafia.
+                    </p>
 
-    <!-- Contenu principal -->
-    <main class="main-content">
+                    <h3 style="color: #1f1451; font-size: 1.5rem; margin: 2rem 0 1rem; display: flex; align-items: center; gap: 0.5rem;">
+                        <i class="fas fa-info-circle" style="color: #1a73e8;"></i> Informations pratiques
+                    </h3>
+                    <div style="background: #f8f9fa; padding: 2rem; border-radius: 12px; margin-bottom: 2rem;">
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem;">
+                            <div>
+                                <strong style="color: #1f1451; display: block; margin-bottom: 0.5rem;">📆 Dates</strong>
+                                <span style="color: #5a6c7d;">19-20 septembre 2025</span>
+                            </div>
+                            <div>
+                                <strong style="color: #1f1451; display: block; margin-bottom: 0.5rem;">⏰ Horaires</strong>
+                                <span style="color: #5a6c7d;">08h00 - 17h00</span>
+                            </div>
+                            <div>
+                                <strong style="color: #1f1451; display: block; margin-bottom: 0.5rem;">📍 Lieu</strong>
+                                <span style="color: #5a6c7d;">Fondation la Grace Divine</span>
+                            </div>
+                            <div>
+                                <strong style="color: #1f1451; display: block; margin-bottom: 0.5rem;">💰 Coût</strong>
+                                <span style="color: #27ae60; font-weight: 700;">GRATUIT</span>
+                            </div>
+                        </div>
+                    </div>
 
-        <h1 class="main-title">📰 Blog & Actualités</h1>
+                    <h3 style="color: #1f1451; font-size: 1.5rem; margin: 2rem 0 1.5rem; display: flex; align-items: center; gap: 0.5rem;">
+                        <i class="fas fa-stethoscope" style="color: #e74c3c;"></i> Services proposés
+                    </h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
+                        <div style="background: linear-gradient(135deg, #fff5f5 0%, #ffffff 100%); padding: 1.5rem; border-radius: 12px; text-align: center; border: 2px solid #fee;">
+                            <div style="font-size: 3rem; margin-bottom: 1rem;">💉</div>
+                            <h4 style="color: #1f1451; margin-bottom: 0.5rem;">Vaccination</h4>
+                            <p style="color: #5a6c7d; font-size: 0.9rem;">Hépatite, VAT</p>
+                        </div>
+                        <div style="background: linear-gradient(135deg, #f0f9ff 0%, #ffffff 100%); padding: 1.5rem; border-radius: 12px; text-align: center; border: 2px solid #e0f2fe;">
+                            <div style="font-size: 3rem; margin-bottom: 1rem;">🩺</div>
+                            <h4 style="color: #1f1451; margin-bottom: 0.5rem;">Paramètres vitaux</h4>
+                            <p style="color: #5a6c7d; font-size: 0.9rem;">Glycémie, Tension</p>
+                        </div>
+                        <div style="background: linear-gradient(135deg, #f0fff4 0%, #ffffff 100%); padding: 1.5rem; border-radius: 12px; text-align: center; border: 2px solid #dcfce7;">
+                            <div style="font-size: 3rem; margin-bottom: 1rem;">⚕️</div>
+                            <h4 style="color: #1f1451; margin-bottom: 0.5rem;">Mini chirurgie</h4>
+                            <p style="color: #5a6c7d; font-size: 0.9rem;">Lipome, Hernie, Circoncision</p>
+                        </div>
+                        <div style="background: linear-gradient(135deg, #fffbf0 0%, #ffffff 100%); padding: 1.5rem; border-radius: 12px; text-align: center; border: 2px solid #fef3c7;">
+                            <div style="font-size: 3rem; margin-bottom: 1rem;">👥</div>
+                            <h4 style="color: #1f1451; margin-bottom: 0.5rem;">Sensibilisation</h4>
+                            <p style="color: #5a6c7d; font-size: 0.9rem;">Prostate, Hygiène, Alimentation</p>
+                        </div>
+                    </div>
 
-            <!-- CAMPAGNE DE SANTÉ 2025 - ARTICLE PRINCIPAL -->
-        <div class="presentation-block featured-article">
-            
-            
-            <h2>🏥 Campagne de Santé Gratuite 100% - Septembre 2025</h2>
-            <p class="article-meta">
-                <i class="fas fa-calendar"></i> Publié le 10 novembre 2025 | 
-                <i class="fas fa-map-marker-alt"></i> Etam Bafia, Cameroun
-            </p>
+                    <div style="background: linear-gradient(135deg, #1a73e8 0%, #1f1451 100%); padding: 2rem; border-radius: 12px; color: white; text-align: center;">
+                        <h4 style="font-size: 1.2rem; margin-bottom: 1rem;">🤝 Partenariat</h4>
+                        <p style="opacity: 0.95;">En collaboration avec la <strong>Fondation médicale la Grace Divine</strong> située à Etam Bafia</p>
+                    </div>
+                </div>
+            </article>
 
-            <div class="article-content">
-                <p class="lead-text">
-                    <strong>L'Association Dreams Family of Development organise une campagne de santé 100% GRATUITE 
-                    pour les personnes résidentes à Etam Bafia.</strong>
+            <!-- Article 2 : Journée mondiale de l'éducation -->
+            <article style="background: white; border-radius: 16px; padding: 3rem; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-bottom: 2rem; border-left: 5px solid #f39c12;">
+                <span style="display: inline-block; padding: 0.4rem 1rem; background: #fffbf0; color: #f39c12; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 1rem;">
+                    <i class="fas fa-graduation-cap"></i> ÉDUCATION
+                </span>
+                <h2 style="color: #1f1451; font-size: 1.8rem; margin-bottom: 1rem;">📚 24 janvier – Journée mondiale de l'éducation</h2>
+                <div style="color: #5a6c7d; font-size: 0.9rem; margin-bottom: 1.5rem;">
+                    <i class="fas fa-calendar"></i> Publié le 24 janvier 2025
+                </div>
+
+                <p style="font-size: 1.1rem; color: #1f1451; font-weight: 600; margin-bottom: 1.5rem;">S'engager avec DFD pour un avenir meilleur</p>
+
+                <p style="color: #5a6c7d; line-height: 1.8; margin-bottom: 1.5rem;">
+                    À l'occasion de la Journée mondiale de l'éducation, Dreams Family of Development (DFD) réaffirme son engagement envers une éducation inclusive, équitable et transformative.
                 </p>
 
-                <h3>📅 Informations pratiques</h3>
-                <div class="info-box">
-                    <p><strong>📆 Dates :</strong> Du 19 septembre 2025 au 20 septembre 2025</p>
-                    <p><strong>⏰ Horaires :</strong> 08h00 - 17h00</p>
-                    <p><strong>📍 Lieu :</strong> Etam Bafia - Fondation médicale la Grace Divine</p>
-                    <p><strong>💰 Coût :</strong> ENTIÈREMENT GRATUIT</p>
+                <blockquote style="border-left: 4px solid #f39c12; padding: 1rem 1.5rem; background: #fffbf0; margin: 2rem 0; font-style: italic; color: #1f1451;">
+                    "L'éducation n'est pas seulement un droit fondamental : c'est une clé pour sortir de la pauvreté, briser les inégalités et construire une société juste et pacifique."
+                </blockquote>
+
+                <div style="background: #fff5f5; padding: 1.5rem; border-radius: 12px; margin: 2rem 0; border-left: 4px solid #e74c3c;">
+                    <h4 style="color: #1f1451; margin-bottom: 1rem;">📊 Le saviez-vous ?</h4>
+                    <p style="color: #5a6c7d; line-height: 1.7;">
+                        Plus de <strong style="color: #e74c3c; font-size: 1.3rem;">244 millions</strong> d'enfants et de jeunes dans le monde ne sont toujours pas scolarisés.
+                    </p>
                 </div>
 
-                <h3>🏥 Services proposés</h3>
-                
-                <div class="services-grid">
-                    <div class="service-card">
-                        <div class="service-icon">💉</div>
-                        <h4>Vaccination Ciblée</h4>
-                        <p>Hépatite, VAT</p>
-                    </div>
+                <h3 style="color: #1f1451; font-size: 1.3rem; margin: 2rem 0 1rem;">🎯 Nos actions concrètes</h3>
+                <ul style="color: #5a6c7d; line-height: 2; padding-left: 1.5rem;">
+                    <li>Programmes d'accompagnement scolaire pour les enfants en situation de vulnérabilité</li>
+                    <li>Projets éducatifs communautaires en zones rurales et urbaines</li>
+                    <li>Ateliers de sensibilisation pour les parents et les jeunes</li>
+                    <li>Soutien matériel (fournitures, uniformes, accès au numérique)</li>
+                </ul>
 
-                    <div class="service-card">
-                        <div class="service-icon">🩺</div>
-                        <h4>Prise de Paramètres Vitaux</h4>
-                        <p>Glycémie, Tension artérielle</p>
-                    </div>
+                <div style="margin-top: 2rem; padding: 1.5rem; background: linear-gradient(135deg, #27ae60 0%, #229954 100%); border-radius: 12px; color: white; text-align: center;">
+                    <p style="font-size: 1.1rem; font-weight: 600; margin-bottom: 1rem;">💚 Rejoignez-nous dans cette mission</p>
+                    <a href="{% url 'participer' %}" style="display: inline-block; padding: 0.75rem 2rem; background: white; color: #27ae60; border-radius: 50px; text-decoration: none; font-weight: 700;">
+                        Agir maintenant
+                    </a>
+                </div>
+            </article>
 
-                    <div class="service-card">
-                        <div class="service-icon">⚕️</div>
-                        <h4>Mini Chirurgie</h4>
-                        <p>Lipome, Hernie, Circoncision</p>
-                    </div>
-
-                    <div class="service-card">
-                        <div class="service-icon">👥</div>
-                        <h4>Atelier de Sensibilisation</h4>
-                        <p>Prostate, Hygiène féminin, Alimentation</p>
-                    </div>
+            <!-- Article 3 : Justice sociale -->
+            <article style="background: white; border-radius: 16px; padding: 3rem; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-bottom: 2rem; border-left: 5px solid #9b59b6;">
+                <span style="display: inline-block; padding: 0.4rem 1rem; background: #f5f0ff; color: #9b59b6; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 1rem;">
+                    <i class="fas fa-balance-scale"></i> JUSTICE SOCIALE
+                </span>
+                <h2 style="color: #1f1451; font-size: 1.8rem; margin-bottom: 1rem;">⚖️ 20 février – Journée mondiale de la justice sociale</h2>
+                <div style="color: #5a6c7d; font-size: 0.9rem; margin-bottom: 1.5rem;">
+                    <i class="fas fa-calendar"></i> Publié le 20 février 2025
                 </div>
 
-                <h3>🤝 Partenariat</h3>
-                <p>Cette campagne est organisée en partenariat avec la <strong>Fondation médicale la Grace Divine</strong> 
-                située à Etam Bafia.</p>
+                <p style="font-size: 1.1rem; color: #1f1451; font-weight: 600; margin-bottom: 1.5rem;">L'égalité en action avec DFD</p>
 
+                <p style="color: #5a6c7d; line-height: 1.8; margin-bottom: 1.5rem;">
+                    La justice sociale n'est pas une utopie. C'est un devoir collectif, un engagement envers une société où chacun a sa place, sa voix, ses droits.
+                </p>
+
+                <blockquote style="border-left: 4px solid #9b59b6; padding: 1rem 1.5rem; background: #f5f0ff; margin: 2rem 0; font-style: italic; color: #1f1451;">
+                    "La justice sociale commence là où chacun décide de ne plus détourner les yeux."
+                </blockquote>
+
+                <h3 style="color: #1f1451; font-size: 1.3rem; margin: 2rem 0 1rem;">✊🏽 Nos engagements</h3>
+                <ul style="color: #5a6c7d; line-height: 2; padding-left: 1.5rem;">
+                    <li>Programmes d'alphabétisation et d'éducation pour adultes</li>
+                    <li>Soutien aux familles monoparentales, réfugiées ou marginalisées</li>
+                    <li>Accès équitable aux soins de santé primaires</li>
+                    <li>Partenariats avec des acteurs locaux pour une réponse durable</li>
+                </ul>
+
+                <div style="background: #f8f9fa; padding: 2rem; border-radius: 12px; margin-top: 2rem; border-left: 4px solid #27ae60;">
+                    <h4 style="color: #1f1451; margin-bottom: 1rem;">💬 Témoignage</h4>
+                    <p style="color: #5a6c7d; font-style: italic; line-height: 1.8;">
+                        "Grâce à DFD, mes enfants peuvent aller à l'école, et j'ai retrouvé un emploi stable."
+                    </p>
+                    <p style="color: #1a73e8; font-weight: 600; margin-top: 0.5rem;">— Amina, mère de 3 enfants</p>
+                </div>
+            </article>
+
+            <!-- Article 4 : Projets à venir -->
+            <article style="background: linear-gradient(135deg, #1a73e8 0%, #1f1451 100%); border-radius: 16px; padding: 3rem; color: white; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+                <h2 style="font-size: 1.8rem; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.75rem;">
+                    <i class="fas fa-calendar-alt"></i> Et demain ?
+                </h2>
+                <p style="font-size: 1.1rem; margin-bottom: 2rem; opacity: 0.95;">DFD prépare de nouveaux projets pour l'année 2025 :</p>
+                <ul style="line-height: 2.2; font-size: 1.05rem; opacity: 0.95;">
+                    <li>✨ Ouverture de 3 centres d'apprentissage communautaires</li>
+                    <li>🎓 Lancement de la campagne <em>"Une École, Un Avenir"</em></li>
+                    <li>💻 Déploiement d'une plateforme numérique d'entraide éducative</li>
+                </ul>
+                <div style="margin-top: 2rem; text-align: center;">
+                    <a href="{% url 'projets' %}" style="display: inline-block; padding: 1rem 2.5rem; background: white; color: #1f1451; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1.05rem;">
+                        <i class="fas fa-arrow-right"></i> Découvrir nos projets
+                    </a>
+                </div>
+            </article>
+        </main>
+
+        <!-- Sidebar -->
+        <aside>
+            <!-- Vidéo -->
+            <div style="background: white; border-radius: 16px; padding: 1.5rem; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-bottom: 2rem;">
+                <h3 style="color: #1f1451; font-size: 1.2rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-video" style="color: #e74c3c;"></i> Nos actions
+                </h3>
+                <video width="100%" controls autoplay muted loop style="border-radius: 12px; margin-bottom: 1rem;">
+                    <source src="{% static 'images/Photo-DFD-Foyer/Video-DFD-foyer/VIDEO-2024-12-30-22-37-57.mp4' %}" type="video/mp4">
+                    Votre navigateur ne supporte pas la vidéo.
+                </video>
+                <p style="color: #5a6c7d; font-size: 0.9rem; text-align: center;">📸 Nos actions sur le terrain en images</p>
             </div>
-        </div>
 
+            <!-- Témoignage -->
+            <div style="background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%); border-radius: 16px; padding: 2rem; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-bottom: 2rem; border-left: 4px solid #1a73e8;">
+                <i class="fas fa-quote-left" style="font-size: 2rem; color: #1a73e8; margin-bottom: 1rem; display: block;"></i>
+                <p style="color: #1f1451; font-style: italic; line-height: 1.7; font-size: 1.05rem; margin-bottom: 1rem;">
+                    "DFD m'a redonné espoir."
+                </p>
+                <p style="color: #1a73e8; font-weight: 600;">— Aïcha, bénéficiaire</p>
+            </div>
 
-        <!-- 1. Journée mondiale de l'éducation -->
-        <div class="presentation-block">
-            <h2>📚 24 janvier – Journée mondiale de l'éducation</h2>
-            <p><strong>S'engager avec DFD pour un avenir meilleur</strong></p>
-            <p>À l'occasion de la Journée mondiale de l'éducation, Dreams Family of Development (DFD)
-                réaffirme son
-                engagement envers une éducation inclusive, équitable et transformative.</p>
-            <p><em>L'éducation n'est pas seulement un droit fondamental :</em></p>
-            <p>C'est une clé pour sortir de la pauvreté, briser les inégalités et construire une société
-                juste et
-                pacifique.</p>
+            <!-- Vidéo 2 -->
+            <div style="background: white; border-radius: 16px; padding: 1.5rem; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-bottom: 2rem;">
+                <video width="100%" controls autoplay muted loop style="border-radius: 12px; margin-bottom: 1rem;">
+                    <source src="{% static 'images/Photo-DFD-Foyer/Video-DFD-foyer/video-nathan.mp4' %}" type="video/mp4">
+                    Votre navigateur ne supporte pas la vidéo.
+                </video>
+                <p style="color: #5a6c7d; font-size: 0.9rem; text-align: center;">📅 Ne manquez pas nos prochaines campagnes !</p>
+            </div>
 
-            <h3>📸 Le saviez-vous ?</h3>
-            <p>Plus de <strong>244 millions</strong> d'enfants et de jeunes dans le monde ne sont toujours
-                pas
-                scolarisés. Ce chiffre alarmant nous pousse à agir avec détermination.</p>
+            <!-- Newsletter -->
+            <div style="background: linear-gradient(135deg, #27ae60 0%, #229954 100%); border-radius: 16px; padding: 2rem; color: white; text-align: center;">
+                <i class="fas fa-envelope" style="font-size: 2.5rem; margin-bottom: 1rem; display: block;"></i>
+                <h3 style="font-size: 1.3rem; margin-bottom: 1rem;">Restez informé</h3>
+                <p style="font-size: 0.95rem; margin-bottom: 1.5rem; opacity: 0.95;">
+                    Abonnez-vous à notre newsletter pour recevoir nos actualités
+                </p>
+                <form method="POST" action="#" style="display: flex; flex-direction: column; gap: 0.75rem;">
+                    {% csrf_token %}
+                    <input type="email" name="email" placeholder="Votre email" required
+                           style="padding: 0.75rem; border: none; border-radius: 8px; font-size: 0.95rem;">
+                    <button type="submit" 
+                            style="padding: 0.75rem; background: white; color: #27ae60; border: none; border-radius: 8px; font-weight: 700; cursor: pointer;">
+                        S'abonner
+                    </button>
+                </form>
+            </div>
 
-            <h3>🎯 Nos actions concrètes :</h3>
-            <ul>
-                <li>Programmes d'accompagnement scolaire pour les enfants en situation de vulnérabilité</li>
-                <li>Projets éducatifs communautaires en zones rurales et urbaines</li>
-                <li>Ateliers de sensibilisation pour les parents et les jeunes</li>
-                <li>Soutien matériel (fournitures, uniformes, accès au numérique) pour favoriser la réussite
-                </li>
-            </ul>
+            <!-- Réseaux sociaux -->
+            <div style="background: white; border-radius: 16px; padding: 2rem; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 2rem;">
+                <h3 style="color: #1f1451; font-size: 1.2rem; margin-bottom: 1.5rem; text-align: center;">
+                    <i class="fas fa-share-alt"></i> Suivez-nous
+                </h3>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                    <a href="https://fb.watch/zBziUXihrm/" target="_blank"
+                       style="display: flex; align-items: center; justify-content: center; padding: 1rem; background: #3b5998; color: white; border-radius: 8px; text-decoration: none; font-weight: 600;">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.instagram.com/dreams_family_of_development" target="_blank"
+                       style="display: flex; align-items: center; justify-content: center; padding: 1rem; background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); color: white; border-radius: 8px; text-decoration: none; font-weight: 600;">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+        </aside>
+    </div>
+</section>
 
-            <h3>🤝 Appel à l'action :</h3>
-            <p>Cette journée est un moment fort pour s'unir autour de cette cause vitale.</p>
-            <p><strong>💚 Rejoignez DFD, faites un don, devenez bénévole, partagez notre message.</strong>
-            </p>
-            <p>Chaque geste compte pour construire un monde où chaque rêve peut s'éveiller grâce au savoir.
-            </p>
-        </div>
-
-        <!-- 2. Journée mondiale de la justice sociale -->
-        <div class="presentation-block">
-            <h2>⚖️ 20 février – Journée mondiale de la justice sociale</h2>
-            <p><strong>L'égalité en action avec DFD</strong></p>
-            <p>La justice sociale n'est pas une utopie. C'est un devoir collectif, un engagement envers une
-                société où
-                chacun a sa place, sa voix, ses droits.</p>
-            <p><em>À l'occasion de cette journée, DFD souhaite rappeler que :</em></p>
-            <blockquote>"La justice sociale commence là où chacun décide de ne plus détourner les yeux."
-            </blockquote>
-
-            <h3>✊🏽 Nos engagements :</h3>
-            <ul>
-                <li>Programmes d'alphabétisation et d'éducation pour adultes</li>
-                <li>Soutien aux familles monoparentales, réfugiées ou marginalisées</li>
-                <li>Accès équitable aux soins de santé primaires et aux informations vitales</li>
-                <li>Partenariats avec des acteurs locaux pour une réponse ancrée et durable aux inégalités
-                </li>
-            </ul>
-
-            <h3>💬 Témoignage inspirant :</h3>
-            <blockquote>"Grâce à DFD, mes enfants peuvent aller à l'école, et j'ai retrouvé un emploi
-                stable."<br>—
-                Amina, mère de 3 enfants, bénéficiaire à Ouagadougou.</blockquote>
-        </div>
-
-        <!-- 3. Projets à venir -->
-        <div class="presentation-block">
-            <h2>🗓️ Et demain ?</h2>
-            <p><strong>DFD prépare de nouveaux projets pour l'année 2025 :</strong></p>
-            <ul>
-                <li>Ouverture de 3 centres d'apprentissage communautaires</li>
-                <li>Lancement de la campagne <em>"Une École, Un Avenir"</em></li>
-                <li>Déploiement d'une plateforme numérique d'entraide éducative</li>
-            </ul>
-        </div>
-
-        <!-- 4. Restez connectés -->
-        <div class="presentation-block">
-            <h2>📬 Restons connectés !</h2>
-            <p>📣 Abonnez-vous à notre newsletter pour recevoir chaque mois nos actualités, histoires de
-                terrain et
-                opportunités d'engagement.</p>
-            <p>📱 Suivez-nous sur les réseaux sociaux : <strong>Facebook | Instagram | LinkedIn |
-                    Twitter</strong></p>
-            <p>✉️ <a href="/contact" class="btn">Contactez-nous</a> pour devenir acteur du changement !</p>
-        </div>
-
-        <!-- ... -->
-    </main>
-
-    <!-- Colonne droite -->
-    <aside class="right-sidebar sidebar">
-        <blockquote>
-            "DFD m'a redonné espoir."<br>
-            <small>— Aïcha, bénéficiaire</small>
-        </blockquote>
-        <video class="video-slide" width="600" height="300" controls autoplay muted loop
-            style="max-width: 100%; max-height: 600px; object-fit: contain; border-radius: 8px;">
-            <source src="{% static 'images/Photo-DFD-Foyer/Video-DFD-foyer/video-nathan.mp4' %}" type="video/mp4">
-            Votre navigateur ne supporte pas la vidéo.
-        </video>
-        <p>📅 Ne manquez pas nos prochaines campagnes !</p>
-    </aside>
-
-</div>
-{% block scripts %}
-<script>
-    let currentIndex = 0;
-    const images = document.querySelectorAll('.carousel-image');
-
-    function showNextImage() {
-        images[currentIndex].classList.remove('active');
-        currentIndex = (currentIndex + 1) % images.length;
-        images[currentIndex].classList.add('active');
+<style>
+@media (max-width: 1024px) {
+    section > div {
+        grid-template-columns: 1fr !important;
     }
-
-    setInterval(showNextImage, 3000); // Changer d'image toutes les 3 secondes
-</script>
-
-
-{% endblock %}
+}
+</style>
 
 {% endblock %}

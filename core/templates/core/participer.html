@@ -1,53 +1,348 @@
 {% extends 'core/base.html' %}
+{% load static %}
 {% load i18n %}
+
 {% block title %}Participer - DFD{% endblock %}
+
 {% block content %}
 
-<section class="presentation">
-    <h1 class="main-title">🤝 Participer à DFD</h1>
-
-    <!-- Bloc bénévole -->
-    <div class="presentation-block">
-        <h2>🙋 Devenir bénévole</h2>
-        <p>Nous accueillons toutes les bonnes volontés ! Remplissez le formulaire pour nous rejoindre :</p>
-        <form action="/contact/" method="post" style="display: flex; flex-direction: column; gap: 15px;">
-            {% csrf_token %}
-            <input type="text" name="nom" placeholder="Votre nom" required
-                style="padding: 10px; border-radius: 5px; border: 1px solid #ccc;">
-            <input type="email" name="email" placeholder="Votre email" required
-                style="padding: 10px; border-radius: 5px; border: 1px solid #ccc;">
-            <textarea name="message" placeholder="Pourquoi souhaitez-vous être bénévole ?" required
-                style="padding: 10px; border-radius: 5px; border: 1px solid #ccc;"></textarea>
-            <button type="submit" class="btn">Envoyer</button>
-        </form>
-    </div>
-
-    <!-- Bloc don -->
-    <div class="presentation-block">
-        <h2>💝 Faire un don</h2>
-        <p>Votre soutien est essentiel. Vous pouvez faire un don ponctuel ou mensuel en toute sécurité :</p>
-        <div style="text-align: center; margin-top: 20px;">
-            <a href="/don/" class="btn">Faire un don</a>
-        </div>
-    </div>
-
-    <!-- Bloc membre -->
-    <div class="presentation-block">
-        <h2>👥 Devenir membre</h2>
-        <p>Rejoignez notre réseau d'adhérents. En devenant membre, vous bénéficiez de :</p>
-        <ul>
-            <li>Accès aux rapports détaillés</li>
-            <li>Invitations aux événements</li>
-            <li>Droit de vote en AG</li>
-        </ul>
-        <form action="/inscription/" method="post" style="display: flex; flex-direction: column; gap: 15px;">
-            <input type="text" name="nom" placeholder="Nom complet" required
-                style="padding: 10px; border-radius: 5px; border: 1px solid #ccc;">
-            <input type="email" name="email" placeholder="Email" required
-                style="padding: 10px; border-radius: 5px; border: 1px solid #ccc;">
-            <button type="submit" class="btn">S'inscrire</button>
-        </form>
+<!-- Hero Section -->
+<section style="background: linear-gradient(135deg, #1f1451 0%, #1a73e8 100%); padding: 4rem 2rem; text-align: center; color: white;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+        <i class="fas fa-hands-helping" style="font-size: 4rem; margin-bottom: 1rem;"></i>
+        <h1 style="font-size: 2.5rem; margin-bottom: 1rem; font-weight: 700;">Agir avec nous</h1>
+        <p style="font-size: 1.3rem; opacity: 0.95; font-weight: 300;">Ensemble, nous pouvons changer des vies</p>
     </div>
 </section>
+
+<!-- Navigation par ancres -->
+<section style="padding: 2rem; background: white; box-shadow: 0 2px 8px rgba(0,0,0,0.1); position: sticky; top: 60px; z-index: 100;">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
+        <a href="#benevole" style="padding: 0.75rem 1.5rem; color: #1f1451; text-decoration: none; font-weight: 600; border-bottom: 3px solid transparent; transition: all 0.3s;">
+            <i class="fas fa-user-friends"></i> Devenir bénévole
+        </a>
+        <a href="#don" style="padding: 0.75rem 1.5rem; color: #1f1451; text-decoration: none; font-weight: 600; border-bottom: 3px solid transparent; transition: all 0.3s;">
+            <i class="fas fa-heart"></i> Faire un don
+        </a>
+        <a href="#membre" style="padding: 0.75rem 1.5rem; color: #1f1451; text-decoration: none; font-weight: 600; border-bottom: 3px solid transparent; transition: all 0.3s;">
+            <i class="fas fa-user-plus"></i> Devenir membre
+        </a>
+    </div>
+</section>
+
+<!-- Section Bénévole -->
+<section id="benevole" style="padding: 5rem 2rem; background: #f8f9fa;">
+    <div style="max-width: 900px; margin: 0 auto;">
+        <div style="text-align: center; margin-bottom: 3rem;">
+            <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #1a73e8 0%, #1f1451 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem;">
+                <i class="fas fa-user-friends" style="font-size: 2.5rem; color: white;"></i>
+            </div>
+            <h2 style="color: #1f1451; font-size: 2.2rem; margin-bottom: 1rem;">Devenir bénévole</h2>
+            <p style="color: #5a6c7d; font-size: 1.15rem; line-height: 1.8; max-width: 700px; margin: 0 auto;">
+                Rejoignez notre équipe de bénévoles passionnés et engagés. Que vous ayez des compétences spécifiques 
+                ou simplement l'envie d'aider, nous avons une mission pour vous.
+            </p>
+        </div>
+
+        <!-- Avantages -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
+            <div style="background: white; padding: 2rem; border-radius: 12px; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+                <i class="fas fa-heart" style="font-size: 2rem; color: #1a73e8; margin-bottom: 1rem;"></i>
+                <h3 style="color: #1f1451; margin-bottom: 0.5rem;">Impact direct</h3>
+                <p style="color: #5a6c7d; font-size: 0.95rem;">Voyez concrètement l'impact de vos actions</p>
+            </div>
+            <div style="background: white; padding: 2rem; border-radius: 12px; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+                <i class="fas fa-users" style="font-size: 2rem; color: #1a73e8; margin-bottom: 1rem;"></i>
+                <h3 style="color: #1f1451; margin-bottom: 0.5rem;">Communauté</h3>
+                <p style="color: #5a6c7d; font-size: 0.95rem;">Rejoignez une équipe soudée et bienveillante</p>
+            </div>
+            <div style="background: white; padding: 2rem; border-radius: 12px; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+                <i class="fas fa-graduation-cap" style="font-size: 2rem; color: #1a73e8; margin-bottom: 1rem;"></i>
+                <h3 style="color: #1f1451; margin-bottom: 0.5rem;">Formation</h3>
+                <p style="color: #5a6c7d; font-size: 0.95rem;">Développez de nouvelles compétences</p>
+            </div>
+        </div>
+
+        <!-- Formulaire -->
+        <div style="background: white; padding: 3rem; border-radius: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.12);">
+            <form method="POST" action="{% url 'participer' %}">
+                {% csrf_token %}
+                <input type="hidden" name="form_type" value="volunteer">
+                
+                <div style="margin-bottom: 1.5rem;">
+                    <label style="display: block; color: #1f1451; font-weight: 600; margin-bottom: 0.5rem;">
+                        Nom complet *
+                    </label>
+                    <input type="text" name="nom" required
+                           style="width: 100%; padding: 1rem; border: 2px solid #e5e7eb; border-radius: 8px; font-size: 1rem; transition: border 0.3s;"
+                           placeholder="Votre nom et prénom">
+                </div>
+
+                <div style="margin-bottom: 1.5rem;">
+                    <label style="display: block; color: #1f1451; font-weight: 600; margin-bottom: 0.5rem;">
+                        Email *
+                    </label>
+                    <input type="email" name="email" required
+                           style="width: 100%; padding: 1rem; border: 2px solid #e5e7eb; border-radius: 8px; font-size: 1rem; transition: border 0.3s;"
+                           placeholder="votre.email@exemple.com">
+                </div>
+
+                <div style="margin-bottom: 1.5rem;">
+                    <label style="display: block; color: #1f1451; font-weight: 600; margin-bottom: 0.5rem;">
+                        Téléphone
+                    </label>
+                    <input type="tel" name="telephone"
+                           style="width: 100%; padding: 1rem; border: 2px solid #e5e7eb; border-radius: 8px; font-size: 1rem; transition: border 0.3s;"
+                           placeholder="+237 xxx xxx xxx">
+                </div>
+
+                <div style="margin-bottom: 1.5rem;">
+                    <label style="display: block; color: #1f1451; font-weight: 600; margin-bottom: 0.5rem;">
+                        Domaine d'intérêt *
+                    </label>
+                    <select name="domaine" required
+                            style="width: 100%; padding: 1rem; border: 2px solid #e5e7eb; border-radius: 8px; font-size: 1rem;">
+                        <option value="">Sélectionnez un domaine</option>
+                        <option value="education">Éducation</option>
+                        <option value="sante">Santé</option>
+                        <option value="environnement">Environnement</option>
+                        <option value="humanitaire">Humanitaire</option>
+                        <option value="communication">Communication</option>
+                        <option value="autre">Autre</option>
+                    </select>
+                </div>
+
+                <div style="margin-bottom: 2rem;">
+                    <label style="display: block; color: #1f1451; font-weight: 600; margin-bottom: 0.5rem;">
+                        Parlez-nous de vous *
+                    </label>
+                    <textarea name="message" required rows="5"
+                              style="width: 100%; padding: 1rem; border: 2px solid #e5e7eb; border-radius: 8px; font-size: 1rem; resize: vertical; transition: border 0.3s;"
+                              placeholder="Pourquoi souhaitez-vous devenir bénévole ? Quelles sont vos compétences ?"></textarea>
+                </div>
+
+                <button type="submit"
+                        style="width: 100%; padding: 1.2rem; background: linear-gradient(135deg, #1a73e8 0%, #1f1451 100%); color: white; border: none; border-radius: 8px; font-size: 1.1rem; font-weight: 700; cursor: pointer; transition: transform 0.3s;">
+                    <i class="fas fa-paper-plane"></i> Envoyer ma candidature
+                </button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- Section Don -->
+<section id="don" style="padding: 5rem 2rem; background: white;">
+    <div style="max-width: 900px; margin: 0 auto;">
+        <div style="text-align: center; margin-bottom: 3rem;">
+            <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem;">
+                <i class="fas fa-heart" style="font-size: 2.5rem; color: white;"></i>
+            </div>
+            <h2 style="color: #1f1451; font-size: 2.2rem; margin-bottom: 1rem;">Faire un don</h2>
+            <p style="color: #5a6c7d; font-size: 1.15rem; line-height: 1.8; max-width: 700px; margin: 0 auto;">
+                Votre générosité permet de financer nos projets et de venir en aide à des milliers de personnes. 
+                Chaque contribution, quelle que soit sa taille, fait la différence.
+            </p>
+        </div>
+
+        <!-- Impact -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-bottom: 3rem;">
+            <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 12px; text-align: center;">
+                <div style="font-size: 1.8rem; font-weight: 700; color: #1a73e8; margin-bottom: 0.5rem;">20€</div>
+                <p style="color: #5a6c7d; font-size: 0.9rem;">Un kit scolaire complet</p>
+            </div>
+            <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 12px; text-align: center;">
+                <div style="font-size: 1.8rem; font-weight: 700; color: #1a73e8; margin-bottom: 0.5rem;">50€</div>
+                <p style="color: #5a6c7d; font-size: 0.9rem;">Des soins médicaux pour 10 personnes</p>
+            </div>
+            <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 12px; text-align: center;">
+                <div style="font-size: 1.8rem; font-weight: 700; color: #1a73e8; margin-bottom: 0.5rem;">100€</div>
+                <p style="color: #5a6c7d; font-size: 0.9rem;">Un mois de parrainage</p>
+            </div>
+        </div>
+
+        <!-- Formulaire de don -->
+        <div style="background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%); padding: 3rem; border-radius: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.12);">
+            <form method="POST" action="{% url 'don' %}">
+                {% csrf_token %}
+                
+                <div style="margin-bottom: 2rem;">
+                    <label style="display: block; color: #1f1451; font-weight: 600; margin-bottom: 1rem; font-size: 1.1rem;">
+                        Choisissez votre montant
+                    </label>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 1rem; margin-bottom: 1rem;">
+                        <button type="button" onclick="selectAmount(20)" class="amount-btn"
+                                style="padding: 1.2rem; background: white; border: 2px solid #e5e7eb; border-radius: 8px; font-size: 1.2rem; font-weight: 700; color: #1f1451; cursor: pointer; transition: all 0.3s;">
+                            20€
+                        </button>
+                        <button type="button" onclick="selectAmount(50)" class="amount-btn"
+                                style="padding: 1.2rem; background: white; border: 2px solid #e5e7eb; border-radius: 8px; font-size: 1.2rem; font-weight: 700; color: #1f1451; cursor: pointer; transition: all 0.3s;">
+                            50€
+                        </button>
+                        <button type="button" onclick="selectAmount(100)" class="amount-btn"
+                                style="padding: 1.2rem; background: white; border: 2px solid #e5e7eb; border-radius: 8px; font-size: 1.2rem; font-weight: 700; color: #1f1451; cursor: pointer; transition: all 0.3s;">
+                            100€
+                        </button>
+                        <button type="button" onclick="selectAmount(200)" class="amount-btn"
+                                style="padding: 1.2rem; background: white; border: 2px solid #e5e7eb; border-radius: 8px; font-size: 1.2rem; font-weight: 700; color: #1f1451; cursor: pointer; transition: all 0.3s;">
+                            200€
+                        </button>
+                    </div>
+                    <input type="number" name="montant" id="montant" min="5" required
+                           style="width: 100%; padding: 1.2rem; border: 2px solid #e5e7eb; border-radius: 8px; font-size: 1.2rem; font-weight: 600;"
+                           placeholder="Ou entrez un montant personnalisé">
+                </div>
+
+                <div style="margin-bottom: 2rem;">
+                    <label style="display: block; color: #1f1451; font-weight: 600; margin-bottom: 0.5rem;">
+                        Type de don
+                    </label>
+                    <select name="frequence"
+                            style="width: 100%; padding: 1rem; border: 2px solid #e5e7eb; border-radius: 8px; font-size: 1rem;">
+                        <option value="ponctuel">Don ponctuel</option>
+                        <option value="mensuel">Don mensuel</option>
+                    </select>
+                </div>
+
+                <div style="margin-bottom: 1.5rem;">
+                    <label style="display: block; color: #1f1451; font-weight: 600; margin-bottom: 0.5rem;">
+                        Nom complet *
+                    </label>
+                    <input type="text" name="nom" required
+                           style="width: 100%; padding: 1rem; border: 2px solid #e5e7eb; border-radius: 8px; font-size: 1rem;"
+                           placeholder="Votre nom">
+                </div>
+
+                <div style="margin-bottom: 2rem;">
+                    <label style="display: block; color: #1f1451; font-weight: 600; margin-bottom: 0.5rem;">
+                        Email *
+                    </label>
+                    <input type="email" name="email" required
+                           style="width: 100%; padding: 1rem; border: 2px solid #e5e7eb; border-radius: 8px; font-size: 1rem;"
+                           placeholder="votre.email@exemple.com">
+                </div>
+
+                <button type="submit"
+                        style="width: 100%; padding: 1.5rem; background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%); color: white; border: none; border-radius: 8px; font-size: 1.2rem; font-weight: 700; cursor: pointer; transition: transform 0.3s; box-shadow: 0 4px 12px rgba(231, 76, 60, 0.3);">
+                    <i class="fas fa-heart"></i> Faire un don maintenant
+                </button>
+
+                <p style="text-align: center; color: #5a6c7d; font-size: 0.85rem; margin-top: 1rem;">
+                    <i class="fas fa-lock"></i> Paiement 100% sécurisé
+                </p>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- Section Membre -->
+<section id="membre" style="padding: 5rem 2rem; background: #f8f9fa;">
+    <div style="max-width: 900px; margin: 0 auto;">
+        <div style="text-align: center; margin-bottom: 3rem;">
+            <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #27ae60 0%, #229954 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem;">
+                <i class="fas fa-user-plus" style="font-size: 2.5rem; color: white;"></i>
+            </div>
+            <h2 style="color: #1f1451; font-size: 2.2rem; margin-bottom: 1rem;">Devenir membre</h2>
+            <p style="color: #5a6c7d; font-size: 1.15rem; line-height: 1.8; max-width: 700px; margin: 0 auto;">
+                En devenant membre de DFD, vous intégrez officiellement notre famille et participez activement 
+                à nos décisions et à notre développement.
+            </p>
+        </div>
+
+        <!-- Avantages -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
+            <div style="background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+                <i class="fas fa-newspaper" style="font-size: 2rem; color: #27ae60; margin-bottom: 1rem; display: block;"></i>
+                <h3 style="color: #1f1451; margin-bottom: 0.5rem;">Rapports exclusifs</h3>
+                <p style="color: #5a6c7d; font-size: 0.95rem;">Recevez nos rapports d'activité détaillés</p>
+            </div>
+            <div style="background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+                <i class="fas fa-vote-yea" style="font-size: 2rem; color: #27ae60; margin-bottom: 1rem; display: block;"></i>
+                <h3 style="color: #1f1451; margin-bottom: 0.5rem;">Droit de vote</h3>
+                <p style="color: #5a6c7d; font-size: 0.95rem;">Participez aux décisions importantes</p>
+            </div>
+            <div style="background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+                <i class="fas fa-calendar-alt" style="font-size: 2rem; color: #27ae60; margin-bottom: 1rem; display: block;"></i>
+                <h3 style="color: #1f1451; margin-bottom: 0.5rem;">Événements privés</h3>
+                <p style="color: #5a6c7d; font-size: 0.95rem;">Accédez à des événements réservés aux membres</p>
+            </div>
+        </div>
+
+        <!-- Formulaire -->
+        <div style="background: white; padding: 3rem; border-radius: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.12);">
+            <form method="POST" action="{% url 'participer' %}">
+                {% csrf_token %}
+                <input type="hidden" name="form_type" value="member">
+                
+                <div style="margin-bottom: 1.5rem;">
+                    <label style="display: block; color: #1f1451; font-weight: 600; margin-bottom: 0.5rem;">
+                        Nom complet *
+                    </label>
+                    <input type="text" name="nom" required
+                           style="width: 100%; padding: 1rem; border: 2px solid #e5e7eb; border-radius: 8px; font-size: 1rem;"
+                           placeholder="Votre nom et prénom">
+                </div>
+
+                <div style="margin-bottom: 1.5rem;">
+                    <label style="display: block; color: #1f1451; font-weight: 600; margin-bottom: 0.5rem;">
+                        Email *
+                    </label>
+                    <input type="email" name="email" required
+                           style="width: 100%; padding: 1rem; border: 2px solid #e5e7eb; border-radius: 8px; font-size: 1rem;"
+                           placeholder="votre.email@exemple.com">
+                </div>
+
+                <div style="margin-bottom: 1.5rem;">
+                    <label style="display: block; color: #1f1451; font-weight: 600; margin-bottom: 0.5rem;">
+                        Téléphone *
+                    </label>
+                    <input type="tel" name="telephone" required
+                           style="width: 100%; padding: 1rem; border: 2px solid #e5e7eb; border-radius: 8px; font-size: 1rem;"
+                           placeholder="+237 xxx xxx xxx">
+                </div>
+
+                <div style="margin-bottom: 2rem;">
+                    <label style="display: block; color: #1f1451; font-weight: 600; margin-bottom: 0.5rem;">
+                        Ville / Pays *
+                    </label>
+                    <input type="text" name="localisation" required
+                           style="width: 100%; padding: 1rem; border: 2px solid #e5e7eb; border-radius: 8px; font-size: 1rem;"
+                           placeholder="Votre ville et pays">
+                </div>
+
+                <button type="submit"
+                        style="width: 100%; padding: 1.2rem; background: linear-gradient(135deg, #27ae60 0%, #229954 100%); color: white; border: none; border-radius: 8px; font-size: 1.1rem; font-weight: 700; cursor: pointer; transition: transform 0.3s;">
+                    <i class="fas fa-check-circle"></i> Devenir membre
+                </button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<script>
+function selectAmount(amount) {
+    document.getElementById('montant').value = amount;
+    
+    // Style actif
+    document.querySelectorAll('.amount-btn').forEach(btn => {
+        btn.style.background = 'white';
+        btn.style.borderColor = '#e5e7eb';
+        btn.style.color = '#1f1451';
+    });
+    event.target.style.background = 'linear-gradient(135deg, #1a73e8 0%, #1f1451 100%)';
+    event.target.style.borderColor = '#1a73e8';
+    event.target.style.color = 'white';
+}
+
+// Smooth scroll pour les ancres
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    });
+});
+</script>
 
 {% endblock %}
