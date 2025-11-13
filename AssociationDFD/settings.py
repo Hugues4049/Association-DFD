@@ -63,6 +63,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'core',
+    'paypal.standard.ipn', 
 ]
 
 MIDDLEWARE = [
@@ -121,7 +122,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalisation
 # -------------------------------------------------------------------
 LANGUAGE_CODE = 'fr'
-TIME_ZONE = 'Africa/Douala'
+TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_TZ = True
 
@@ -194,3 +195,24 @@ LOGGING = {
         },
     },
 }
+
+
+# ===================================
+# PAYPAL CONFIGURATION
+# ===================================
+
+# PayPal Settings
+PAYPAL_TEST = os.getenv('PAYPAL_TEST', 'True') == 'True'  # True pour sandbox, False pour production
+
+# Identifiants PayPal (à mettre dans .env)
+PAYPAL_RECEIVER_EMAIL = os.getenv('PAYPAL_RECEIVER_EMAIL', 'sb-youremail@business.example.com')
+PAYPAL_CLIENT_ID = os.getenv('PAYPAL_CLIENT_ID', '')
+PAYPAL_SECRET = os.getenv('PAYPAL_SECRET', '')
+
+# URLs de retour PayPal
+PAYPAL_RETURN_URL = 'http://localhost:8000/paypal-return/'
+PAYPAL_CANCEL_URL = 'http://localhost:8000/paypal-cancel/'
+PAYPAL_NOTIFY_URL = 'http://localhost:8000/paypal-ipn/'  # Pour IPN
+
+
+

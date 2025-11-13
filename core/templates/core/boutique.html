@@ -3,215 +3,691 @@
 {% block title %}Boutique Solidaire - DFD{% endblock %}
 
 {% block content %}
-<link rel="stylesheet" href="{% static 'css/departements.css' %}">
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
 
-<section class="dept-hero" style="background-image: linear-gradient(rgba(236, 72, 153, 0.85), rgba(219, 39, 119, 0.85));">
-    <div class="dept-hero-content">
-        <div class="dept-icon">
-            <i class="fas fa-shopping-bag"></i>
-        </div>
+<!-- CSS spécifique pour la boutique -->
+<style>
+/* ===================================
+   STYLE SPÉCIFIQUE BOUTIQUE
+   =================================== */
+
+/* Hero boutique */
+.boutique-hero {
+    background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);
+    padding: 4rem 2rem;
+    text-align: center;
+    color: white;
+    margin-bottom: 3rem;
+}
+
+.boutique-hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.boutique-hero p {
+    font-size: 1.3rem;
+    opacity: 0.95;
+}
+
+/* Grid produits */
+.produits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+/* Card produit améliorée */
+.product-card {
+    background: white;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+}
+
+/* Image produit - FIX pour les placeholder */
+.product-image {
+    width: 100%;
+    height: 280px;
+    overflow: hidden;
+    background: #f8fafc;
+    position: relative;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Contient l'image sans déformer */
+    object-position: center;
+}
+
+/* Badge catégorie */
+.product-badge {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.badge-goodies {
+    background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);
+}
+
+.badge-artisanat {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+}
+
+.badge-livres {
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+}
+
+.badge-cadeaux {
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+}
+
+/* Contenu produit */
+.product-content {
+    padding: 1.5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-content h3 {
+    font-size: 1.3rem;
+    color: var(--color-primary);
+    margin-bottom: 0.75rem;
+}
+
+.product-content p {
+    color: var(--color-text-secondary);
+    flex: 1;
+    margin-bottom: 1rem;
+}
+
+/* Footer produit avec prix et bouton */
+.product-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1rem;
+    border-top: 2px solid var(--color-bg);
+}
+
+.product-price {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--color-accent);
+}
+
+.btn-add-to-cart {
+    padding: 0.75rem 1.5rem;
+    background: var(--gradient-accent);
+    color: white;
+    border: none;
+    border-radius: 2rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.btn-add-to-cart:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(26, 115, 232, 0.3);
+}
+
+.btn-add-to-cart:active {
+    transform: translateY(0);
+}
+
+/* Panier flottant */
+.cart-floating {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: white;
+    padding: 1rem 1.5rem;
+    border-radius: 3rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.cart-floating:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+}
+
+.cart-count {
+    background: #ef4444;
+    color: white;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+/* Modal panier */
+.cart-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+}
+
+.cart-modal.active {
+    display: flex;
+}
+
+.cart-modal-content {
+    background: white;
+    max-width: 600px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    border-radius: 1rem;
+    padding: 2rem;
+}
+
+.cart-item {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--color-bg);
+}
+
+.cart-item-image {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 0.5rem;
+}
+
+.cart-item-info {
+    flex: 1;
+}
+
+.cart-item-remove {
+    color: #ef4444;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+.cart-item-remove:hover {
+    color: #dc2626;
+}
+
+/* Filtres catégories */
+.category-filters {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 2rem 0;
+}
+
+.filter-btn {
+    padding: 0.75rem 1.5rem;
+    background: white;
+    border: 2px solid var(--color-accent);
+    border-radius: 2rem;
+    color: var(--color-accent);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background: var(--color-accent);
+    color: white;
+}
+
+/* Message ajout panier */
+.add-to-cart-message {
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    background: #10b981;
+    color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 8px 24px rgba(16, 185, 129, 0.3);
+    display: none;
+    align-items: center;
+    gap: 0.75rem;
+    z-index: 3000;
+    animation: slideIn 0.3s ease-out;
+}
+
+.add-to-cart-message.show {
+    display: flex;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .produits-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .cart-floating {
+        bottom: 1rem;
+        right: 1rem;
+        padding: 0.75rem 1.25rem;
+    }
+}
+</style>
+
+<!-- Hero boutique -->
+<section class="boutique-hero">
+    <div>
+        <i class="fas fa-shopping-bag" style="font-size: 4rem; margin-bottom: 1rem;"></i>
         <h1>Boutique Solidaire</h1>
-        <p class="dept-slogan">"Acheter utile, donner du sens"</p>
+        <p>"Acheter utile, donner du sens"</p>
     </div>
 </section>
 
 <section class="presentation">
+    <!-- Introduction -->
     <div class="presentation-block">
         <h2>🛍️ Achetez Solidaire, Soutenez nos Actions</h2>
         <p>Notre boutique solidaire vous propose des produits éthiques et responsables. 100% des bénéfices sont reversés à nos projets sur le terrain. En achetant ici, vous faites une bonne action tout en vous faisant plaisir !</p>
     </div>
 
-    <!-- Catégories -->
-    <div class="presentation-block">
-        <h2>🏷️ Nos Catégories</h2>
-        <div class="zones-intervention">
-            <div class="zone-badge" style="cursor: pointer;" onclick="filterProducts('goodies')">
-                <i class="fas fa-tshirt"></i>
-                <h3>Goodies DFD</h3>
-                <p>T-shirts, casquettes, sacs...</p>
-            </div>
-            <div class="zone-badge" style="cursor: pointer;" onclick="filterProducts('artisanat')">
-                <i class="fas fa-palette"></i>
-                <h3>Artisanat Local</h3>
-                <p>Produits artisanaux camerounais</p>
-            </div>
-            <div class="zone-badge" style="cursor: pointer;" onclick="filterProducts('livres')">
-                <i class="fas fa-book"></i>
-                <h3>Livres & Publications</h3>
-                <p>Rapports, magazines, livres</p>
-            </div>
-            <div class="zone-badge" style="cursor: pointer;" onclick="filterProducts('cadeaux')">
-                <i class="fas fa-gift"></i>
-                <h3>Cadeaux Solidaires</h3>
-                <p>Chèques-cadeaux, parrainages</p>
-            </div>
-        </div>
+    <!-- Filtres catégories -->
+    <div class="category-filters">
+        <button class="filter-btn active" onclick="filterProducts('all')">
+            <i class="fas fa-th"></i> Tous
+        </button>
+        <button class="filter-btn" onclick="filterProducts('goodies')">
+            <i class="fas fa-tshirt"></i> Goodies DFD
+        </button>
+        <button class="filter-btn" onclick="filterProducts('artisanat')">
+            <i class="fas fa-palette"></i> Artisanat Local
+        </button>
+        <button class="filter-btn" onclick="filterProducts('livres')">
+            <i class="fas fa-book"></i> Livres
+        </button>
+        <button class="filter-btn" onclick="filterProducts('cadeaux')">
+            <i class="fas fa-gift"></i> Cadeaux Solidaires
+        </button>
     </div>
 
-    <!-- Produits -->
-    <div class="presentation-block">
-        <h2>⭐ Nos Produits Phares</h2>
-        
-        <div class="projets-locaux-grid">
-            <!-- Produit 1 -->
-            <div class="projet-local-card product-card" data-category="goodies">
-                <img src="{% static 'images/boutique/tshirt-dfd.jpg' %}" alt="T-shirt DFD" style="width: 100%; height: 250px; object-fit: cover;">
-                <div class="projet-local-content">
-                    <span class="projet-local-tag" style="background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);">Goodies</span>
-                    <h3>T-Shirt DFD "La Main Tendue"</h3>
-                    <p>T-shirt 100% coton bio avec le logo DFD. Disponible en plusieurs couleurs et tailles.</p>
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--color-bg);">
-                        <strong style="font-size: 1.5rem; color: var(--color-accent);">25€</strong>
-                        <button class="btn" style="background: var(--gradient-accent); color: white; padding: 0.75rem 1.5rem;">
-                            <i class="fas fa-shopping-cart"></i> Ajouter
-                        </button>
-                    </div>
+    <!-- Grid produits -->
+    <div class="produits-grid">
+        <!-- Produit 1 : T-shirt -->
+        <div class="product-card" data-category="goodies" data-id="1" data-name="T-Shirt DFD La Main Tendue" data-price="25">
+            <div class="product-image">
+                <span class="product-badge badge-goodies">Goodies</span>
+                <img src="{% static 'images/boutique/tshirt-dfd.jpg' %}" alt="T-shirt DFD" 
+                     onerror="this.src='https://via.placeholder.com/800x600/1f1451/ffffff?text=T-shirt+DFD'">
+            </div>
+            <div class="product-content">
+                <h3>T-Shirt DFD "La Main Tendue"</h3>
+                <p>T-shirt 100% coton bio avec le logo DFD. Disponible en plusieurs couleurs et tailles.</p>
+                <div class="product-footer">
+                    <span class="product-price">25€</span>
+                    <button class="btn-add-to-cart" onclick="addToCart(1)">
+                        <i class="fas fa-shopping-cart"></i> Ajouter
+                    </button>
                 </div>
             </div>
+        </div>
 
-            <!-- Produit 2 -->
-            <div class="projet-local-card product-card" data-category="goodies">
-                <img src="{% static 'images/boutique/casquette-dfd.jpg' %}" alt="Casquette DFD" style="width: 100%; height: 250px; object-fit: cover;">
-                <div class="projet-local-content">
-                    <span class="projet-local-tag" style="background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);">Goodies</span>
-                    <h3>Casquette DFD</h3>
-                    <p>Casquette ajustable avec logo brodé DFD. Protégez-vous du soleil avec style !</p>
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--color-bg);">
-                        <strong style="font-size: 1.5rem; color: var(--color-accent);">15€</strong>
-                        <button class="btn" style="background: var(--gradient-accent); color: white; padding: 0.75rem 1.5rem;">
-                            <i class="fas fa-shopping-cart"></i> Ajouter
-                        </button>
-                    </div>
+        <!-- Produit 2 : Casquette -->
+        <div class="product-card" data-category="goodies" data-id="2" data-name="Casquette DFD" data-price="15">
+            <div class="product-image">
+                <span class="product-badge badge-goodies">Goodies</span>
+                <img src="{% static 'images/boutique/casquette-dfd.jpg' %}" alt="Casquette DFD"
+                     onerror="this.src='https://via.placeholder.com/800x600/1a73e8/ffffff?text=Casquette+DFD'">
+            </div>
+            <div class="product-content">
+                <h3>Casquette DFD</h3>
+                <p>Casquette ajustable avec logo brodé DFD. Protégez-vous du soleil avec style !</p>
+                <div class="product-footer">
+                    <span class="product-price">15€</span>
+                    <button class="btn-add-to-cart" onclick="addToCart(2)">
+                        <i class="fas fa-shopping-cart"></i> Ajouter
+                    </button>
                 </div>
             </div>
+        </div>
 
-            <!-- Produit 3 -->
-            <div class="projet-local-card product-card" data-category="goodies">
-                <img src="{% static 'images/boutique/tote-bag.jpg' %}" alt="Tote Bag" style="width: 100%; height: 250px; object-fit: cover;">
-                <div class="projet-local-content">
-                    <span class="projet-local-tag" style="background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);">Goodies</span>
-                    <h3>Tote Bag Écologique DFD</h3>
-                    <p>Sac en toile 100% coton bio, réutilisable et éco-responsable. Idéal pour vos courses !</p>
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--color-bg);">
-                        <strong style="font-size: 1.5rem; color: var(--color-accent);">12€</strong>
-                        <button class="btn" style="background: var(--gradient-accent); color: white; padding: 0.75rem 1.5rem;">
-                            <i class="fas fa-shopping-cart"></i> Ajouter
-                        </button>
-                    </div>
+        <!-- Produit 3 : Tote Bag -->
+        <div class="product-card" data-category="goodies" data-id="3" data-name="Tote Bag Écologique DFD" data-price="12">
+            <div class="product-image">
+                <span class="product-badge badge-goodies">Goodies</span>
+                <img src="{% static 'images/boutique/tote-bag.jpg' %}" alt="Tote Bag"
+                     onerror="this.src='https://via.placeholder.com/800x600/10b981/ffffff?text=Tote+Bag'">
+            </div>
+            <div class="product-content">
+                <h3>Tote Bag Écologique DFD</h3>
+                <p>Sac en toile 100% coton bio, réutilisable et éco-responsable. Idéal pour vos courses !</p>
+                <div class="product-footer">
+                    <span class="product-price">12€</span>
+                    <button class="btn-add-to-cart" onclick="addToCart(3)">
+                        <i class="fas fa-shopping-cart"></i> Ajouter
+                    </button>
                 </div>
             </div>
+        </div>
 
-            <!-- Produit 4 -->
-            <div class="projet-local-card product-card" data-category="artisanat">
-                <img src="{% static 'images/boutique/panier-cameroun.jpg' %}" alt="Panier artisanal" style="width: 100%; height: 250px; object-fit: cover;">
-                <div class="projet-local-content">
-                    <span class="projet-local-tag" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%);">Artisanat</span>
-                    <h3>Panier Artisanal Camerounais</h3>
-                    <p>Panier tissé à la main par des artisans camerounais. Chaque achat soutient l'artisanat local.</p>
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--color-bg);">
-                        <strong style="font-size: 1.5rem; color: var(--color-accent);">35€</strong>
-                        <button class="btn" style="background: var(--gradient-accent); color: white; padding: 0.75rem 1.5rem;">
-                            <i class="fas fa-shopping-cart"></i> Ajouter
-                        </button>
-                    </div>
+        <!-- Produit 4 : Panier artisanal -->
+        <div class="product-card" data-category="artisanat" data-id="4" data-name="Panier Artisanal Camerounais" data-price="35">
+            <div class="product-image">
+                <span class="product-badge badge-artisanat">Artisanat</span>
+                <img src="{% static 'images/boutique/panier-cameroun.jpg' %}" alt="Panier artisanal"
+                     onerror="this.src='https://via.placeholder.com/800x600/f59e0b/ffffff?text=Panier+Artisanal'">
+            </div>
+            <div class="product-content">
+                <h3>Panier Artisanal Camerounais</h3>
+                <p>Panier tissé à la main par des artisans camerounais. Chaque achat soutient l'artisanat local.</p>
+                <div class="product-footer">
+                    <span class="product-price">35€</span>
+                    <button class="btn-add-to-cart" onclick="addToCart(4)">
+                        <i class="fas fa-shopping-cart"></i> Ajouter
+                    </button>
                 </div>
             </div>
+        </div>
 
-            <!-- Produit 5 -->
-            <div class="projet-local-card product-card" data-category="livres">
-                <img src="{% static 'images/boutique/rapport-annuel.jpg' %}" alt="Rapport annuel" style="width: 100%; height: 250px; object-fit: cover;">
-                <div class="projet-local-content">
-                    <span class="projet-local-tag" style="background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);">Livre</span>
-                    <h3>Rapport Annuel DFD 2024</h3>
-                    <p>Notre rapport d'activités complet avec photos, témoignages et bilan financier transparent.</p>
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--color-bg);">
-                        <strong style="font-size: 1.5rem; color: var(--color-accent);">GRATUIT</strong>
-                        <button class="btn" style="background: var(--gradient-accent); color: white; padding: 0.75rem 1.5rem;">
-                            <i class="fas fa-download"></i> Télécharger
-                        </button>
-                    </div>
+        <!-- Produit 5 : Rapport annuel -->
+        <div class="product-card" data-category="livres" data-id="5" data-name="Rapport Annuel DFD 2024" data-price="0">
+            <div class="product-image">
+                <span class="product-badge badge-livres">Livre</span>
+                <img src="{% static 'images/boutique/rapport-annuel.jpg' %}" alt="Rapport annuel"
+                     onerror="this.src='https://via.placeholder.com/800x600/3b82f6/ffffff?text=Rapport+Annuel'">
+            </div>
+            <div class="product-content">
+                <h3>Rapport Annuel DFD 2024</h3>
+                <p>Notre rapport d'activités complet avec photos, témoignages et bilan financier transparent.</p>
+                <div class="product-footer">
+                    <span class="product-price">GRATUIT</span>
+                    <button class="btn-add-to-cart" onclick="window.location.href='{% url 'documents' %}'">
+                        <i class="fas fa-download"></i> Télécharger
+                    </button>
                 </div>
             </div>
+        </div>
 
-            <!-- Produit 6 - Cadeau solidaire -->
-            <div class="projet-local-card product-card" data-category="cadeaux">
-                <img src="{% static 'images/boutique/parrainage.jpg' %}" alt="Parrainage" style="width: 100%; height: 250px; object-fit: cover;">
-                <div class="projet-local-content">
-                    <span class="projet-local-tag" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);">Cadeau</span>
-                    <h3>Parrainez un Enfant - 1 An</h3>
-                    <p>Offrez le plus beau des cadeaux : l'éducation d'un enfant pendant 1 an. Certificat de parrainage inclus.</p>
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--color-bg);">
-                        <strong style="font-size: 1.5rem; color: var(--color-accent);">300€</strong>
-                        <button class="btn" style="background: var(--gradient-accent); color: white; padding: 0.75rem 1.5rem;">
-                            <i class="fas fa-heart"></i> Parrainer
-                        </button>
-                    </div>
+        <!-- Produit 6 : Parrainage -->
+        <div class="product-card" data-category="cadeaux" data-id="6" data-name="Parrainez un Enfant - 1 An" data-price="300">
+            <div class="product-image">
+                <span class="product-badge badge-cadeaux">Cadeau</span>
+                <img src="{% static 'images/boutique/parrainage.jpg' %}" alt="Parrainage"
+                     onerror="this.src='https://via.placeholder.com/800x600/ec4899/ffffff?text=Parrainage'">
+            </div>
+            <div class="product-content">
+                <h3>Parrainez un Enfant - 1 An</h3>
+                <p>Offrez le plus beau des cadeaux : l'éducation d'un enfant pendant 1 an. Certificat de parrainage inclus.</p>
+                <div class="product-footer">
+                    <span class="product-price">300€</span>
+                    <button class="btn-add-to-cart" onclick="addToCart(6)">
+                        <i class="fas fa-heart"></i> Parrainer
+                    </button>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- Pourquoi acheter solidaire -->
-    <div class="presentation-block" style="background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);">
+    <div class="presentation-block" style="background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); margin-top: 4rem;">
         <h2>💡 Pourquoi Acheter dans Notre Boutique ?</h2>
-        <div class="actions-grid">
-            <div class="action-card">
-                <div class="action-icon">💚</div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 2rem;">
+            <div style="text-align: center;">
+                <div style="font-size: 3rem; margin-bottom: 1rem;">💚</div>
                 <h3>100% des Bénéfices Reversés</h3>
                 <p>Chaque euro dépensé finance directement nos projets sur le terrain.</p>
             </div>
-
-            <div class="action-card">
-                <div class="action-icon">♻️</div>
+            <div style="text-align: center;">
+                <div style="font-size: 3rem; margin-bottom: 1rem;">♻️</div>
                 <h3>Produits Éthiques</h3>
                 <p>Fabrication responsable, matériaux durables et commerce équitable.</p>
             </div>
-
-            <div class="action-card">
-                <div class="action-icon">🇨🇲</div>
+            <div style="text-align: center;">
+                <div style="font-size: 3rem; margin-bottom: 1rem;">🇨🇲</div>
                 <h3>Soutien à l'Artisanat Local</h3>
                 <p>Nos produits artisanaux sont fabriqués par des artisans camerounais.</p>
             </div>
-
-            <div class="action-card">
-                <div class="action-icon">📦</div>
+            <div style="text-align: center;">
+                <div style="font-size: 3rem; margin-bottom: 1rem;">📦</div>
                 <h3>Livraison Solidaire</h3>
                 <p>Emballages recyclés et livraison compensée carbone.</p>
             </div>
         </div>
     </div>
 
-    <!-- Panier (simulation) -->
-    <div class="presentation-block" style="background: white; border: 2px solid var(--color-accent); max-width: 600px; margin: 2rem auto;">
-        <h2 style="text-align: center; color: var(--color-accent);"><i class="fas fa-shopping-cart"></i> Votre Panier</h2>
-        <div id="cart-content" style="padding: 2rem; text-align: center; color: var(--color-text-secondary);">
-            <i class="fas fa-shopping-basket" style="font-size: 4rem; opacity: 0.3; margin-bottom: 1rem; display: block;"></i>
-            <p>Votre panier est vide pour le moment.</p>
-            <p style="font-size: 0.9rem;">Ajoutez des produits solidaires et contribuez à nos actions !</p>
-        </div>
-    </div>
-
     <!-- CTA -->
-    <div class="presentation-block cta-block">
-        <h2>🛒 Boutique en Construction</h2>
+    <div class="presentation-block" style="text-align: center; background: var(--gradient-primary); color: white; margin-top: 4rem;">
+        <h2 style="color: white;">🛒 Boutique en Construction</h2>
         <p>Notre boutique en ligne sera bientôt disponible ! En attendant, contactez-nous pour commander.</p>
-        <div class="cta-buttons">
-            <a href="{% url 'contact' %}" class="btn btn-primary">
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem;">
+            <a href="{% url 'contact' %}" class="btn" style="background: white; color: var(--color-primary);">
                 <i class="fas fa-envelope"></i> Commander par email
             </a>
-            <a href="{% url 'don' %}" class="btn btn-secondary">
+            <a href="{% url 'don' %}" class="btn" style="background: rgba(255,255,255,0.2); color: white; border: 2px solid white;">
                 <i class="fas fa-heart"></i> Faire un don direct
-            </a>
-            <a href="{% url 'participer' %}" class="btn btn-outline">
-                <i class="fas fa-users"></i> Devenir membre
             </a>
         </div>
     </div>
 </section>
 
+<!-- Panier flottant -->
+<div class="cart-floating" onclick="toggleCart()">
+    <i class="fas fa-shopping-cart" style="font-size: 1.5rem; color: var(--color-accent);"></i>
+    <span class="cart-count" id="cart-count">0</span>
+</div>
+
+<!-- Modal panier -->
+<div class="cart-modal" id="cart-modal" onclick="closeCartIfOutside(event)">
+    <div class="cart-modal-content" onclick="event.stopPropagation()">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+            <h2 style="margin: 0;"><i class="fas fa-shopping-cart"></i> Votre Panier</h2>
+            <button onclick="toggleCart()" style="background: none; border: none; font-size: 1.5rem; cursor: pointer;">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <div id="cart-items">
+            <!-- Items ajoutés dynamiquement -->
+        </div>
+        
+        <div style="margin-top: 2rem; padding-top: 2rem; border-top: 2px solid var(--color-bg);">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
+                <strong style="font-size: 1.3rem;">Total :</strong>
+                <strong style="font-size: 1.5rem; color: var(--color-accent);" id="cart-total">0€</strong>
+            </div>
+            <button class="btn" style="width: 100%; background: var(--gradient-accent); color: white; padding: 1rem;" onclick="proceedToCheckout()">
+                <i class="fas fa-credit-card"></i> Procéder au paiement
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Message d'ajout au panier -->
+<div class="add-to-cart-message" id="add-message">
+    <i class="fas fa-check-circle" style="font-size: 1.5rem;"></i>
+    <span>Produit ajouté au panier !</span>
+</div>
+
 <script>
+// Panier (stocké dans localStorage)
+let cart = JSON.parse(localStorage.getItem('dfd_cart')) || [];
+
+// Mettre à jour l'affichage du compteur
+function updateCartCount() {
+    const count = cart.reduce((sum, item) => sum + item.quantity, 0);
+    document.getElementById('cart-count').textContent = count;
+}
+
+// Ajouter au panier
+function addToCart(productId) {
+    const productCard = document.querySelector(`[data-id="${productId}"]`);
+    const name = productCard.dataset.name;
+    const price = parseFloat(productCard.dataset.price);
+    const image = productCard.querySelector('img').src;
+    
+    // Vérifier si le produit existe déjà
+    const existingItem = cart.find(item => item.id === productId);
+    
+    if (existingItem) {
+        existingItem.quantity++;
+    } else {
+        cart.push({
+            id: productId,
+            name: name,
+            price: price,
+            image: image,
+            quantity: 1
+        });
+    }
+    
+    // Sauvegarder
+    localStorage.setItem('dfd_cart', JSON.stringify(cart));
+    
+    // Mettre à jour l'affichage
+    updateCartCount();
+    updateCartDisplay();
+    
+    // Afficher message
+    showAddMessage();
+}
+
+// Afficher message d'ajout
+function showAddMessage() {
+    const message = document.getElementById('add-message');
+    message.classList.add('show');
+    
+    setTimeout(() => {
+        message.classList.remove('show');
+    }, 2000);
+}
+
+// Retirer du panier
+function removeFromCart(productId) {
+    cart = cart.filter(item => item.id !== productId);
+    localStorage.setItem('dfd_cart', JSON.stringify(cart));
+    updateCartCount();
+    updateCartDisplay();
+}
+
+// Mettre à jour l'affichage du panier
+function updateCartDisplay() {
+    const cartItems = document.getElementById('cart-items');
+    const cartTotal = document.getElementById('cart-total');
+    
+    if (cart.length === 0) {
+        cartItems.innerHTML = `
+            <div style="text-align: center; padding: 3rem; color: var(--color-text-secondary);">
+                <i class="fas fa-shopping-basket" style="font-size: 4rem; opacity: 0.3; display: block; margin-bottom: 1rem;"></i>
+                <p>Votre panier est vide</p>
+            </div>
+        `;
+        cartTotal.textContent = '0€';
+        return;
+    }
+    
+    let html = '';
+    let total = 0;
+    
+    cart.forEach(item => {
+        total += item.price * item.quantity;
+        html += `
+            <div class="cart-item">
+                <img src="${item.image}" class="cart-item-image" alt="${item.name}">
+                <div class="cart-item-info">
+                    <h4>${item.name}</h4>
+                    <p>${item.price}€ x ${item.quantity}</p>
+                </div>
+                <i class="fas fa-trash cart-item-remove" onclick="removeFromCart(${item.id})" title="Retirer"></i>
+            </div>
+        `;
+    });
+    
+    cartItems.innerHTML = html;
+    cartTotal.textContent = total.toFixed(2) + '€';
+}
+
+// Toggle panier
+function toggleCart() {
+    const modal = document.getElementById('cart-modal');
+    modal.classList.toggle('active');
+    updateCartDisplay();
+}
+
+// Fermer si clic extérieur
+function closeCartIfOutside(event) {
+    if (event.target.id === 'cart-modal') {
+        toggleCart();
+    }
+}
+
+// Procéder au paiement
+function proceedToCheckout() {
+    if (cart.length === 0) {
+        alert('Votre panier est vide !');
+        return;
+    }
+    
+    // Pour l'instant, rediriger vers contact
+    alert('Fonctionnalité en construction ! Veuillez nous contacter pour commander.');
+    window.location.href = '{% url "contact" %}';
+}
+
+// Filtrer les produits
 function filterProducts(category) {
     const products = document.querySelectorAll('.product-card');
+    const buttons = document.querySelectorAll('.filter-btn');
+    
+    // Mettre à jour les boutons
+    buttons.forEach(btn => btn.classList.remove('active'));
+    event.target.closest('.filter-btn').classList.add('active');
+    
+    // Filtrer les produits
     products.forEach(product => {
         if (category === 'all' || product.dataset.category === category) {
             product.style.display = 'block';
@@ -220,6 +696,11 @@ function filterProducts(category) {
         }
     });
 }
+
+// Initialiser au chargement
+document.addEventListener('DOMContentLoaded', function() {
+    updateCartCount();
+});
 </script>
 
 {% endblock %}

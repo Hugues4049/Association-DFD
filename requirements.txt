@@ -37,3 +37,7 @@ django-cors-headers==4.4.0
 # Tâches asynchrones (si tu en as besoin)
 celery==5.4.0
 redis==5.1.0
+
+# PayPal Integration
+django-paypal==2.0       # Intégration PayPal pour Django
+paypalrestsdk==1.13.1   # SDK PayPal REST API

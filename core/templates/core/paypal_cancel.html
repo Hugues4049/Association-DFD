@@ -1,0 +1,45 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}Paiement annulé - DFD{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+<section class="presentation">
+    <div class="presentation-block" style="max-width: 600px; margin: 0 auto; text-align: center;">
+        <div style="margin-bottom: 2rem;">
+            <i class="fas fa-times-circle" style="font-size: 5rem; color: #f59e0b;"></i>
+        </div>
+        
+        <h1 class="main-title" style="color: #f59e0b;">Paiement annulé</h1>
+        
+        <div style="background: #fff9e6; padding: 2rem; border-radius: 1rem; margin: 2rem 0; border-left: 4px solid #f59e0b;">
+            <p style="font-size: 1.1rem; margin: 0; color: var(--color-text-primary);">
+                Votre paiement a été annulé. Aucun montant n'a été débité.
+            </p>
+        </div>
+        
+        <div style="margin: 2rem 0;">
+            <p style="color: var(--color-text-secondary); line-height: 1.8;">
+                Vous pouvez réessayer quand vous le souhaitez. Nous sommes là pour vous aider si vous rencontrez des difficultés.
+            </p>
+        </div>
+        
+        <div style="margin-top: 3rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+            <a href="{% url 'don' %}" class="btn" style="background: var(--gradient-accent);">
+                <i class="fas fa-heart"></i> Réessayer le don
+            </a>
+            <a href="{% url 'contact' %}" class="btn" style="background: var(--gradient-primary);">
+                <i class="fas fa-envelope"></i> Nous contacter
+            </a>
+        </div>
+        
+        <div style="margin-top: 2rem;">
+            <a href="{% url 'home' %}" style="color: var(--color-text-secondary); font-size: 0.9rem;">
+                ← Retour à l'accueil
+            </a>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

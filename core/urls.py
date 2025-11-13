@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, include
 from . import views
 
 urlpatterns = [
@@ -32,12 +32,29 @@ urlpatterns = [
     path('documents/', views.documents, name='documents'),
     path('temoignages/', views.temoignages, name='temoignages'),
     path('boutique/', views.boutique, name='boutique'),
+    path('boutique/produit/<int:product_id>/', views.product_detail, name='product_detail'),
     
     # Formulaires
     path('participer/', views.participer, name='participer'),
     path('don/', views.don, name='don'),
     path('contact/', views.contact, name='contact'),
     path('soumettre-temoignage/', views.soumettre_temoignage, name='soumettre_temoignage'),
+    
+    # Checkout boutique
+    path('checkout/', views.checkout, name='checkout'),
+    path('commande/succes/<int:order_id>/', views.order_success, name='order_success'),
+    
+    # ===================================
+    # PAYPAL URLS
+    # ===================================
+    
+    # IPN (Instant Payment Notification) - webhook PayPal
+    path('paypal/', include('paypal.standard.ipn.urls')),
+    path('paypal-ipn/', views.paypal_webhook, name='paypal-ipn'),
+    
+    # Pages de retour PayPal pour dons
+    path('paypal/retour/<int:donation_id>/', views.paypal_return, name='paypal_return'),
+    path('paypal/annulation/', views.paypal_cancel, name='paypal_cancel'),
     
     # Pages utilitaires
     path('merci/<str:nom>/', views.merci, name='merci'),
