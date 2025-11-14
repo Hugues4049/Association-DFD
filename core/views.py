@@ -389,32 +389,35 @@ def paypal_webhook(request):
 # ===================================
 # SIGNAL HANDLER POUR IPN PAYPAL
 # ===================================
-
+from django.template.loader import render_to_string
 def paypal_payment_received(sender, **kwargs):
     """
-    Signal handler appelé quand un paiement PayPal est confirmé
+    Signal handler appelé quand un paiement PayPal est confirmé (IPN)
+    - Pour les dons : met à jour le don + envoie un mail texte
+    - Pour les commandes boutique : met à jour la commande
+      (et n'envoie un mail QUE si ce n'est pas déjà fait ailleurs)
     """
     ipn_obj = sender
-    
+
     if ipn_obj.payment_status == ST_PP_COMPLETED:
         # Vérifier que le paiement est pour nous
         if ipn_obj.receiver_email == settings.PAYPAL_RECEIVER_EMAIL:
-            
-            # Extraire l'ID de la donation depuis le champ custom
             try:
-                custom_data = ipn_obj.custom
+                custom_data = ipn_obj.custom or ""
+
+                # ========= DONATION =========
                 if custom_data.startswith('donation_'):
                     donation_id = int(custom_data.split('_')[1])
                     donation = Donation.objects.get(id=donation_id)
-                    
+
                     # Mettre à jour le don
                     donation.payment_status = 'completed'
                     donation.paypal_transaction_id = ipn_obj.txn_id
                     donation.paypal_payer_id = ipn_obj.payer_id
                     donation.paypal_payment_date = ipn_obj.payment_date
                     donation.save()
-                    
-                    # Envoyer email de confirmation finale
+
+                    # Email de confirmation finale (texte simple)
                     send_mail(
                         subject='✅ Votre don a été confirmé - DFD',
                         message=f"""Bonjour {donation.donor_name},
@@ -433,42 +436,53 @@ Dreams Family of Development""",
                         recipient_list=[donation.donor_email],
                         fail_silently=True,
                     )
-                    
+
                     print(f"✅ Don #{donation.id} confirmé - Transaction: {ipn_obj.txn_id}")
-                    
+
+                # ========= COMMANDE BOUTIQUE =========
                 elif custom_data.startswith('order_'):
-                    # Traitement pour les commandes boutique
                     order_id = int(custom_data.split('_')[1])
                     order = Order.objects.get(id=order_id)
-                    
+
+                    # Est-ce que la commande avait déjà été marquée comme payée
+                    # (par exemple dans order_success) ?
+                    deja_payee = (order.payment_status == 'paid')
+
+                    # Mettre à jour les infos paiement
                     order.payment_status = 'paid'
                     order.order_status = 'processing'
                     order.paypal_transaction_id = ipn_obj.txn_id
                     order.paypal_payer_id = ipn_obj.payer_id
                     order.paid_at = ipn_obj.payment_date
                     order.save()
-                    
-                    # Email de confirmation
-                    send_mail(
-                        subject=f'✅ Commande #{order.order_number} confirmée - DFD',
-                        message=f"""Bonjour {order.customer_name},
 
-Votre commande #{order.order_number} a été payée avec succès !
+                    # On n'envoie un mail via l'IPN QUE si ce n'est pas déjà fait ailleurs
+                    if not deja_payee:
+                        subject = f"✅ Commande #{order.order_number} confirmée - DFD"
+                        html_message = render_to_string(
+                            "core/emails/order_confirmation.html",
+                            {"order": order},
+                        )
+                        # texte brut minimal au cas où
+                        plain_message = (
+                            f"Bonjour {order.customer_name},\n\n"
+                            f"Votre commande #{order.order_number} a bien été confirmée.\n"
+                            f"Montant : {order.total_amount}€\n"
+                            f"Transaction : {ipn_obj.txn_id}\n\n"
+                            "Merci pour votre soutien à l'association DFD."
+                        )
 
-Montant : {order.total_amount}€
-Transaction : {ipn_obj.txn_id}
+                        send_mail(
+                            subject,
+                            plain_message,
+                            settings.EMAIL_HOST_USER,
+                            [order.customer_email],
+                            html_message=html_message,
+                            fail_silently=True,
+                        )
 
-Votre commande est en cours de préparation. Vous recevrez un email dès son expédition.
+                    print(f"✅ Commande #{order.order_number} confirmée via IPN")
 
-Cordialement,
-L'équipe DFD""",
-                        from_email=settings.EMAIL_HOST_USER,
-                        recipient_list=[order.customer_email],
-                        fail_silently=True,
-                    )
-                    
-                    print(f"✅ Commande #{order.order_number} confirmée")
-                    
             except Exception as e:
                 print(f"❌ Erreur traitement IPN: {e}")
         else:
@@ -476,8 +490,10 @@ L'équipe DFD""",
     else:
         print(f"⚠️ Statut paiement: {ipn_obj.payment_status}")
 
+
 # Connecter le signal
 valid_ipn_received.connect(paypal_payment_received)
+
 
 
 # ===================================
@@ -635,13 +651,25 @@ def checkout(request):
 
 
 def order_success(request, order_id):
-    """Page de succès après commande"""
-    order = get_object_or_404(Order, id=order_id)
-    
-    # Vider le panier
-    if 'cart' in request.session:
-        del request.session['cart']
-    
-    messages.success(request, f'Merci pour votre commande #{order.order_number} !')
-    
-    return render(request, 'core/order_success.html', {'order': order})
+    order = Order.objects.get(id=order_id)
+
+    if order.payment_status != "paid":
+        order.payment_status = "paid"
+        order.order_status = "processing"
+        order.save()
+
+        subject = f"Confirmation de votre commande #{order.order_number}"
+        message = render_to_string("core/emails/order_confirmation.html", {"order": order})
+
+        send_mail(
+            subject,
+            message,
+            settings.EMAIL_HOST_USER,
+            [order.customer_email],
+            html_message=message
+        )
+
+    # 👉 Vider le panier en session (au cas où il existe encore)
+    request.session.pop("cart", None)
+
+    return render(request, "core/order_success.html", {"order": order})
