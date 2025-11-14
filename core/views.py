@@ -6,6 +6,15 @@ from django.contrib import messages
 from django.http import HttpResponseRedirect
 from .models import Campaign, Volunteer, Donation
 from .forms import ContactForm, VolunteerForm, DonationForm
+import json
+from decimal import Decimal
+import uuid
+from django.shortcuts import get_object_or_404, redirect, render
+from django.contrib import messages
+from django.urls import reverse
+from django.conf import settings
+from paypal.standard.forms import PayPalPaymentsForm
+from .models import Product, Order, OrderItem
 
 # ===================================
 # PAGES PRINCIPALES
@@ -493,94 +502,136 @@ def product_detail(request, product_id):
     return render(request, 'core/product_detail.html', {'product': product})
 
 
+from django.shortcuts import render, redirect
+from django.contrib import messages
+from django.conf import settings
+from django.urls import reverse
+from paypal.standard.forms import PayPalPaymentsForm
+
+from .models import Product, Order, OrderItem
+
+
 def checkout(request):
-    """Page de paiement pour la boutique"""
-    if request.method == 'POST':
-        # Récupérer les données du formulaire
-        customer_name = request.POST.get('customer_name')
-        customer_email = request.POST.get('customer_email')
-        customer_phone = request.POST.get('customer_phone', '')
-        
-        shipping_address = request.POST.get('shipping_address')
-        shipping_city = request.POST.get('shipping_city')
-        shipping_postal_code = request.POST.get('shipping_postal_code')
-        shipping_country = request.POST.get('shipping_country', 'France')
-        
-        # Récupérer les produits du panier (depuis la session par exemple)
-        cart_items = request.session.get('cart', [])
-        
-        if not cart_items:
-            messages.error(request, 'Votre panier est vide.')
-            return redirect('boutique')
-        
-        # Calculer le total
-        total_amount = Decimal('0.00')
-        order_items_data = []
-        
-        for item in cart_items:
-            product = Product.objects.get(id=item['product_id'])
-            quantity = item['quantity']
-            subtotal = product.price * quantity
-            total_amount += subtotal
-            
-            order_items_data.append({
-                'product': product,
-                'quantity': quantity,
-                'subtotal': subtotal,
-            })
-        
-        # Créer la commande
-        order_number = f"CMD-{uuid.uuid4().hex[:8].upper()}"
-        
-        order = Order.objects.create(
-            order_number=order_number,
-            customer_name=customer_name,
-            customer_email=customer_email,
-            customer_phone=customer_phone,
-            shipping_address=shipping_address,
-            shipping_city=shipping_city,
-            shipping_postal_code=shipping_postal_code,
-            shipping_country=shipping_country,
-            total_amount=total_amount,
-            payment_method='paypal',
-            payment_status='pending',
-            order_status='pending',
+    """Page de paiement pour la boutique (passage à PayPal)"""
+    if request.method != 'POST':
+        return redirect('boutique')
+
+    # 1) Infos client
+    customer_name = request.POST.get('customer_name')
+    customer_email = request.POST.get('customer_email')
+    customer_phone = request.POST.get('customer_phone', '')
+
+    shipping_address = request.POST.get('shipping_address')
+    shipping_city = request.POST.get('shipping_city')
+    shipping_postal_code = request.POST.get('shipping_postal_code')
+    shipping_country = request.POST.get('shipping_country', 'France')
+
+    if not customer_name or not customer_email or not shipping_address or not shipping_city or not shipping_postal_code:
+        messages.error(request, "Merci de remplir toutes les informations de livraison.")
+        return redirect('boutique')
+
+    # 2) Récupérer le panier depuis cart_json (envoyé par la boutique)
+    cart_json = request.POST.get('cart_json')
+    if not cart_json:
+        messages.error(request, "Votre panier est vide ou invalide.")
+        return redirect('boutique')
+
+    try:
+        raw_cart = json.loads(cart_json)
+    except json.JSONDecodeError:
+        messages.error(request, "Erreur lors de la lecture du panier.")
+        return redirect('boutique')
+
+    # raw_cart attendu : [{id, name, price, quantity, ...}, ...]
+    if not isinstance(raw_cart, list) or not raw_cart:
+        messages.error(request, "Votre panier est vide.")
+        return redirect('boutique')
+
+    total_amount = Decimal('0.00')
+    order_items_data = []
+
+    for item in raw_cart:
+        try:
+            product_id = int(item.get('id'))
+            name = item.get('name')
+            price = Decimal(str(item.get('price')))
+            quantity = int(item.get('quantity', 1))
+        except (TypeError, ValueError, Decimal.InvalidOperation):
+            continue  # on ignore les lignes invalides
+
+        if not name or quantity <= 0 or price <= 0:
+            continue
+
+        line_total = price * quantity
+        total_amount += line_total
+
+        # On essaie de retrouver un Product en base, mais c'est facultatif
+        product_obj = Product.objects.filter(id=product_id).first()
+
+        order_items_data.append({
+            'product_obj': product_obj,   # peut être None
+            'product_name': name,
+            'product_price': price,
+            'quantity': quantity,
+            'subtotal': line_total,
+        })
+
+    if total_amount <= 0 or not order_items_data:
+        messages.error(request, "Votre panier est vide ou invalide.")
+        return redirect('boutique')
+
+    # 3) Créer la commande
+    order_number = f"CMD-{uuid.uuid4().hex[:8].upper()}"
+
+    order = Order.objects.create(
+        order_number=order_number,
+        customer_name=customer_name,
+        customer_email=customer_email,
+        customer_phone=customer_phone,
+        shipping_address=shipping_address,
+        shipping_city=shipping_city,
+        shipping_postal_code=shipping_postal_code,
+        shipping_country=shipping_country,
+        total_amount=total_amount,
+        payment_method='paypal',
+        payment_status='pending',
+        order_status='pending',
+    )
+
+    # 4) Créer les OrderItem
+    for item_data in order_items_data:
+        OrderItem.objects.create(
+            order=order,
+            product=item_data['product_obj'],      # None si pas trouvé, ça passe si null=True dans le modèle
+            product_name=item_data['product_name'],
+            product_price=item_data['product_price'],
+            quantity=item_data['quantity'],
+            subtotal=item_data['subtotal'],
         )
-        
-        # Créer les articles de commande
-        for item_data in order_items_data:
-            OrderItem.objects.create(
-                order=order,
-                product=item_data['product'],
-                product_name=item_data['product'].name,
-                product_price=item_data['product'].price,
-                quantity=item_data['quantity'],
-                subtotal=item_data['subtotal'],
-            )
-        
-        # Préparer le formulaire PayPal
-        paypal_dict = {
-            "business": settings.PAYPAL_RECEIVER_EMAIL,
-            "amount": str(order.total_amount),
-            "item_name": f"Commande DFD #{order.order_number}",
-            "invoice": order.order_number,
-            "currency_code": "EUR",
-            "notify_url": request.build_absolute_uri(reverse('paypal-ipn')),
-            "return_url": request.build_absolute_uri(reverse('order_success', kwargs={'order_id': order.id})),
-            "cancel_return": request.build_absolute_uri(reverse('paypal_cancel')),
-            "custom": f"order_{order.id}",
-        }
-        
-        form = PayPalPaymentsForm(initial=paypal_dict)
-        
-        context = {
-            'order': order,
-            'paypal_form': form,
-        }
-        
-        return render(request, 'core/paypal_redirect.html', context)
-    
-    return redirect('boutique')
+
+    # 5) Préparer le formulaire PayPal
+    paypal_dict = {
+        "business": settings.PAYPAL_RECEIVER_EMAIL,
+        "amount": str(order.total_amount),
+        "item_name": f"Commande DFD #{order.order_number}",
+        "invoice": order.order_number,
+        "currency_code": "EUR",
+        "notify_url": request.build_absolute_uri(reverse('paypal-ipn')),
+        "return_url": request.build_absolute_uri(
+            reverse('order_success', kwargs={'order_id': order.id})
+        ),
+        "cancel_return": request.build_absolute_uri(reverse('paypal_cancel')),
+        "custom": f"order_{order.id}",
+    }
+
+    paypal_form = PayPalPaymentsForm(initial=paypal_dict)
+
+    context = {
+        'order': order,
+        'paypal_form': paypal_form,
+    }
+
+    return render(request, 'core/paypal_redirect.html', context)
 
 
 def order_success(request, order_id):
