@@ -358,121 +358,372 @@
     </div>
 
     <!-- Grid produits -->
+    <!-- Grid produits -->
     <div class="produits-grid">
-        <!-- Produit 1 : T-shirt -->
-        <div class="product-card" data-category="goodies" data-id="1" data-name="T-Shirt DFD La Main Tendue" data-price="25">
-            <div class="product-image">
-                <span class="product-badge badge-goodies">Goodies</span>
-                <img src="{% static 'images/boutique/tshirt-dfd.jpg' %}" alt="T-shirt DFD" 
-                     onerror="this.src='https://via.placeholder.com/800x600/1f1451/ffffff?text=T-shirt+DFD'">
-            </div>
-            <div class="product-content">
-                <h3>T-Shirt DFD "La Main Tendue"</h3>
-                <p>T-shirt 100% coton bio avec le logo DFD. Disponible en plusieurs couleurs et tailles.</p>
-                <div class="product-footer">
-                    <span class="product-price">25€</span>
-                    <button class="btn-add-to-cart" onclick="addToCart(1)">
-                        <i class="fas fa-shopping-cart"></i> Ajouter
-                    </button>
-                </div>
-            </div>
-        </div>
+        
 
-        <!-- Produit 2 : Casquette -->
-        <div class="product-card" data-category="goodies" data-id="2" data-name="Casquette DFD" data-price="15">
+        <!-- Produit 7 : Casquette classique -->
+        <div class="product-card" data-category="goodies" data-id="7" data-name="Casquette classique DFD" data-price="15">
             <div class="product-image">
                 <span class="product-badge badge-goodies">Goodies</span>
-                <img src="{% static 'images/boutique/casquette-dfd.jpg' %}" alt="Casquette DFD"
+                <img src="{% static 'images/boutique/Casquette.jpg' %}" alt="Casquette DFD classique"
                      onerror="this.src='https://via.placeholder.com/800x600/1a73e8/ffffff?text=Casquette+DFD'">
             </div>
             <div class="product-content">
-                <h3>Casquette DFD</h3>
-                <p>Casquette ajustable avec logo brodé DFD. Protégez-vous du soleil avec style !</p>
+                <h3>Casquette classique DFD</h3>
+                <p>Casquette DFD modèle classique, confortable et ajustable.</p>
                 <div class="product-footer">
                     <span class="product-price">15€</span>
-                    <button class="btn-add-to-cart" onclick="addToCart(2)">
+                    <button class="btn-add-to-cart" onclick="addToCart(7)">
                         <i class="fas fa-shopping-cart"></i> Ajouter
                     </button>
                 </div>
             </div>
         </div>
 
-        <!-- Produit 3 : Tote Bag -->
-        <div class="product-card" data-category="goodies" data-id="3" data-name="Tote Bag Écologique DFD" data-price="12">
+        <!-- Produit 8 : Coussin DFD -->
+        <div class="product-card" data-category="goodies" data-id="8" data-name="Coussin DFD Confort" data-price="20">
             <div class="product-image">
                 <span class="product-badge badge-goodies">Goodies</span>
-                <img src="{% static 'images/boutique/tote-bag.jpg' %}" alt="Tote Bag"
-                     onerror="this.src='https://via.placeholder.com/800x600/10b981/ffffff?text=Tote+Bag'">
+                <img src="{% static 'images/boutique/cousinDFD.png' %}" alt="Coussin DFD"
+                     onerror="this.src='https://via.placeholder.com/800x600/10b981/ffffff?text=Coussin+DFD'">
             </div>
             <div class="product-content">
-                <h3>Tote Bag Écologique DFD</h3>
-                <p>Sac en toile 100% coton bio, réutilisable et éco-responsable. Idéal pour vos courses !</p>
+                <h3>Coussin DFD Confort</h3>
+                <p>Coussin décoratif DFD, idéal pour votre salon ou votre bureau.</p>
                 <div class="product-footer">
-                    <span class="product-price">12€</span>
-                    <button class="btn-add-to-cart" onclick="addToCart(3)">
+                    <span class="product-price">20€</span>
+                    <button class="btn-add-to-cart" onclick="addToCart(8)">
                         <i class="fas fa-shopping-cart"></i> Ajouter
                     </button>
                 </div>
             </div>
         </div>
 
-        <!-- Produit 4 : Panier artisanal -->
-        <div class="product-card" data-category="artisanat" data-id="4" data-name="Panier Artisanal Camerounais" data-price="35">
-            <div class="product-image">
-                <span class="product-badge badge-artisanat">Artisanat</span>
-                <img src="{% static 'images/boutique/panier-cameroun.jpg' %}" alt="Panier artisanal"
-                     onerror="this.src='https://via.placeholder.com/800x600/f59e0b/ffffff?text=Panier+Artisanal'">
-            </div>
-            <div class="product-content">
-                <h3>Panier Artisanal Camerounais</h3>
-                <p>Panier tissé à la main par des artisans camerounais. Chaque achat soutient l'artisanat local.</p>
-                <div class="product-footer">
-                    <span class="product-price">35€</span>
-                    <button class="btn-add-to-cart" onclick="addToCart(4)">
-                        <i class="fas fa-shopping-cart"></i> Ajouter
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Produit 5 : Rapport annuel -->
-        <div class="product-card" data-category="livres" data-id="5" data-name="Rapport Annuel DFD 2024" data-price="0">
+        <!-- Produit 9 : Cover / Affiche DFD -->
+        <div class="product-card" data-category="livres" data-id="9" data-name="Affiche Cover DFD" data-price="8">
             <div class="product-image">
                 <span class="product-badge badge-livres">Livre</span>
-                <img src="{% static 'images/boutique/rapport-annuel.jpg' %}" alt="Rapport annuel"
-                     onerror="this.src='https://via.placeholder.com/800x600/3b82f6/ffffff?text=Rapport+Annuel'">
+                <img src="{% static 'images/boutique/Cover DFD.png' %}" alt="Cover DFD"
+                     onerror="this.src='https://via.placeholder.com/800x600/3b82f6/ffffff?text=Cover+DFD'">
             </div>
             <div class="product-content">
-                <h3>Rapport Annuel DFD 2024</h3>
-                <p>Notre rapport d'activités complet avec photos, témoignages et bilan financier transparent.</p>
+                <h3>Affiche "Cover DFD"</h3>
+                <p>Affiche A3 inspirée de la couverture DFD. À encadrer ou afficher dans votre espace.</p>
                 <div class="product-footer">
-                    <span class="product-price">GRATUIT</span>
-                    <button class="btn-add-to-cart" onclick="window.location.href='{% url 'documents' %}'">
-                        <i class="fas fa-download"></i> Télécharger
+                    <span class="product-price">8€</span>
+                    <button class="btn-add-to-cart" onclick="addToCart(9)">
+                        <i class="fas fa-shopping-cart"></i> Ajouter
                     </button>
                 </div>
             </div>
         </div>
 
-        <!-- Produit 6 : Parrainage -->
-        <div class="product-card" data-category="cadeaux" data-id="6" data-name="Parrainez un Enfant - 1 An" data-price="300">
+        <!-- Produit 10 : Sac DFD -->
+        <div class="product-card" data-category="goodies" data-id="10" data-name="Sac DFD" data-price="18">
             <div class="product-image">
-                <span class="product-badge badge-cadeaux">Cadeau</span>
-                <img src="{% static 'images/boutique/parrainage.jpg' %}" alt="Parrainage"
-                     onerror="this.src='https://via.placeholder.com/800x600/ec4899/ffffff?text=Parrainage'">
+                <span class="product-badge badge-goodies">Goodies</span>
+                <img src="{% static 'images/boutique/sacDFD.png' %}" alt="Sac DFD"
+                     onerror="this.src='https://via.placeholder.com/800x600/10b981/ffffff?text=Sac+DFD'">
             </div>
             <div class="product-content">
-                <h3>Parrainez un Enfant - 1 An</h3>
-                <p>Offrez le plus beau des cadeaux : l'éducation d'un enfant pendant 1 an. Certificat de parrainage inclus.</p>
+                <h3>Sac DFD</h3>
+                <p>Sac DFD pratique pour le quotidien, robuste et élégant.</p>
                 <div class="product-footer">
-                    <span class="product-price">300€</span>
-                    <button class="btn-add-to-cart" onclick="addToCart(6)">
-                        <i class="fas fa-heart"></i> Parrainer
+                    <span class="product-price">18€</span>
+                    <button class="btn-add-to-cart" onclick="addToCart(10)">
+                        <i class="fas fa-shopping-cart"></i> Ajouter
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Produit 11 : Tableau DFD -->
+        <div class="product-card" data-category="cadeaux" data-id="11" data-name="Tableau mural DFD" data-price="30">
+            <div class="product-image">
+                <span class="product-badge badge-cadeaux">Cadeau</span>
+                <img src="{% static 'images/boutique/TableauDFD.png' %}" alt="Tableau DFD"
+                     onerror="this.src='https://via.placeholder.com/800x600/f59e0b/ffffff?text=Tableau+DFD'">
+            </div>
+            <div class="product-content">
+                <h3>Tableau mural DFD</h3>
+                <p>Tableau décoratif DFD pour apporter une touche de sens à votre intérieur.</p>
+                <div class="product-footer">
+                    <span class="product-price">30€</span>
+                    <button class="btn-add-to-cart" onclick="addToCart(11)">
+                        <i class="fas fa-shopping-cart"></i> Ajouter
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Produit 12 : Tasse DFD -->
+        <div class="product-card" data-category="goodies" data-id="12" data-name="Tasse DFD" data-price="10">
+            <div class="product-image">
+                <span class="product-badge badge-goodies">Goodies</span>
+                <img src="{% static 'images/boutique/TasseDFD.png' %}" alt="Tasse DFD"
+                     onerror="this.src='https://via.placeholder.com/800x600/ec4899/ffffff?text=Tasse+DFD'">
+            </div>
+            <div class="product-content">
+                <h3>Tasse DFD</h3>
+                <p>Tasse DFD pour vos pauses café solidaires.</p>
+                <div class="product-footer">
+                    <span class="product-price">10€</span>
+                    <button class="btn-add-to-cart" onclick="addToCart(12)">
+                        <i class="fas fa-shopping-cart"></i> Ajouter
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Produit 13 : Sweat à capuche blanc -->
+        <div class="product-card" data-category="goodies" data-id="13" data-name="Sweat à capuche blanc DFD" data-price="40">
+            <div class="product-image">
+                <span class="product-badge badge-goodies">Goodies</span>
+                <img src="{% static 'images/boutique/template capuche blanche.jpg' %}" alt="Sweat capuche blanc DFD"
+                     onerror="this.src='https://via.placeholder.com/800x600/1f1451/ffffff?text=Hoodie+Blanc'">
+            </div>
+            <div class="product-content">
+                <h3>Sweat à capuche blanc DFD</h3>
+                <p>Sweat à capuche blanc confortable avec logo DFD.</p>
+                <div class="product-footer">
+                    <span class="product-price">40€</span>
+                    <button class="btn-add-to-cart" onclick="addToCart(13)">
+                        <i class="fas fa-shopping-cart"></i> Ajouter
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Produit 14 : Sweat à capuche noir -->
+        <div class="product-card" data-category="goodies" data-id="14" data-name="Sweat à capuche noir DFD" data-price="40">
+            <div class="product-image">
+                <span class="product-badge badge-goodies">Goodies</span>
+                <img src="{% static 'images/boutique/template capuche noir.jpg' %}" alt="Sweat capuche noir DFD"
+                     onerror="this.src='https://via.placeholder.com/800x600/000000/ffffff?text=Hoodie+Noir'">
+            </div>
+            <div class="product-content">
+                <h3>Sweat à capuche noir DFD</h3>
+                <p>Version noire du sweat à capuche DFD, pour un style urbain et engagé.</p>
+                <div class="product-footer">
+                    <span class="product-price">40€</span>
+                    <button class="btn-add-to-cart" onclick="addToCart(14)">
+                        <i class="fas fa-shopping-cart"></i> Ajouter
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Produit 15 : Casquette blanche -->
+        <div class="product-card" data-category="goodies" data-id="15" data-name="Casquette blanche DFD" data-price="15">
+            <div class="product-image">
+                <span class="product-badge badge-goodies">Goodies</span>
+                <img src="{% static 'images/boutique/template casquette blanche.jpg' %}" alt="Casquette blanche DFD"
+                     onerror="this.src='https://via.placeholder.com/800x600/ffffff/000000?text=Casquette+Blanche'">
+            </div>
+            <div class="product-content">
+                <h3>Casquette blanche DFD</h3>
+                <p>Casquette blanche avec le logo DFD, sobre et élégante.</p>
+                <div class="product-footer">
+                    <span class="product-price">15€</span>
+                    <button class="btn-add-to-cart" onclick="addToCart(15)">
+                        <i class="fas fa-shopping-cart"></i> Ajouter
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Produit 16 : Casquette noire -->
+        <div class="product-card" data-category="goodies" data-id="16" data-name="Casquette noire DFD" data-price="15">
+            <div class="product-image">
+                <span class="product-badge badge-goodies">Goodies</span>
+                <img src="{% static 'images/boutique/template casquette noire.jpg' %}" alt="Casquette noire DFD"
+                     onerror="this.src='https://via.placeholder.com/800x600/000000/ffffff?text=Casquette+Noire'">
+            </div>
+            <div class="product-content">
+                <h3>Casquette noire DFD</h3>
+                <p>Casquette noire DFD, look discret et engagé.</p>
+                <div class="product-footer">
+                    <span class="product-price">15€</span>
+                    <button class="btn-add-to-cart" onclick="addToCart(16)">
+                        <i class="fas fa-shopping-cart"></i> Ajouter
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Produit 17 : Polo blanc -->
+        <div class="product-card" data-category="goodies" data-id="17" data-name="Polo blanc DFD" data-price="30">
+            <div class="product-image">
+                <span class="product-badge badge-goodies">Goodies</span>
+                <img src="{% static 'images/boutique/template polo blanc.jpg' %}" alt="Polo blanc DFD"
+                     onerror="this.src='https://via.placeholder.com/800x600/f9fafb/111827?text=Polo+Blanc'">
+            </div>
+            <div class="product-content">
+                <h3>Polo blanc DFD</h3>
+                <p>Polo blanc DFD élégant, parfait pour les événements ou le quotidien.</p>
+                <div class="product-footer">
+                    <span class="product-price">30€</span>
+                    <button class="btn-add-to-cart" onclick="addToCart(17)">
+                        <i class="fas fa-shopping-cart"></i> Ajouter
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Produit 18 : Polo noir -->
+        <div class="product-card" data-category="goodies" data-id="18" data-name="Polo noir DFD" data-price="30">
+            <div class="product-image">
+                <span class="product-badge badge-goodies">Goodies</span>
+                <img src="{% static 'images/boutique/template polo noire.jpg' %}" alt="Polo noir DFD"
+                     onerror="this.src='https://via.placeholder.com/800x600/111827/ffffff?text=Polo+Noir'">
+            </div>
+            <div class="product-content">
+                <h3>Polo noir DFD</h3>
+                <p>Version noire du polo DFD, distinguée et confortable.</p>
+                <div class="product-footer">
+                    <span class="product-price">30€</span>
+                    <button class="btn-add-to-cart" onclick="addToCart(18)">
+                        <i class="fas fa-shopping-cart"></i> Ajouter
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Produit 19 : Pull-over blanc -->
+        <div class="product-card" data-category="goodies" data-id="19" data-name="Pull-over blanc DFD" data-price="35">
+            <div class="product-image">
+                <span class="product-badge badge-goodies">Goodies</span>
+                <img src="{% static 'images/boutique/template pull-over blanc.jpg' %}" alt="Pull-over blanc DFD"
+                     onerror="this.src='https://via.placeholder.com/800x600/e5e7eb/111827?text=Pull+Blanc'">
+            </div>
+            <div class="product-content">
+                <h3>Pull-over blanc DFD</h3>
+                <p>Pull-over blanc doux et chaud, siglé DFD.</p>
+                <div class="product-footer">
+                    <span class="product-price">35€</span>
+                    <button class="btn-add-to-cart" onclick="addToCart(19)">
+                        <i class="fas fa-shopping-cart"></i> Ajouter
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Produit 20 : Pull-over noir -->
+        <div class="product-card" data-category="goodies" data-id="20" data-name="Pull-over noir DFD" data-price="35">
+            <div class="product-image">
+                <span class="product-badge badge-goodies">Goodies</span>
+                <img src="{% static 'images/boutique/template pull-over noir.jpg' %}" alt="Pull-over noir DFD"
+                     onerror="this.src='https://via.placeholder.com/800x600/111827/ffffff?text=Pull+Noir'">
+            </div>
+            <div class="product-content">
+                <h3>Pull-over noir DFD</h3>
+                <p>Pull-over noir DFD, idéal pour les soirées fraîches.</p>
+                <div class="product-footer">
+                    <span class="product-price">35€</span>
+                    <button class="btn-add-to-cart" onclick="addToCart(20)">
+                        <i class="fas fa-shopping-cart"></i> Ajouter
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Produit 21 : Template T-shirt blanc -->
+        <div class="product-card" data-category="goodies" data-id="21" data-name="T-shirt modèle blanc DFD" data-price="22">
+            <div class="product-image">
+                <span class="product-badge badge-goodies">Goodies</span>
+                <img src="{% static 'images/boutique/template t-shirt.jpg' %}" alt="Template T-shirt DFD"
+                     onerror="this.src='https://via.placeholder.com/800x600/f9fafb/111827?text=T-shirt+Blanc'">
+            </div>
+            <div class="product-content">
+                <h3>T-shirt modèle blanc DFD</h3>
+                <p>Modèle de T-shirt DFD blanc, coupe unisexe.</p>
+                <div class="product-footer">
+                    <span class="product-price">22€</span>
+                    <button class="btn-add-to-cart" onclick="addToCart(21)">
+                        <i class="fas fa-shopping-cart"></i> Ajouter
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Produit 22 : Template T-shirt noir -->
+        <div class="product-card" data-category="goodies" data-id="22" data-name="T-shirt modèle noir DFD" data-price="22">
+            <div class="product-image">
+                <span class="product-badge badge-goodies">Goodies</span>
+                <img src="{% static 'images/boutique/template t-shirt noire.jpg' %}" alt="Template T-shirt noir DFD"
+                     onerror="this.src='https://via.placeholder.com/800x600/111827/ffffff?text=T-shirt+Noir'">
+            </div>
+            <div class="product-content">
+                <h3>T-shirt modèle noir DFD</h3>
+                <p>Modèle de T-shirt DFD noir, style casual.</p>
+                <div class="product-footer">
+                    <span class="product-price">22€</span>
+                    <button class="btn-add-to-cart" onclick="addToCart(22)">
+                        <i class="fas fa-shopping-cart"></i> Ajouter
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Produit 23 : T-shirt photo -->
+        <div class="product-card" data-category="goodies" data-id="23" data-name="T-shirt DFD Blanc" data-price="25">
+            <div class="product-image">
+                <span class="product-badge badge-goodies">Goodies</span>
+                <img src="{% static 'images/boutique/T-shirt.jpg' %}" alt="T-shirt DFD blanc"
+                     onerror="this.src='https://via.placeholder.com/800x600/f9fafb/111827?text=T-shirt+DFD'">
+            </div>
+            <div class="product-content">
+                <h3>T-shirt DFD Blanc</h3>
+                <p>Photo produit du T-shirt DFD blanc, édition standard.</p>
+                <div class="product-footer">
+                    <span class="product-price">25€</span>
+                    <button class="btn-add-to-cart" onclick="addToCart(23)">
+                        <i class="fas fa-shopping-cart"></i> Ajouter
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Produit 24 : T-shirt dos -->
+        <div class="product-card" data-category="goodies" data-id="24" data-name="T-shirt DFD - Dos" data-price="25">
+            <div class="product-image">
+                <span class="product-badge badge-goodies">Goodies</span>
+                <img src="{% static 'images/boutique/Tshirt_derriere.jpg' %}" alt="T-shirt DFD dos"
+                     onerror="this.src='https://via.placeholder.com/800x600/f9fafb/111827?text=T-shirt+Dos'">
+            </div>
+            <div class="product-content">
+                <h3>T-shirt DFD - Vue dos</h3>
+                <p>Vue arrière du T-shirt DFD, mettant en valeur le visuel du dos.</p>
+                <div class="product-footer">
+                    <span class="product-price">25€</span>
+                    <button class="btn-add-to-cart" onclick="addToCart(24)">
+                        <i class="fas fa-shopping-cart"></i> Ajouter
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Produit 25 : T-shirt Design -->
+        <div class="product-card" data-category="goodies" data-id="25" data-name="T-shirt Design DFD" data-price="28">
+            <div class="product-image">
+                <span class="product-badge badge-goodies">Goodies</span>
+                <img src="{% static 'images/boutique/Tsirt_Design.jpg' %}" alt="T-shirt Design DFD"
+                     onerror="this.src='https://via.placeholder.com/800x600/ec4899/ffffff?text=T-shirt+Design'">
+            </div>
+            <div class="product-content">
+                <h3>T-shirt Design DFD</h3>
+                <p>Édition spéciale T-shirt DFD avec design travaillé.</p>
+                <div class="product-footer">
+                    <span class="product-price">28€</span>
+                    <button class="btn-add-to-cart" onclick="addToCart(25)">
+                        <i class="fas fa-shopping-cart"></i> Ajouter
                     </button>
                 </div>
             </div>
         </div>
     </div>
+
 
     <!-- Pourquoi acheter solidaire -->
     <div class="presentation-block" style="background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); margin-top: 4rem;">
