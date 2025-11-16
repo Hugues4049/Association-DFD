@@ -30,105 +30,8 @@
     </div>
 </section>
 
-<!-- Section Bénévole -->
-<section id="benevole" style="padding: 5rem 2rem; background: #f8f9fa;">
-    <div style="max-width: 900px; margin: 0 auto;">
-        <div style="text-align: center; margin-bottom: 3rem;">
-            <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #1a73e8 0%, #1f1451 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem;">
-                <i class="fas fa-user-friends" style="font-size: 2.5rem; color: white;"></i>
-            </div>
-            <h2 style="color: #1f1451; font-size: 2.2rem; margin-bottom: 1rem;">Devenir bénévole</h2>
-            <p style="color: #5a6c7d; font-size: 1.15rem; line-height: 1.8; max-width: 700px; margin: 0 auto;">
-                Rejoignez notre équipe de bénévoles passionnés et engagés. Que vous ayez des compétences spécifiques 
-                ou simplement l'envie d'aider, nous avons une mission pour vous.
-            </p>
-        </div>
 
-        <!-- Avantages -->
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
-            <div style="background: white; padding: 2rem; border-radius: 12px; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
-                <i class="fas fa-heart" style="font-size: 2rem; color: #1a73e8; margin-bottom: 1rem;"></i>
-                <h3 style="color: #1f1451; margin-bottom: 0.5rem;">Impact direct</h3>
-                <p style="color: #5a6c7d; font-size: 0.95rem;">Voyez concrètement l'impact de vos actions</p>
-            </div>
-            <div style="background: white; padding: 2rem; border-radius: 12px; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
-                <i class="fas fa-users" style="font-size: 2rem; color: #1a73e8; margin-bottom: 1rem;"></i>
-                <h3 style="color: #1f1451; margin-bottom: 0.5rem;">Communauté</h3>
-                <p style="color: #5a6c7d; font-size: 0.95rem;">Rejoignez une équipe soudée et bienveillante</p>
-            </div>
-            <div style="background: white; padding: 2rem; border-radius: 12px; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
-                <i class="fas fa-graduation-cap" style="font-size: 2rem; color: #1a73e8; margin-bottom: 1rem;"></i>
-                <h3 style="color: #1f1451; margin-bottom: 0.5rem;">Formation</h3>
-                <p style="color: #5a6c7d; font-size: 0.95rem;">Développez de nouvelles compétences</p>
-            </div>
-        </div>
 
-        <!-- Formulaire -->
-        <div style="background: white; padding: 3rem; border-radius: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.12);">
-            <form method="POST" action="{% url 'participer' %}">
-                {% csrf_token %}
-                <input type="hidden" name="form_type" value="volunteer">
-                
-                <div style="margin-bottom: 1.5rem;">
-                    <label style="display: block; color: #1f1451; font-weight: 600; margin-bottom: 0.5rem;">
-                        Nom complet *
-                    </label>
-                    <input type="text" name="nom" required
-                           style="width: 100%; padding: 1rem; border: 2px solid #e5e7eb; border-radius: 8px; font-size: 1rem; transition: border 0.3s;"
-                           placeholder="Votre nom et prénom">
-                </div>
-
-                <div style="margin-bottom: 1.5rem;">
-                    <label style="display: block; color: #1f1451; font-weight: 600; margin-bottom: 0.5rem;">
-                        Email *
-                    </label>
-                    <input type="email" name="email" required
-                           style="width: 100%; padding: 1rem; border: 2px solid #e5e7eb; border-radius: 8px; font-size: 1rem; transition: border 0.3s;"
-                           placeholder="votre.email@exemple.com">
-                </div>
-
-                <div style="margin-bottom: 1.5rem;">
-                    <label style="display: block; color: #1f1451; font-weight: 600; margin-bottom: 0.5rem;">
-                        Téléphone
-                    </label>
-                    <input type="tel" name="telephone"
-                           style="width: 100%; padding: 1rem; border: 2px solid #e5e7eb; border-radius: 8px; font-size: 1rem; transition: border 0.3s;"
-                           placeholder="+237 xxx xxx xxx">
-                </div>
-
-                <div style="margin-bottom: 1.5rem;">
-                    <label style="display: block; color: #1f1451; font-weight: 600; margin-bottom: 0.5rem;">
-                        Domaine d'intérêt *
-                    </label>
-                    <select name="domaine" required
-                            style="width: 100%; padding: 1rem; border: 2px solid #e5e7eb; border-radius: 8px; font-size: 1rem;">
-                        <option value="">Sélectionnez un domaine</option>
-                        <option value="education">Éducation</option>
-                        <option value="sante">Santé</option>
-                        <option value="environnement">Environnement</option>
-                        <option value="humanitaire">Humanitaire</option>
-                        <option value="communication">Communication</option>
-                        <option value="autre">Autre</option>
-                    </select>
-                </div>
-
-                <div style="margin-bottom: 2rem;">
-                    <label style="display: block; color: #1f1451; font-weight: 600; margin-bottom: 0.5rem;">
-                        Parlez-nous de vous *
-                    </label>
-                    <textarea name="message" required rows="5"
-                              style="width: 100%; padding: 1rem; border: 2px solid #e5e7eb; border-radius: 8px; font-size: 1rem; resize: vertical; transition: border 0.3s;"
-                              placeholder="Pourquoi souhaitez-vous devenir bénévole ? Quelles sont vos compétences ?"></textarea>
-                </div>
-
-                <button type="submit"
-                        style="width: 100%; padding: 1.2rem; background: linear-gradient(135deg, #1a73e8 0%, #1f1451 100%); color: white; border: none; border-radius: 8px; font-size: 1.1rem; font-weight: 700; cursor: pointer; transition: transform 0.3s;">
-                    <i class="fas fa-paper-plane"></i> Envoyer ma candidature
-                </button>
-            </form>
-        </div>
-    </div>
-</section>
 
 <!-- Section Don -->
 <section id="don" style="padding: 5rem 2rem; background: white;">
@@ -234,6 +137,7 @@
     </div>
 </section>
 
+
 <!-- Section Membre -->
 <section id="membre" style="padding: 5rem 2rem; background: #f8f9fa;">
     <div style="max-width: 900px; margin: 0 auto;">
@@ -307,6 +211,26 @@
                     <input type="text" name="localisation" required
                            style="width: 100%; padding: 1rem; border: 2px solid #e5e7eb; border-radius: 8px; font-size: 1rem;"
                            placeholder="Votre ville et pays">
+                </div>
+                 <div style="margin-bottom: 1.5rem;">
+                    <label style="display: block; color: #1f1451; font-weight: 600; margin-bottom: 0.5rem;">
+                        Types de membre *
+                    </label>
+                    <select name="domaine" required
+                            style="width: 100%; padding: 1rem; border: 2px solid #e5e7eb; border-radius: 8px; font-size: 1rem;">
+                        <option value="">Sélectionnez un type de membre</option>
+                        <option value="education">Membre adhérent</option>
+                        <option value="sante">Membre bénévole</option>
+                        <option value="environnement">membre partenaire</option>
+                    </select>
+                </div>
+                <div style="margin-bottom: 2rem;">
+                    <label style="display: block; color: #1f1451; font-weight: 600; margin-bottom: 0.5rem;">
+                        Parlez-nous de vous *
+                    </label>
+                    <textarea name="message" required rows="5"
+                              style="width: 100%; padding: 1rem; border: 2px solid #e5e7eb; border-radius: 8px; font-size: 1rem; resize: vertical; transition: border 0.3s;"
+                              placeholder="Pourquoi souhaitez-vous devenir bénévole ? Quelles sont vos compétences ?"></textarea>
                 </div>
 
                 <button type="submit"
