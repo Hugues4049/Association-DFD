@@ -191,19 +191,26 @@ function handleDownload(event) {
         return;
     }
 
+    // Afficher message
     messageDiv.style.display = "block";
     messageDiv.className = "download-message success";
     messageDiv.innerHTML = '<i class="fas fa-check-circle"></i> Téléchargement...';
 
-    // Lancer le téléchargement
-    window.location.href = fileUrl;
+    // 🔥 FORCE LE TÉLÉCHARGEMENT POUR PDF + DOCX
+    const link = document.createElement("a");
+    link.href = fileUrl;
+    link.download = ""; // ← C’EST LA MAGIE
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
 
-    // Réinitialiser après 3s
+    // Réinitialisation
     setTimeout(() => {
         messageDiv.style.display = "none";
         select.selectedIndex = 0;
     }, 3000);
 }
 </script>
+
 
 {% endblock %}

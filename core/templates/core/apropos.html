@@ -26,39 +26,109 @@
 
 
 
-<!-- Section Histoire -->
-<section style="padding: 5rem 2rem; background: white;">
-    <div style="max-width: 1200px; margin: 0 auto;">
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
-            <div>
-                <img src="{% static 'images/foyeresperence/PHOTO-2025-01-06-19-34-50.jpg' %}" 
-                     alt="Notre histoire" 
-                     style="width: 100%; border-radius: 16px; box-shadow: 0 12px 40px rgba(0,0,0,0.15);">
+    <!-- Section Histoire -->
+    <!-- Section Histoire - Style Journal -->
+    <section style="padding: 5rem 2rem; background: white;">
+        <div style="
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fffdf7;
+            border: 1px solid #e5e7eb;
+            border-radius: 16px;
+            padding: 2.5rem;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+            font-family: 'Georgia', serif;
+            line-height: 1.8;
+        ">
+
+            <!-- Étiquette -->
+            <div style="
+                display: inline-block;
+                padding: 0.45rem 1.2rem;
+                background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+                color: white;
+                border-radius: 50px;
+                font-weight: 600;
+                font-size: 0.85rem;
+                margin-bottom: 1.5rem;
+                box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+            ">
+                <i class="fas fa-book-open"></i> NOTRE HISTOIRE
             </div>
-            
-            <div>
-                <div style="display: inline-block; padding: 0.5rem 1.5rem; background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%); color: white; border-radius: 50px; font-weight: 600; font-size: 0.85rem; margin-bottom: 1.5rem;">
-                    <i class="fas fa-book-open"></i> NOTRE HISTOIRE
-                </div>
-                <!--<h2 style="color: #1f1451; font-size: 2.5rem; margin-bottom: 1.5rem; line-height: 1.2;">
-                    Une aventure humaine née d'une conviction
-                </h2>-->
-                <p style="color: #5a6c7d; font-size: 1.1rem; line-height: 1.9; margin-bottom: 1.5rem;">
-                    Il y a quelques années, en 2015, un passionné aux multiples engagements culturels se tenait à la croisée des chemins, partagé entre l’éclat des fêtes qu’il organisait et l’appel intérieur d’une mission plus profonde. Conscient que chaque geste laisse une empreinte, il voulait orienter son énergie vers ceux qui, dans l’ombre, attendent qu’on écoute leur fragilité : les enfants abandonnés, les vies brisées, les personnes vulnérabes, ceux que le monde semble oublier...
-Avec le temps, cette intuition devint un projet concret. L’association initiale, Df5.6, commença à prendre forme, non seulement comme un mouvement d’accueil et de soutien, mais comme un souffle d’espoir, une réalité où l’attention sincère envers autrui guidait chaque action.
-                </p>
-                <p style="color: #5a6c7d; font-size: 1.1rem; line-height: 1.9; margin-bottom: 1.5rem;">
-                    Peu à peu, d’autres voix se joignirent à la sienne. Ces membres fondateurs, porteurs de leurs expériences et convictions, apportèrent un souffle neuf. Les premières rencontres, légères et circulaires, se transformèrent en une force centrifuge, propulsant le projet vers une vision collective, unanime et lumineuse. Ensemble, ils forgèrent un chemin où chaque idée individuelle s’unit pour dessiner un projet commun, vibrant et concret.
-                </p>
-                <p style="color: #5a6c7d; font-size: 1.1rem; line-height: 1.9;">
-                    Le 23 novembre 2024 marque l’officialisation de Dreams Family of Development. Ce nom incarne la force et la résilience d’un rêve partagé, celui de transformer la détresse en espoir et l’indifférence en chaleur humaine. Depuis lors, la DFD s’est engagée sur le terrain de manière concrète et constante : descentes dans les foyers et quartiers, campagnes de santé, soutien aux orphelinats, toujours là où les besoins se font les plus pressants, même là où la structure n’a pas de présence propre...
-Chaque action va au-delà de l’aide matérielle : elle incarne une conviction profonde, celle que la grandeur se mesure à la capacité d’ouvrir son cœur à ceux que la société isole. Les événements organisés par la DFD ne sont pas vains, mais des rendez-vous de solidarité, de partage et de transmission d’espoir, nourris par la volonté de redonner vie à des rêves longtemps abandonnés.
-                </p>
-                <p>Ainsi, Dreams Family of Development est devenu un catalyseur de transformation et invite chaque jours des personnes à rejoindre le train où les expériences négatives se tranforment en opportunités. Portée par des mains et des cœurs unis, l’association fait résonner son message : La main Tendue, un sourire nouveau!</p>
-            </div>
+
+            <!-- IMAGE FLOTTANTE -->
+            <img src="{% static 'images/foyeresperence/PHOTO-2025-01-06-19-34-50.jpg' %}"
+                alt="Notre histoire"
+                style="
+                    width: 260px;
+                    height: 200px;
+                    object-fit: cover;
+                    border-radius: 12px;
+                    float: left;
+                    margin: 0 1.5rem 1rem 0;
+                    box-shadow: 0 8px 22px rgba(0,0,0,0.18);
+                ">
+                
+            <!-- TITRE JOURNAL -->
+            <h2 style="
+                font-size: 2rem;
+                line-height: 1.3;
+                margin-bottom: 1.2rem;
+                color: #1f1451;
+                font-weight: 700;
+            ">
+                Une aventure humaine née d'une conviction profonde
+            </h2>
+
+            <!-- TEXTE -->
+            <p style="font-size: 1.08rem; color: #4b5563; text-align: justify;">
+                Il y a quelques années, en 2015, un passionné aux multiples engagements culturels
+                se tenait à la croisée des chemins, partagé entre l’éclat des fêtes qu’il organisait
+                et l’appel intérieur d’une mission plus profonde. Conscient que chaque geste laisse
+                une empreinte, il voulait orienter son énergie vers ceux qui, dans l’ombre, attendent
+                qu’on écoute leur fragilité : les enfants abandonnés, les vies brisées, les personnes vulnérables,
+                ceux que le monde semble oublier...
+                Avec le temps, cette intuition devint un projet concret. L’association initiale, Df5.6, commença
+                à prendre forme, non seulement comme un mouvement d’accueil et de soutien, mais comme un souffle 
+                d’espoir, une réalité où l’attention sincère envers autrui guidait chaque action.
+            </p>
+
+            <p style="font-size: 1.08rem; color: #4b5563; text-align: justify;">
+                Peu à peu, d’autres voix se joignirent à la sienne. Ces membres fondateurs, porteurs de leurs
+                expériences et convictions, apportèrent un souffle neuf. Les premières rencontres, légères et
+                circulaires, se transformèrent en une force centrifuge, propulsant le projet vers une vision
+                collective, unanime et lumineuse. Ensemble, ils forgèrent un chemin où chaque idée individuelle
+                s’unit pour dessiner un projet commun, vibrant et concret.
+            </p>
+
+            <p style="font-size: 1.08rem; color: #4b5563; text-align: justify;">
+                Le 23 novembre 2024 marque l’officialisation de Dreams Family of Development. Ce nom incarne 
+                la force et la résilience d’un rêve partagé, celui de transformer la détresse en espoir et 
+                l’indifférence en chaleur humaine. Depuis lors, la DFD s’est engagée sur le terrain de manière
+                concrète et constante : descentes dans les foyers et quartiers, campagnes de santé, soutien aux 
+                orphelinats, toujours là où les besoins se font les plus pressants, même là où la structure
+                n’a pas de présence propre...
+            </p>
+
+            <p style="font-size: 1.08rem; color: #4b5563; text-align: justify;">
+                Chaque action va au-delà de l’aide matérielle : elle incarne une conviction profonde, celle que
+                la grandeur se mesure à la capacité d’ouvrir son cœur à ceux que la société isole. Les événements
+                organisés par la DFD ne sont pas vains, mais des rendez-vous de solidarité, de partage et de 
+                transmission d’espoir, nourris par la volonté de redonner vie à des rêves longtemps abandonnés.
+            </p>
+
+            <p style="font-size: 1.08rem; color: #4b5563; text-align: justify;">
+                Ainsi, Dreams Family of Development est devenu un catalyseur de transformation et invite chaque jour 
+                des personnes à rejoindre ce train où les expériences négatives se transforment en opportunités.
+                Portée par des mains et des cœurs unis, l’association fait résonner son message :
+                <strong>La main Tendue, un sourire nouveau !</strong>
+            </p>
+
+            <!-- Nettoie le float -->
+            <div style="clear: both;"></div>
         </div>
-    </div>
-</section>
+    </section>
+
 
 <!-- Section Mission & Vision -->
 <section style="padding: 5rem 2rem; background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%);text-align: center;">
