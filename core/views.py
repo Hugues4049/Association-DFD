@@ -153,10 +153,23 @@ def participer(request):
         elif form_type == 'member':
             nom = request.POST.get('nom')
             email = request.POST.get('email')
-            
+            telephone = request.POST.get('telephone')
+            localisation = request.POST.get('localisation')
+            type_membre = request.POST.get('type_membre')   # correction ici
+            message = request.POST.get('message', '')
+
+            # email envoyé avec toutes les données
             send_mail(
                 subject='Nouvelle inscription membre - DFD',
-                message=f"Nouvelle inscription :\nNom : {nom}\nEmail : {email}",
+                message=(
+                    f"Nouvelle inscription :\n"
+                    f"Nom : {nom}\n"
+                    f"Email : {email}\n"
+                    f"Téléphone : {telephone}\n"
+                    f"Localisation : {localisation}\n"
+                    f"Type de membre : {type_membre}\n"
+                    f"Message : {message}"
+                ),
                 from_email=settings.EMAIL_HOST_USER,
                 recipient_list=[settings.EMAIL_HOST_USER],
             )
@@ -166,6 +179,7 @@ def participer(request):
     
     volunteer_form = VolunteerForm()
     return render(request, 'core/participer.html', {'volunteer_form': volunteer_form})
+
 
 #def don(request):
  #   """Page de don"""

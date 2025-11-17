@@ -16,7 +16,7 @@
     <div class="hero-overlay"></div>
     <div class="hero-content">
         <h1 class="hero-title">La main tendue, un sourire nouveau !</h1>
-        <p class="hero-subtitle">Intéressé à devenir un sponsor ? Il n'a jamais été aussi facile de faire un don.</p>
+        <p class="hero-subtitle">Voulez-vous apporter votre pierre à l’édifice ? Votre geste peut vraiment faire la différence.</p>
         
         <div class="hero-buttons">
             <a href="{% url 'don' %}" class="btn-hero btn-donate">
@@ -24,7 +24,7 @@
             </a>
             <span class="hero-or">OU</span>
             <a href="{% url 'participer' %}" class="btn-hero btn-volunteer">
-                <i class="fas fa-hands-helping"></i> DEVENIR BÉNÉVOLE
+                <i class="fas fa-hands-helping"></i> DEVENIR MEMBRE
             </a>
         </div>
     </div>
@@ -46,13 +46,7 @@
 
 <section class="presentation">
     <h1 class="main-title">Qui sommes-nous ?</h1>
-    <p>DFD (Dreams Family of Development) est une
-        association humanitaire engagée auprès des communautés vulnérables.
-        Nous croyons que chaque rêve mérite d'être soutenu et transformé en projet
-        concret.
-
-        À travers nos actions sur le terrain, nos formations, et notre réseau solidaire,
-        nous œuvrons pour un monde plus juste, plus humain, et plus durable.</p>
+    <p>La Dreams Family of Development(DFD) est une association à but non lucratif, apolitique et laïque ayant pour but de redonner espoir à ceux dont les rêves ont été brisés, les aider à retrouver leur autonomie sur le plan holistique, à mieux affronter les défis de la vie et à restaurer leurs capacités de choix</p>
     <!--<a href="{% url 'apropos' %}#membre" class="btn">En savoir plus</a>-->
     <div style="margin-top: 3rem; text-align: center;">
             <a href="{% url 'apropos' %}" style="display: inline-block; padding: 1.2rem 2.5rem; background: linear-gradient(135deg, #1a73e8 0%, #1f1451 100%); color: white; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1.1rem; transition: transform 0.3s; box-shadow: 0 4px 12px rgba(26, 115, 232, 0.3);">
@@ -69,7 +63,7 @@
 
 
 <section class="mot-du-president">
-    <h1 class="main-title">Mot du président fondateur</h1>
+    <h1 class="main-title">Mot du Président du Bureau Exécutif (BE)</h1>
     <div class="bloc-president">
         <div class="texte-president">
             <p>
@@ -89,7 +83,7 @@
         </div>
         <div class="photo-president">
             <img src="{% static 'images/Nathan.PNG' %}" alt="Président" />
-            <p class="nom-president">Nathanaël Toukea<br><span>Président fondateur DFD </span></p>
+            <p class="nom-president">Nathanaël Toukea<br><span>Président du Bureau Exécutif</span></p>
         </div>
     </div>
 </section>
@@ -400,8 +394,8 @@
 
         <!-- CTA Devenir partenaire -->
         <div style="margin-top: 3rem; text-align: center;">
-            <a href="{% url 'contact' %}" style="display: inline-block; padding: 1.2rem 2.5rem; background: linear-gradient(135deg, #1a73e8 0%, #1f1451 100%); color: white; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1.1rem; transition: transform 0.3s; box-shadow: 0 4px 12px rgba(26, 115, 232, 0.3);">
-                <i class="fas fa-handshake"></i> Devenir partenaire
+            <a href="{% url 'participer' %}" style="display: inline-block; padding: 1.2rem 2.5rem; background: linear-gradient(135deg, #1a73e8 0%, #1f1451 100%); color: white; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1.1rem; transition: transform 0.3s; box-shadow: 0 4px 12px rgba(26, 115, 232, 0.3);">
+                <i class="fas fa-handshake"></i> Devenir membre
             </a>
         </div>
     </div>
