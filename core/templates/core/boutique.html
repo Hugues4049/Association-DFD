@@ -13,7 +13,7 @@
 
 /* Hero boutique */
 .boutique-hero {
-    background: linear-gradient(135deg, #48ec79 0%, #27db54 100%);
+    background: linear-gradient(135deg, #195a2c 0%, #2e8142 100%);
     padding: 4rem 2rem;
     text-align: center;
     color: white;
@@ -323,12 +323,17 @@
 </style>
 
 <!-- Hero boutique -->
-<section class="boutique-hero">
+<section class="boutique-hero", style="padding: 5rem 2rem; text-align: center; color: white; position: relative; overflow: hidden;">
+    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; 
+                background: url('{% static 'images/bannière/PHOTO-2024-12-29-17-30-48.jpg' %}') center/cover; 
+                opacity: 0.25;">
+    </div>
     <div>
         <i class="fas fa-shopping-bag" style="font-size: 4rem; margin-bottom: 1rem;"></i>
         <h1>Boutique Solidaire</h1>
         <p class="dept-slogan", style="color: white;">"Acheter utile, donner du sens"</p>
     </div>
+
 </section>
 
 <section class="presentation">

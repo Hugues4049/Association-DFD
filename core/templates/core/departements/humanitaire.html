@@ -6,7 +6,11 @@
 {% block content %}
 <link rel="stylesheet" href="{% static 'css/departements.css' %}">
 
-<section class="dept-hero" style="background-image: linear-gradient(rgba(239, 68, 68, 0.85), rgba(220, 38, 38, 0.85));">
+<section class="dept-hero" style="background-image: linear-gradient(rgba(239, 68, 68, 0.85), rgba(220, 38, 38, 0.85));padding: 5rem 2rem; text-align: center; color: white; position: relative; overflow: hidden;">
+    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; 
+                background: url('{% static 'images/bannière/PHOTO-2024-12-29-17-30-48.jpg' %}') center/cover; 
+                opacity: 0.25;">
+    </div>
     <div class="dept-hero-content">
         <div class="dept-icon">
             <i class="fas fa-hands-helping"></i>
