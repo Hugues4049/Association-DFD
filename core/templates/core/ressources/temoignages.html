@@ -5,17 +5,13 @@
 {% block content %}
 <link rel="stylesheet" href="{% static 'css/departements.css' %}">
 
-<section class="dept-hero" style="background-image: linear-gradient(rgba(251, 191, 36, 0.85), rgba(245, 158, 11, 0.85)); padding: 5rem 2rem; text-align: center; color: white; position: relative; overflow: hidden;">
-    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; 
-                background: url('{% static 'images/bannière/PHOTO-2024-12-29-17-30-48.jpg' %}') center/cover; 
-                opacity: 0.25;">
-    </div>
+<section class="dept-hero" style="background: linear-gradient(rgba(251, 191, 36, 0.85), rgba(245, 158, 11, 0.85)), url('{% static 'images/bannière/PHOTO-2024-12-29-17-30-48.jpg' %}') center/cover;">
     <div class="dept-hero-content">
         <div class="dept-icon">
             <i class="fas fa-comment-dots"></i>
         </div>
         <h1>Témoignages</h1>
-        <p class="dept-slogan", style="color: white;">"Vos histoires sont notre plus belle récompense"</p>
+        <p class="dept-slogan">"Vos histoires sont notre plus belle récompense"</p>
     </div>
 </section>
 
@@ -125,17 +121,17 @@
     </div>
 
     <!-- Formulaire témoignage -->
-    <div class="presentation-block" style="background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);">
+    <div class="presentation-block testimonial-form-block">
         <h2>✍️ Partagez Votre Témoignage</h2>
         <p>Vous avez été bénéficiaire, bénévole, donateur ou partenaire de DFD ? Partagez votre expérience !</p>
-        <form action="/soumettre-temoignage" method="post" style="max-width: 700px; margin: 2rem auto 0; background: white; padding: 2rem; border-radius: var(--radius-lg); box-shadow: var(--shadow-md);">
+        <form action="/soumettre-temoignage" method="post" class="testimonial-form">
             {% csrf_token %}
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
-                <input type="text" name="nom" placeholder="Votre nom" required style="padding: 0.875rem; border: 2px solid #e5e7eb; border-radius: var(--radius-md);">
-                <input type="email" name="email" placeholder="Votre email" required style="padding: 0.875rem; border: 2px solid #e5e7eb; border-radius: var(--radius-md);">
+            <div class="form-row">
+                <input type="text" name="nom" placeholder="Votre nom" required class="form-input">
+                <input type="email" name="email" placeholder="Votre email" required class="form-input">
             </div>
-            <div style="margin-bottom: 1rem;">
-                <select name="role" required style="width: 100%; padding: 0.875rem; border: 2px solid #e5e7eb; border-radius: var(--radius-md);">
+            <div class="form-group">
+                <select name="role" required class="form-input">
                     <option value="">Vous êtes...</option>
                     <option value="beneficiaire">Bénéficiaire</option>
                     <option value="benevole">Bénévole</option>
@@ -143,16 +139,16 @@
                     <option value="partenaire">Partenaire</option>
                 </select>
             </div>
-            <div style="margin-bottom: 1rem;">
-                <textarea name="temoignage" placeholder="Votre témoignage (maximum 500 caractères)" required maxlength="500" rows="6" style="width: 100%; padding: 0.875rem; border: 2px solid #e5e7eb; border-radius: var(--radius-md);"></textarea>
+            <div class="form-group">
+                <textarea name="temoignage" placeholder="Votre témoignage (maximum 500 caractères)" required maxlength="500" rows="6" class="form-input"></textarea>
             </div>
-            <div style="margin-bottom: 1.5rem;">
-                <label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.9rem;">
+            <div class="form-checkbox">
+                <label>
                     <input type="checkbox" name="publication" required>
                     <span>J'accepte que mon témoignage soit publié sur le site et les supports de DFD</span>
                 </label>
             </div>
-            <button type="submit" class="btn" style="width: 100%; background: var(--gradient-accent); color: white; padding: 1rem; border: none; border-radius: var(--radius-full); font-weight: 700; cursor: pointer;">
+            <button type="submit" class="btn btn-submit-form">
                 <i class="fas fa-paper-plane"></i> ENVOYER MON TÉMOIGNAGE
             </button>
         </form>

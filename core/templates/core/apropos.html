@@ -6,271 +6,187 @@
 
 {% block content %}
 
-<!-- Hero Section -->
-<section style="background: linear-gradient(135deg, rgba(47, 31, 123, 0.6) 0%, rgba(27, 93, 180, 0.4) 100%); padding: 5rem 2rem; text-align: center; color: white; position: relative; overflow: hidden;">
-    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; 
-                background: url('{% static 'images/bannière/PHOTO-2024-12-29-17-30-48.jpg' %}') center/cover; 
-                opacity: 0.25;">
-    </div>
+<link rel="stylesheet" href="{% static 'css/apropos.css' %}">
 
-    <div style="max-width: 1200px; margin: 0 auto; position: relative; z-index: 1;">
-        <i class="fas fa-heart" style="font-size: 5rem; margin-bottom: 1.5rem;"></i>
-        <h1 style="font-size: 3rem; margin-bottom: 1rem; font-weight: 700;">À propos de DFD</h1>
-        <p style="font-size: 1.4rem; opacity: 0.95; font-weight: 300; max-width: 700px; margin: 0 auto; color: white;">
+<!-- Hero Section -->
+<section class="apropos-hero">
+    <div class="apropos-hero-bg" style="background-image: url('{% static 'images/bannière/PHOTO-2024-12-29-17-30-48.jpg' %}');"></div>
+
+    <div class="apropos-hero-content">
+        <i class="fas fa-heart apropos-hero-icon"></i>
+        <h1>À propos de DFD</h1>
+        <p class="apropos-hero-subtitle">
             Dreams Family of Development - Une famille engagée pour le changement
         </p>
     </div>
 </section>
 
-
-
-
-
-    <!-- Section Histoire -->
-    <!-- Section Histoire - Style Journal -->
-    <section style="padding: 5rem 2rem; background: white;">
-        <div style="
-            max-width: 900px;
-            margin: 0 auto;
-            background: #fffdf7;
-            border: 1px solid #e5e7eb;
-            border-radius: 16px;
-            padding: 2.5rem;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.06);
-            font-family: 'Georgia', serif;
-            line-height: 1.8;
-        ">
-
-            <!-- Étiquette -->
-            <div style="
-                display: inline-block;
-                padding: 0.45rem 1.2rem;
-                background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
-                color: white;
-                border-radius: 50px;
-                font-weight: 600;
-                font-size: 0.85rem;
-                margin-bottom: 1.5rem;
-                box-shadow: 0 3px 8px rgba(0,0,0,0.15);
-            ">
-                <i class="fas fa-book-open"></i> NOTRE HISTOIRE
-            </div>
-
-            <!-- IMAGE FLOTTANTE -->
-            <img src="{% static 'images/foyeresperence/PHOTO-2025-01-06-19-34-50.jpg' %}"
-                alt="Notre histoire"
-                style="
-                    width: 260px;
-                    height: 200px;
-                    object-fit: cover;
-                    border-radius: 12px;
-                    float: left;
-                    margin: 0 1.5rem 1rem 0;
-                    box-shadow: 0 8px 22px rgba(0,0,0,0.18);
-                ">
-                
-            <!-- TITRE JOURNAL -->
-            <h2 style="
-                font-size: 2rem;
-                line-height: 1.3;
-                margin-bottom: 1.2rem;
-                color: #1f1451;
-                font-weight: 700;
-            ">
-                Une aventure humaine née d'une conviction profonde
-            </h2>
-
-            <!-- TEXTE -->
-            <p style="font-size: 1.08rem; color: #4b5563; text-align: justify;">
-                Il y a quelques années, en 2015, un passionné aux multiples engagements culturels
-                se tenait à la croisée des chemins, partagé entre l’éclat des fêtes qu’il organisait
-                et l’appel intérieur d’une mission plus profonde. Conscient que chaque geste laisse
-                une empreinte, il voulait orienter son énergie vers ceux qui, dans l’ombre, attendent
-                qu’on écoute leur fragilité : les enfants abandonnés, les vies brisées, les personnes vulnérables,
-                ceux que le monde semble oublier...
-                Avec le temps, cette intuition devint un projet concret. L’association initiale, Df5.6, commença
-                à prendre forme, non seulement comme un mouvement d’accueil et de soutien, mais comme un souffle 
-                d’espoir, une réalité où l’attention sincère envers autrui guidait chaque action.
-            </p>
-
-            <p style="font-size: 1.08rem; color: #4b5563; text-align: justify;">
-                Peu à peu, d’autres voix se joignirent à la sienne. Ces membres fondateurs, porteurs de leurs
-                expériences et convictions, apportèrent un souffle neuf. Les premières rencontres, légères et
-                circulaires, se transformèrent en une force centrifuge, propulsant le projet vers une vision
-                collective, unanime et lumineuse. Ensemble, ils forgèrent un chemin où chaque idée individuelle
-                s’unit pour dessiner un projet commun, vibrant et concret.
-            </p>
-
-            <p style="font-size: 1.08rem; color: #4b5563; text-align: justify;">
-                Le 23 novembre 2024 marque l’officialisation de Dreams Family of Development. Ce nom incarne 
-                la force et la résilience d’un rêve partagé, celui de transformer la détresse en espoir et 
-                l’indifférence en chaleur humaine. Depuis lors, la DFD s’est engagée sur le terrain de manière
-                concrète et constante : descentes dans les foyers et quartiers, campagnes de santé, soutien aux 
-                orphelinats, toujours là où les besoins se font les plus pressants, même là où la structure
-                n’a pas de présence propre...
-            </p>
-
-            <p style="font-size: 1.08rem; color: #4b5563; text-align: justify;">
-                Chaque action va au-delà de l’aide matérielle : elle incarne une conviction profonde, celle que
-                la grandeur se mesure à la capacité d’ouvrir son cœur à ceux que la société isole. Les événements
-                organisés par la DFD ne sont pas vains, mais des rendez-vous de solidarité, de partage et de 
-                transmission d’espoir, nourris par la volonté de redonner vie à des rêves longtemps abandonnés.
-            </p>
-
-            <p style="font-size: 1.08rem; color: #4b5563; text-align: justify;">
-                Ainsi, Dreams Family of Development est devenu un catalyseur de transformation et invite chaque jour 
-                des personnes à rejoindre ce train où les expériences négatives se transforment en opportunités.
-                Portée par des mains et des cœurs unis, l’association fait résonner son message :
-                <strong>La main Tendue, un sourire nouveau !</strong>
-            </p>
-
-            <!-- Nettoie le float -->
-            <div style="clear: both;"></div>
+<!-- Section Histoire -->
+<section class="histoire-section">
+    <div class="histoire-container">
+        <div class="histoire-badge">
+            <i class="fas fa-book-open"></i> NOTRE HISTOIRE
         </div>
-    </section>
 
+        <img src="{% static 'images/foyeresperence/PHOTO-2025-01-06-19-34-50.jpg' %}"
+            alt="Notre histoire"
+            class="histoire-image">
+            
+        <h2>Une aventure humaine née d'une conviction profonde</h2>
+
+        <p>
+            Il y a quelques années, en 2015, un passionné aux multiples engagements culturels
+            se tenait à la croisée des chemins, partagé entre l'éclat des fêtes qu'il organisait
+            et l'appel intérieur d'une mission plus profonde. Conscient que chaque geste laisse
+            une empreinte, il voulait orienter son énergie vers ceux qui, dans l'ombre, attendent
+            qu'on écoute leur fragilité : les enfants abandonnés, les vies brisées, les personnes vulnérables,
+            ceux que le monde semble oublier...
+            Avec le temps, cette intuition devint un projet concret. L'association initiale, Df5.6, commença
+            à prendre forme, non seulement comme un mouvement d'accueil et de soutien, mais comme un souffle 
+            d'espoir, une réalité où l'attention sincère envers autrui guidait chaque action.
+        </p>
+
+        <p>
+            Peu à peu, d'autres voix se joignirent à la sienne. Ces membres fondateurs, porteurs de leurs
+            expériences et convictions, apportèrent un souffle neuf. Les premières rencontres, légères et
+            circulaires, se transformèrent en une force centrifuge, propulsant le projet vers une vision
+            collective, unanime et lumineuse. Ensemble, ils forgèrent un chemin où chaque idée individuelle
+            s'unit pour dessiner un projet commun, vibrant et concret.
+        </p>
+
+        <p>
+            Le 23 novembre 2024 marque l'officialisation de Dreams Family of Development. Ce nom incarne 
+            la force et la résilience d'un rêve partagé, celui de transformer la détresse en espoir et 
+            l'indifférence en chaleur humaine. Depuis lors, la DFD s'est engagée sur le terrain de manière
+            concrète et constante : descentes dans les foyers et quartiers, campagnes de santé, soutien aux 
+            orphelinats, toujours là où les besoins se font les plus pressants, même là où la structure
+            n'a pas de présence propre...
+        </p>
+
+        <p>
+            Chaque action va au-delà de l'aide matérielle : elle incarne une conviction profonde, celle que
+            la grandeur se mesure à la capacité d'ouvrir son cœur à ceux que la société isole. Les événements
+            organisés par la DFD ne sont pas vains, mais des rendez-vous de solidarité, de partage et de 
+            transmission d'espoir, nourris par la volonté de redonner vie à des rêves longtemps abandonnés.
+        </p>
+
+        <p>
+            Ainsi, Dreams Family of Development est devenu un catalyseur de transformation et invite chaque jour 
+            des personnes à rejoindre ce train où les expériences négatives se transforment en opportunités.
+            Portée par des mains et des cœurs unis, l'association fait résonner son message :
+            <strong>La main Tendue, un sourire nouveau !</strong>
+        </p>
+
+        <div class="clear-float"></div>
+    </div>
+</section>
 
 <!-- Section Mission & Vision -->
-<section style="padding: 5rem 2rem; background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%);text-align: center;">
-    <div style="max-width: 1200px; margin: 0 auto;">
-        <div style="text-align: center; margin-bottom: 4rem;">
-            <div style="display: inline-block; padding: 0.5rem 1.5rem; background: linear-gradient(135deg, #27ae60 0%, #229954 100%); color: white; border-radius: 50px; font-weight: 600; font-size: 0.85rem; margin-bottom: 1.5rem;">
-            <i class="fas fa-crosshairs"></i> NOTRE MISSION
+<section class="mission-section">
+    <div class="mission-container">
+        <div class="mission-header">
+            <div class="section-badge">
+                <i class="fas fa-crosshairs"></i> NOTRE MISSION
             </div>
-            <h2 style="color: #1f1451; font-size: 2.5rem; margin-bottom: 1rem;">La mission de la DFD</h2>
-            <p style="color: #5a6c7d; font-size: 1.1rem; max-width: 700px; margin: 0 auto;">
+            <h2>La mission de la DFD</h2>
+            <p class="section-subtitle">
                 Guidés par l'humanisme, l'équité et la solidarité
             </p>
         </div>
 
-        <!-- <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;">
-            
-            <div style="background: white; padding: 3rem; border-radius: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.1); border-top: 5px solid #1a73e8;">
-                <div style="width: 70px; height: 70px; background: linear-gradient(135deg, #1a73e8 0%, #1f1451 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 2rem;">
-                    <i class="fas fa-bullseye" style="font-size: 2rem; color: white;"></i>
+        <div class="mission-card-container">
+            <div class="mission-card">
+                <div class="mission-icon">
+                    <i class="fas fa-crosshairs"></i>
                 </div>
-                <h3 style="color: #1f1451; font-size: 1.8rem; margin-bottom: 1.5rem;">Notre mission</h3>
-                <p style="color: #5a6c7d; font-size: 1.05rem; line-height: 1.9; margin-bottom: 1.5rem;">
-                    Notre mission est de <strong style="color: #1a73e8;">restaurer l'espoir et l'épanouissement</strong> des individus dont les rêves ont été brisés, en leur apportant soutien, soins, éducation et accompagnement.
+                <p>
+                    Notre mission est de <strong>restaurer l'espoir et l'épanouissement</strong> des individus dont les rêves ont été brisés, en leur apportant soutien, soins, éducation et accompagnement.
                 </p>
-                <p style="color: #5a6c7d; font-size: 1.05rem; line-height: 1.9;">
-                    Nous visons un <strong style="color: #1a73e8;">impact durable</strong> en renforçant la résilience des communautés à travers des actions inspirées par l'humanisme, l'équité et la confidentialité.
-                </p>
-            </div>
-
-             Vision
-            <div style="background: white; padding: 3rem; border-radius: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.1); border-top: 5px solid #e74c3c;">
-                <div style="width: 70px; height: 70px; background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 2rem;">
-                    <i class="fas fa-eye" style="font-size: 2rem; color: white;"></i>
-                </div>
-                <h3 style="color: #1f1451; font-size: 1.8rem; margin-bottom: 1.5rem;">Notre vision</h3>
-                <p style="color: #5a6c7d; font-size: 1.05rem; line-height: 1.9; margin-bottom: 1.5rem;">
-                    Bâtir une <strong style="color: #e74c3c;">société solidaire, libre et équilibrée</strong> où chaque individu peut retrouver sa dignité et réaliser son potentiel.
-                </p>
-                <p style="color: #5a6c7d; font-size: 1.05rem; line-height: 1.9;">
-                    Une société où les <strong style="color: #e74c3c;">droits fondamentaux</strong> sont respectés et où personne n'est laissé pour compte.
-                </p>
-            </div>
-        </div>  -->
-        
-        <div style="display: flex; justify-content: center;">
-            <div style="background: white; padding: 3rem; border-radius: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.1); border-top: 5px solid #1a73e8; max-width: 600px;">
-                <div style="width: 70px; height: 70px; background: linear-gradient(135deg, #1a73e8 0%, #1f1451 100%); border-radius: 50%; display: flex; align-items: center; justify-content:center ; margin-bottom: 2rem;">
-                    <i class="fas fa-crosshairs" style="font-size: 2rem; color: white;"></i>
-                </div>
-                <!--<h3 style="color: #1f1451; font-size: 1.8rem; margin-bottom: 1.5rem;">Notre mission</h3>-->
-                <p style="color: #5a6c7d; font-size: 1.05rem; line-height: 1.9; margin-bottom: 1.5rem;">
-                    Notre mission est de <strong style="color: #1a73e8;">restaurer l'espoir et l'épanouissement</strong> des individus dont les rêves ont été brisés, en leur apportant soutien, soins, éducation et accompagnement.
-                </p>
-                <p style="color: #5a6c7d; font-size: 1.05rem; line-height: 1.9;">
-                    Nous visons un <strong style="color: #1a73e8;">impact durable</strong> en renforçant la résilience des communautés à travers des actions inspirées par l'humanisme, l'équité et la confidentialité.
+                <p>
+                    Nous visons un <strong>impact durable</strong> en renforçant la résilience des communautés à travers des actions inspirées par l'humanisme, l'équité et la confidentialité.
                 </p>
             </div>
         </div>
-
-
     </div>
 </section>
 
 <!-- Section Objectifs -->
-<section style="padding: 5rem 2rem; background: white;">
-    <div style="max-width: 1200px; margin: 0 auto;">
-        <div style="text-align: center; margin-bottom: 4rem;">
-            <div style="display: inline-block; padding: 0.5rem 1.5rem; background: linear-gradient(135deg, #27ae60 0%, #229954 100%); color: white; border-radius: 50px; font-weight: 600; font-size: 0.85rem; margin-bottom: 1.5rem;">
+<section class="objectifs-section">
+    <div class="objectifs-container">
+        <div class="objectifs-header">
+            <div class="section-badge">
                 <i class="fas fa-flag-checkered"></i> NOS OBJECTIFS
             </div>
-            <h2 style="color: #1f1451; font-size: 2.5rem; margin-bottom: 1rem;">Ce que nous visons</h2>
-            <p style="color: #5a6c7d; font-size: 1.1rem; max-width: 700px; margin: 0 auto;">
+            <h2>Ce que nous visons</h2>
+            <p class="section-subtitle">
                 7 piliers pour un développement durable et inclusif
             </p>
         </div>
 
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem;">
+        <div class="objectifs-grid">
             <!-- Objectif 1 -->
-            <div style="background: linear-gradient(135deg, #fff5f5 0%, #ffffff 100%); padding: 2rem; border-radius: 12px; border-left: 4px solid #e74c3c; transition: transform 0.3s;">
-                <i class="fas fa-heartbeat" style="font-size: 2.5rem; color: #e74c3c; margin-bottom: 1rem; display: block;"></i>
-                <h3 style="color: #1f1451; margin-bottom: 1rem; font-size: 1.2rem;">Santé materno-infantile</h3>
-                <p style="color: #5a6c7d; line-height: 1.7;">Réduire la mortalité materno-infantile et lutter contre les pathologies</p>
+            <div class="objectif-card objectif-sante">
+                <i class="fas fa-heartbeat"></i>
+                <h3>Santé materno-infantile</h3>
+                <p>Réduire la mortalité materno-infantile et lutter contre les pathologies</p>
             </div>
 
             <!-- Objectif 2 -->
-            <div style="background: linear-gradient(135deg, #f0f9ff 0%, #ffffff 100%); padding: 2rem; border-radius: 12px; border-left: 4px solid #3498db; transition: transform 0.3s;">
-                <i class="fas fa-brain" style="font-size: 2.5rem; color: #3498db; margin-bottom: 1rem; display: block;"></i>
-                <h3 style="color: #1f1451; margin-bottom: 1rem; font-size: 1.2rem;">Bien-être mental</h3>
-                <p style="color: #5a6c7d; line-height: 1.7;">Favoriser le bien-être mental et émotionnel des communautés</p>
+            <div class="objectif-card objectif-mental">
+                <i class="fas fa-brain"></i>
+                <h3>Bien-être mental</h3>
+                <p>Favoriser le bien-être mental et émotionnel des communautés</p>
             </div>
 
             <!-- Objectif 3 -->
-            <div style="background: linear-gradient(135deg, #f0fff4 0%, #ffffff 100%); padding: 2rem; border-radius: 12px; border-left: 4px solid #27ae60; transition: transform 0.3s;">
-                <i class="fas fa-seedling" style="font-size: 2.5rem; color: #27ae60; margin-bottom: 1rem; display: block;"></i>
-                <h3 style="color: #1f1451; margin-bottom: 1rem; font-size: 1.2rem;">Nutrition</h3>
-                <p style="color: #5a6c7d; line-height: 1.7;">Lutter contre la malnutrition et assurer la sécurité alimentaire</p>
+            <div class="objectif-card objectif-nutrition">
+                <i class="fas fa-seedling"></i>
+                <h3>Nutrition</h3>
+                <p>Lutter contre la malnutrition et assurer la sécurité alimentaire</p>
             </div>
 
             <!-- Objectif 4 -->
-            <div style="background: linear-gradient(135deg, #fffbf0 0%, #ffffff 100%); padding: 2rem; border-radius: 12px; border-left: 4px solid #f39c12; transition: transform 0.3s;">
-                <i class="fas fa-graduation-cap" style="font-size: 2.5rem; color: #f39c12; margin-bottom: 1rem; display: block;"></i>
-                <h3 style="color: #1f1451; margin-bottom: 1rem; font-size: 1.2rem;">Éducation équitable</h3>
-                <p style="color: #5a6c7d; line-height: 1.7;">Promouvoir l'éducation équitable et lutter contre la déscolarisation</p>
+            <div class="objectif-card objectif-education">
+                <i class="fas fa-graduation-cap"></i>
+                <h3>Éducation équitable</h3>
+                <p>Promouvoir l'éducation équitable et lutter contre la déscolarisation</p>
             </div>
 
             <!-- Objectif 5 -->
-            <div style="background: linear-gradient(135deg, #f5f0ff 0%, #ffffff 100%); padding: 2rem; border-radius: 12px; border-left: 4px solid #9b59b6; transition: transform 0.3s;">
-                <i class="fas fa-laptop-code" style="font-size: 2.5rem; color: #9b59b6; margin-bottom: 1rem; display: block;"></i>
-                <h3 style="color: #1f1451; margin-bottom: 1rem; font-size: 1.2rem;">Technologies</h3>
-                <p style="color: #5a6c7d; line-height: 1.7;">Renforcer les infrastructures technologiques et numériques</p>
+            <div class="objectif-card objectif-tech">
+                <i class="fas fa-laptop-code"></i>
+                <h3>Technologies</h3>
+                <p>Renforcer les infrastructures technologiques et numériques</p>
             </div>
 
             <!-- Objectif 6 -->
-            <div style="background: linear-gradient(135deg, #fff0f6 0%, #ffffff 100%); padding: 2rem; border-radius: 12px; border-left: 4px solid #e91e63; transition: transform 0.3s;">
-                <i class="fas fa-briefcase" style="font-size: 2.5rem; color: #e91e63; margin-bottom: 1rem; display: block;"></i>
-                <h3 style="color: #1f1451; margin-bottom: 1rem; font-size: 1.2rem;">Entrepreneuriat</h3>
-                <p style="color: #5a6c7d; line-height: 1.7;">Développer l'entrepreneuriat et les compétences professionnelles</p>
+            <div class="objectif-card objectif-entrepreneuriat">
+                <i class="fas fa-briefcase"></i>
+                <h3>Entrepreneuriat</h3>
+                <p>Développer l'entrepreneuriat et les compétences professionnelles</p>
             </div>
 
             <!-- Objectif 7 -->
-            <div style="background: linear-gradient(135deg, #f0f4ff 0%, #ffffff 100%); padding: 2rem; border-radius: 12px; border-left: 4px solid #1a73e8; transition: transform 0.3s;">
-                <i class="fas fa-theater-masks" style="font-size: 2.5rem; color: #1a73e8; margin-bottom: 1rem; display: block;"></i>
-                <h3 style="color: #1f1451; margin-bottom: 1rem; font-size: 1.2rem;">Culture & loisirs</h3>
-                <p style="color: #5a6c7d; line-height: 1.7;">Promouvoir l'accès à la culture, aux loisirs et aux activités artistiques.</p>
+            <div class="objectif-card objectif-culture">
+                <i class="fas fa-theater-masks"></i>
+                <h3>Culture & loisirs</h3>
+                <p>Promouvoir l'accès à la culture, aux loisirs et aux activités artistiques.</p>
             </div>
+
             <!-- Objectif 8 -->
-            <div style="background: linear-gradient(135deg, #e8fff4 0%, #ffffff 100%); padding: 2rem; border-radius: 12px; border-left: 4px solid #2ecc71; transition: transform 0.3s;">
-            <i class="fas fa-spa" style="font-size: 2.5rem; color: #2ecc71; margin-bottom: 1rem; display: block;"></i>
-            <h3 style="color: #1f1451; margin-bottom: 1rem; font-size: 1.2rem;">Épanouissement</h3>
-            <p style="color: #5a6c7d; line-height: 1.7;">
-                Aider l’Homme à bâtir son développement personnel.
-            </p>
-        </div>
+            <div class="objectif-card objectif-epanouissement">
+                <i class="fas fa-spa"></i>
+                <h3>Épanouissement</h3>
+                <p>Aider l'Homme à bâtir son développement personnel.</p>
+            </div>
         </div>
 
-        <div style="text-align: center; margin-top: 4rem; padding: 3rem; background: linear-gradient(135deg, #1f1451 0%, #1a73e8 100%); border-radius: 16px; color: white;">
-            <h3 style="font-size: 2rem; margin-bottom: 1rem; font-weight: 700;">Rejoignez-nous !</h3>
-            <p style="font-size: 1.2rem; margin-bottom: 2rem; opacity: 0.95;">
+        <div class="objectifs-cta">
+            <h3>Rejoignez-nous !</h3>
+            <p>
                 Ensemble, faisons la différence. Devenez acteur du changement.
             </p>
-            <a href="{% url 'participer' %}" 
-               style="display: inline-block; padding: 1.2rem 2.5rem; background: white; color: #1f1451; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1.1rem; transition: transform 0.3s;">
+            <a href="{% url 'participer' %}" class="objectifs-cta-btn">
                 <i class="fas fa-hands-helping"></i> Agir avec nous
             </a>
         </div>
@@ -278,205 +194,173 @@
 </section>
 
 <!-- Section Équipe -->
-<section style="padding: 5rem 2rem; background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);">
-    <div style="max-width: 1200px; margin: 0 auto;">
-        <div style="text-align: center; margin-bottom: 4rem;">
-            <div style="display: inline-block; padding: 0.5rem 1.5rem; background: linear-gradient(135deg, #1a73e8 0%, #1f1451 100%); color: white; border-radius: 50px; font-weight: 600; font-size: 0.85rem; margin-bottom: 1.5rem;">
+<section class="equipe-section">
+    <div class="equipe-container">
+        <div class="equipe-header">
+            <div class="section-badge">
                 <i class="fas fa-users"></i> NOTRE ÉQUIPE
             </div>
-            <h2 style="color: #1f1451; font-size: 2.5rem; margin-bottom: 1rem;">Une famille de cœur engagée</h2>
-            <p style="color: #5a6c7d; font-size: 1.1rem; max-width: 800px; margin: 0 auto 3rem;">
+            <h2>Une famille de cœur engagée</h2>
+            <p class="equipe-intro">
                 L'équipe DFD, c'est avant tout une famille de cœur engagée dans le changement. Chacun apporte sa pierre à l'édifice pour construire un monde meilleur.
             </p>
         </div>
 
         <!-- Types de membres -->
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-bottom: 5rem;">
-            <div style="background: white; padding: 2rem; border-radius: 12px; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
-                <i class="fas fa-user-check" style="font-size: 3rem; color: #27ae60; margin-bottom: 1rem;"></i>
-                <h3 style="color: #1f1451; margin-bottom: 1rem;">Membres adhérents</h3>
-                <p style="color: #5a6c7d; line-height: 1.7;">Actifs dans les activités et les responsabilités de l'association</p>
+        <div class="membres-types-grid">
+            <div class="membre-type-card membre-type-adherents">
+                <i class="fas fa-user-check"></i>
+                <h3>Membres adhérents</h3>
+                <p>Actifs dans les activités et les responsabilités de l'association</p>
             </div>
 
-            <div style="background: white; padding: 2rem; border-radius: 12px; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
-                <i class="fas fa-hand-holding-heart" style="font-size: 3rem; color: #1a73e8; margin-bottom: 1rem;"></i>
-                <h3 style="color: #1f1451; margin-bottom: 1rem;">Membres bénévoles</h3>
-                <p style="color: #5a6c7d; line-height: 1.7;">Soutiennent selon leurs disponibilités et compétences</p>
+            <div class="membre-type-card membre-type-benevoles">
+                <i class="fas fa-hand-holding-heart"></i>
+                <h3>Membres bénévoles</h3>
+                <p>Soutiennent selon leurs disponibilités et compétences</p>
             </div>
 
-            <div style="background: white; padding: 2rem; border-radius: 12px; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
-                <i class="fas fa-handshake" style="font-size: 3rem; color: #e74c3c; margin-bottom: 1rem;"></i>
-                <h3 style="color: #1f1451; margin-bottom: 1rem;">Membres partenaires</h3>
-                <p style="color: #5a6c7d; line-height: 1.7;">Soutiens financiers ou techniques pour la visibilité</p>
+            <div class="membre-type-card membre-type-partenaires">
+                <i class="fas fa-handshake"></i>
+                <h3>Membres partenaires</h3>
+                <p>Soutiens financiers ou techniques pour la visibilité</p>
             </div>
         </div>
 
         <!-- Équipe dirigeante -->
-        <div style="text-align: center; margin-bottom: 3rem;">
-            <h3 style="color: #1f1451; font-size: 2rem; margin-bottom: 1rem;">L'équipe dirigeante</h3>
-            <p style="color: #5a6c7d; font-size: 1.05rem;">Les piliers de notre association</p>
+        <div class="equipe-dirigeante-header">
+            <h3>L'équipe dirigeante</h3>
+            <p>Les piliers de notre association</p>
         </div>
 
-        <div style="display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap;">
-            <!-- Membre 1 -->
-            <div style="background: white; padding: 2.5rem; border-radius: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.12); text-align: center; max-width: 320px; transition: transform 0.3s;">
-                <div style="width: 150px; height: 150px; margin: 0 auto 1.5rem; border-radius: 50%; overflow: hidden; border: 5px solid #1a73e8; box-shadow: 0 8px 16px rgba(26, 115, 232, 0.3);">
-                    <img src="{% static 'images/membres/Nathan.PNG' %}" 
-                         alt="Nathanaël Toukea" 
-                         style="width: 100%; height: 100%; object-fit: cover;">
+        <div class="equipe-grid">
+            <!-- Membre 1 : Président -->
+            <div class="membre-card membre-president">
+                <div class="membre-photo">
+                    <img src="{% static 'images/membres/Nathan.PNG' %}" alt="Nathanael Kwagwo">
                 </div>
-                <h3 style="color: #1f1451; font-size: 1.4rem; margin-bottom: 0.5rem; font-weight: 700;">Nathanael Kwagwo</h3>
-                <p style="color: #1a73e8; font-weight: 600; font-size: 1.05rem; margin-bottom: 1rem;">Président du Bureau Exécutif(BE), Membre Fondateur</p>
-                <p style="color: #5a6c7d; font-size: 0.95rem; line-height: 1.6;">
-                    Représente l’association auprès des tiers,Chargée de la supervion générale de la DFD, et du maintien de la cohésion avec toutes les institutions publiques et les autres Organisations.
-                </p>
-            </div>
-                        <!-- Membre 6 -->
-            <div style="background: white; padding: 2.5rem; border-radius: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.12); text-align: center; max-width: 320px; transition: transform 0.3s;">
-                <div style="width: 150px; height: 150px; margin: 0 auto 1.5rem; border-radius: 50%; overflow: hidden; border: 5px solid #9b59b6; box-shadow: 0 8px 16px rgba(155, 89, 182, 0.3);">
-                    <img src="{% static 'images/membres/Gallus.PNG' %}" 
-                         alt="Féline Minyem" 
-                         style="width: 100%; height: 100%; object-fit: cover;">
-                </div>
-                <h3 style="color: #1f1451; font-size: 1.4rem; margin-bottom: 0.5rem; font-weight: 700;">Gallus Ndongo</h3>
-                <p style="color: #9b59b6; font-weight: 600; font-size: 1.05rem; margin-bottom: 1rem;">Vice- Président du BE, Membre Fondateur</p>
-                <p style="color: #5a6c7d; font-size: 0.95rem; line-height: 1.6;">
-                    Assiste et remplace le président en cas d’empêchement.
-                </p>
-            </div>
-                         <!-- Membre 8 -->
-            <div style="background: white; padding: 2.5rem; border-radius: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.12); text-align: center; max-width: 320px; transition: transform 0.3s;">
-                <div style="width: 150px; height: 150px; margin: 0 auto 1.5rem; border-radius: 50%; overflow: hidden; border: 5px solid #3e8864; box-shadow: 0 8px 16px rgba(155, 89, 182, 0.3);">
-                    <img src="{% static 'images/membres/Steve.PNG' %}" 
-                         alt="Féline Minyem" 
-                         style="width: 100%; height: 100%; object-fit: cover;">
-                </div>
-                <h3 style="color: #1f1451; font-size: 1.4rem; margin-bottom: 0.5rem; font-weight: 700;">Stève Koague</h3>
-                <p style="color: #3e8864; font-weight: 600; font-size: 1.05rem; margin-bottom: 1rem;">Vice- Président du BE, Membre Fondateur</p>
-                <p style="color: #5a6c7d; font-size: 0.95rem; line-height: 1.6;">
-                    Assiste et remplace le président en cas d’empêchement.
+                <h3 class="membre-name">Nathanael Kwagwo</h3>
+                <p class="membre-role">Président du Bureau Exécutif(BE), Membre Fondateur</p>
+                <p class="membre-description">
+                    Représente l'association auprès des tiers, Chargé de la supervision générale de la DFD, et du maintien de la cohésion avec toutes les institutions publiques et les autres Organisations.
                 </p>
             </div>
 
-                         <!-- Membre 7 -->
-            <div style="background: white; padding: 2.5rem; border-radius: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.12); text-align: center; max-width: 320px; transition: transform 0.3s;">
-                <div style="width: 150px; height: 150px; margin: 0 auto 1.5rem; border-radius: 50%; overflow: hidden; border: 5px solid #5997b6; box-shadow: 0 8px 16px rgba(155, 89, 182, 0.3);">
-                    <img src="{% static 'images/membres/Irma.PNG' %}" 
-                         alt="Féline Minyem" 
-                         style="width: 100%; height: 100%; object-fit: cover;">
+            <!-- Membre 2 : Vice-Président 1 -->
+            <div class="membre-card membre-vice-president-1">
+                <div class="membre-photo">
+                    <img src="{% static 'images/membres/Gallus.PNG' %}" alt="Gallus Ndongo">
                 </div>
-                <h3 style="color: #1f1451; font-size: 1.4rem; margin-bottom: 0.5rem; font-weight: 700;">Irma Ngueffo</h3>
-                <p style="color: #5997b6; font-weight: 600; font-size: 1.05rem; margin-bottom: 1rem;">Secretaire du BE, Membre Fondatrice</p>
-                <p style="color: #5a6c7d; font-size: 0.95rem; line-height: 1.6;">
-                    Gère les démarches administratives internes et externes de l’association.
-                </p>
-            </div>
-                                    <!-- Membre 5 -->
-            <div style="background: white; padding: 2.5rem; border-radius: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.12); text-align: center; max-width: 320px; transition: transform 0.3s;">
-                <div style="width: 150px; height: 150px; margin: 0 auto 1.5rem; border-radius: 50%; overflow: hidden; border: 5px solid #1bbdb2; box-shadow: 0 8px 16px rgba(155, 89, 182, 0.3);">
-                    <img src="{% static 'images/membres/Farhida.PNG' %}" 
-                         alt="Féline Minyem" 
-                         style="width: 100%; height: 100%; object-fit: cover;">
-                </div>
-                <h3 style="color: #1f1451; font-size: 1.4rem; margin-bottom: 0.5rem; font-weight: 700;">Fahrida Ngalla</h3>
-                <p style="color: #1bbdb2; font-weight: 600; font-size: 1.05rem; margin-bottom: 1rem;">Vice-Secretaire du BE, Membre Fondatrice</p>
-                <p style="color: #5a6c7d; font-size: 0.95rem; line-height: 1.6;">
-                    Assiste et remplace la sécretaire en cas d’empêchement.
-                </p>
-            </div>
-                                    <!-- Membre 4 -->
-            <div style="background: white; padding: 2.5rem; border-radius: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.12); text-align: center; max-width: 320px; transition: transform 0.3s;">
-                <div style="width: 150px; height: 150px; margin: 0 auto 1.5rem; border-radius: 50%; overflow: hidden; border: 5px solid #563c4e; box-shadow: 0 8px 16px rgba(155, 89, 182, 0.3);">
-                    <img src="{% static 'images/membres/Cathy.PNG' %}" 
-                         alt="Féline Minyem" 
-                         style="width: 100%; height: 100%; object-fit: cover;">
-                </div>
-                <h3 style="color: #1f1451; font-size: 1.4rem; margin-bottom: 0.5rem; font-weight: 700;">Cathérine Jimoe</h3>
-                <p style="color: #563c4e; font-weight: 600; font-size: 1.05rem; margin-bottom: 1rem;">Trésorière du BE, Membre Fondatrice</p>
-                <p style="color: #5a6c7d; font-size: 0.95rem; line-height: 1.6;">
-                    Assure l'intégrité des comptes et suit les demandes de subventions nécessaires au fonctionnement de l’association.
-                </p>
-            </div>
-            <!-- Membre 3 -->
-            <div style="background: white; padding: 2.5rem; border-radius: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.12); text-align: center; max-width: 320px; transition: transform 0.3s;">
-                <div style="width: 150px; height: 150px; margin: 0 auto 1.5rem; border-radius: 50%; overflow: hidden; border: 5px solid #196299; box-shadow: 0 8px 16px rgba(155, 89, 182, 0.3);">
-                    <img src="{% static 'images/membres/Féline.PNG' %}" 
-                         alt="Féline Minyem" 
-                         style="width: 100%; height: 100%; object-fit: cover;">
-                </div>
-                <h3 style="color: #1f1451; font-size: 1.4rem; margin-bottom: 0.5rem; font-weight: 700;">Féline Minyem</h3>
-                <p style="color: #196299; font-weight: 600; font-size: 1.05rem; margin-bottom: 1rem;">Chargée de communication</p>
-                <p style="color: #5a6c7d; font-size: 0.95rem; line-height: 1.6;">
-                    Assiste et remplace la trésorière en cas d’empêchement.
-                </p>
-            </div>
-            <!-- Membre 2 -->
-            <div style="background: white; padding: 2.5rem; border-radius: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.12); text-align: center; max-width: 320px; transition: transform 0.3s;">
-                <div style="width: 150px; height: 150px; margin: 0 auto 1.5rem; border-radius: 50%; overflow: hidden; border: 5px solid #e74c3c; box-shadow: 0 8px 16px rgba(231, 76, 60, 0.3);">
-                    <img src="{% static 'images/membres/Brinda.PNG' %}" 
-                         alt="Brinda Djomaha" 
-                         style="width: 100%; height: 100%; object-fit: cover;">
-                </div>
-                <h3 style="color: #1f1451; font-size: 1.4rem; margin-bottom: 0.5rem; font-weight: 700;">Brinda Djomaha</h3>
-                <p style="color: #e74c3c; font-weight: 600; font-size: 1.05rem; margin-bottom: 1rem;">Commissaire aux comptes du BE, Membre Fondatrice</p>
-                <p style="color: #5a6c7d; font-size: 0.95rem; line-height: 1.6;">
-                    veille à la régularité des écritures comptables et des opérations financières qui engagent le patrimoine de l’association.
+                <h3 class="membre-name">Gallus Ndongo</h3>
+                <p class="membre-role">Vice-Président du BE, Membre Fondateur</p>
+                <p class="membre-description">
+                    Assiste et remplace le président en cas d'empêchement.
                 </p>
             </div>
 
-            
-                        <!-- Membre 4 -->
-            <div style="background: white; padding: 2.5rem; border-radius: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.12); text-align: center; max-width: 320px; transition: transform 0.3s;">
-                <div style="width: 150px; height: 150px; margin: 0 auto 1.5rem; border-radius: 50%; overflow: hidden; border: 5px solid #67541a; box-shadow: 0 8px 16px rgba(155, 89, 182, 0.3);">
-                    <img src="{% static 'images/membres/toukam.png' %}" 
-                         alt="Féline Minyem" 
-                         style="width: 100%; height: 100%; object-fit: cover;">
+            <!-- Membre 3 : Vice-Président 2 -->
+            <div class="membre-card membre-vice-president-2">
+                <div class="membre-photo">
+                    <img src="{% static 'images/membres/Steve.PNG' %}" alt="Stève Koague">
                 </div>
-                <h3 style="color: #1f1451; font-size: 1.4rem; margin-bottom: 0.5rem; font-weight: 700;">Kévin Toukam</h3>
-                <p style="color: #67541a; font-weight: 600; font-size: 1.05rem; margin-bottom: 1rem;">Vice- Commissaire aux comptes du BE, Membre Fondateur</p>
-                <p style="color: #5a6c7d; font-size: 0.95rem; line-height: 1.6;">
-                    Assiste et remplace le Commissaire aux comptes en cas d’empêchement.
+                <h3 class="membre-name">Stève Koague</h3>
+                <p class="membre-role">Vice-Président du BE, Membre Fondateur</p>
+                <p class="membre-description">
+                    Assiste et remplace le président en cas d'empêchement.
                 </p>
             </div>
 
-            
-           
-           
-            
+            <!-- Membre 4 : Secrétaire -->
+            <div class="membre-card membre-secretaire">
+                <div class="membre-photo">
+                    <img src="{% static 'images/membres/Irma.PNG' %}" alt="Irma Ngueffo">
+                </div>
+                <h3 class="membre-name">Irma Ngueffo</h3>
+                <p class="membre-role">Secrétaire du BE, Membre Fondatrice</p>
+                <p class="membre-description">
+                    Gère les démarches administratives internes et externes de l'association.
+                </p>
+            </div>
+
+            <!-- Membre 5 : Vice-Secrétaire -->
+            <div class="membre-card membre-vice-secretaire">
+                <div class="membre-photo">
+                    <img src="{% static 'images/membres/Farhida.PNG' %}" alt="Fahrida Ngalla">
+                </div>
+                <h3 class="membre-name">Fahrida Ngalla</h3>
+                <p class="membre-role">Vice-Secrétaire du BE, Membre Fondatrice</p>
+                <p class="membre-description">
+                    Assiste et remplace la secrétaire en cas d'empêchement.
+                </p>
+            </div>
+
+            <!-- Membre 6 : Trésorière -->
+            <div class="membre-card membre-tresoriere">
+                <div class="membre-photo">
+                    <img src="{% static 'images/membres/Cathy.PNG' %}" alt="Cathérine Jimoe">
+                </div>
+                <h3 class="membre-name">Cathérine Jimoe</h3>
+                <p class="membre-role">Trésorière du BE, Membre Fondatrice</p>
+                <p class="membre-description">
+                    Assure l'intégrité des comptes et suit les demandes de subventions nécessaires au fonctionnement de l'association.
+                </p>
+            </div>
+
+            <!-- Membre 7 : Chargée de Communication -->
+            <div class="membre-card membre-communication">
+                <div class="membre-photo">
+                    <img src="{% static 'images/membres/Féline.PNG' %}" alt="Féline Minyem">
+                </div>
+                <h3 class="membre-name">Féline Minyem</h3>
+                <p class="membre-role">Chargée de communication</p>
+                <p class="membre-description">
+                    Assiste et remplace la trésorière en cas d'empêchement.
+                </p>
+            </div>
+
+            <!-- Membre 8 : Commissaire aux comptes -->
+            <div class="membre-card membre-commissaire">
+                <div class="membre-photo">
+                    <img src="{% static 'images/membres/Brinda.PNG' %}" alt="Brinda Djomaha">
+                </div>
+                <h3 class="membre-name">Brinda Djomaha</h3>
+                <p class="membre-role">Commissaire aux comptes du BE, Membre Fondatrice</p>
+                <p class="membre-description">
+                    Veille à la régularité des écritures comptables et des opérations financières qui engagent le patrimoine de l'association.
+                </p>
+            </div>
+
+            <!-- Membre 9 : Vice-Commissaire -->
+            <div class="membre-card membre-vice-commissaire">
+                <div class="membre-photo">
+                    <img src="{% static 'images/membres/toukam.png' %}" alt="Kévin Toukam">
+                </div>
+                <h3 class="membre-name">Kévin Toukam</h3>
+                <p class="membre-role">Vice-Commissaire aux comptes du BE, Membre Fondateur</p>
+                <p class="membre-description">
+                    Assiste et remplace le Commissaire aux comptes en cas d'empêchement.
+                </p>
+            </div>
         </div>
     </div>
 </section>
 
 <!-- CTA Final -->
-<section style="padding: 5rem 2rem; background: linear-gradient(135deg, #1f1451 0%, #1a73e8 100%); text-align: center; color: white;">
-    <div style="max-width: 900px; margin: 0 auto;">
-        <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem; font-weight: 700;">Vous voulez en savoir plus ?</h2>
-        <p style="font-size: 1.2rem; margin-bottom: 3rem; opacity: 0.95; line-height: 1.7;">
+<section class="cta-final">
+    <div class="cta-final-container">
+        <h2>Vous voulez en savoir plus ?</h2>
+        <p>
             Découvrez nos projets en cours, nos départements d'action et comment vous pouvez contribuer à notre mission.
         </p>
-        <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
-            <a href="{% url 'projets' %}" 
-               style="padding: 1.2rem 2.5rem; background: white; color: #1f1451; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1.1rem; transition: transform 0.3s;">
+        <div class="cta-final-buttons">
+            <a href="{% url 'projets' %}" class="cta-final-btn cta-final-btn-primary">
                 <i class="fas fa-project-diagram"></i> Nos projets
             </a>
-            <a href="{% url 'contact' %}" 
-               style="padding: 1.2rem 2.5rem; background: transparent; color: white; border: 3px solid white; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1.1rem; transition: all 0.3s;">
+            <a href="{% url 'contact' %}" class="cta-final-btn cta-final-btn-secondary">
                 <i class="fas fa-envelope"></i> Contactez-nous
             </a>
         </div>
     </div>
 </section>
-
-<style>
-@media (max-width: 968px) {
-    section > div > div[style*="grid-template-columns: 1fr 1fr"] {
-        grid-template-columns: 1fr !important;
-    }
-}
-
-div[style*="transition: transform 0.3s"]:hover {
-    transform: translateY(-5px);
-}
-</style>
 
 {% endblock %}

@@ -5,15 +5,12 @@
 {% block content %}
 <link rel="stylesheet" href="{% static 'css/antennes.css' %}">
 
-<section class="antenne-hero coming-soon-overlay" style="background-image: linear-gradient(rgba(0, 35, 102, 0.85), rgba(239, 65, 53, 0.85));padding: 5rem 2rem; text-align: center; color: white; position: relative; overflow: hidden;">
-    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; 
-                background: url('{% static 'images/bannière/PHOTO-2024-12-29-17-30-48.jpg' %}') center/cover; 
-                opacity: 0.25;">
-    </div>
+<!-- Hero Section avec overlay "À venir" -->
+<section class="antenne-hero coming-soon-overlay" style="background: linear-gradient(rgba(0, 35, 102, 0.85), rgba(239, 65, 53, 0.85)), url('{% static 'images/bannière/PHOTO-2024-12-29-17-30-48.jpg' %}') center/cover;">
     <div class="antenne-hero-content">
         <img src="{% static 'images/flags/france.png' %}" alt="Drapeau France" class="antenne-flag">
         <h1>DFD France</h1>
-        <p class="antenne-tagline", style="color: white;">Bientôt à vos côtés en France !</p>
+        <p class="antenne-tagline">Bientôt à vos côtés en France !</p>
     </div>
     <div class="coming-soon-badge">À VENIR - 2025</div>
 </section>
@@ -69,7 +66,7 @@
 
     <!-- Villes cibles -->
     <div class="presentation-block">
-        <h2>�� Villes Françaises Cibles</h2>
+        <h2>🗺️ Villes Françaises Cibles</h2>
         <div class="zones-intervention">
             <div class="zone-badge">
                 <i class="fas fa-city"></i>
@@ -105,22 +102,22 @@
     </div>
 
     <!-- Pré-inscription -->
-    <div class="presentation-block" style="background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%);">
+    <div class="presentation-block preinscription-block">
         <h2>📝 Pré-inscrivez-vous Dès Maintenant !</h2>
-        <p style="font-size: 1.1rem; margin-bottom: 2rem;">Vous êtes en France et souhaitez être informé(e) dès l'ouverture de notre antenne ? Laissez-nous vos coordonnées !</p>
-        <form action="/pre-inscription-france" method="post" style="max-width: 600px; margin: 0 auto; background: white; padding: 2rem; border-radius: var(--radius-lg); box-shadow: var(--shadow-md);">
+        <p class="preinscription-intro">Vous êtes en France et souhaitez être informé(e) dès l'ouverture de notre antenne ? Laissez-nous vos coordonnées !</p>
+        <form action="/pre-inscription-france" method="post" class="preinscription-form">
             {% csrf_token %}
-            <div style="margin-bottom: 1rem;">
-                <input type="text" name="nom" placeholder="Nom complet" required style="width: 100%; padding: 0.875rem; border: 2px solid #e5e7eb; border-radius: var(--radius-md);">
+            <div class="form-group">
+                <input type="text" name="nom" placeholder="Nom complet" required class="form-input">
             </div>
-            <div style="margin-bottom: 1rem;">
-                <input type="email" name="email" placeholder="Email" required style="width: 100%; padding: 0.875rem; border: 2px solid #e5e7eb; border-radius: var(--radius-md);">
+            <div class="form-group">
+                <input type="email" name="email" placeholder="Email" required class="form-input">
             </div>
-            <div style="margin-bottom: 1rem;">
-                <input type="text" name="ville" placeholder="Ville (France)" required style="width: 100%; padding: 0.875rem; border: 2px solid #e5e7eb; border-radius: var(--radius-md);">
+            <div class="form-group">
+                <input type="text" name="ville" placeholder="Ville (France)" required class="form-input">
             </div>
-            <div style="margin-bottom: 1.5rem;">
-                <select name="interet" style="width: 100%; padding: 0.875rem; border: 2px solid #e5e7eb; border-radius: var(--radius-md);">
+            <div class="form-group">
+                <select name="interet" class="form-input">
                     <option value="">Comment souhaitez-vous contribuer ?</option>
                     <option value="benevole">Devenir bénévole</option>
                     <option value="donateur">Faire des dons réguliers</option>
@@ -129,7 +126,7 @@
                     <option value="autre">Autre</option>
                 </select>
             </div>
-            <button type="submit" class="btn" style="width: 100%; background: var(--gradient-accent); color: white; padding: 1rem; border: none; border-radius: var(--radius-full); font-weight: 700; cursor: pointer;">
+            <button type="submit" class="btn btn-submit-form">
                 <i class="fas fa-paper-plane"></i> M'INSCRIRE
             </button>
         </form>

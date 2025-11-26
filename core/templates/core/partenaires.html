@@ -1,83 +1,297 @@
 {% extends 'core/base.html' %}
 
-{% block title %}Contact - DFD{% endblock %}
+{% block title %}Nos Partenaires - DFD{% endblock %}
 
 {% block content %}
+{% load static %}
 {% load i18n %}
 
+<link rel="stylesheet" href="{% static 'css/partenaires.css' %}">
 
-<section class="partenaires">
-    <h1 class="main-title">Nos partenaires</h1>
-    <div class="partenaire-grid">
-
-
-        <a class="partenaire-bloc" href="https://www.croix-rouge.fr" target="_blank" rel="noopener noreferrer">
-            <div class="description">
-                <h3>Croix-Rouge</h3>
-                <p>La Croix-Rouge soutient nos actions humanitaires et sociales à travers des dons et des collaborations
-                    sur le terrain.</p>
-            </div>
-            <div class="logo">
-                <img src="/static/images/icons/croixrouge.png" alt="Croix-Rouge">
-            </div>
-        </a>
-
-        <a class="partenaire-bloc" href="https://www.unicef.org" target="_blank" rel="noopener noreferrer">
-            <div class="description">
-                <h3>UNICEF</h3>
-                <p>L'UNICEF accompagne nos projets liés à l'enfance et à l'éducation, en fournissant des ressources et
-                    du soutien logistique.</p>
-            </div>
-            <div class="logo">
-                <img src="/static/images/icons/unicef.png" alt="UNICEF">
-            </div>
-        </a>
-
-
-
-        <a class="partenaire-bloc" href="https://www.msomame.org/" target="_blank" rel="noopener noreferrer">
-            <div class="description">
-                <h3> MSO MAME</h3>
-                <p>L'Association poursuit, sans but lucratif, des objectifs civiques, solidaires et
-                    d'utilité
-                    sociale
-                    pour honorer la mémoire de Maman Djommou Colette, en promouvant et en soutenant des projets de
-                    coopération au développement dans des contextes défavorisés du Cameroun, avec une attention
-                    particulière portée au quartier Hà à Bandjoun. Elle soutient des initiatives dans les domaines
-                    de la
-                    santé, de l'éducation, des inégalités de genre, de la formation et de l'économie, dans le
-                    respect
-                    des besoins exprimés par les populations locales.
-                    L'Organisation s'engage également à promouvoir en Italie et ailleurs des réflexions, actions et
-                    comportements en faveur de la construction d'une société responsable et ouverte, dans le respect
-                    de
-                    la Déclaration Universelle des Droits de l'Homme.</p>
-            </div>
-            <div class="logo">
-                <img src="/static/images/icons/WhatsApp Image 2025-05-20 at 09.40.11.jpeg" alt="MSO MAME"
-                    style="width: 100px">
-            </div>
-        </a>
-
-        <a class="partenaire-bloc" href="https://www.unicef.org" target="_blank" rel="noopener noreferrer">
-            <div class="description">
-                <h3>Club des Enfants Joyeux</h3>
-                <p>Le Club des Enfants Joyeux est une association à but non lucratif qui œuvre pour offrir à chaque
-                    enfant, quelle que soit sa situation sociale ou économique, les mêmes chances de s'épanouir, de
-                    sourire et de grandir dans la joie. Nous croyons que l'équité commence dès l'enfance : là où
-                    certains manquent de ressources, de soutien ou d'amour, nous intervenons pour rétablir un équilibre,
-                    par des actions concrètes, ludiques et bienveillantes. Qu'ils soient démunis, orphelins ou
-                    marginalisés, nous agissons pour que tous les enfants aient, eux aussi, droit à une enfance pleine
-                    de rires, d'attention et de dignité.</p>
-            </div>
-            <div class="logo">
-                <img src="/static/images/logo/LOGO CEJ/LOGO CEJ.png" alt="Club des Enfants Joyeux" style="width: 200px">
-            </div>
-        </a>
-        <!-- Ajoute plus de blocs ici si besoin -->
+<!-- ============================================
+     HERO BANNER PARTENAIRES
+     ============================================ -->
+<section class="partenaires-hero" style="background: linear-gradient(rgba(74, 89, 140, 0.85), rgba(20, 133, 164, 0.85)), url('{% static 'images/bannière/PHOTO-2024-12-29-17-30-48.jpg' %}') center/cover;">
+    <div class="partenaires-hero-overlay"></div>
+    <div class="partenaires-hero-content">
+        <h1 class="partenaires-hero-title">Nos Partenaires</h1>
+        <p class="partenaires-hero-subtitle">Ensemble, nous bâtissons un avenir solidaire</p>
     </div>
 </section>
 
 
+<!-- ============================================
+     INTRODUCTION
+     ============================================ -->
+<section class="partenaires-intro">
+    <div class="partenaires-container">
+        <p class="intro-text">
+            La force de DFD réside dans ses partenariats. Grâce à la confiance et à l'engagement de nos partenaires, 
+            nous pouvons mener à bien nos missions humanitaires et sociales. Qu'ils soient associatifs, institutionnels 
+            ou privés, tous partagent nos valeurs de solidarité, d'équité et de développement durable.
+        </p>
+    </div>
+</section>
+
+
+<!-- ============================================
+     PARTENAIRES INSTITUTIONNELS
+     ============================================ -->
+<section class="partenaires-section">
+    <div class="partenaires-container">
+        <h2 class="section-title">
+            <i class="fas fa-landmark"></i> Partenaires Institutionnels
+        </h2>
+
+        <div class="partenaires-grid">
+            <!-- Croix-Rouge -->
+            <a class="partenaire-card" href="https://www.croix-rouge.fr" target="_blank" rel="noopener noreferrer">
+                <div class="partenaire-logo">
+                    <img src="/static/images/icons/croixrouge.png" alt="Croix-Rouge">
+                </div>
+                <div class="partenaire-content">
+                    <h3>Croix-Rouge</h3>
+                    <p>La Croix-Rouge soutient nos actions humanitaires et sociales à travers des dons et des collaborations sur le terrain.</p>
+                </div>
+                <div class="partenaire-link">
+                    <i class="fas fa-external-link-alt"></i> Visiter le site
+                </div>
+            </a>
+
+            <!-- UNICEF -->
+            <a class="partenaire-card" href="https://www.unicef.org" target="_blank" rel="noopener noreferrer">
+                <div class="partenaire-logo">
+                    <img src="/static/images/icons/unicef.png" alt="UNICEF">
+                </div>
+                <div class="partenaire-content">
+                    <h3>UNICEF</h3>
+                    <p>L'UNICEF accompagne nos projets liés à l'enfance et à l'éducation, en fournissant des ressources et du soutien logistique.</p>
+                </div>
+                <div class="partenaire-link">
+                    <i class="fas fa-external-link-alt"></i> Visiter le site
+                </div>
+            </a>
+        </div>
+    </div>
+</section>
+
+
+<!-- ============================================
+     PARTENAIRES ASSOCIATIFS
+     ============================================ -->
+<section class="partenaires-section alt-bg">
+    <div class="partenaires-container">
+        <h2 class="section-title">
+            <i class="fas fa-hands-helping"></i> Partenaires Associatifs
+        </h2>
+
+        <div class="partenaires-grid">
+            <!-- MSO MAME -->
+            <a class="partenaire-card" href="https://www.msomame.org/" target="_blank" rel="noopener noreferrer">
+                <div class="partenaire-logo">
+                    <img src="/static/images/icons/WhatsApp Image 2025-05-20 at 09.40.11.jpeg" alt="MSO MAME">
+                </div>
+                <div class="partenaire-content">
+                    <h3>MSO MAME</h3>
+                    <p>L'Association poursuit des objectifs civiques, solidaires et d'utilité sociale pour honorer la mémoire de Maman Djommou Colette. Elle soutient des projets de coopération au développement dans des contextes défavorisés du Cameroun, avec une attention particulière au quartier Hà à Bandjoun. Ses initiatives touchent la santé, l'éducation, l'égalité de genre, la formation et l'économie.</p>
+                </div>
+                <div class="partenaire-link">
+                    <i class="fas fa-external-link-alt"></i> Visiter le site
+                </div>
+            </a>
+
+            <!-- Club des Enfants Joyeux -->
+            <a class="partenaire-card" href="#" target="_blank" rel="noopener noreferrer">
+                <div class="partenaire-logo">
+                    <img src="/static/images/logo/LOGO CEJ/LOGO CEJ.png" alt="Club des Enfants Joyeux">
+                </div>
+                <div class="partenaire-content">
+                    <h3>Club des Enfants Joyeux</h3>
+                    <p>Le Club des Enfants Joyeux œuvre pour offrir à chaque enfant, quelle que soit sa situation sociale ou économique, les mêmes chances de s'épanouir. Par des actions concrètes, ludiques et bienveillantes, l'association intervient auprès d'enfants démunis, orphelins ou marginalisés pour leur garantir une enfance pleine de rires, d'attention et de dignité.</p>
+                </div>
+                <div class="partenaire-link">
+                    <i class="fas fa-external-link-alt"></i> En savoir plus
+                </div>
+            </a>
+
+            <!-- CERAB -->
+            <a class="partenaire-card" href="https://www.facebook.com/profile.php/?id=61562782211059" target="_blank" rel="noopener noreferrer">
+                <div class="partenaire-logo">
+                    <img src="/static/images/logo/CERAB.png" alt="CERAB">
+                </div>
+                <div class="partenaire-content">
+                    <h3>CERAB</h3>
+                    <p>Le Centre Évangélique La Rédemption Abondante se présente comme une véritable famille ouverte à tous. Porté par des valeurs d'amour, d'espérance et d'unité, le CERAB développe un engagement social réel, notamment à travers des actions comme la visite des prisons, traduisant la grâce en gestes qui relèvent et soutiennent.</p>
+                </div>
+                <div class="partenaire-link">
+                    <i class="fab fa-facebook"></i> Page Facebook
+                </div>
+            </a>
+
+            <!-- VOESDA -->
+            <a class="partenaire-card" href="https://ongvoesda.com/" target="_blank" rel="noopener noreferrer">
+                <div class="partenaire-logo">
+                    <img src="/static/images/logo/VOESDA.png" alt="VOESDA">
+                </div>
+                <div class="partenaire-content">
+                    <h3>VOESDA</h3>
+                    <p>L'ONG « Vista Organisation for Education and Social Development in Africa » est une organisation à vocation socio-humanitaire dotée d'un statut spécial auprès de l'ONU (ECOSOC). Créée en 2008, VOESDA implémente de nombreux projets de développement conformément à l'Agenda-30, visant à soutenir les communautés vulnérables.</p>
+                </div>
+                <div class="partenaire-link">
+                    <i class="fas fa-external-link-alt"></i> Visiter le site
+                </div>
+            </a>
+        </div>
+    </div>
+</section>
+
+
+<!-- ============================================
+     PARTENAIRES COMMERCIAUX & ENTREPRISES
+     ============================================ -->
+<section class="partenaires-section">
+    <div class="partenaires-container">
+        <h2 class="section-title">
+            <i class="fas fa-building"></i> Partenaires Commerciaux & Entreprises
+        </h2>
+
+        <div class="partenaires-grid">
+            <!-- Gasep Shalom / Eden -->
+            <a class="partenaire-card" href="https://www.facebook.com/GasepEden" target="_blank" rel="noopener noreferrer">
+                <div class="partenaire-logo">
+                    <img src="/static/images/logo/GASEPSHALOM.png" alt="Gasep Shalom / Eden">
+                </div>
+                <div class="partenaire-content">
+                    <h3>Gasep Shalom / Eden</h3>
+                    <p>Eden est un réseau de boulangerie-pâtisserie locale situé au carrefour Lele à Nkongsamba et dans plusieurs villes du Cameroun. Eden prône la consommation et la valorisation des produits locaux, proposant du pain frais, des viennoiseries, des gâteaux et des pâtisseries locales.</p>
+                </div>
+                <div class="partenaire-link">
+                    <i class="fab fa-facebook"></i> Page Facebook
+                </div>
+            </a>
+
+            <!-- Yan-Topo -->
+            <a class="partenaire-card" href="https://www.facebook.com/profile.php?id=100065136837267" target="_blank" rel="noopener noreferrer">
+                <div class="partenaire-logo">
+                    <img src="/static/images/logo/YANN-TOPO.png" alt="Yan-Topo">
+                </div>
+                <div class="partenaire-content">
+                    <h3>Yan-Topo</h3>
+                    <p>YAN-TOPO est une entreprise privée sous-traitante située à Yaoundé, spécialisée dans la géomatique : lotissement et morcellement de terrains en collaboration avec des experts géomètres, accompagnement dans les procédures d'obtention de terrain, vente de terrains et équipements topographiques.</p>
+                </div>
+                <div class="partenaire-link">
+                    <i class="fab fa-facebook"></i> Page Facebook
+                </div>
+            </a>
+
+            <!-- Paracouri Express -->
+            <a class="partenaire-card" href="https://www.facebook.com/profile.php?id=61578111533518" target="_blank" rel="noopener noreferrer">
+                <div class="partenaire-logo">
+                    <img src="/static/images/logo/PARACOURI.png" alt="Paracouri Express">
+                </div>
+                <div class="partenaire-content">
+                    <h3>Paracouri Express</h3>
+                    <p>Paracouri Express est un service de livraison rapide, fiable et professionnelle à Douala. Que vous soyez particulier, commerçant ou entreprise, Paracouri livre vos colis avec efficacité – en intraville comme en extraville, 7J/7 !</p>
+                </div>
+                <div class="partenaire-link">
+                    <i class="fab fa-facebook"></i> Page Facebook
+                </div>
+            </a>
+
+            <!-- PricyChic -->
+            <a class="partenaire-card" href="https://www.facebook.com/profile.php?id=61572885445907" target="_blank" rel="noopener noreferrer">
+                <div class="partenaire-logo">
+                    <img src="/static/images/logo/PRICYCHIC.png" alt="PricyChic">
+                </div>
+                <div class="partenaire-content">
+                    <h3>PricyChic</h3>
+                    <p>PricyChic est une boutique en ligne spécialisée dans la sélection et l'envoi d'articles de mode provenant d'Europe. Elle propose des vêtements, accessoires et articles tendance soigneusement choisis pour offrir un style moderne à des prix accessibles.</p>
+                </div>
+                <div class="partenaire-link">
+                    <i class="fab fa-facebook"></i> Page Facebook
+                </div>
+            </a>
+
+            <!-- DioPharm -->
+            <a class="partenaire-card" href="https://www.linkedin.com/in/dr-fabrice-tiba-phd-112ab155/" target="_blank" rel="noopener noreferrer">
+                <div class="partenaire-logo">
+                    <img src="/static/images/logo/DIOPHARM.png" alt="DioPharm">
+                </div>
+                <div class="partenaire-content">
+                    <h3>DioPharm</h3>
+                    <p>Diopharm est une entreprise spécialisée dans les tests et la distribution de médicaments à l'échelle internationale. Dirigée par le Dr Fabrice Tiba, elle veille à la qualité et à la sécurité des produits pharmaceutiques, assurant leur acheminement vers différents pays.</p>
+                </div>
+                <div class="partenaire-link">
+                    <i class="fab fa-linkedin"></i> LinkedIn
+                </div>
+            </a>
+
+            <!-- Kiam Group -->
+            <a class="partenaire-card" href="#" target="_blank" rel="noopener noreferrer">
+                <div class="partenaire-logo">
+                    <img src="/static/images/logo/Kiam Group.png" alt="Kiam Group">
+                </div>
+                <div class="partenaire-content">
+                    <h3>Kiam Group</h3>
+                    <p>Kiam Group, basé à Yaoundé, est une entreprise polyvalente combinant technologies numériques et communication visuelle. Elle propose des services de développement web et mobile, hébergement, design graphique, sérigraphie et accompagne ses clients dans des projets digitaux et marketing.</p>
+                </div>
+                <div class="partenaire-link">
+                    <i class="fas fa-external-link-alt"></i> En savoir plus
+                </div>
+            </a>
+
+            <!-- La Grâce Divine -->
+            <a class="partenaire-card" href="#" target="_blank" rel="noopener noreferrer">
+                <div class="partenaire-logo">
+                    <img src="/static/images/logo/LA GRACE DIVINE.png" alt="La Grâce Divine">
+                </div>
+                <div class="partenaire-content">
+                    <h3>Fondation Médicale La Grâce Divine</h3>
+                    <p>Partenaire médical de DFD pour les campagnes de santé gratuite. La Fondation La Grâce Divine, située à Etam Bafia, collabore avec nous pour offrir des soins de qualité aux populations vulnérables.</p>
+                </div>
+                <div class="partenaire-link">
+                    <i class="fas fa-hospital"></i> Partenaire médical
+                </div>
+            </a>
+        </div>
+    </div>
+</section>
+
+
+<!-- ============================================
+     CTA - DEVENIR PARTENAIRE
+     ============================================ -->
+<section class="partenaires-cta-section">
+    <div class="partenaires-cta-container">
+        <div class="partenaires-cta-content">
+            <h2>Vous souhaitez devenir partenaire ?</h2>
+            <p>Rejoignez notre réseau de partenaires engagés et contribuez à nos actions de développement social et humanitaire.</p>
+            
+            <div class="cta-buttons">
+                <a href="{% url 'contact' %}" class="btn-cta primary">
+                    <i class="fas fa-envelope"></i> Nous contacter
+                </a>
+                <a href="{% url 'participer' %}" class="btn-cta secondary">
+                    <i class="fas fa-handshake"></i> Devenir membre
+                </a>
+            </div>
+        </div>
+        
+        <div class="partenaires-cta-stats">
+            <div class="stat-item">
+                <div class="stat-number">15+</div>
+                <div class="stat-label">Partenaires actifs</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">3</div>
+                <div class="stat-label">Pays représentés</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">1000+</div>
+                <div class="stat-label">Bénéficiaires aidés</div>
+            </div>
+        </div>
+    </div>
+</section>
 
 {% endblock %}

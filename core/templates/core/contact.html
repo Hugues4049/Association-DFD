@@ -6,70 +6,62 @@
 
 {% block content %}
 
+<link rel="stylesheet" href="{% static 'css/blog-contact.css' %}">
+
 <!-- Hero Section -->
-<section style="background: linear-gradient(135deg, #1f1451 0%, #1a73e8 100%); padding: 5rem 2rem; text-align: center; color: white; position: relative; overflow: hidden;">
-    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; 
-                background: url('{% static 'images/bannière/PHOTO-2024-12-29-17-30-48.jpg' %}') center/cover; 
-                opacity: 0.25;">
-    </div>
-    <div style="max-width: 1200px; margin: 0 auto;">
-        <i class="fas fa-envelope" style="font-size: 4rem; margin-bottom: 1rem;"></i>
-        <h1 style="font-size: 2.5rem; margin-bottom: 1rem; font-weight: 700;">Contactez-nous</h1>
-        <p style="font-size: 1.3rem; opacity: 0.95; font-weight: 300; color: white;">Nous sommes à votre écoute</p>
+<section class="contact-hero">
+    <div class="contact-hero-bg" style="background-image: url('{% static 'images/bannière/PHOTO-2024-12-29-17-30-48.jpg' %}');"></div>
+    <div class="contact-hero-content">
+        <i class="fas fa-envelope contact-hero-icon"></i>
+        <h1>Contactez-nous</h1>
+        <p class="contact-hero-subtitle">Nous sommes à votre écoute</p>
     </div>
 </section>
 
 <!-- Section Contact -->
-<section style="padding: 5rem 2rem; background: #f8f9fa;">
-    <div style="max-width: 1200px; margin: 0 auto;">
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start;">
+<section class="contact-layout">
+    <div class="contact-container">
+        <div class="contact-grid">
             
             <!-- Formulaire de contact -->
-            <div style="background: white; padding: 3rem; border-radius: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.12);">
-                <h2 style="color: #1f1451; font-size: 1.8rem; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.75rem;">
-                    <i class="fas fa-paper-plane" style="color: #1a73e8;"></i>
+            <div class="contact-form-section">
+                <h2>
+                    <i class="fas fa-paper-plane"></i>
                     Envoyez-nous un message
                 </h2>
                 <p style="color: #5a6c7d; margin-bottom: 2rem; line-height: 1.7;">
                     Remplissez ce formulaire et nous vous répondrons dans les plus brefs délais.
                 </p>
 
-                <form method="POST" action="{% url 'contact' %}">
+                <form class="contact-form" method="POST" action="{% url 'contact' %}">
                     {% csrf_token %}
                     
-                    <div style="margin-bottom: 1.5rem;">
+                    <div>
                         <label style="display: block; color: #1f1451; font-weight: 600; margin-bottom: 0.5rem;">
                             <i class="fas fa-user"></i> Nom complet *
                         </label>
-                        <input type="text" name="nom" required
-                               style="width: 100%; padding: 1rem; border: 2px solid #e5e7eb; border-radius: 10px; font-size: 1rem; transition: border 0.3s;"
-                               placeholder="Votre nom et prénom">
+                        <input type="text" name="nom" required placeholder="Votre nom et prénom">
                     </div>
 
-                    <div style="margin-bottom: 1.5rem;">
+                    <div>
                         <label style="display: block; color: #1f1451; font-weight: 600; margin-bottom: 0.5rem;">
                             <i class="fas fa-envelope"></i> Email *
                         </label>
-                        <input type="email" name="email" required
-                               style="width: 100%; padding: 1rem; border: 2px solid #e5e7eb; border-radius: 10px; font-size: 1rem; transition: border 0.3s;"
-                               placeholder="votre.email@exemple.com">
+                        <input type="email" name="email" required placeholder="votre.email@exemple.com">
                     </div>
 
-                    <div style="margin-bottom: 1.5rem;">
+                    <div>
                         <label style="display: block; color: #1f1451; font-weight: 600; margin-bottom: 0.5rem;">
                             <i class="fas fa-phone"></i> Téléphone (optionnel)
                         </label>
-                        <input type="tel" name="telephone"
-                               style="width: 100%; padding: 1rem; border: 2px solid #e5e7eb; border-radius: 10px; font-size: 1rem; transition: border 0.3s;"
-                               placeholder="+237 xxx xxx xxx">
+                        <input type="tel" name="telephone" placeholder="+237 xxx xxx xxx">
                     </div>
 
-                    <div style="margin-bottom: 1.5rem;">
+                    <div>
                         <label style="display: block; color: #1f1451; font-weight: 600; margin-bottom: 0.5rem;">
                             <i class="fas fa-tag"></i> Sujet
                         </label>
-                        <select name="sujet"
-                                style="width: 100%; padding: 1rem; border: 2px solid #e5e7eb; border-radius: 10px; font-size: 1rem; transition: border 0.3s;">
+                        <select name="sujet">
                             <option value="">Sélectionnez un sujet</option>
                             <option value="information">Demande d'information</option>
                             <option value="partenariat">Partenariat</option>
@@ -80,17 +72,14 @@
                         </select>
                     </div>
 
-                    <div style="margin-bottom: 2rem;">
+                    <div>
                         <label style="display: block; color: #1f1451; font-weight: 600; margin-bottom: 0.5rem;">
                             <i class="fas fa-comment"></i> Votre message *
                         </label>
-                        <textarea name="message" required rows="6"
-                                  style="width: 100%; padding: 1rem; border: 2px solid #e5e7eb; border-radius: 10px; font-size: 1rem; resize: vertical; transition: border 0.3s;"
-                                  placeholder="Décrivez votre demande en détail..."></textarea>
+                        <textarea name="message" required rows="6" placeholder="Décrivez votre demande en détail..."></textarea>
                     </div>
 
-                    <button type="submit"
-                            style="width: 100%; padding: 1.2rem; background: linear-gradient(135deg, #1a73e8 0%, #1f1451 100%); color: white; border: none; border-radius: 10px; font-size: 1.1rem; font-weight: 700; cursor: pointer; transition: transform 0.3s; box-shadow: 0 4px 12px rgba(26, 115, 232, 0.3);">
+                    <button type="submit" class="contact-form-btn">
                         <i class="fas fa-paper-plane"></i> Envoyer le message
                     </button>
 
@@ -103,18 +92,18 @@
             <!-- Informations de contact -->
             <div>
                 <!-- Carte coordonnées -->
-                <div style="background: white; padding: 2.5rem; border-radius: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.12); margin-bottom: 2rem;">
-                    <h2 style="color: #1f1451; font-size: 1.8rem; margin-bottom: 2rem; display: flex; align-items: center; gap: 0.75rem;">
-                        <i class="fas fa-map-marker-alt" style="color: #e74c3c;"></i>
+                <div class="contact-coordonnees-card">
+                    <h2>
+                        <i class="fas fa-map-marker-alt"></i>
                         Nos coordonnées
                     </h2>
 
                     <!-- Adresse -->
-                    <div style="margin-bottom: 2rem; padding: 1.5rem; background: #f8f9fa; border-radius: 12px; border-left: 4px solid #e74c3c;">
-                        <h3 style="color: #1f1451; font-size: 1.1rem; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <div class="coordonnee-block coordonnee-adresse">
+                        <h3>
                             <i class="fas fa-building"></i> Siège social
                         </h3>
-                        <p style="color: #5a6c7d; line-height: 1.7; margin: 0;">
+                        <p>
                             Yaoundé face Hôtel SOMMATEL<br>
                             Palais des sports<br>
                             Cameroun
@@ -122,73 +111,67 @@
                     </div>
 
                     <!-- Téléphone -->
-                    <div style="margin-bottom: 2rem; padding: 1.5rem; background: #f8f9fa; border-radius: 12px; border-left: 4px solid #27ae60;">
-                        <h3 style="color: #1f1451; font-size: 1.1rem; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <div class="coordonnee-block coordonnee-telephone">
+                        <h3>
                             <i class="fas fa-phone"></i> Téléphone
                         </h3>
-                        <a href="tel:+393663329990" 
-                           style="color: #1a73e8; font-size: 1.2rem; font-weight: 600; text-decoration: none; display: flex; align-items: center; gap: 0.5rem;">
+                        <a href="tel:+393663329990">
                             <i class="fab fa-whatsapp" style="color: #25d366;"></i>
                             +39 366 332 9990
                         </a>
                     </div>
 
                     <!-- Email -->
-                    <div style="margin-bottom: 2rem; padding: 1.5rem; background: #f8f9fa; border-radius: 12px; border-left: 4px solid #3498db;">
-                        <h3 style="color: #1f1451; font-size: 1.1rem; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <div class="coordonnee-block coordonnee-email">
+                        <h3>
                             <i class="fas fa-envelope"></i> Email
                         </h3>
-                        <a href="mailto:dreams.family.development@gmail.com" 
-                           style="color: #1a73e8; font-weight: 600; text-decoration: none; word-break: break-all;">
+                        <a href="mailto:dreams.family.development@gmail.com">
                             dreams.family.development@gmail.com
                         </a>
                     </div>
 
                     <!-- Horaires -->
-                    <div style="padding: 1.5rem; background: #f8f9fa; border-radius: 12px; border-left: 4px solid #f39c12;">
-                        <h3 style="color: #1f1451; font-size: 1.1rem; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem;">
-                            <i class="fas fa-clock"></i> Horaires
+                    <div class="coordonnee-block coordonnee-horaires">
+                        <h3>
+                            <i class="fas fa-clock"></i> Horaires d'ouverture
                         </h3>
-                        <p style="color: #5a6c7d; line-height: 1.7; margin: 0;">
-                            Lundi - Vendredi : 9h - 17h<br>
-                            Samedi : 9h - 13h<br>
-                            Dimanche : Fermé
-                        </p>
+                        <ul>
+                            <li><strong>Lundi - Vendredi :</strong> 09h00 - 17h00</li>
+                            <li><strong>Samedi :</strong> 10h00 - 14h00</li>
+                            <li><strong>Dimanche :</strong> Fermé</li>
+                        </ul>
                     </div>
                 </div>
 
                 <!-- Réseaux sociaux -->
-                <div style="background: linear-gradient(135deg, #1f1451 0%, #1a73e8 100%); padding: 2.5rem; border-radius: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.12); color: white;">
-                    <h2 style="font-size: 1.5rem; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.75rem;">
+                <div class="contact-social-card">
+                    <h2>
                         <i class="fas fa-share-alt"></i>
                         Suivez-nous
                     </h2>
-                    <p style="opacity: 0.9; margin-bottom: 2rem; line-height: 1.7;">
+                    <p>
                         Restez connecté avec DFD sur les réseaux sociaux pour ne rien manquer de nos actualités.
                     </p>
 
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
-                        <a href="https://fb.watch/zBziUXihrm/" target="_blank"
-                           style="display: flex; align-items: center; justify-content: center; gap: 0.75rem; padding: 1rem; background: rgba(255,255,255,0.15); border-radius: 10px; color: white; text-decoration: none; font-weight: 600; transition: all 0.3s; backdrop-filter: blur(10px);">
-                            <i class="fab fa-facebook-f" style="font-size: 1.5rem;"></i>
+                    <div class="social-grid">
+                        <a href="https://fb.watch/zBziUXihrm/" target="_blank" class="social-btn">
+                            <i class="fab fa-facebook-f"></i>
                             Facebook
                         </a>
 
-                        <a href="https://www.instagram.com/dreams_family_of_development" target="_blank"
-                           style="display: flex; align-items: center; justify-content: center; gap: 0.75rem; padding: 1rem; background: rgba(255,255,255,0.15); border-radius: 10px; color: white; text-decoration: none; font-weight: 600; transition: all 0.3s; backdrop-filter: blur(10px);">
-                            <i class="fab fa-instagram" style="font-size: 1.5rem;"></i>
+                        <a href="https://www.instagram.com/dreams_family_of_development" target="_blank" class="social-btn">
+                            <i class="fab fa-instagram"></i>
                             Instagram
                         </a>
 
-                        <a href="https://wa.me/393663329990" target="_blank"
-                           style="display: flex; align-items: center; justify-content: center; gap: 0.75rem; padding: 1rem; background: rgba(255,255,255,0.15); border-radius: 10px; color: white; text-decoration: none; font-weight: 600; transition: all 0.3s; backdrop-filter: blur(10px);">
-                            <i class="fab fa-whatsapp" style="font-size: 1.5rem;"></i>
+                        <a href="https://wa.me/393663329990" target="_blank" class="social-btn">
+                            <i class="fab fa-whatsapp"></i>
                             WhatsApp
                         </a>
 
-                        <a href="mailto:dreams.family.development@gmail.com"
-                           style="display: flex; align-items: center; justify-content: center; gap: 0.75rem; padding: 1rem; background: rgba(255,255,255,0.15); border-radius: 10px; color: white; text-decoration: none; font-weight: 600; transition: all 0.3s; backdrop-filter: blur(10px);">
-                            <i class="fas fa-envelope" style="font-size: 1.5rem;"></i>
+                        <a href="mailto:dreams.family.development@gmail.com" class="social-btn">
+                            <i class="fas fa-envelope"></i>
                             Email
                         </a>
                     </div>
@@ -199,12 +182,11 @@
 </section>
 
 <!-- Carte interactive -->
-<section style="padding: 0; height: 450px; position: relative;">
+<section class="map-section">
     <iframe 
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3980.7157665894895!2d11.515742!3d3.8599389!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x108bcf8f684c1e7d%3A0x1234567890abcdef!2sPalais%20des%20Sports%2C%20Yaound%C3%A9%2C%20Cameroun!5e0!3m2!1sfr!2sfr!4v1234567890123!5m2!1sfr!2sfr"
         width="100%" 
         height="450" 
-        style="border:0;" 
         allowfullscreen="" 
         loading="lazy" 
         referrerpolicy="no-referrer-when-downgrade">
@@ -212,87 +194,57 @@
 </section>
 
 <!-- FAQ rapide -->
-<section style="padding: 5rem 2rem; background: white;">
-    <div style="max-width: 900px; margin: 0 auto;">
-        <h2 style="text-align: center; color: #1f1451; font-size: 2.2rem; margin-bottom: 1rem;">
-            <i class="fas fa-question-circle" style="color: #1a73e8;"></i> Questions fréquentes
+<section class="faq-section">
+    <div class="faq-container">
+        <h2>
+            <i class="fas fa-question-circle"></i> Questions fréquentes
         </h2>
-        <p style="text-align: center; color: #5a6c7d; font-size: 1.1rem; margin-bottom: 3rem;">
+        <p class="faq-intro">
             Trouvez rapidement des réponses à vos questions
         </p>
 
-        <div style="display: flex; flex-direction: column; gap: 1.5rem;">
-            <details style="background: #f8f9fa; padding: 1.5rem; border-radius: 12px; cursor: pointer;">
-                <summary style="font-weight: 700; color: #1f1451; font-size: 1.1rem; list-style: none; display: flex; align-items: center; gap: 0.75rem;">
-                    <i class="fas fa-chevron-down" style="color: #1a73e8; font-size: 0.8rem;"></i>
+        <div class="faq-list">
+            <details class="faq-item">
+                <summary>
+                    <i class="fas fa-chevron-down"></i>
                     Comment puis-je faire un don ?
                 </summary>
-                <p style="color: #5a6c7d; margin-top: 1rem; padding-left: 1.5rem; line-height: 1.7;">
-                    Vous pouvez faire un don directement sur notre <a href="{% url 'don' %}" style="color: #1a73e8; font-weight: 600;">page de don</a> en ligne. Nous acceptons les paiements sécurisés par carte bancaire.
+                <p>
+                    Vous pouvez faire un don directement sur notre <a href="{% url 'don' %}">page de don</a> en ligne. Nous acceptons les paiements sécurisés par carte bancaire.
                 </p>
             </details>
 
-            <details style="background: #f8f9fa; padding: 1.5rem; border-radius: 12px; cursor: pointer;">
-                <summary style="font-weight: 700; color: #1f1451; font-size: 1.1rem; list-style: none; display: flex; align-items: center; gap: 0.75rem;">
-                    <i class="fas fa-chevron-down" style="color: #1a73e8; font-size: 0.8rem;"></i>
+            <details class="faq-item">
+                <summary>
+                    <i class="fas fa-chevron-down"></i>
                     Comment devenir bénévole ?
                 </summary>
-                <p style="color: #5a6c7d; margin-top: 1rem; padding-left: 1.5rem; line-height: 1.7;">
-                    Rendez-vous sur notre <a href="{% url 'participer' %}#benevole" style="color: #1a73e8; font-weight: 600;">page Participer</a> et remplissez le formulaire de candidature bénévole. Notre équipe vous contactera rapidement.
+                <p>
+                    Rendez-vous sur notre <a href="{% url 'participer' %}#benevole">page Participer</a> et remplissez le formulaire de candidature bénévole. Notre équipe vous contactera rapidement.
                 </p>
             </details>
 
-            <details style="background: #f8f9fa; padding: 1.5rem; border-radius: 12px; cursor: pointer;">
-                <summary style="font-weight: 700; color: #1f1451; font-size: 1.1rem; list-style: none; display: flex; align-items: center; gap: 0.75rem;">
-                    <i class="fas fa-chevron-down" style="color: #1a73e8; font-size: 0.8rem;"></i>
+            <details class="faq-item">
+                <summary>
+                    <i class="fas fa-chevron-down"></i>
                     Puis-je visiter vos locaux ?
                 </summary>
-                <p style="color: #5a6c7d; margin-top: 1rem; padding-left: 1.5rem; line-height: 1.7;">
+                <p>
                     Oui ! Nous accueillons les visiteurs sur rendez-vous. Contactez-nous par téléphone ou email pour planifier votre visite.
                 </p>
             </details>
 
-            <details style="background: #f8f9fa; padding: 1.5rem; border-radius: 12px; cursor: pointer;">
-                <summary style="font-weight: 700; color: #1f1451; font-size: 1.1rem; list-style: none; display: flex; align-items: center; gap: 0.75rem;">
-                    <i class="fas fa-chevron-down" style="color: #1a73e8; font-size: 0.8rem;"></i>
+            <details class="faq-item">
+                <summary>
+                    <i class="fas fa-chevron-down"></i>
                     Organisez-vous des événements publics ?
                 </summary>
-                <p style="color: #5a6c7d; margin-top: 1rem; padding-left: 1.5rem; line-height: 1.7;">
+                <p>
                     Oui, nous organisons régulièrement des campagnes et événements. Suivez-nous sur les réseaux sociaux pour être informé de nos prochaines actions.
                 </p>
             </details>
         </div>
     </div>
 </section>
-
-<style>
-input:focus, textarea:focus, select:focus {
-    outline: none;
-    border-color: #1a73e8 !important;
-    box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.1);
-}
-
-button:hover {
-    transform: translateY(-2px);
-}
-
-details summary:hover {
-    color: #1a73e8;
-}
-
-details[open] summary i {
-    transform: rotate(180deg);
-}
-
-details summary i {
-    transition: transform 0.3s;
-}
-
-@media (max-width: 968px) {
-    section > div:first-child {
-        grid-template-columns: 1fr !important;
-    }
-}
-</style>
 
 {% endblock %}

@@ -532,3 +532,104 @@
         transform: translateY(0);
     }
 }
+
+
+/* ============================================
+   10. FORMULAIRE TÉMOIGNAGES
+   ============================================ */
+.testimonial-form-block {
+    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+}
+
+.testimonial-form {
+    max-width: 700px;
+    margin: 2rem auto 0;
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.form-checkbox {
+    margin-bottom: 1.5rem;
+}
+
+.form-checkbox label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.form-checkbox input[type="checkbox"] {
+    width: auto;
+    cursor: pointer;
+}
+
+.btn-submit-form {
+    width: 100%;
+    background: linear-gradient(135deg, #1a73e8 0%, #125dc0 100%);
+    color: white;
+    padding: 1rem;
+    border: none;
+    border-radius: 50px;
+    font-weight: 700;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 16px rgba(26, 115, 232, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+}
+
+.btn-submit-form:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(26, 115, 232, 0.4);
+}
+
+/* Responsive formulaire */
+@media (max-width: 640px) {
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .testimonial-form {
+        padding: 1.5rem;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -5,15 +5,12 @@
 {% block content %}
 <link rel="stylesheet" href="{% static 'css/antennes.css' %}">
 
-<section class="antenne-hero coming-soon-overlay" style="background-image: linear-gradient(rgba(0, 146, 70, 0.85), rgba(206, 43, 55, 0.85));padding: 5rem 2rem; text-align: center; color: white; position: relative; overflow: hidden;">
-    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; 
-                background: url('{% static 'images/bannière/PHOTO-2024-12-29-17-30-48.jpg' %}') center/cover; 
-                opacity: 0.25;">
-    </div>
+<!-- Hero Section avec overlay "À venir" -->
+<section class="antenne-hero coming-soon-overlay" style="background: linear-gradient(rgba(0, 146, 70, 0.85), rgba(206, 43, 55, 0.85)), url('{% static 'images/bannière/PHOTO-2024-12-29-17-30-48.jpg' %}') center/cover;">
     <div class="antenne-hero-content">
         <img src="{% static 'images/flags/italie.png' %}" alt="Drapeau Italie" class="antenne-flag">
         <h1>DFD Italia</h1>
-        <p class="antenne-tagline", style="color: white;">Presto in Italia!</p>
+        <p class="antenne-tagline">Presto in Italia!</p>
     </div>
     <div class="coming-soon-badge">PROSSIMAMENTE - 2025</div>
 </section>
@@ -69,12 +66,12 @@
 
     <!-- Villes cibles -->
     <div class="presentation-block">
-        <h2>�� Città Italiane Target</h2>
+        <h2>🗺️ Città Italiane Target</h2>
         <div class="zones-intervention">
             <div class="zone-badge">
                 <i class="fas fa-landmark"></i>
                 <h3>Roma</h3>
-                <p>Sede principale</p>
+                <p>Antenna Piemonte</p>
             </div>
             <div class="zone-badge">
                 <i class="fas fa-landmark"></i>
@@ -84,7 +81,7 @@
             <div class="zone-badge">
                 <i class="fas fa-landmark"></i>
                 <h3>Torino</h3>
-                <p>Antenna Piemonte</p>
+                <p>Sede principale</p>
             </div>
             <div class="zone-badge">
                 <i class="fas fa-landmark"></i>
@@ -108,39 +105,39 @@
     <div class="presentation-block">
         <h2>🤝 I Nostri Partner Potenziali</h2>
         <p>Nous sommes en discussion avec plusieurs organisations italiennes engagées dans le développement international :</p>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 2rem;">
-            <div style="background: white; padding: 1.5rem; border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); text-align: center;">
-                <h3 style="color: var(--color-primary); margin-bottom: 0.5rem;">MSO MAME</h3>
-                <p style="color: var(--color-text-secondary); font-size: 0.9rem;">Partenaire actuel en Italie</p>
+        <div class="partners-preview-grid">
+            <div class="partner-preview-card">
+                <h3>MSO MAME</h3>
+                <p>Partenaire actuel en Italie</p>
             </div>
-            <div style="background: white; padding: 1.5rem; border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); text-align: center;">
-                <h3 style="color: var(--color-primary); margin-bottom: 0.5rem;">ONG Italiennes</h3>
-                <p style="color: var(--color-text-secondary); font-size: 0.9rem;">En cours de discussion</p>
+            <div class="partner-preview-card">
+                <h3>ONG Italiennes</h3>
+                <p>En cours de discussion</p>
             </div>
-            <div style="background: white; padding: 1.5rem; border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); text-align: center;">
-                <h3 style="color: var(--color-primary); margin-bottom: 0.5rem;">Entreprises</h3>
-                <p style="color: var(--color-text-secondary); font-size: 0.9rem;">RSE et mécénat</p>
+            <div class="partner-preview-card">
+                <h3>Entreprises</h3>
+                <p>RSE et mécénat</p>
             </div>
         </div>
     </div>
 
     <!-- Pré-inscription -->
-    <div class="presentation-block" style="background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);">
+    <div class="presentation-block preinscription-block preinscription-italia">
         <h2>📝 Pre-Registrazione - Iscriviti Ora!</h2>
-        <p style="font-size: 1.1rem; margin-bottom: 2rem;">Sei in Italia e vuoi essere informato/a dall'apertura della nostra antenna? Lasciaci i tuoi contatti!</p>
-        <form action="/pre-iscrizione-italia" method="post" style="max-width: 600px; margin: 0 auto; background: white; padding: 2rem; border-radius: var(--radius-lg); box-shadow: var(--shadow-md);">
+        <p class="preinscription-intro">Sei in Italia e vuoi essere informato/a dall'apertura della nostra antenna? Lasciaci i tuoi contatti!</p>
+        <form action="/pre-iscrizione-italia" method="post" class="preinscription-form">
             {% csrf_token %}
-            <div style="margin-bottom: 1rem;">
-                <input type="text" name="nome" placeholder="Nome completo" required style="width: 100%; padding: 0.875rem; border: 2px solid #e5e7eb; border-radius: var(--radius-md);">
+            <div class="form-group">
+                <input type="text" name="nome" placeholder="Nome completo" required class="form-input">
             </div>
-            <div style="margin-bottom: 1rem;">
-                <input type="email" name="email" placeholder="Email" required style="width: 100%; padding: 0.875rem; border: 2px solid #e5e7eb; border-radius: var(--radius-md);">
+            <div class="form-group">
+                <input type="email" name="email" placeholder="Email" required class="form-input">
             </div>
-            <div style="margin-bottom: 1rem;">
-                <input type="text" name="citta" placeholder="Città (Italia)" required style="width: 100%; padding: 0.875rem; border: 2px solid #e5e7eb; border-radius: var(--radius-md);">
+            <div class="form-group">
+                <input type="text" name="citta" placeholder="Città (Italia)" required class="form-input">
             </div>
-            <div style="margin-bottom: 1.5rem;">
-                <select name="interesse" style="width: 100%; padding: 0.875rem; border: 2px solid #e5e7eb; border-radius: var(--radius-md);">
+            <div class="form-group">
+                <select name="interesse" class="form-input">
                     <option value="">Come vuoi contribuire?</option>
                     <option value="volontario">Diventare volontario</option>
                     <option value="donatore">Fare donazioni regolari</option>
@@ -149,7 +146,7 @@
                     <option value="altro">Altro</option>
                 </select>
             </div>
-            <button type="submit" class="btn" style="width: 100%; background: var(--gradient-accent); color: white; padding: 1rem; border: none; border-radius: var(--radius-full); font-weight: 700; cursor: pointer;">
+            <button type="submit" class="btn btn-submit-form">
                 <i class="fas fa-paper-plane"></i> ISCRIVITI
             </button>
         </form>

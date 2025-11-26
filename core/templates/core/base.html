@@ -190,6 +190,11 @@
                             <i class="fas fa-newspaper"></i> Articles
                         </a>
                     </li>
+                    <li class="mobile-submenu-item">
+                        <a href="{% url 'partenaires' %}" class="mobile-submenu-link">
+                            <i class="fas fa-handshake"></i> Nos partenaires
+                        </a>
+                    </li>
                 </ul>
             </li>
             
@@ -327,6 +332,7 @@
                     <li><a href="{% url 'galerie' %}"><i class="fas fa-images"></i> Galerie</a></li>
                     <li><a href="{% url 'documents' %}"><i class="fas fa-book"></i> Bibliothèque</a></li>
                     <li><a href="{% url 'blog' %}"><i class="fas fa-newspaper"></i> Articles</a></li>
+                    <li><a href="{% url 'partenaires' %}"><i class="fas fa-handshake"></i> Nos partenaires</a></li>
                 </ul>
             </li>
             
@@ -362,24 +368,27 @@
                 <span class="footer-slogan">"La main tendue, un sourire nouveau."</span>
             </div>
 
-            <!-- Infos sur l'organisation -->
+            <!-- L'association -->
             <div class="footer-section">
-                <h4>La DFD</h4>
+                <h4>L'association</h4>
                 <ul>
                     <li><a href="{% url 'apropos' %}">À propos de nous</a></li>
                     <li><a href="{% url 'projets' %}">Nos Projets</a></li>
-                    <li><a href="{% url 'participer' %}">Participer</a></li>
-                    <li><a href="{% url 'blog' %}">Blog / Actualités</a></li>
+                    <li><a href="{% url 'galerie' %}">Galerie photos</a></li>
+                    <li><a href="{% url 'partenaires' %}">Nos partenaires</a></li>
+                    <li><a href="{% url 'blog' %}">Actualités</a></li>
                 </ul>
             </div>
 
-            <!-- Initiatives -->
+            <!-- Agir avec nous -->
             <div class="footer-section">
-                <h4>Nos initiatives</h4>
+                <h4>Agir avec nous</h4>
                 <ul>
-                    <li><a href="{% url 'projets' %}">Campagnes</a></li>
-                    <li><a href="{% url 'projets' %}">Programmes</a></li>
-                    <li><a href="{% url 'partenaires' %}">Nos partenaires</a></li>
+                    <li><a href="{% url 'participer' %}#membre">Devenir membre</a></li>
+                    <li><a href="{% url 'don' %}">Faire un don</a></li>
+                    <li><a href="{% url 'temoignages' %}">Témoigner</a></li>
+                    <li><a href="{% url 'boutique' %}">Boutique solidaire</a></li>
+                    <li><a href="{% url 'documents' %}">Bibliothèque</a></li>
                 </ul>
             </div>
 

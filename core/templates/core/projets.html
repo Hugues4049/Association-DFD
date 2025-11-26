@@ -3,34 +3,524 @@
 {% block title %}Nos Projets - DFD{% endblock %}
 {% block content %}
 
-<section class="presentation">
-    <h1 class="main-title">🚀 Nos Projets</h1>
+<link rel="stylesheet" href="{% static 'css/projets.css' %}">
 
-    <!-- Projets en cours -->
-    <div class="presentation-block">
-        <h2>⏳ Projets en cours</h2>
-        <ul>
-            <li>Programme Éducation solidaire – fourniture de matériel scolaire</li>
-            <li>Cliniques mobiles – soins gratuits en zone rurale</li>
-            <li>Jardins communautaires – autonomie alimentaire locale</li>
-        </ul>
+<!-- ============================================
+     HERO SECTION PROJETS
+     ============================================ -->
+<section class="projets-hero" style="background: linear-gradient(rgba(74, 89, 140, 0.85), rgba(20, 133, 164, 0.85)), url('{% static 'images/bannière/PHOTO-2024-12-29-17-30-48.jpg' %}') center/cover;">
+    <div class="projets-hero-overlay"></div>
+    <div class="projets-hero-content">
+        <h1 class="projets-hero-title">Nos Projets</h1>
+        <p class="projets-hero-subtitle">
+            Des actions concrètes pour transformer des vies et bâtir un avenir meilleur
+        </p>
     </div>
+</section>
 
-    <!-- Projets achevés -->
-    <div class="presentation-block">
-        <h2>✅ Projets achevés</h2>
-        <ul>
-            <li>Accès à l'eau potable dans 5 villages du Sahel</li>
-            <li>Formation professionnelle de jeunes femmes en couture</li>
-        </ul>
+<!-- ============================================
+     INTRODUCTION
+     ============================================ -->
+<section class="projets-intro">
+    <div class="projets-container">
+        <p class="intro-text">
+            La Dreams Family of Development (DFD) met en œuvre des projets concrets dans les domaines de la santé, 
+            de l'éducation, du développement durable et de l'accompagnement humanitaire. Chaque action est pensée 
+            pour répondre aux besoins réels des communautés et créer un impact durable.
+        </p>
     </div>
+</section>
 
-    <!-- Zones d'intervention -->
-    <div class="presentation-block">
-        <h2>🌍 Zones d'intervention</h2>
-        <p>Nous intervenons dans plusieurs régions d'Afrique de l'Ouest, avec des projets pilotes également en Asie du
-            Sud.</p>
-        <!-- Carte interactive à intégrer ici si besoin (Leaflet, Google Maps, etc.) -->
+<!-- ============================================
+     PROJETS EN COURS
+     ============================================ -->
+<section class="projets-section">
+    <div class="projets-container">
+        <h2 class="section-title">
+            <i class="fas fa-spinner fa-pulse"></i> Projets en cours
+        </h2>
+        
+        <div class="projets-grid">
+            <!-- Projet 1 : Campagne de Santé -->
+            <div class="projet-card ongoing">
+                <div class="projet-badge ongoing-badge">En cours</div>
+                <div class="projet-icon">
+                    <i class="fas fa-heartbeat"></i>
+                </div>
+                <h3 class="projet-title">Campagne de Santé Gratuite 2025</h3>
+                <p class="projet-date">
+                    <i class="fas fa-calendar-alt"></i> 19-20 septembre 2025
+                </p>
+                <p class="projet-location">
+                    <i class="fas fa-map-marker-alt"></i> Etam Bafia, Cameroun
+                </p>
+                <p class="projet-description">
+                    Campagne de santé 100% gratuite en partenariat avec la Fondation médicale La Grâce Divine. 
+                    Services offerts : vaccination ciblée, prise de paramètres vitaux, mini chirurgie, 
+                    et ateliers de sensibilisation sur la prostate, l'hygiène féminine et l'alimentation.
+                </p>
+                <div class="projet-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">500+</span>
+                        <span class="stat-label">Bénéficiaires attendus</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">4</span>
+                        <span class="stat-label">Services médicaux</span>
+                    </div>
+                </div>
+                <a href="{% url 'blog' %}" class="btn-projet">En savoir plus</a>
+            </div>
+
+            <!-- Projet 2 : Programme Éducation Solidaire -->
+            <div class="projet-card ongoing">
+                <div class="projet-badge ongoing-badge">En cours</div>
+                <div class="projet-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <h3 class="projet-title">Programme Éducation Solidaire</h3>
+                <p class="projet-date">
+                    <i class="fas fa-calendar-alt"></i> Année scolaire 2024-2025
+                </p>
+                <p class="projet-location">
+                    <i class="fas fa-map-marker-alt"></i> Yaoundé et régions, Cameroun
+                </p>
+                <p class="projet-description">
+                    Fourniture de matériel scolaire (cahiers, stylos, uniformes) aux enfants issus de familles 
+                    vulnérables. Accompagnement scolaire personnalisé et soutien aux frais de scolarité pour 
+                    lutter contre la déscolarisation.
+                </p>
+                <div class="projet-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">200+</span>
+                        <span class="stat-label">Enfants soutenus</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">15</span>
+                        <span class="stat-label">Écoles partenaires</span>
+                    </div>
+                </div>
+                <a href="{% url 'participer' %}" class="btn-projet">Soutenir ce projet</a>
+            </div>
+
+            <!-- Projet 3 : Accompagnement Psychologique -->
+            <div class="projet-card ongoing">
+                <div class="projet-badge ongoing-badge">En cours</div>
+                <div class="projet-icon">
+                    <i class="fas fa-comments"></i>
+                </div>
+                <h3 class="projet-title">Programme d'Accompagnement Psychologique</h3>
+                <p class="projet-date">
+                    <i class="fas fa-calendar-alt"></i> Permanent
+                </p>
+                <p class="projet-location">
+                    <i class="fas fa-map-marker-alt"></i> Yaoundé, Cameroun
+                </p>
+                <p class="projet-description">
+                    Séances d'écoute et d'accompagnement psychologique pour les personnes en situation de détresse. 
+                    Ateliers de développement personnel, gestion du stress et renforcement de la résilience pour 
+                    restaurer l'espoir et l'autonomie.
+                </p>
+                <div class="projet-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">150+</span>
+                        <span class="stat-label">Personnes accompagnées</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">3</span>
+                        <span class="stat-label">Psychologues bénévoles</span>
+                    </div>
+                </div>
+                <a href="{% url 'contact' %}" class="btn-projet">Nous contacter</a>
+            </div>
+
+            <!-- Projet 4 : Jardins Communautaires -->
+            <div class="projet-card ongoing">
+                <div class="projet-badge ongoing-badge">En cours</div>
+                <div class="projet-icon">
+                    <i class="fas fa-seedling"></i>
+                </div>
+                <h3 class="projet-title">Jardins Communautaires pour l'Autonomie Alimentaire</h3>
+                <p class="projet-date">
+                    <i class="fas fa-calendar-alt"></i> 2024-2026
+                </p>
+                <p class="projet-location">
+                    <i class="fas fa-map-marker-alt"></i> Zones rurales, Cameroun
+                </p>
+                <p class="projet-description">
+                    Création de jardins potagers communautaires pour améliorer la sécurité alimentaire. 
+                    Formation aux techniques de maraîchage biologique, distribution de semences et outils agricoles. 
+                    Promotion de l'agriculture durable et de l'entrepreneuriat agricole local.
+                </p>
+                <div class="projet-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">5</span>
+                        <span class="stat-label">Jardins créés</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">80</span>
+                        <span class="stat-label">Familles bénéficiaires</span>
+                    </div>
+                </div>
+                <a href="{% url 'don' %}" class="btn-projet">Faire un don</a>
+            </div>
+
+            <!-- Projet 5 : Cliniques Mobiles -->
+            <div class="projet-card ongoing">
+                <div class="projet-badge ongoing-badge">En cours</div>
+                <div class="projet-icon">
+                    <i class="fas fa-ambulance"></i>
+                </div>
+                <h3 class="projet-title">Cliniques Mobiles en Zone Rurale</h3>
+                <p class="projet-date">
+                    <i class="fas fa-calendar-alt"></i> Trimestriel
+                </p>
+                <p class="projet-location">
+                    <i class="fas fa-map-marker-alt"></i> Zones rurales éloignées, Cameroun
+                </p>
+                <p class="projet-description">
+                    Déploiement d'équipes médicales mobiles pour offrir des consultations gratuites, 
+                    vaccinations et médicaments essentiels dans les villages isolés. Lutte contre les maladies 
+                    évitables et amélioration de l'accès aux soins de santé primaires.
+                </p>
+                <div class="projet-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">300+</span>
+                        <span class="stat-label">Consultations/trimestre</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">12</span>
+                        <span class="stat-label">Villages couverts</span>
+                    </div>
+                </div>
+                <a href="{% url 'partenaires' %}" class="btn-projet">Nos partenaires médicaux</a>
+            </div>
+
+            <!-- Projet 6 : Autonomisation des Femmes -->
+            <div class="projet-card ongoing">
+                <div class="projet-badge ongoing-badge">En cours</div>
+                <div class="projet-icon">
+                    <i class="fas fa-female"></i>
+                </div>
+                <h3 class="projet-title">Autonomisation et Entrepreneuriat Féminin</h3>
+                <p class="projet-date">
+                    <i class="fas fa-calendar-alt"></i> 2024-2025
+                </p>
+                <p class="projet-location">
+                    <i class="fas fa-map-marker-alt"></i> Yaoundé et Douala, Cameroun
+                </p>
+                <p class="projet-description">
+                    Formations professionnelles en couture, coiffure, pâtisserie et artisanat. 
+                    Accompagnement à la création de micro-entreprises avec accès au micro-crédit. 
+                    Promotion de l'indépendance économique des femmes en situation de vulnérabilité.
+                </p>
+                <div class="projet-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">60</span>
+                        <span class="stat-label">Femmes formées</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">25</span>
+                        <span class="stat-label">Micro-entreprises créées</span>
+                    </div>
+                </div>
+                <a href="{% url 'participer' %}" class="btn-projet">Rejoindre le programme</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================
+     PROJETS ACHEVÉS
+     ============================================ -->
+<section class="projets-section alt-bg">
+    <div class="projets-container">
+        <h2 class="section-title">
+            <i class="fas fa-check-circle"></i> Projets achevés
+        </h2>
+        
+        <div class="projets-grid">
+            <!-- Projet achevé 1 -->
+            <div class="projet-card completed">
+                <div class="projet-badge completed-badge">Terminé</div>
+                <div class="projet-icon">
+                    <i class="fas fa-hand-holding-heart"></i>
+                </div>
+                <h3 class="projet-title">Descente au Foyer de l'Espérance</h3>
+                <p class="projet-date">
+                    <i class="fas fa-calendar-check"></i> 29 décembre 2024
+                </p>
+                <p class="projet-location">
+                    <i class="fas fa-map-marker-alt"></i> Yaoundé, Cameroun
+                </p>
+                <p class="projet-description">
+                    Action humanitaire au Foyer de l'Espérance avec distribution de dons (vêtements, jouets, 
+                    produits d'hygiène, nourriture). Moments de partage, jeux et activités avec les résidents. 
+                    Renforcement du lien social et apport de joie aux personnes accueillies.
+                </p>
+                <div class="projet-results">
+                    <h4>Résultats obtenus :</h4>
+                    <ul>
+                        <li><i class="fas fa-check"></i> 80 personnes touchées</li>
+                        <li><i class="fas fa-check"></i> 150 kg de dons distribués</li>
+                        <li><i class="fas fa-check"></i> 5 heures d'animation</li>
+                        <li><i class="fas fa-check"></i> 15 bénévoles mobilisés</li>
+                    </ul>
+                </div>
+                <a href="{% url 'galerie' %}" class="btn-projet">Voir les photos</a>
+            </div>
+
+            <!-- Projet achevé 2 -->
+            <div class="projet-card completed">
+                <div class="projet-badge completed-badge">Terminé</div>
+                <div class="projet-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3 class="projet-title">Meet and Greet - Turin</h3>
+                <p class="projet-date">
+                    <i class="fas fa-calendar-check"></i> 31 octobre - 1er novembre 2024
+                </p>
+                <p class="projet-location">
+                    <i class="fas fa-map-marker-alt"></i> Turin, Italie
+                </p>
+                <p class="projet-description">
+                    Rencontre de la diaspora camerounaise en Italie pour présenter les actions de DFD. 
+                    Sensibilisation aux besoins du Cameroun et mobilisation de la communauté expatriée. 
+                    Collecte de fonds et recrutement de nouveaux membres bénévoles.
+                </p>
+                <div class="projet-results">
+                    <h4>Résultats obtenus :</h4>
+                    <ul>
+                        <li><i class="fas fa-check"></i> 120 participants</li>
+                        <li><i class="fas fa-check"></i> 30 nouveaux membres</li>
+                        <li><i class="fas fa-check"></i> 5 000 € collectés</li>
+                        <li><i class="fas fa-check"></i> 3 partenariats établis</li>
+                    </ul>
+                </div>
+                <a href="{% url 'galerie' %}" class="btn-projet">Voir les photos</a>
+            </div>
+
+            <!-- Projet achevé 3 -->
+            <div class="projet-card completed">
+                <div class="projet-badge completed-badge">Terminé</div>
+                <div class="projet-icon">
+                    <i class="fas fa-cut"></i>
+                </div>
+                <h3 class="projet-title">Formation Professionnelle en Couture</h3>
+                <p class="projet-date">
+                    <i class="fas fa-calendar-check"></i> Mars - Août 2024
+                </p>
+                <p class="projet-location">
+                    <i class="fas fa-map-marker-alt"></i> Yaoundé, Cameroun
+                </p>
+                <p class="projet-description">
+                    Programme de formation de 6 mois en couture et stylisme pour 25 jeunes femmes. 
+                    Apprentissage des techniques de base et avancées, gestion de petite entreprise. 
+                    Remise de machines à coudre et kits de démarrage aux diplômées.
+                </p>
+                <div class="projet-results">
+                    <h4>Résultats obtenus :</h4>
+                    <ul>
+                        <li><i class="fas fa-check"></i> 25 femmes diplômées</li>
+                        <li><i class="fas fa-check"></i> 18 ateliers de couture créés</li>
+                        <li><i class="fas fa-check"></i> 95% de taux de réussite</li>
+                        <li><i class="fas fa-check"></i> 20 emplois créés</li>
+                    </ul>
+                </div>
+                <a href="{% url 'temoignages' %}" class="btn-projet">Lire les témoignages</a>
+            </div>
+
+            <!-- Projet achevé 4 -->
+            <div class="projet-card completed">
+                <div class="projet-badge completed-badge">Terminé</div>
+                <div class="projet-icon">
+                    <i class="fas fa-tint"></i>
+                </div>
+                <h3 class="projet-title">Accès à l'Eau Potable - Villages Ruraux</h3>
+                <p class="projet-date">
+                    <i class="fas fa-calendar-check"></i> Janvier - Juin 2023
+                </p>
+                <p class="projet-location">
+                    <i class="fas fa-map-marker-alt"></i> Région de l'Ouest, Cameroun
+                </p>
+                <p class="projet-description">
+                    Construction de 3 forages et installation de pompes manuelles dans des villages sans accès 
+                    à l'eau potable. Formation de comités de gestion de l'eau et sensibilisation à l'hygiène. 
+                    Amélioration significative de la santé et de la qualité de vie.
+                </p>
+                <div class="projet-results">
+                    <h4>Résultats obtenus :</h4>
+                    <ul>
+                        <li><i class="fas fa-check"></i> 3 forages construits</li>
+                        <li><i class="fas fa-check"></i> 1200 personnes bénéficiaires</li>
+                        <li><i class="fas fa-check"></i> 5 villages desservis</li>
+                        <li><i class="fas fa-check"></i> 40% réduction maladies hydriques</li>
+                    </ul>
+                </div>
+                <a href="{% url 'blog' %}" class="btn-projet">Lire le rapport</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================
+     ZONES D'INTERVENTION
+     ============================================ -->
+<section class="projets-zones">
+    <div class="projets-container">
+        <h2 class="section-title">
+            <i class="fas fa-globe-africa"></i> Nos zones d'intervention
+        </h2>
+        
+        <div class="zones-content">
+            <div class="zones-text">
+                <p class="intro-text">
+                    DFD intervient principalement au Cameroun avec une présence croissante dans la diaspora 
+                    africaine en Europe. Nos actions se concentrent sur les zones où les besoins sont les plus urgents.
+                </p>
+                
+                <div class="zones-grid">
+                    <!-- Zone 1 : Cameroun -->
+                    <div class="zone-card">
+                        <div class="zone-icon">
+                            <i class="fas fa-map-marked-alt"></i>
+                        </div>
+                        <h3>Cameroun</h3>
+                        <p><strong>Siège principal :</strong> Yaoundé</p>
+                        <ul class="zone-cities">
+                            <li><i class="fas fa-map-pin"></i> Yaoundé</li>
+                            <li><i class="fas fa-map-pin"></i> Douala</li>
+                            <li><i class="fas fa-map-pin"></i> Etam Bafia</li>
+                            <li><i class="fas fa-map-pin"></i> Régions rurales de l'Ouest</li>
+                            <li><i class="fas fa-map-pin"></i> Nkongsamba</li>
+                        </ul>
+                        <div class="zone-stats">
+                            <span class="stat-badge">8 projets actifs</span>
+                            <span class="stat-badge">2000+ bénéficiaires</span>
+                        </div>
+                    </div>
+
+                    <!-- Zone 2 : Diaspora -->
+                    <div class="zone-card">
+                        <div class="zone-icon">
+                            <i class="fas fa-globe-europe"></i>
+                        </div>
+                        <h3>Diaspora Africaine</h3>
+                        <p><strong>Mobilisation communautaire</strong></p>
+                        <ul class="zone-cities">
+                            <li><i class="fas fa-flag"></i> Italie (Turin, Milan)</li>
+                            <li><i class="fas fa-flag"></i> France (à venir)</li>
+                            <li><i class="fas fa-flag"></i> Belgique (en développement)</li>
+                        </ul>
+                        <div class="zone-stats">
+                            <span class="stat-badge">3 antennes</span>
+                            <span class="stat-badge">150+ membres</span>
+                        </div>
+                    </div>
+
+                    <!-- Zone 3 : Expansion future -->
+                    <div class="zone-card future">
+                        <div class="zone-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <h3>Expansion Future</h3>
+                        <p><strong>Projets en développement</strong></p>
+                        <ul class="zone-cities">
+                            <li><i class="fas fa-map-pin"></i> Autres régions du Cameroun</li>
+                            <li><i class="fas fa-globe"></i> Pays d'Afrique Centrale</li>
+                            <li><i class="fas fa-globe"></i> Diaspora en Amérique du Nord</li>
+                        </ul>
+                        <div class="zone-stats">
+                            <span class="stat-badge">En planification</span>
+                            <span class="stat-badge">2026-2027</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Carte visuelle (placeholder) -->
+            <div class="zones-map">
+                <div class="map-placeholder">
+                    <i class="fas fa-map"></i>
+                    <p>Carte interactive<br><small>(À venir prochainement)</small></p>
+                </div>
+                <p class="map-note">
+                    <i class="fas fa-info-circle"></i> 
+                    Une carte interactive sera bientôt disponible pour visualiser l'ensemble de nos zones d'intervention.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================
+     IMPACT GLOBAL
+     ============================================ -->
+<section class="projets-impact">
+    <div class="projets-container">
+        <h2 class="section-title">
+            <i class="fas fa-chart-line"></i> Notre impact global
+        </h2>
+        
+        <div class="impact-stats-grid">
+            <div class="impact-stat">
+                <div class="impact-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3 class="impact-number">3000+</h3>
+                <p class="impact-label">Bénéficiaires directs</p>
+            </div>
+            
+            <div class="impact-stat">
+                <div class="impact-icon">
+                    <i class="fas fa-project-diagram"></i>
+                </div>
+                <h3 class="impact-number">15+</h3>
+                <p class="impact-label">Projets réalisés</p>
+            </div>
+            
+            <div class="impact-stat">
+                <div class="impact-icon">
+                    <i class="fas fa-handshake"></i>
+                </div>
+                <h3 class="impact-number">12+</h3>
+                <p class="impact-label">Partenaires actifs</p>
+            </div>
+            
+            <div class="impact-stat">
+                <div class="impact-icon">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <h3 class="impact-number">100+</h3>
+                <p class="impact-label">Bénévoles engagés</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================
+     CALL TO ACTION
+     ============================================ -->
+<section class="projets-cta">
+    <div class="projets-container">
+        <div class="cta-content">
+            <h2>Soutenez nos projets</h2>
+            <p>
+                Chaque contribution compte. Ensemble, nous pouvons transformer des vies 
+                et bâtir un avenir plus juste et plus humain.
+            </p>
+            <div class="cta-buttons">
+                <a href="{% url 'don' %}" class="btn-cta primary">
+                    <i class="fas fa-heart"></i> Faire un don
+                </a>
+                <a href="{% url 'participer' %}" class="btn-cta secondary">
+                    <i class="fas fa-hands-helping"></i> Devenir bénévole
+                </a>
+                <a href="{% url 'contact' %}" class="btn-cta secondary">
+                    <i class="fas fa-envelope"></i> Nous contacter
+                </a>
+            </div>
+        </div>
     </div>
 </section>
 

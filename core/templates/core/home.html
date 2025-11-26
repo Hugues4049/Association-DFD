@@ -5,9 +5,7 @@
 {% block content %}
 {% load static %}
 
-<link rel="stylesheet" href="{% static 'css/style.css' %}">
-<link rel="stylesheet" href="{% static 'css/president-section.css' %}">
-<link rel="stylesheet" href="{% static 'css/hero-banner.css' %}">
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
 
 <!-- ============================================
      HERO BANNER - Grande bannière avec défilement
@@ -16,7 +14,7 @@
     <div class="hero-overlay"></div>
     <div class="hero-content">
         <h1 class="hero-title">La main tendue, un sourire nouveau !</h1>
-        <p class="hero-subtitle">Voulez-vous apporter votre pierre à l’édifice ? Votre geste peut vraiment faire la différence.</p>
+        <p class="hero-subtitle">Voulez-vous apporter votre pierre à l'édifice ? Votre geste peut vraiment faire la différence.</p>
         
         <div class="hero-buttons">
             <a href="{% url 'don' %}" class="btn-hero btn-donate">
@@ -42,26 +40,21 @@
 <!-- ============================================
      QUI SOMMES-NOUS
      ============================================ -->
-
-
 <section class="presentation">
     <h1 class="main-title">Qui sommes-nous ?</h1>
     <p>La Dreams Family of Development(DFD) est une association à but non lucratif, apolitique et laïque ayant pour but de redonner espoir à ceux dont les rêves ont été brisés, les aider à retrouver leur autonomie sur le plan holistique, à mieux affronter les défis de la vie et à restaurer leurs capacités de choix</p>
-    <!--<a href="{% url 'apropos' %}#membre" class="btn">En savoir plus</a>-->
+    
     <div style="margin-top: 3rem; text-align: center;">
-            <a href="{% url 'apropos' %}" style="display: inline-block; padding: 1.2rem 2.5rem; background: linear-gradient(135deg, #1a73e8 0%, #1f1451 100%); color: white; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1.1rem; transition: transform 0.3s; box-shadow: 0 4px 12px rgba(26, 115, 232, 0.3);">
-                En savoir plus
-            </a>
-        </div>
+        <a href="{% url 'apropos' %}" class="btn">
+            En savoir plus
+        </a>
+    </div>
 </section>
-
 
 
 <!-- ============================================
      MOT DU PRÉSIDENT
      ============================================ -->
-
-
 <section class="mot-du-president">
     <h1 class="main-title">Mot du Président du Bureau Exécutif (BE)</h1>
     <div class="bloc-president">
@@ -106,18 +99,15 @@
             
             <div class="carousel-container">
                 <div class="carousel" data-carousel="foyer">
-                    <div class="carousel-slide">
+                    <div class="carousel-slide active">
                         <img src="{% static 'images/foyeresperence/PHOTO-2025-01-06-19-34-50.jpg' %}" alt="foyeresperence 1">
                     </div>
-
                     <div class="carousel-slide">
                         <img src="{% static 'images/foyeresperence/PHOTO-2025-01-06-19-34-51.jpg' %}" alt="foyeresperence 2">
                     </div>
-
                     <div class="carousel-slide">
                         <img src="{% static 'images/foyeresperence/PHOTO-2025-01-06-19-34-52.jpg' %}" alt="foyeresperence 3">
                     </div>
-
                 </div>
                     
                 <!-- Controles du carrousel -->
@@ -144,18 +134,15 @@
             
             <div class="carousel-container">
                 <div class="carousel" data-carousel="sante">
-                    <div class="carousel-slide">
+                    <div class="carousel-slide active">
                         <img src="{% static 'images/foyeresperence/PHOTO-2025-01-06-19-34-54.jpg' %}" alt="foyeresperence 4">
                     </div>
-
                     <div class="carousel-slide">
                         <img src="{% static 'images/foyeresperence/PHOTO-2025-01-06-19-34-57.jpg' %}" alt="foyeresperence 5">
                     </div>
-
                     <div class="carousel-slide">
                         <img src="{% static 'images/foyeresperence/PHOTO-2025-01-06-19-34-58.jpg' %}" alt="foyeresperence 6">
                     </div>
-
                 </div>
                 
                 <button class="carousel-btn prev" onclick="changeSlide('sante', -1)">
@@ -180,14 +167,12 @@
             
             <div class="carousel-container">
                 <div class="carousel" data-carousel="education">
-                    <div class="carousel-slide">
+                    <div class="carousel-slide active">
                         <img src="{% static 'images/meet&greet/PHOTO-2025-11-01-16-45-56.jpg' %}" alt="meet&greet 1">
                     </div>
-
                     <div class="carousel-slide">
                         <img src="{% static 'images/meet&greet/PHOTO-2025-11-01-16-45-56_1.jpg' %}" alt="meet&greet 2">
                     </div>
-
                     <div class="carousel-slide">
                         <img src="{% static 'images/meet&greet/PHOTO-2025-11-01-16-45-58.jpg' %}" alt="meet&greet 3">
                     </div>
@@ -214,7 +199,6 @@
 <!-- ============================================
      TÉMOIGNAGES
      ============================================ -->
-
 <section class="temoignages presentation">
     <h1 class="main-title"> Témoignages</h1>
 
@@ -238,218 +222,170 @@
 <!-- ============================================
      PARTENAIRES - RUBAN DÉFILANT
      ============================================ -->
-
-<section class="partenaires" style="padding: 5rem 2rem; background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%); overflow: hidden;">
-    <div style="max-width: 1400px; margin: 0 auto;">
-        <h1 class="main-title" style="margin-bottom: 1rem; text-align: center;">Nos partenaires</h1>
-        <p style="color: #5a6c7d; font-size: 1.1rem; margin-bottom: 3rem; text-align: center;">
+<section class="partenaires-marquee-section">
+    <div class="partenaires-container">
+        <h1 class="main-title">Nos partenaires</h1>
+        <p class="partenaires-subtitle">
             Ils nous font confiance et soutiennent nos actions
         </p>
 
         <!-- Ruban défilant -->
-        <div class="partners-marquee" style="position: relative; overflow: hidden; padding: 2rem 0;">
-        <div class="partners-track" style="display: flex; gap: 4rem; animation: scroll 30s linear infinite; will-change: transform;">
-            <!-- Premier set de partenaires -->
-            
+        <div class="partners-marquee">
+            <div class="partners-track">
+                <!-- Premier set de partenaires -->
+                <a href="https://www.msomame.org/" target="_blank" class="partner-card">
+                    <img src="/static/images/icons/WhatsApp Image 2025-05-20 at 09.40.11.jpeg" alt="MSO MAME">
+                    <h3>MSO MAME</h3>
+                    <p>Projets de coopération et développement au Cameroun, santé, éducation et égalité de genre</p>
+                </a>
 
-            <a href="https://www.msomame.org/" target="_blank" class="partner-card" style="flex: 0 0 auto; width: 250px; background: white; padding: 2rem; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: transform 0.3s; text-decoration: none;">
-                <img src="/static/images/icons/WhatsApp Image 2025-05-20 at 09.40.11.jpeg" alt="MSO MAME" style="width: 120px; height: 120px; object-fit: contain; margin: 0 auto 1rem; display: block;">
-                <h3 style="color: #1f1451; font-size: 1.1rem; margin-bottom: 0.5rem;">MSO MAME</h3>
-                <p style="color: #5a6c7d; font-size: 0.85rem;">Développement social</p>
-            </a>
+                <a href="#" target="_blank" class="partner-card">
+                    <img src="/static/images/logo/LOGO CEJ/LOGO CEJ.png" alt="Club des Enfants Joyeux">
+                    <h3>Club Enfants Joyeux</h3>
+                    <p>Offrir à chaque enfant les mêmes chances de s'épanouir dans la joie et la dignité</p>
+                </a>
 
-            <a href="#" target="_blank" class="partner-card" style="flex: 0 0 auto; width: 250px; background: white; padding: 2rem; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: transform 0.3s; text-decoration: none;">
-                <img src="/static/images/logo/LOGO CEJ/LOGO CEJ.png" alt="Club des Enfants Joyeux" style="width: 120px; height: 120px; object-fit: contain; margin: 0 auto 1rem; display: block;">
-                <h3 style="color: #1f1451; font-size: 1.1rem; margin-bottom: 0.5rem;">Club Enfants Joyeux</h3>
-                <p style="color: #5a6c7d; font-size: 0.85rem;">Bien-être des enfants</p>
-            </a>
+                <a href="https://www.facebook.com/profile.php/?id=61562782211059" target="_blank" class="partner-card">
+                    <img src="/static/images/logo/CERAB.png" alt="CERAB">
+                    <h3>CERAB</h3>
+                    <p>Famille ouverte portée par l'amour, l'espérance et l'unité avec engagement social concret</p>
+                </a>
 
-            <!-- Nouveaux logos du répertoire -->
+                <a href="https://ongvoesda.com/" target="_blank" class="partner-card">
+                    <img src="/static/images/logo/VOESDA.png" alt="VOESDA">
+                    <h3>VOESDA</h3>
+                    <p>ONG à statut spécial ONU ECOSOC, projets de développement pour communautés vulnérables</p>
+                </a>
 
+                <a href="https://www.linkedin.com/in/dr-fabrice-tiba-phd-112ab155/" target="_blank" class="partner-card">
+                    <img src="/static/images/logo/DIOPHARM.png" alt="DIOPHARM">
+                    <h3>DIOPHARM</h3>
+                    <p>Tests et distribution de médicaments internationaux, qualité et sécurité pharmaceutiques</p>
+                </a>
 
-            <a href="#" target="_blank" class="partner-card" style="flex: 0 0 auto; width: 250px; background: white; padding: 2rem; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: transform 0.3s; text-decoration: none;">
-                <img src="/static/images/logo/CERAB.png" alt="CERAB" style="width: 120px; height: 120px; object-fit: contain; margin: 0 auto 1rem; display: block;">
-                <h3 style="color:#1f1451;font-size:1.1rem;margin-bottom:0.5rem;">CERAB</h3>
-            </a>
+                <a href="https://www.facebook.com/GasepEden" target="_blank" class="partner-card">
+                    <img src="/static/images/logo/GASEPSHALOM.png" alt="GASEPSHALOM">
+                    <h3>Gasep Shalom / Eden</h3>
+                    <p>Réseau de boulangerie-pâtisserie locale, valorisation des produits camerounais</p>
+                </a>
 
-            <a href="#" target="_blank" class="partner-card" style="flex: 0 0 auto; width: 250px; background: white; padding: 2rem; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: transform 0.3s; text-decoration: none;">
-                <img src="/static/images/logo/DIOPHARM.png" alt="DIOPHARM" style="width: 120px; height: 120px; object-fit: contain; margin: 0 auto 1rem; display: block;">
-                <h3 style="color:#1f1451;font-size:1.1rem;margin-bottom:0.5rem;">DIOPHARM</h3>
-            </a>
+                <a href="https://www.facebook.com/profile.php?id=100065136837267" target="_blank" class="partner-card">
+                    <img src="/static/images/logo/YANN-TOPO.png" alt="YANN-TOPO">
+                    <h3>Yan-Topo</h3>
+                    <p>Géomatique, lotissement de terrains et équipements topographiques à Yaoundé</p>
+                </a>
 
-            <a href="#" target="_blank" class="partner-card" style="flex: 0 0 auto; width: 250px; background: white; padding: 2rem; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: transform 0.3s; text-decoration: none;">
-                <img src="/static/images/logo/GASEPSHALOM.png" alt="GASEPSHALOM" style="width: 120px; height: 120px; object-fit: contain; margin: 0 auto 1rem; display: block;">
-                <h3 style="color:#1f1451;font-size:1.1rem;margin-bottom:0.5rem;">GASEPSHALOM</h3>
-            </a>
+                <a href="https://www.facebook.com/profile.php?id=61578111533518" target="_blank" class="partner-card">
+                    <img src="/static/images/logo/PARACOURI.png" alt="Paracouri">
+                    <h3>Paracouri Express</h3>
+                    <p>Service de livraison rapide et fiable à Douala, intraville et extraville 7J/7</p>
+                </a>
 
-            <a href="#" target="_blank" class="partner-card" style="flex: 0 0 auto; width: 250px; background: white; padding: 2rem; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: transform 0.3s; text-decoration: none;">
-                <img src="/static/images/logo/Kiam%20Group.png" alt="Kiam Group" style="width: 120px; height: 120px; object-fit: contain; margin: 0 auto 1rem; display: block;">
-                <h3 style="color:#1f1451;font-size:1.1rem;margin-bottom:0.5rem;">Kiam Group</h3>
-            </a>
+                <a href="https://www.facebook.com/profile.php?id=61572885445907" target="_blank" class="partner-card">
+                    <img src="/static/images/logo/PRICYCHIC.png" alt="Pricychic">
+                    <h3>PricyChic</h3>
+                    <p>Boutique en ligne de mode européenne, vêtements et accessoires tendance accessibles</p>
+                </a>
 
-            <a href="#" target="_blank" class="partner-card" style="flex: 0 0 auto; width: 250px; background: white; padding: 2rem; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: transform 0.3s; text-decoration: none;">
-                <img src="/static/images/logo/LA GRACE DIVINE.png" alt="La Grâce Divine" style="width: 120px; height: 120px; object-fit: contain; margin: 0 auto 1rem; display: block;">
-                <h3 style="color:#1f1451;font-size:1.1rem;margin-bottom:0.5rem;">La Grâce Divine</h3>
-            </a>
+                <a href="#" target="_blank" class="partner-card">
+                    <img src="/static/images/logo/Kiam%20Group.png" alt="Kiam Group">
+                    <h3>Kiam Group</h3>
+                    <p>Technologies numériques et communication visuelle, développement web et design graphique</p>
+                </a>
 
-            <a href="https://www.msomame.org/" target="_blank" class="partner-card" style="flex: 0 0 auto; width: 250px; background: white; padding: 2rem; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: transform 0.3s; text-decoration: none;">
-                <img src="/static/images/logo/MSOMAME.png" alt="MSOMAME" style="width: 120px; height: 120px; object-fit: contain; margin: 0 auto 1rem; display: block;">
-                <h3 style="color:#1f1451;font-size:1.1rem;margin-bottom:0.5rem;">MSOMAME</h3>
-            </a>
+                <a href="#" target="_blank" class="partner-card">
+                    <img src="/static/images/logo/LA GRACE DIVINE.png" alt="La Grâce Divine">
+                    <h3>Fondation La Grâce Divine</h3>
+                    <p>Partenaire médical pour campagnes de santé gratuite à Etam Bafia</p>
+                </a>
 
-            <a href="#" target="_blank" class="partner-card" style="flex: 0 0 auto; width: 250px; background: white; padding: 2rem; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: transform 0.3s; text-decoration: none;">
-                <img src="/static/images/logo/PARACOURI.png" alt="Paracouri" style="width: 120px; height: 120px; object-fit: contain; margin: 0 auto 1rem; display: block;">
-                <h3 style="color:#1f1451;font-size:1.1rem;margin-bottom:0.5rem;">Paracouri</h3>
-            </a>
+                
 
-            <a href="#" target="_blank" class="partner-card" style="flex: 0 0 auto; width: 250px; background: white; padding: 2rem; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: transform 0.3s; text-decoration: none;">
-                <img src="/static/images/logo/PRICYCHIC.png" alt="Pricychic" style="width: 120px; height: 120px; object-fit: contain; margin: 0 auto 1rem; display: block;">
-                <h3 style="color:#1f1451;font-size:1.1rem;margin-bottom:0.5rem;">Pricychic</h3>
-            </a>
+                <!-- Dupliquer pour effet continu -->
+                <a href="https://www.msomame.org/" target="_blank" class="partner-card">
+                    <img src="/static/images/icons/WhatsApp Image 2025-05-20 at 09.40.11.jpeg" alt="MSO MAME">
+                    <h3>MSO MAME</h3>
+                    <p>Projets de coopération et développement au Cameroun, santé, éducation et égalité de genre</p>
+                </a>
 
-            <a href="#" target="_blank" class="partner-card" style="flex: 0 0 auto; width: 250px; background: white; padding: 2rem; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: transform 0.3s; text-decoration: none;">
-                <img src="/static/images/logo/VOESDA.png" alt="VOESDA" style="width: 120px; height: 120px; object-fit: contain; margin: 0 auto 1rem; display: block;">
-                <h3 style="color:#1f1451;font-size:1.1rem;margin-bottom:0.5rem;">VOESDA</h3>
-            </a>
+                <a href="#" target="_blank" class="partner-card">
+                    <img src="/static/images/logo/LOGO CEJ/LOGO CEJ.png" alt="Club des Enfants Joyeux">
+                    <h3>Club Enfants Joyeux</h3>
+                    <p>Offrir à chaque enfant les mêmes chances de s'épanouir dans la joie et la dignité</p>
+                </a>
 
-            <a href="#" target="_blank" class="partner-card" style="flex: 0 0 auto; width: 250px; background: white; padding: 2rem; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: transform 0.3s; text-decoration: none;">
-                <img src="/static/images/logo/YANN-TOPO.png" alt="YANN-TOPO" style="width: 120px; height: 120px; object-fit: contain; margin: 0 auto 1rem; display: block;">
-                <h3 style="color:#1f1451;font-size:1.1rem;margin-bottom:0.5rem;">YANN-TOPO</h3>
-            </a>
+                <a href="https://www.facebook.com/profile.php/?id=61562782211059" target="_blank" class="partner-card">
+                    <img src="/static/images/logo/CERAB.png" alt="CERAB">
+                    <h3>CERAB</h3>
+                    <p>Famille ouverte portée par l'amour, l'espérance et l'unité avec engagement social concret</p>
+                </a>
 
-            <!-- Dupliquer pour effet continu -->
-            
+                <a href="https://ongvoesda.com/" target="_blank" class="partner-card">
+                    <img src="/static/images/logo/VOESDA.png" alt="VOESDA">
+                    <h3>VOESDA</h3>
+                    <p>ONG à statut spécial ONU ECOSOC, projets de développement pour communautés vulnérables</p>
+                </a>
 
-            <a href="https://www.msomame.org/" target="_blank" class="partner-card" style="flex: 0 0 auto; width: 250px; background: white; padding: 2rem; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: transform 0.3s; text-decoration: none;">
-                <img src="/static/images/icons/WhatsApp Image 2025-05-20 at 09.40.11.jpeg" alt="MSO MAME" style="width: 120px; height: 120px; object-fit: contain; margin: 0 auto 1rem; display: block;">
-                <h3 style="color: #1f1451; font-size: 1.1rem; margin-bottom: 0.5rem;">MSO MAME</h3>
-                <p style="color: #5a6c7d; font-size: 0.85rem;">Développement social</p>
-            </a>
+                <a href="https://www.linkedin.com/in/dr-fabrice-tiba-phd-112ab155/" target="_blank" class="partner-card">
+                    <img src="/static/images/logo/DIOPHARM.png" alt="DIOPHARM">
+                    <h3>DIOPHARM</h3>
+                    <p>Tests et distribution de médicaments internationaux, qualité et sécurité pharmaceutiques</p>
+                </a>
 
-            <a href="#" target="_blank" class="partner-card" style="flex: 0 0 auto; width: 250px; background: white; padding: 2rem; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: transform 0.3s; text-decoration: none;">
-                <img src="/static/images/logo/LOGO CEJ/LOGO CEJ.png" alt="Club des Enfants Joyeux" style="width: 120px; height: 120px; object-fit: contain; margin: 0 auto 1rem; display: block;">
-                <h3 style="color: #1f1451; font-size: 1.1rem; margin-bottom: 0.5rem;">Club Enfants Joyeux</h3>
-                <p style="color: #5a6c7d; font-size: 0.85rem;">Bien-être des enfants</p>
-            </a>
+                <a href="https://www.facebook.com/GasepEden" target="_blank" class="partner-card">
+                    <img src="/static/images/logo/GASEPSHALOM.png" alt="GASEPSHALOM">
+                    <h3>Gasep Shalom / Eden</h3>
+                    <p>Réseau de boulangerie-pâtisserie locale, valorisation des produits camerounais</p>
+                </a>
 
-            <!-- Duplication des nouveaux logos -->
-            <a href="#" target="_blank" class="partner-card" style="flex: 0 0 auto; width: 250px; background: white; padding: 2rem; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: transform 0.3s; text-decoration: none;">
-                <img src="/static/images/logo/CEJ.png" alt="CEJ" style="width: 120px; height: 120px; object-fit: contain; margin: 0 auto 1rem; display: block;">
-                <h3 style="color:#1f1451;font-size:1.1rem;margin-bottom:0.5rem;">CEJ</h3>
-            </a>
+                <a href="https://www.facebook.com/profile.php?id=100065136837267" target="_blank" class="partner-card">
+                    <img src="/static/images/logo/YANN-TOPO.png" alt="YANN-TOPO">
+                    <h3>Yan-Topo</h3>
+                    <p>Géomatique, lotissement de terrains et équipements topographiques à Yaoundé</p>
+                </a>
 
-            <a href="#" target="_blank" class="partner-card" style="flex: 0 0 auto; width: 250px; background: white; padding: 2rem; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: transform 0.3s; text-decoration: none;">
-                <img src="/static/images/logo/CERAB.png" alt="CERAB" style="width: 120px; height: 120px; object-fit: contain; margin: 0 auto 1rem; display: block;">
-                <h3 style="color:#1f1451;font-size:1.1rem;margin-bottom:0.5rem;">CERAB</h3>
-            </a>
+                <a href="https://www.facebook.com/profile.php?id=61578111533518" target="_blank" class="partner-card">
+                    <img src="/static/images/logo/PARACOURI.png" alt="Paracouri">
+                    <h3>Paracouri Express</h3>
+                    <p>Service de livraison rapide et fiable à Douala, intraville et extraville 7J/7</p>
+                </a>
 
-            <a href="#" target="_blank" class="partner-card" style="flex: 0 0 auto; width: 250px; background: white; padding: 2rem; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: transform 0.3s; text-decoration: none;">
-                <img src="/static/images/logo/DIOPHARM.png" alt="DIOPHARM" style="width: 120px; height: 120px; object-fit: contain; margin: 0 auto 1rem; display: block;">
-                <h3 style="color:#1f1451;font-size:1.1rem;margin-bottom:0.5rem;">DIOPHARM</h3>
-            </a>
+                <a href="https://www.facebook.com/profile.php?id=61572885445907" target="_blank" class="partner-card">
+                    <img src="/static/images/logo/PRICYCHIC.png" alt="Pricychic">
+                    <h3>PricyChic</h3>
+                    <p>Boutique en ligne de mode européenne, vêtements et accessoires tendance accessibles</p>
+                </a>
 
-            <a href="#" target="_blank" class="partner-card" style="flex: 0 0 auto; width: 250px; background: white; padding: 2rem; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: transform 0.3s; text-decoration: none;">
-                <img src="/static/images/logo/GASEPSHALOM.png" alt="GASEPSHALOM" style="width: 120px; height: 120px; object-fit: contain; margin: 0 auto 1rem; display: block;">
-                <h3 style="color:#1f1451;font-size:1.1rem;margin-bottom:0.5rem;">GASEPSHALOM</h3>
-            </a>
+                <a href="#" target="_blank" class="partner-card">
+                    <img src="/static/images/logo/Kiam%20Group.png" alt="Kiam Group">
+                    <h3>Kiam Group</h3>
+                    <p>Technologies numériques et communication visuelle, développement web et design graphique</p>
+                </a>
 
-            <a href="#" target="_blank" class="partner-card" style="flex: 0 0 auto; width: 250px; background: white; padding: 2rem; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: transform 0.3s; text-decoration: none;">
-                <img src="/static/images/logo/Kiam%20Group.png" alt="Kiam Group" style="width: 120px; height: 120px; object-fit: contain; margin: 0 auto 1rem; display: block;">
-                <h3 style="color:#1f1451;font-size:1.1rem;margin-bottom:0.5rem;">Kiam Group</h3>
-            </a>
+                <a href="#" target="_blank" class="partner-card">
+                    <img src="/static/images/logo/LA%20GRACE%20DIVINE.png" alt="La Grâce Divine">
+                    <h3>Fondation La Grâce Divine</h3>
+                    <p>Partenaire médical pour campagnes de santé gratuite à Etam Bafia</p>
+                </a>
 
-            <a href="#" target="_blank" class="partner-card" style="flex: 0 0 auto; width: 250px; background: white; padding: 2rem; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: transform 0.3s; text-decoration: none;">
-                <img src="/static/images/logo/LA%20GRACE%20DIVINE.png" alt="La Grâce Divine" style="width: 120px; height: 120px; object-fit: contain; margin: 0 auto 1rem; display: block;">
-                <h3 style="color:#1f1451;font-size:1.1rem;margin-bottom:0.5rem;">La Grâce Divine</h3>
-            </a>
-
-            <a href="https://www.msomame.org/" target="_blank" class="partner-card" style="flex: 0 0 auto; width: 250px; background: white; padding: 2rem; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: transform 0.3s; text-decoration: none;">
-                <img src="/static/images/logo/MSOMAME.png" alt="MSOMAME" style="width: 120px; height: 120px; object-fit: contain; margin: 0 auto 1rem; display: block;">
-                <h3 style="color:#1f1451;font-size:1.1rem;margin-bottom:0.5rem;">MSOMAME</h3>
-            </a>
-
-            <a href="#" target="_blank" class="partner-card" style="flex: 0 0 auto; width: 250px; background: white; padding: 2rem; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: transform 0.3s; text-decoration: none;">
-                <img src="/static/images/logo/PARACOURI.png" alt="Paracouri" style="width: 120px; height: 120px; object-fit: contain; margin: 0 auto 1rem; display: block;">
-                <h3 style="color:#1f1451;font-size:1.1rem;margin-bottom:0.5rem;">Paracouri</h3>
-            </a>
-
-            <a href="#" target="_blank" class="partner-card" style="flex: 0 0 auto; width: 250px; background: white; padding: 2rem; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: transform 0.3s; text-decoration: none;">
-                <img src="/static/images/logo/PRICYCHIC.png" alt="Pricychic" style="width: 120px; height: 120px; object-fit: contain; margin: 0 auto 1rem; display: block;">
-                <h3 style="color:#1f1451;font-size:1.1rem;margin-bottom:0.5rem;">Pricychic</h3>
-            </a>
-
-            <a href="#" target="_blank" class="partner-card" style="flex: 0 0 auto; width: 250px; background: white; padding: 2rem; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: transform 0.3s; text-decoration: none;">
-                <img src="/static/images/logo/VOESDA.png" alt="VOESDA" style="width: 120px; height: 120px; object-fit: contain; margin: 0 auto 1rem; display: block;">
-                <h3 style="color:#1f1451;font-size:1.1rem;margin-bottom:0.5rem;">VOESDA</h3>
-            </a>
-
-            <a href="#" target="_blank" class="partner-card" style="flex: 0 0 auto; width: 250px; background: white; padding: 2rem; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: transform 0.3s; text-decoration: none;">
-                <img src="/static/images/logo/YANN-TOPO.png" alt="YANN-TOPO" style="width: 120px; height: 120px; object-fit: contain; margin: 0 auto 1rem; display: block;">
-                <h3 style="color:#1f1451;font-size:1.1rem;margin-bottom:0.5rem;">YANN-TOPO</h3>
-            </a>
-
+                
+            </div>
         </div>
-    </div>
-
 
         <!-- CTA Devenir partenaire -->
-        <div style="margin-top: 3rem; text-align: center;">
-            <a href="{% url 'participer' %}" style="display: inline-block; padding: 1.2rem 2.5rem; background: linear-gradient(135deg, #1a73e8 0%, #1f1451 100%); color: white; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1.1rem; transition: transform 0.3s; box-shadow: 0 4px 12px rgba(26, 115, 232, 0.3);">
-                <i class="fas fa-handshake"></i> Devenir membre
+        <div class="partenaires-cta">
+            <a href="{% url 'partenaires' %}" class="btn">
+                <i class="fas fa-handshake"></i> Voir tous nos partenaires
             </a>
         </div>
     </div>
 </section>
 
-<style>
-/* Animation du ruban défilant */
-@keyframes scroll {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(calc(-250px * 4 - 4rem * 4));
-    }
-}
-
-/* Pause au survol */
-.partners-marquee:hover .partners-track {
-    animation-play-state: paused;
-}
-
-/* Effet hover sur les cartes */
-.partner-card:hover {
-    transform: translateY(-10px) !important;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.15) !important;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    @keyframes scroll {
-        0% {
-            transform: translateX(0);
-        }
-        100% {
-            transform: translateX(calc(-200px * 4 - 3rem * 4));
-        }
-    }
-    
-    .partner-card {
-        width: 200px !important;
-    }
-    
-    .partners-track {
-        gap: 3rem !important;
-    }
-}
-</style>
-
 
 <!-- ============================================
      REJOIGNEZ LA COMMUNAUTÉ
      ============================================ -->
-
-<section class=" presentation-section">
+<section class="presentation-section">
     <h1 class="main-title">Rejoignez notre communauté</h1>
 
     <div class="presentation-block">
@@ -463,8 +399,7 @@
                     constituer candidats aux postes de responsabilité.</p>
             </div>
             <div class="image">
-                <img src="/static/images/logo/membre.avif" alt="Adhérents"
-                    style="max-width: 300px; height: auto; border-radius: 8px;">
+                <img src="/static/images/logo/membre.avif" alt="Adhérents">
             </div>
         </div>
         <div class="btn-container">
@@ -475,8 +410,7 @@
     <div class="presentation-block">
         <div class="content right">
             <div class="image">
-                <img src="/static/images/logo/benevole.avif" alt="Bénévoles"
-                    style="max-width: 300px; height: auto; border-radius: 8px;">
+                <img src="/static/images/logo/benevole.avif" alt="Bénévoles">
             </div>
             <div class="text">
                 <h2>Membres bénévoles</h2>
@@ -500,8 +434,7 @@
                     souvent de manière financière ou par des services en nature.</p>
             </div>
             <div class="image">
-                <img src="/static/images/logo/partenaires.jpeg" alt="Partenaires"
-                    style="max-width: 300px; height: auto; border-radius: 8px;">
+                <img src="/static/images/logo/partenaires.jpeg" alt="Partenaires">
             </div>
         </div>
         <div class="btn-container">
@@ -509,8 +442,6 @@
         </div>
     </div>
 </section>
-
-
 
 
 {% block scripts %}
