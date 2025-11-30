@@ -98,10 +98,24 @@
     color: var(--color-text-primary);
 }
 
+/*
 .texte-president p {
     margin-bottom: 1.25rem;
     text-align: justify;
+}*/
+
+.texte-president p {
+    margin-bottom: 1.25rem;
+    text-align: justify;
+    text-justify: inter-word;      /* Distribution intelligente des espaces */
+    hyphens: auto;                 /* Césure automatique des mots */
+    -webkit-hyphens: auto;         /* Support Safari */
+    -moz-hyphens: auto;            /* Support Firefox */
+    -ms-hyphens: auto;             /* Support Edge */
+    word-spacing: -0.05em;         /* Réduit l'espace entre les mots */
+    overflow-wrap: break-word;     /* Coupe les mots trop longs */
 }
+
 
 .texte-president p:last-child {
     margin-bottom: 0;
